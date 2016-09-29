@@ -27,9 +27,24 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         // Do any additional setup after loading the view.
         self.initViewStyle()
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        self.loadFileAtPath(documentDir)
+        
+        if (currentDir == nil) {
+            currentDir = documentDir
+        }
+        print(currentDir)
+        let strs = currentDir.components(separatedBy: "/")
+        
+        let str1 = [strs.last]
+            if let filename = str1.last {
+                
+                self.title = filename
+            }
+
+        
+
         
         
+        self.loadFileAtPath(currentDir)
     }
     
     
@@ -130,7 +145,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
             dataSource.append(file)
         }
         
-        currentDir = documentDir
+        currentDir = path
         
         DispatchQueue.main.async {
             self.collectionView.reloadData()
@@ -205,6 +220,15 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("didSelect")
+        
+        
+        let nextVc = VKFileViewController()
+        let file = dataSource[indexPath.row]
+        let fileDir : String = self.currentDir.appending("/\(file.name!)")
+        nextVc.currentDir = fileDir
+        self.navigationController?.pushViewController(nextVc, animated: true)
+        
+        
     }
     
     
