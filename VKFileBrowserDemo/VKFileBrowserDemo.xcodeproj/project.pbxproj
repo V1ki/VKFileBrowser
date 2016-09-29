@@ -1,0 +1,646 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		54475DDA1D9D949200B0BB49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475DD91D9D949200B0BB49 /* AppDelegate.swift */; };
+		54475DDC1D9D949200B0BB49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475DDB1D9D949200B0BB49 /* ViewController.swift */; };
+		54475DDF1D9D949200B0BB49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54475DDD1D9D949200B0BB49 /* Main.storyboard */; };
+		54475DE21D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 54475DE01D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodeld */; };
+		54475DE41D9D949200B0BB49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54475DE31D9D949200B0BB49 /* Assets.xcassets */; };
+		54475DE71D9D949200B0BB49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54475DE51D9D949200B0BB49 /* LaunchScreen.storyboard */; };
+		54475DF21D9D949200B0BB49 /* VKFileBrowserDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475DF11D9D949200B0BB49 /* VKFileBrowserDemoTests.swift */; };
+		54475DFD1D9D949200B0BB49 /* VKFileBrowserDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475DFC1D9D949200B0BB49 /* VKFileBrowserDemoUITests.swift */; };
+		54475E1E1D9D94D200B0BB49 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54475E0D1D9D94D200B0BB49 /* Localizable.strings */; };
+		54475E1F1D9D94D200B0BB49 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54475E101D9D94D200B0BB49 /* Media.xcassets */; };
+		54475E201D9D94D200B0BB49 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 54475E131D9D94D200B0BB49 /* .gitkeep */; };
+		54475E211D9D94D200B0BB49 /* VKFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54475E141D9D94D200B0BB49 /* VKFileViewController.xib */; };
+		54475E221D9D94D200B0BB49 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475E161D9D94D200B0BB49 /* BaseViewController.swift */; };
+		54475E231D9D94D200B0BB49 /* VKFileViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54475E171D9D94D200B0BB49 /* VKFileViewController.strings */; };
+		54475E241D9D94D200B0BB49 /* VKFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475E191D9D94D200B0BB49 /* VKFile.swift */; };
+		54475E251D9D94D200B0BB49 /* VkFileCustomViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475E1A1D9D94D200B0BB49 /* VkFileCustomViewLayout.swift */; };
+		54475E261D9D94D200B0BB49 /* VKFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475E1B1D9D94D200B0BB49 /* VKFileViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		54475DEE1D9D949200B0BB49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54475DCE1D9D949200B0BB49 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 54475DD51D9D949200B0BB49;
+			remoteInfo = VKFileBrowserDemo;
+		};
+		54475DF91D9D949200B0BB49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54475DCE1D9D949200B0BB49 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 54475DD51D9D949200B0BB49;
+			remoteInfo = VKFileBrowserDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		54475DD61D9D949200B0BB49 /* VKFileBrowserDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKFileBrowserDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		54475DD91D9D949200B0BB49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		54475DDB1D9D949200B0BB49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		54475DDE1D9D949200B0BB49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		54475DE11D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VKFileBrowserDemo.xcdatamodel; sourceTree = "<group>"; };
+		54475DE31D9D949200B0BB49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		54475DE61D9D949200B0BB49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		54475DE81D9D949200B0BB49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54475DED1D9D949200B0BB49 /* VKFileBrowserDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKFileBrowserDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		54475DF11D9D949200B0BB49 /* VKFileBrowserDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKFileBrowserDemoTests.swift; sourceTree = "<group>"; };
+		54475DF31D9D949200B0BB49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54475DF81D9D949200B0BB49 /* VKFileBrowserDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKFileBrowserDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		54475DFC1D9D949200B0BB49 /* VKFileBrowserDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKFileBrowserDemoUITests.swift; sourceTree = "<group>"; };
+		54475DFE1D9D949200B0BB49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54475E0E1D9D94D200B0BB49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		54475E0F1D9D94D200B0BB49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		54475E101D9D94D200B0BB49 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		54475E111D9D94D200B0BB49 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		54475E131D9D94D200B0BB49 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		54475E151D9D94D200B0BB49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VKFileViewController.xib; sourceTree = "<group>"; };
+		54475E161D9D94D200B0BB49 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		54475E181D9D94D200B0BB49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VKFileViewController.strings; sourceTree = "<group>"; };
+		54475E191D9D94D200B0BB49 /* VKFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKFile.swift; sourceTree = "<group>"; };
+		54475E1A1D9D94D200B0BB49 /* VkFileCustomViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VkFileCustomViewLayout.swift; sourceTree = "<group>"; };
+		54475E1B1D9D94D200B0BB49 /* VKFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKFileViewController.swift; sourceTree = "<group>"; };
+		54475E1C1D9D94D200B0BB49 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/VKFileViewController.strings"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		54475DD31D9D949200B0BB49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54475DEA1D9D949200B0BB49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54475DF51D9D949200B0BB49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		54475DCD1D9D949200B0BB49 = {
+			isa = PBXGroup;
+			children = (
+				54475DD81D9D949200B0BB49 /* VKFileBrowserDemo */,
+				54475DF01D9D949200B0BB49 /* VKFileBrowserDemoTests */,
+				54475DFB1D9D949200B0BB49 /* VKFileBrowserDemoUITests */,
+				54475DD71D9D949200B0BB49 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		54475DD71D9D949200B0BB49 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54475DD61D9D949200B0BB49 /* VKFileBrowserDemo.app */,
+				54475DED1D9D949200B0BB49 /* VKFileBrowserDemoTests.xctest */,
+				54475DF81D9D949200B0BB49 /* VKFileBrowserDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		54475DD81D9D949200B0BB49 /* VKFileBrowserDemo */ = {
+			isa = PBXGroup;
+			children = (
+				54475E0A1D9D94D200B0BB49 /* VkFileBrowser */,
+				54475DD91D9D949200B0BB49 /* AppDelegate.swift */,
+				54475DDB1D9D949200B0BB49 /* ViewController.swift */,
+				54475DDD1D9D949200B0BB49 /* Main.storyboard */,
+				54475DE31D9D949200B0BB49 /* Assets.xcassets */,
+				54475DE51D9D949200B0BB49 /* LaunchScreen.storyboard */,
+				54475DE81D9D949200B0BB49 /* Info.plist */,
+				54475DE01D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodeld */,
+			);
+			path = VKFileBrowserDemo;
+			sourceTree = "<group>";
+		};
+		54475DF01D9D949200B0BB49 /* VKFileBrowserDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				54475DF11D9D949200B0BB49 /* VKFileBrowserDemoTests.swift */,
+				54475DF31D9D949200B0BB49 /* Info.plist */,
+			);
+			path = VKFileBrowserDemoTests;
+			sourceTree = "<group>";
+		};
+		54475DFB1D9D949200B0BB49 /* VKFileBrowserDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				54475DFC1D9D949200B0BB49 /* VKFileBrowserDemoUITests.swift */,
+				54475DFE1D9D949200B0BB49 /* Info.plist */,
+			);
+			path = VKFileBrowserDemoUITests;
+			sourceTree = "<group>";
+		};
+		54475E0A1D9D94D200B0BB49 /* VkFileBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				54475E0B1D9D94D200B0BB49 /* Assets */,
+				54475E121D9D94D200B0BB49 /* Classes */,
+			);
+			name = VkFileBrowser;
+			path = ../../VkFileBrowser/VkFileBrowser;
+			sourceTree = "<group>";
+		};
+		54475E0B1D9D94D200B0BB49 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				54475E0D1D9D94D200B0BB49 /* Localizable.strings */,
+				54475E101D9D94D200B0BB49 /* Media.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		54475E121D9D94D200B0BB49 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				54475E131D9D94D200B0BB49 /* .gitkeep */,
+				54475E141D9D94D200B0BB49 /* VKFileViewController.xib */,
+				54475E161D9D94D200B0BB49 /* BaseViewController.swift */,
+				54475E171D9D94D200B0BB49 /* VKFileViewController.strings */,
+				54475E191D9D94D200B0BB49 /* VKFile.swift */,
+				54475E1A1D9D94D200B0BB49 /* VkFileCustomViewLayout.swift */,
+				54475E1B1D9D94D200B0BB49 /* VKFileViewController.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		54475DD51D9D949200B0BB49 /* VKFileBrowserDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54475E011D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemo" */;
+			buildPhases = (
+				54475DD21D9D949200B0BB49 /* Sources */,
+				54475DD31D9D949200B0BB49 /* Frameworks */,
+				54475DD41D9D949200B0BB49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VKFileBrowserDemo;
+			productName = VKFileBrowserDemo;
+			productReference = 54475DD61D9D949200B0BB49 /* VKFileBrowserDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		54475DEC1D9D949200B0BB49 /* VKFileBrowserDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54475E041D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemoTests" */;
+			buildPhases = (
+				54475DE91D9D949200B0BB49 /* Sources */,
+				54475DEA1D9D949200B0BB49 /* Frameworks */,
+				54475DEB1D9D949200B0BB49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				54475DEF1D9D949200B0BB49 /* PBXTargetDependency */,
+			);
+			name = VKFileBrowserDemoTests;
+			productName = VKFileBrowserDemoTests;
+			productReference = 54475DED1D9D949200B0BB49 /* VKFileBrowserDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		54475DF71D9D949200B0BB49 /* VKFileBrowserDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54475E071D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemoUITests" */;
+			buildPhases = (
+				54475DF41D9D949200B0BB49 /* Sources */,
+				54475DF51D9D949200B0BB49 /* Frameworks */,
+				54475DF61D9D949200B0BB49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				54475DFA1D9D949200B0BB49 /* PBXTargetDependency */,
+			);
+			name = VKFileBrowserDemoUITests;
+			productName = VKFileBrowserDemoUITests;
+			productReference = 54475DF81D9D949200B0BB49 /* VKFileBrowserDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		54475DCE1D9D949200B0BB49 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = vk;
+				TargetAttributes = {
+					54475DD51D9D949200B0BB49 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 9A6T4XDGZT;
+						ProvisioningStyle = Automatic;
+					};
+					54475DEC1D9D949200B0BB49 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 9A6T4XDGZT;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 54475DD51D9D949200B0BB49;
+					};
+					54475DF71D9D949200B0BB49 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 9A6T4XDGZT;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 54475DD51D9D949200B0BB49;
+					};
+				};
+			};
+			buildConfigurationList = 54475DD11D9D949200B0BB49 /* Build configuration list for PBXProject "VKFileBrowserDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = 54475DCD1D9D949200B0BB49;
+			productRefGroup = 54475DD71D9D949200B0BB49 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				54475DD51D9D949200B0BB49 /* VKFileBrowserDemo */,
+				54475DEC1D9D949200B0BB49 /* VKFileBrowserDemoTests */,
+				54475DF71D9D949200B0BB49 /* VKFileBrowserDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		54475DD41D9D949200B0BB49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54475E231D9D94D200B0BB49 /* VKFileViewController.strings in Resources */,
+				54475E1E1D9D94D200B0BB49 /* Localizable.strings in Resources */,
+				54475E211D9D94D200B0BB49 /* VKFileViewController.xib in Resources */,
+				54475DE71D9D949200B0BB49 /* LaunchScreen.storyboard in Resources */,
+				54475DE41D9D949200B0BB49 /* Assets.xcassets in Resources */,
+				54475DDF1D9D949200B0BB49 /* Main.storyboard in Resources */,
+				54475E1F1D9D94D200B0BB49 /* Media.xcassets in Resources */,
+				54475E201D9D94D200B0BB49 /* .gitkeep in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54475DEB1D9D949200B0BB49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54475DF61D9D949200B0BB49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		54475DD21D9D949200B0BB49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54475E261D9D94D200B0BB49 /* VKFileViewController.swift in Sources */,
+				54475E251D9D94D200B0BB49 /* VkFileCustomViewLayout.swift in Sources */,
+				54475DDC1D9D949200B0BB49 /* ViewController.swift in Sources */,
+				54475E241D9D94D200B0BB49 /* VKFile.swift in Sources */,
+				54475E221D9D94D200B0BB49 /* BaseViewController.swift in Sources */,
+				54475DDA1D9D949200B0BB49 /* AppDelegate.swift in Sources */,
+				54475DE21D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54475DE91D9D949200B0BB49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54475DF21D9D949200B0BB49 /* VKFileBrowserDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54475DF41D9D949200B0BB49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54475DFD1D9D949200B0BB49 /* VKFileBrowserDemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		54475DEF1D9D949200B0BB49 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 54475DD51D9D949200B0BB49 /* VKFileBrowserDemo */;
+			targetProxy = 54475DEE1D9D949200B0BB49 /* PBXContainerItemProxy */;
+		};
+		54475DFA1D9D949200B0BB49 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 54475DD51D9D949200B0BB49 /* VKFileBrowserDemo */;
+			targetProxy = 54475DF91D9D949200B0BB49 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		54475DDD1D9D949200B0BB49 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54475DDE1D9D949200B0BB49 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		54475DE51D9D949200B0BB49 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54475DE61D9D949200B0BB49 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		54475E0D1D9D94D200B0BB49 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54475E0E1D9D94D200B0BB49 /* Base */,
+				54475E0F1D9D94D200B0BB49 /* en */,
+				54475E111D9D94D200B0BB49 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		54475E141D9D94D200B0BB49 /* VKFileViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54475E151D9D94D200B0BB49 /* Base */,
+			);
+			name = VKFileViewController.xib;
+			sourceTree = "<group>";
+		};
+		54475E171D9D94D200B0BB49 /* VKFileViewController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54475E181D9D94D200B0BB49 /* en */,
+				54475E1C1D9D94D200B0BB49 /* zh-Hans */,
+			);
+			name = VKFileViewController.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		54475DFF1D9D949200B0BB49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		54475E001D9D949200B0BB49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		54475E021D9D949200B0BB49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9A6T4XDGZT;
+				INFOPLIST_FILE = VKFileBrowserDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowserDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		54475E031D9D949200B0BB49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9A6T4XDGZT;
+				INFOPLIST_FILE = VKFileBrowserDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowserDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		54475E051D9D949200B0BB49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 9A6T4XDGZT;
+				INFOPLIST_FILE = VKFileBrowserDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowserDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VKFileBrowserDemo.app/VKFileBrowserDemo";
+			};
+			name = Debug;
+		};
+		54475E061D9D949200B0BB49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 9A6T4XDGZT;
+				INFOPLIST_FILE = VKFileBrowserDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowserDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VKFileBrowserDemo.app/VKFileBrowserDemo";
+			};
+			name = Release;
+		};
+		54475E081D9D949200B0BB49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 9A6T4XDGZT;
+				INFOPLIST_FILE = VKFileBrowserDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowserDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = VKFileBrowserDemo;
+			};
+			name = Debug;
+		};
+		54475E091D9D949200B0BB49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 9A6T4XDGZT;
+				INFOPLIST_FILE = VKFileBrowserDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowserDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = VKFileBrowserDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		54475DD11D9D949200B0BB49 /* Build configuration list for PBXProject "VKFileBrowserDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54475DFF1D9D949200B0BB49 /* Debug */,
+				54475E001D9D949200B0BB49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		54475E011D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54475E021D9D949200B0BB49 /* Debug */,
+				54475E031D9D949200B0BB49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		54475E041D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54475E051D9D949200B0BB49 /* Debug */,
+				54475E061D9D949200B0BB49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		54475E071D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54475E081D9D949200B0BB49 /* Debug */,
+				54475E091D9D949200B0BB49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		54475DE01D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				54475DE11D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodel */,
+			);
+			currentVersion = 54475DE11D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodel */;
+			path = VKFileBrowserDemo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 54475DCE1D9D949200B0BB49 /* Project object */;
+}

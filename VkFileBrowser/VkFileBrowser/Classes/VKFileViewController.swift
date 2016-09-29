@@ -161,6 +161,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         
         
         
+        
         var checkBtn : UIButton? = cell.viewWithTag(10) as! UIButton?
         
         if(checkBtn == nil)
@@ -169,8 +170,8 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
             cell.addSubview(checkBtn!)
         }
         
-        checkBtn?.setImage(UIImage(named:"uncheck"), for: .normal)
-        checkBtn?.setImage(UIImage(named:"check"), for: .selected)
+        checkBtn?.setImage(#imageLiteral(resourceName: "uncheck"), for: .normal)
+        checkBtn?.setImage(#imageLiteral(resourceName: "check"), for: .selected)
         checkBtn?.tag = 10
         checkBtn?.isHidden = true
         

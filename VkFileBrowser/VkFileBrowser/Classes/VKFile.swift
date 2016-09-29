@@ -11,7 +11,7 @@ import UIKit
 class VKFile: NSObject {
     
     var name : String!
-    var isDirectory : Bool!
+    var isDirectory : Bool
     var type : String!
     
     init(_ name : String , _ isDirectory : Bool ,_ type :String) {
