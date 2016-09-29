@@ -1,0 +1,11 @@
+/* 
+  File.strings
+  VkFileBrowser
+
+  Created by Vk on 2016/9/29.
+  Copyright © 2016年 CocoaPods. All rights reserved.
+*/
+"Create New Folder" = "新建文件夹";
+"Input Name" = "输入名称" ;
+"Cancel" = "取消" ;
+"Save" = "保存" ;

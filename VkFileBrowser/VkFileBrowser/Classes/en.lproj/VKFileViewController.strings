@@ -1,0 +1,12 @@
+
+/* Class = "UIBarButtonItem"; title = "搜索"; ObjectID = "BZi-lJ-pq0"; */
+"BZi-lJ-pq0.title" = "Search";
+
+/* Class = "UIBarButtonItem"; title = "分类"; ObjectID = "c2i-BU-w2F"; */
+"c2i-BU-w2F.title" = "Category";
+
+/* Class = "UIBarButtonItem"; title = "图标"; ObjectID = "oRm-lN-RhJ"; */
+"oRm-lN-RhJ.title" = "Icon";
+
+/* Class = "UIBarButtonItem"; title = "新文件夹"; ObjectID = "yTv-1J-NfS"; */
+"yTv-1J-NfS.title" = "New Folder";
