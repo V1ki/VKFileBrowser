@@ -24,6 +24,7 @@
 		54475E241D9D94D200B0BB49 /* VKFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475E191D9D94D200B0BB49 /* VKFile.swift */; };
 		54475E251D9D94D200B0BB49 /* VkFileCustomViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475E1A1D9D94D200B0BB49 /* VkFileCustomViewLayout.swift */; };
 		54475E261D9D94D200B0BB49 /* VKFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475E1B1D9D94D200B0BB49 /* VKFileViewController.swift */; };
+		5454625A1D9ED59D0053F7F5 /* DocumentPreviewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545462581D9ED59D0053F7F5 /* DocumentPreviewObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		54475E1A1D9D94D200B0BB49 /* VkFileCustomViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VkFileCustomViewLayout.swift; sourceTree = "<group>"; };
 		54475E1B1D9D94D200B0BB49 /* VKFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKFileViewController.swift; sourceTree = "<group>"; };
 		54475E1C1D9D94D200B0BB49 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/VKFileViewController.strings"; sourceTree = "<group>"; };
+		545462581D9ED59D0053F7F5 /* DocumentPreviewObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentPreviewObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				54475E191D9D94D200B0BB49 /* VKFile.swift */,
 				54475E1A1D9D94D200B0BB49 /* VkFileCustomViewLayout.swift */,
 				54475E1B1D9D94D200B0BB49 /* VKFileViewController.swift */,
+				545462581D9ED59D0053F7F5 /* DocumentPreviewObject.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			files = (
 				54475E261D9D94D200B0BB49 /* VKFileViewController.swift in Sources */,
 				54475E251D9D94D200B0BB49 /* VkFileCustomViewLayout.swift in Sources */,
+				5454625A1D9ED59D0053F7F5 /* DocumentPreviewObject.swift in Sources */,
 				54475DDC1D9D949200B0BB49 /* ViewController.swift in Sources */,
 				54475E241D9D94D200B0BB49 /* VKFile.swift in Sources */,
 				54475E221D9D94D200B0BB49 /* BaseViewController.swift in Sources */,
@@ -610,6 +614,7 @@
 				54475E031D9D949200B0BB49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		54475E041D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -618,6 +623,7 @@
 				54475E061D9D949200B0BB49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		54475E071D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -626,6 +632,7 @@
 				54475E091D9D949200B0BB49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

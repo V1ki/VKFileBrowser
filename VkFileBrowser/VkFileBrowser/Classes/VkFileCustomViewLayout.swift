@@ -19,7 +19,11 @@ class VkFileCustomViewLayout: UICollectionViewFlowLayout {
     var marginY : Float!
 
     override func prepare() {
+        
         self.itemSize = CGSize(width: 95, height: 110)
+        
+        
+        
     }
 
 }

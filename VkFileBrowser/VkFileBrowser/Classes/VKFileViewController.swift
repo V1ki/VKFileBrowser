@@ -161,6 +161,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        cell.backgroundColor = UIColor.red
         let file = dataSource[indexPath.row]
 
         var imgView : UIImageView? = cell.viewWithTag(1) as! UIImageView?
@@ -191,12 +192,13 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         checkBtn?.isHidden = true
         
         
-        
-        
         var label : UILabel? = cell.viewWithTag(100) as! UILabel?
         if(label == nil)
         {
-            label = UILabel(frame: CGRect(x: 0, y: 85, width: 95, height: 25 ))
+            label = UILabel(frame: CGRect(x: 0, y: 80, width: 95, height: 30))
+            label?.font = UIFont.systemFont(ofSize: 12)
+            label?.numberOfLines = 0
+            label?.adjustsFontSizeToFitWidth = true
             cell.addSubview(label!)
         }
         
@@ -221,15 +223,44 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("didSelect")
         
-        
-        let nextVc = VKFileViewController()
         let file = dataSource[indexPath.row]
         let fileDir : String = self.currentDir.appending("/\(file.name!)")
-        nextVc.currentDir = fileDir
-        self.navigationController?.pushViewController(nextVc, animated: true)
-        
+        if file.isDirectory {
+            let nextVc = VKFileViewController()
+            nextVc.currentDir = fileDir
+            self.navigationController?.pushViewController(nextVc, animated: true)
+        }
+        else
+        {
+            let nextVc = DocumentPreviewObject(_ : URL(fileURLWithPath: fileDir))
+            nextVc.previewVC = self.navigationController
+            nextVc.startPreview()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        print("destinationIndexPath")
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    
     
     
     
