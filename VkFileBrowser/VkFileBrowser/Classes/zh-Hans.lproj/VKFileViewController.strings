@@ -2,11 +2,11 @@
 /* Class = "UIBarButtonItem"; title = "搜索"; ObjectID = "BZi-lJ-pq0"; */
 "BZi-lJ-pq0.title" = "搜索";
 
-/* Class = "UIBarButtonItem"; title = "分类"; ObjectID = "c2i-BU-w2F"; */
-"c2i-BU-w2F.title" = "分类";
+/* Class = "UIBarButtonItem"; title = "排序"; ObjectID = "c2i-BU-w2F"; */
+"c2i-BU-w2F.title" = "排序";
 
-/* Class = "UIBarButtonItem"; title = "图标"; ObjectID = "oRm-lN-RhJ"; */
-"oRm-lN-RhJ.title" = "图标";
+/* Class = "UIBarButtonItem"; title = "列表"; ObjectID = "oRm-lN-RhJ"; */
+"oRm-lN-RhJ.title" = "列表";
 
 /* Class = "UIBarButtonItem"; title = "新文件夹"; ObjectID = "yTv-1J-NfS"; */
 "yTv-1J-NfS.title" = "新文件夹";

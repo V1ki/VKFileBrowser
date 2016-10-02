@@ -8,7 +8,14 @@
 
 import UIKit
 
-class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICollectionViewDelegate {
+
+
+public func LocalizedString(_ key: String) -> String {
+    return NSLocalizedString(key, comment: "")
+}
+
+
+class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDataSource,UITableViewDelegate {
     
     
     let fileManager = FileManager.default
@@ -16,7 +23,11 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     var currentDir : String!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var mTableView: UITableView!
     @IBOutlet weak var bottomToolBar: UIToolbar!
+    @IBOutlet weak var bottomIconOrListBarItem: UIBarButtonItem!
+    
+    
     var dataSource = [VKFile]()
     
     
@@ -25,28 +36,30 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.automaticallyAdjustsScrollViewInsets = false 
         self.initViewStyle()
+        self.setTableExtraHidden()
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         if (currentDir == nil) {
             currentDir = documentDir
         }
         print(currentDir)
-        let strs = currentDir.components(separatedBy: "/")
         
-        let str1 = [strs.last]
-            if let filename = str1.last {
-                
-                self.title = filename
-            }
-
-        
-
+        self.title = currentDir.components(separatedBy: "/").last
         
         
         self.loadFileAtPath(currentDir)
     }
     
+    
+    
+    func setTableExtraHidden(){
+        let view = UIView()
+        view.backgroundColor = UIColor.clear
+        mTableView.tableFooterView = view
+        
+    }
     
     func initViewStyle(){
         var containerTypes = [UIAppearanceContainer.Type]()
@@ -64,7 +77,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         } else {
             // Fallback on earlier versions
         }
-     
+        
         
     }
     
@@ -79,35 +92,84 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     // MARK: - Click Event
     @IBAction func clickNewFolder(_ sender: AnyObject) {
         
-        let alertController = UIAlertController(title: NSLocalizedString("Create New Folder", comment: ""), message: NSLocalizedString("Input Name", comment: ""), preferredStyle: .alert)
-        var nameTf : UITextField!
-        alertController.addTextField(configurationHandler: {(tf) in
-            nameTf = tf
-        })
-        let alertActionCancel = UIAlertAction(title:NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: {(action) in
-        })
-        alertController.addAction(alertActionCancel)
         
-        let alertActionSave = UIAlertAction(title: NSLocalizedString("Save", comment: ""), style: .default, handler: {(action) in
-            let filename : String = nameTf.text!
-            let fileDir = self.currentDir.appending("/\(filename)")
-            
-            do{
-                try self.fileManager.createDirectory(atPath: fileDir, withIntermediateDirectories: true, attributes: nil)
-                self.loadFileAtPath(self.currentDir)
-            }catch let error{
-                print(error)
-            }
+        self.showAlertController(LocalizedString("Create New Folder"), LocalizedString("Input Name"), LocalizedString("Cancel"), LocalizedString("Save"), nil , {(action,filename) in
+                let fileDir = self.currentDir.appending("/\(filename)")
+                let createSuccess = self.createNewFolder(fileDir)
+                if(!createSuccess){
+                    self.showAlertController(LocalizedString("Warning"), LocalizedString("File Already Exist"), LocalizedString("Confirm"), nil, nil, nil)
+                }
         })
-        alertController.addAction(alertActionSave)
-        self.present(alertController, animated: true, completion: {() -> Void in
-            
-        })
-        
-        
         
     }
     
+
+    
+    func showAlertController(_ title : String? , _ message : String? , _ cancelTitlte : String? , _ defaultTitle : String? ,_ cancelHandler:((UIAlertAction) -> Swift.Void)? = nil ,_ defalutHandler: ((UIAlertAction,String) -> Swift.Void)? = nil  ){
+        
+        let alertController = UIAlertController(title:title, message:message, preferredStyle: .alert)
+
+        let alertActionCancel = UIAlertAction(title:cancelTitlte, style: .cancel, handler: {(action) in
+
+                cancelHandler!(action)
+        })
+        alertController.addAction(alertActionCancel)
+        
+        if(defaultTitle != nil){
+            
+            var nameTf : UITextField!
+            alertController.addTextField(configurationHandler: {(tf) in
+                nameTf = tf
+            })
+            
+            let alertActionSave = UIAlertAction(title:defaultTitle, style: .default, handler: {(action) in
+                let filename : String = nameTf.text!
+                defalutHandler!(action,filename)
+            })
+            alertController.addAction(alertActionSave)
+        }
+        self.present(alertController, animated: true, completion: {() -> Void in
+            
+        })
+
+    }
+    
+    
+    func createNewFolder(_ fileDir : String) -> Bool {
+        
+        let fileExists = self.fileManager.fileExists(atPath: fileDir)
+        if fileExists {
+            return false
+        }
+        do{
+            try self.fileManager.createDirectory(atPath: fileDir, withIntermediateDirectories: true, attributes: nil)
+            self.loadFileAtPath(self.currentDir)
+        }catch let error{
+            print(error)
+            return false
+        }
+        return true
+    }
+    
+    
+    
+    
+    @IBAction func clickIconOrListBtn(_ sender: AnyObject) {
+        if bottomIconOrListBarItem.tag == 10 {
+            
+            bottomIconOrListBarItem.title = NSLocalizedString("Icon", comment: "")
+            bottomIconOrListBarItem.tag = 100
+            
+            collectionView.isHidden = true
+            
+            
+        }else {
+            bottomIconOrListBarItem.title = NSLocalizedString("List", comment: "")
+            bottomIconOrListBarItem.tag = 10
+            collectionView.isHidden = false
+        }
+        
+    }
     
     
     
@@ -149,6 +211,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         
         DispatchQueue.main.async {
             self.collectionView.reloadData()
+            self.mTableView.reloadData()
         }
         
         
@@ -156,16 +219,16 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     
     
     
-    // MARK: UICollectionViewDataSouce
+    // MARK: UICollectionView  DataSouce And Delegate
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         cell.backgroundColor = UIColor.red
         let file = dataSource[indexPath.row]
-
+        
         var imgView : UIImageView? = cell.viewWithTag(1) as! UIImageView?
-
+        
         if(imgView == nil)
         {
             imgView = UIImageView(frame: CGRect(x: 20, y: 15, width: 55, height: 55))
@@ -221,7 +284,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("didSelect")
+        
         
         let file = dataSource[indexPath.row]
         let fileDir : String = self.currentDir.appending("/\(file.name!)")
@@ -259,10 +322,54 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         return true
     }
     
+    // MARK: UITableView  DataSouce And Delegate
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return dataSource.count
+    }
     
     
+    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)
+        if (cell == nil) {
+            cell = UITableViewCell(style:.default, reuseIdentifier: reuseIdentifier)
+        }
+        let file = dataSource[indexPath.row]
+
+        cell?.textLabel?.text = file.name
+        cell?.textLabel?.font = UIFont.systemFont(ofSize: 14)
+        
+        
+        cell?.imageView?.image = file.isDirectory ? #imageLiteral(resourceName: "folder") : #imageLiteral(resourceName: "file")
+        
+        if file.isDirectory {
+            cell?.accessoryType = .disclosureIndicator
+        }
+        return cell!
+    }
     
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let file = dataSource[indexPath.row]
+        let fileDir : String = self.currentDir.appending("/\(file.name!)")
+        if file.isDirectory {
+            let nextVc = VKFileViewController()
+            nextVc.currentDir = fileDir
+            self.navigationController?.pushViewController(nextVc, animated: true)
+        }
+        else
+        {
+            let nextVc = DocumentPreviewObject(_ : URL(fileURLWithPath: fileDir))
+            nextVc.previewVC = self.navigationController
+            nextVc.startPreview()
+        }
+        
+    }
     
     
 }
