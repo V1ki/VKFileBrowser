@@ -14,3 +14,8 @@
 "Warning" = "警告" ;
 "File Already Exist" = "文件已经存在" ;
 "Confirm" = "确定" ;
+"Sort Type" = "排序类型" ;
+"Name" = "名称" ;
+"Size" = "大小" ;
+"Date" = "日期" ;
+"Type" = "类型" ;

@@ -103,6 +103,11 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         
     }
     
+    @IBAction func clickSort(_ sender: AnyObject) {
+        self .showSortActionSheet()
+    }
+    
+    
 
     
     func showAlertController(_ title : String? , _ message : String? , _ cancelTitlte : String? , _ defaultTitle : String? ,_ cancelHandler:((UIAlertAction) -> Swift.Void)? = nil ,_ defalutHandler: ((UIAlertAction,String) -> Swift.Void)? = nil  ){
@@ -132,6 +137,79 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
             
         })
 
+    }
+    
+    
+    func showSortActionSheet(){
+        
+        let alertController = UIAlertController(title:LocalizedString("Sort Type"), message:nil, preferredStyle: .actionSheet)
+        
+        let alertActionCancel = UIAlertAction(title:LocalizedString("Cancel"), style: .cancel, handler: {(action) in
+            
+            
+        })
+        alertController.addAction(alertActionCancel)
+        
+        
+        let nameAction = UIAlertAction(title: LocalizedString("Name"), style: .default, handler: {(action) in
+            self.dataSource.sort(by: {(file1,file2) -> Bool in
+                return file1.compare(withOtherFile: file2, bySortType: .name)
+            })
+            DispatchQueue.main.async {
+                self.mTableView.reloadData()
+                self.collectionView.reloadData()
+            }
+            
+        })
+        alertController.addAction(nameAction)
+        
+        
+        let sizeAction = UIAlertAction(title: LocalizedString("Size"), style: .default, handler: {(action) in
+            
+            self.dataSource.sort(by: {(file1,file2) -> Bool in
+                return file1.compare(withOtherFile: file2, bySortType: .fileSize)
+            })
+            DispatchQueue.main.async {
+                self.mTableView.reloadData()
+                self.collectionView.reloadData()
+            }
+        })
+        alertController.addAction(sizeAction)
+        
+        
+        
+        let dateAction = UIAlertAction(title: LocalizedString("Date"), style: .default, handler: {(action) in
+            self.dataSource.sort(by: {(file1,file2) -> Bool in
+                return file1.compare(withOtherFile: file2, bySortType: .creationDate)
+            })
+            DispatchQueue.main.async {
+                self.mTableView.reloadData()
+                self.collectionView.reloadData()
+            }
+            
+            
+        })
+        alertController.addAction(dateAction)
+        
+        
+        let typeAction = UIAlertAction(title: LocalizedString("Type"), style: .default, handler: {(action) in
+            
+            self.dataSource.sort(by: {(file1,file2) -> Bool in
+                return file1.compare(withOtherFile: file2, bySortType: .type)
+            })
+            DispatchQueue.main.async {
+                self.mTableView.reloadData()
+                self.collectionView.reloadData()
+            }
+            
+        })
+        alertController.addAction(typeAction)
+        
+        
+        self.present(alertController, animated: true, completion: {() -> Void in
+            
+        })
+        
     }
     
     
@@ -190,23 +268,37 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         dataSource.removeAll()
         
         
-        let resourceKeys = [URLResourceKey.nameKey,URLResourceKey.isDirectoryKey,URLResourceKey.pathKey,URLResourceKey.typeIdentifierKey]
+        let resourceKeys = [URLResourceKey.nameKey,URLResourceKey.isDirectoryKey,URLResourceKey.pathKey,URLResourceKey.typeIdentifierKey,URLResourceKey.totalFileSizeKey,URLResourceKey.creationDateKey]
         let directoryEnumerator = fileManager.enumerator(at:URL(fileURLWithPath: path), includingPropertiesForKeys: resourceKeys, options: [], errorHandler: nil)!
         
         for case let fileURL as NSURL in directoryEnumerator {
             guard let resourceValues = try? fileURL.resourceValues(forKeys: resourceKeys),
-                let isDirectory = resourceValues[URLResourceKey.isDirectoryKey] as? Bool ,
-                let name = resourceValues[URLResourceKey.nameKey] as? String ,
-                let type = resourceValues[URLResourceKey.typeIdentifierKey] as? String
+                let isDirectory = resourceValues[.isDirectoryKey] as? Bool ,
+                let name = resourceValues[.nameKey] as? String ,
+                let type = resourceValues[.typeIdentifierKey] as? String
+            
                 else {
                     
                     continue
             }
-            let file = VKFile(name, isDirectory, type)
-            print(name+"\(type)")
+            
+            let fileSize = resourceValues[URLResourceKey.totalFileSizeKey] as? NSNumber
+            var fileSizeFloatValue = fileSize?.intValue
+            fileSizeFloatValue = fileSizeFloatValue == nil ? 0 : fileSizeFloatValue
+            
+            let creationDate = resourceValues[.creationDateKey]
+            
+            let file = VKFile(name, isDirectory, type,fileSizeFloatValue)
+            file.creationDate = creationDate as! NSDate?
+            
+            print(creationDate)
             dataSource.append(file)
         }
         
+        dataSource.sort(by: {(file1,file2) -> Bool in
+            return file1.compare(withOtherFile: file2, bySortType: .name)
+        })
+    
         currentDir = path
         
         DispatchQueue.main.async {
@@ -224,7 +316,6 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundColor = UIColor.red
         let file = dataSource[indexPath.row]
         
         var imgView : UIImageView? = cell.viewWithTag(1) as! UIImageView?
@@ -274,12 +365,12 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("numberOfItemsInSection\(collectionView.frame)")
+        
         return dataSource.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        print("numberOfSections")
+        
         return 1
     }
     
