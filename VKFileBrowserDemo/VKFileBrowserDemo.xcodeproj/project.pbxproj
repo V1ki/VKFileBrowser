@@ -25,6 +25,25 @@
 		5454625A1D9ED59D0053F7F5 /* DocumentPreviewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545462581D9ED59D0053F7F5 /* DocumentPreviewObject.swift */; };
 		54C44AFA1DA054C900DD320B /* VKFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C44AEF1DA054C900DD320B /* VKFileViewController.xib */; };
 		54C44AFD1DA054C900DD320B /* VKFileViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54C44AF31DA054C900DD320B /* VKFileViewController.strings */; };
+		54D3D95F1DA558F200BD009C /* GCDWebDAVServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3D93A1DA558F200BD009C /* GCDWebDAVServer.m */; };
+		54D3D9601DA558F200BD009C /* GCDWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3D93E1DA558F200BD009C /* GCDWebServer.m */; };
+		54D3D9611DA558F200BD009C /* GCDWebServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3D9401DA558F200BD009C /* GCDWebServerConnection.m */; };
+		54D3D9621DA558F200BD009C /* GCDWebServerFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3D9421DA558F200BD009C /* GCDWebServerFunctions.m */; };
+		54D3D9631DA558F200BD009C /* GCDWebServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3D9461DA558F200BD009C /* GCDWebServerRequest.m */; };
+		54D3D9641DA558F200BD009C /* GCDWebServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3D9481DA558F200BD009C /* GCDWebServerResponse.m */; };
+		54D3D9651DA558F200BD009C /* GCDWebServerDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3D94B1DA558F200BD009C /* GCDWebServerDataRequest.m */; };
+		54D3D9661DA558F200BD009C /* GCDWebServerFileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3D94D1DA558F200BD009C /* GCDWebServerFileRequest.m */; };
+		54D3D9671DA558F200BD009C /* GCDWebServerMultiPartFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3D94F1DA558F200BD009C /* GCDWebServerMultiPartFormRequest.m */; };
+		54D3D9681DA558F200BD009C /* GCDWebServerURLEncodedFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3D9511DA558F200BD009C /* GCDWebServerURLEncodedFormRequest.m */; };
+		54D3D9691DA558F200BD009C /* GCDWebServerDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3D9541DA558F200BD009C /* GCDWebServerDataResponse.m */; };
+		54D3D96A1DA558F200BD009C /* GCDWebServerErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3D9561DA558F200BD009C /* GCDWebServerErrorResponse.m */; };
+		54D3D96B1DA558F200BD009C /* GCDWebServerFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3D9581DA558F200BD009C /* GCDWebServerFileResponse.m */; };
+		54D3D96C1DA558F200BD009C /* GCDWebServerStreamedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3D95A1DA558F200BD009C /* GCDWebServerStreamedResponse.m */; };
+		54D3D96D1DA558F200BD009C /* GCDWebUploader.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 54D3D95C1DA558F200BD009C /* GCDWebUploader.bundle */; };
+		54D3D96E1DA558F200BD009C /* GCDWebUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D3D95E1DA558F200BD009C /* GCDWebUploader.m */; };
+		54D3D9711DA55A6B00BD009C /* GCDWebUploader.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 54D3D95C1DA558F200BD009C /* GCDWebUploader.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		54D3D9781DA55B4800BD009C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3D9771DA55B4800BD009C /* libz.tbd */; };
+		54D3D97A1DA55BBC00BD009C /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3D9791DA55BBC00BD009C /* libxml2.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +62,20 @@
 			remoteInfo = VKFileBrowserDemo;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		54D3D9721DA55A6B00BD009C /* Embed PlugIns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				54D3D9711DA55A6B00BD009C /* GCDWebUploader.bundle in Embed PlugIns */,
+			);
+			name = "Embed PlugIns";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		54475DD61D9D949200B0BB49 /* VKFileBrowserDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKFileBrowserDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +108,42 @@
 		54C44B011DA054DA00DD320B /* Base */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; name = Base; path = Base.lproj/VKFileViewController.strings; sourceTree = "<group>"; };
 		54C44B021DA055AD00DD320B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VKFileViewController.strings; sourceTree = "<group>"; };
 		54C44B031DA055B000DD320B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/VKFileViewController.strings"; sourceTree = "<group>"; };
+		54D3D9391DA558F200BD009C /* GCDWebDAVServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebDAVServer.h; sourceTree = "<group>"; };
+		54D3D93A1DA558F200BD009C /* GCDWebDAVServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebDAVServer.m; sourceTree = "<group>"; };
+		54D3D93D1DA558F200BD009C /* GCDWebServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServer.h; sourceTree = "<group>"; };
+		54D3D93E1DA558F200BD009C /* GCDWebServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServer.m; sourceTree = "<group>"; };
+		54D3D93F1DA558F200BD009C /* GCDWebServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerConnection.h; sourceTree = "<group>"; };
+		54D3D9401DA558F200BD009C /* GCDWebServerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerConnection.m; sourceTree = "<group>"; };
+		54D3D9411DA558F200BD009C /* GCDWebServerFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerFunctions.h; sourceTree = "<group>"; };
+		54D3D9421DA558F200BD009C /* GCDWebServerFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerFunctions.m; sourceTree = "<group>"; };
+		54D3D9431DA558F200BD009C /* GCDWebServerHTTPStatusCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerHTTPStatusCodes.h; sourceTree = "<group>"; };
+		54D3D9441DA558F200BD009C /* GCDWebServerPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerPrivate.h; sourceTree = "<group>"; };
+		54D3D9451DA558F200BD009C /* GCDWebServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerRequest.h; sourceTree = "<group>"; };
+		54D3D9461DA558F200BD009C /* GCDWebServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerRequest.m; sourceTree = "<group>"; };
+		54D3D9471DA558F200BD009C /* GCDWebServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerResponse.h; sourceTree = "<group>"; };
+		54D3D9481DA558F200BD009C /* GCDWebServerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerResponse.m; sourceTree = "<group>"; };
+		54D3D94A1DA558F200BD009C /* GCDWebServerDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerDataRequest.h; sourceTree = "<group>"; };
+		54D3D94B1DA558F200BD009C /* GCDWebServerDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerDataRequest.m; sourceTree = "<group>"; };
+		54D3D94C1DA558F200BD009C /* GCDWebServerFileRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerFileRequest.h; sourceTree = "<group>"; };
+		54D3D94D1DA558F200BD009C /* GCDWebServerFileRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerFileRequest.m; sourceTree = "<group>"; };
+		54D3D94E1DA558F200BD009C /* GCDWebServerMultiPartFormRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerMultiPartFormRequest.h; sourceTree = "<group>"; };
+		54D3D94F1DA558F200BD009C /* GCDWebServerMultiPartFormRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerMultiPartFormRequest.m; sourceTree = "<group>"; };
+		54D3D9501DA558F200BD009C /* GCDWebServerURLEncodedFormRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerURLEncodedFormRequest.h; sourceTree = "<group>"; };
+		54D3D9511DA558F200BD009C /* GCDWebServerURLEncodedFormRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerURLEncodedFormRequest.m; sourceTree = "<group>"; };
+		54D3D9531DA558F200BD009C /* GCDWebServerDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerDataResponse.h; sourceTree = "<group>"; };
+		54D3D9541DA558F200BD009C /* GCDWebServerDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerDataResponse.m; sourceTree = "<group>"; };
+		54D3D9551DA558F200BD009C /* GCDWebServerErrorResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerErrorResponse.h; sourceTree = "<group>"; };
+		54D3D9561DA558F200BD009C /* GCDWebServerErrorResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerErrorResponse.m; sourceTree = "<group>"; };
+		54D3D9571DA558F200BD009C /* GCDWebServerFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerFileResponse.h; sourceTree = "<group>"; };
+		54D3D9581DA558F200BD009C /* GCDWebServerFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerFileResponse.m; sourceTree = "<group>"; };
+		54D3D9591DA558F200BD009C /* GCDWebServerStreamedResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerStreamedResponse.h; sourceTree = "<group>"; };
+		54D3D95A1DA558F200BD009C /* GCDWebServerStreamedResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerStreamedResponse.m; sourceTree = "<group>"; };
+		54D3D95C1DA558F200BD009C /* GCDWebUploader.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GCDWebUploader.bundle; sourceTree = "<group>"; };
+		54D3D95D1DA558F200BD009C /* GCDWebUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebUploader.h; sourceTree = "<group>"; };
+		54D3D95E1DA558F200BD009C /* GCDWebUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebUploader.m; sourceTree = "<group>"; };
+		54D3D9771DA55B4800BD009C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		54D3D9791DA55BBC00BD009C /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		54F0736B1DA4048B005C3010 /* VKFileBrowserDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VKFileBrowserDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +151,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54D3D97A1DA55BBC00BD009C /* libxml2.tbd in Frameworks */,
+				54D3D9781DA55B4800BD009C /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +180,7 @@
 				54475DF01D9D949200B0BB49 /* VKFileBrowserDemoTests */,
 				54475DFB1D9D949200B0BB49 /* VKFileBrowserDemoUITests */,
 				54475DD71D9D949200B0BB49 /* Products */,
+				E3083DC0E4552EA83E09C30C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,8 +230,12 @@
 		54475E0A1D9D94D200B0BB49 /* VkFileBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				54D3D9381DA558F200BD009C /* GCDWebDAVServer */,
+				54D3D93B1DA558F200BD009C /* GCDWebServer */,
+				54D3D95B1DA558F200BD009C /* GCDWebUploader */,
 				54475E0B1D9D94D200B0BB49 /* Assets */,
 				54475E121D9D94D200B0BB49 /* Classes */,
+				54F0736B1DA4048B005C3010 /* VKFileBrowserDemo-Bridging-Header.h */,
 			);
 			name = VkFileBrowser;
 			path = ../../VkFileBrowser/VkFileBrowser;
@@ -189,6 +265,96 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		54D3D9381DA558F200BD009C /* GCDWebDAVServer */ = {
+			isa = PBXGroup;
+			children = (
+				54D3D9391DA558F200BD009C /* GCDWebDAVServer.h */,
+				54D3D93A1DA558F200BD009C /* GCDWebDAVServer.m */,
+			);
+			name = GCDWebDAVServer;
+			path = ../GCDWebDAVServer;
+			sourceTree = "<group>";
+		};
+		54D3D93B1DA558F200BD009C /* GCDWebServer */ = {
+			isa = PBXGroup;
+			children = (
+				54D3D93C1DA558F200BD009C /* Core */,
+				54D3D9491DA558F200BD009C /* Requests */,
+				54D3D9521DA558F200BD009C /* Responses */,
+			);
+			name = GCDWebServer;
+			path = ../GCDWebServer;
+			sourceTree = "<group>";
+		};
+		54D3D93C1DA558F200BD009C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				54D3D93D1DA558F200BD009C /* GCDWebServer.h */,
+				54D3D93E1DA558F200BD009C /* GCDWebServer.m */,
+				54D3D93F1DA558F200BD009C /* GCDWebServerConnection.h */,
+				54D3D9401DA558F200BD009C /* GCDWebServerConnection.m */,
+				54D3D9411DA558F200BD009C /* GCDWebServerFunctions.h */,
+				54D3D9421DA558F200BD009C /* GCDWebServerFunctions.m */,
+				54D3D9431DA558F200BD009C /* GCDWebServerHTTPStatusCodes.h */,
+				54D3D9441DA558F200BD009C /* GCDWebServerPrivate.h */,
+				54D3D9451DA558F200BD009C /* GCDWebServerRequest.h */,
+				54D3D9461DA558F200BD009C /* GCDWebServerRequest.m */,
+				54D3D9471DA558F200BD009C /* GCDWebServerResponse.h */,
+				54D3D9481DA558F200BD009C /* GCDWebServerResponse.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		54D3D9491DA558F200BD009C /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				54D3D94A1DA558F200BD009C /* GCDWebServerDataRequest.h */,
+				54D3D94B1DA558F200BD009C /* GCDWebServerDataRequest.m */,
+				54D3D94C1DA558F200BD009C /* GCDWebServerFileRequest.h */,
+				54D3D94D1DA558F200BD009C /* GCDWebServerFileRequest.m */,
+				54D3D94E1DA558F200BD009C /* GCDWebServerMultiPartFormRequest.h */,
+				54D3D94F1DA558F200BD009C /* GCDWebServerMultiPartFormRequest.m */,
+				54D3D9501DA558F200BD009C /* GCDWebServerURLEncodedFormRequest.h */,
+				54D3D9511DA558F200BD009C /* GCDWebServerURLEncodedFormRequest.m */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		54D3D9521DA558F200BD009C /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				54D3D9531DA558F200BD009C /* GCDWebServerDataResponse.h */,
+				54D3D9541DA558F200BD009C /* GCDWebServerDataResponse.m */,
+				54D3D9551DA558F200BD009C /* GCDWebServerErrorResponse.h */,
+				54D3D9561DA558F200BD009C /* GCDWebServerErrorResponse.m */,
+				54D3D9571DA558F200BD009C /* GCDWebServerFileResponse.h */,
+				54D3D9581DA558F200BD009C /* GCDWebServerFileResponse.m */,
+				54D3D9591DA558F200BD009C /* GCDWebServerStreamedResponse.h */,
+				54D3D95A1DA558F200BD009C /* GCDWebServerStreamedResponse.m */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		54D3D95B1DA558F200BD009C /* GCDWebUploader */ = {
+			isa = PBXGroup;
+			children = (
+				54D3D95C1DA558F200BD009C /* GCDWebUploader.bundle */,
+				54D3D95D1DA558F200BD009C /* GCDWebUploader.h */,
+				54D3D95E1DA558F200BD009C /* GCDWebUploader.m */,
+			);
+			name = GCDWebUploader;
+			path = ../GCDWebUploader;
+			sourceTree = "<group>";
+		};
+		E3083DC0E4552EA83E09C30C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				54D3D9791DA55BBC00BD009C /* libxml2.tbd */,
+				54D3D9771DA55B4800BD009C /* libz.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -199,6 +365,7 @@
 				54475DD21D9D949200B0BB49 /* Sources */,
 				54475DD31D9D949200B0BB49 /* Frameworks */,
 				54475DD41D9D949200B0BB49 /* Resources */,
+				54D3D9721DA55A6B00BD009C /* Embed PlugIns */,
 			);
 			buildRules = (
 			);
@@ -213,9 +380,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54475E041D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemoTests" */;
 			buildPhases = (
+				FBEBFC78FA81F38B88A8544E /* [CP] Check Pods Manifest.lock */,
 				54475DE91D9D949200B0BB49 /* Sources */,
 				54475DEA1D9D949200B0BB49 /* Frameworks */,
 				54475DEB1D9D949200B0BB49 /* Resources */,
+				718C0B0349EFC9E38E40A16C /* [CP] Embed Pods Frameworks */,
+				C6E8DCDBC70A2D2DAF6B1A11 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,9 +401,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54475E071D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemoUITests" */;
 			buildPhases = (
+				61FB3478B22CDF026855FE57 /* [CP] Check Pods Manifest.lock */,
 				54475DF41D9D949200B0BB49 /* Sources */,
 				54475DF51D9D949200B0BB49 /* Frameworks */,
 				54475DF61D9D949200B0BB49 /* Resources */,
+				9BFD68C2BECA776E155788A6 /* [CP] Embed Pods Frameworks */,
+				1866D572963FB0BCC196F898 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -258,6 +431,7 @@
 					54475DD51D9D949200B0BB49 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 9A6T4XDGZT;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					54475DEC1D9D949200B0BB49 = {
@@ -300,6 +474,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54D3D96D1DA558F200BD009C /* GCDWebUploader.bundle in Resources */,
 				54C44AFD1DA054C900DD320B /* VKFileViewController.strings in Resources */,
 				54475E1E1D9D94D200B0BB49 /* Localizable.strings in Resources */,
 				54C44AFA1DA054C900DD320B /* VKFileViewController.xib in Resources */,
@@ -327,19 +502,127 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1866D572963FB0BCC196F898 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemoUITests/Pods-VKFileBrowserDemoUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61FB3478B22CDF026855FE57 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		718C0B0349EFC9E38E40A16C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemoTests/Pods-VKFileBrowserDemoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BFD68C2BECA776E155788A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemoUITests/Pods-VKFileBrowserDemoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6E8DCDBC70A2D2DAF6B1A11 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemoTests/Pods-VKFileBrowserDemoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBEBFC78FA81F38B88A8544E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		54475DD21D9D949200B0BB49 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54D3D9661DA558F200BD009C /* GCDWebServerFileRequest.m in Sources */,
+				54D3D9681DA558F200BD009C /* GCDWebServerURLEncodedFormRequest.m in Sources */,
+				54D3D95F1DA558F200BD009C /* GCDWebDAVServer.m in Sources */,
 				54475E261D9D94D200B0BB49 /* VKFileViewController.swift in Sources */,
+				54D3D9651DA558F200BD009C /* GCDWebServerDataRequest.m in Sources */,
+				54D3D9621DA558F200BD009C /* GCDWebServerFunctions.m in Sources */,
+				54D3D96A1DA558F200BD009C /* GCDWebServerErrorResponse.m in Sources */,
 				54475E251D9D94D200B0BB49 /* VkFileCustomViewLayout.swift in Sources */,
 				5454625A1D9ED59D0053F7F5 /* DocumentPreviewObject.swift in Sources */,
+				54D3D9671DA558F200BD009C /* GCDWebServerMultiPartFormRequest.m in Sources */,
+				54D3D96B1DA558F200BD009C /* GCDWebServerFileResponse.m in Sources */,
 				54475DDC1D9D949200B0BB49 /* ViewController.swift in Sources */,
 				54475E241D9D94D200B0BB49 /* VKFile.swift in Sources */,
+				54D3D9691DA558F200BD009C /* GCDWebServerDataResponse.m in Sources */,
 				54475E221D9D94D200B0BB49 /* BaseViewController.swift in Sources */,
+				54D3D9631DA558F200BD009C /* GCDWebServerRequest.m in Sources */,
 				54475DDA1D9D949200B0BB49 /* AppDelegate.swift in Sources */,
+				54D3D96E1DA558F200BD009C /* GCDWebUploader.m in Sources */,
+				54D3D9601DA558F200BD009C /* GCDWebServer.m in Sources */,
+				54D3D9641DA558F200BD009C /* GCDWebServerResponse.m in Sources */,
 				54475DE21D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodeld in Sources */,
+				54D3D96C1DA558F200BD009C /* GCDWebServerStreamedResponse.m in Sources */,
+				54D3D9611DA558F200BD009C /* GCDWebServerConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,26 +803,37 @@
 		54475E021D9D949200B0BB49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 9A6T4XDGZT;
+				HEADER_SEARCH_PATHS = "$(SDK_DIR)/usr/include/libxml2";
 				INFOPLIST_FILE = VKFileBrowserDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowserDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "../VkFileBrowser/VkFileBrowser/VKFileBrowserDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
 		54475E031D9D949200B0BB49 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 9A6T4XDGZT;
+				HEADER_SEARCH_PATHS = "$(SDK_DIR)/usr/include/libxml2";
 				INFOPLIST_FILE = VKFileBrowserDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowserDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "../VkFileBrowser/VkFileBrowser/VKFileBrowserDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};

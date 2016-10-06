@@ -18,6 +18,8 @@ public func LocalizedString(_ key: String) -> String {
 class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDataSource,UITableViewDelegate {
     
     
+    
+    /// MARK: -- Property
     let fileManager = FileManager.default
     let documentDir : String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!
     var currentDir : String!
@@ -32,7 +34,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     
     
     let reuseIdentifier = "Cell"
-    
+    /// MARK: -- method
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -40,6 +42,9 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         self.initViewStyle()
         self.setTableExtraHidden()
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        let lookup = UIMenuItem(title: "Grok", action: #selector(runGrok))
+        UIMenuController.shared.menuItems = [lookup]
         
         if (currentDir == nil) {
             currentDir = documentDir
@@ -52,6 +57,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         self.loadFileAtPath(currentDir)
     }
     
+    func runGrok(){}
     
     
     func setTableExtraHidden(){
@@ -291,7 +297,6 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
             let file = VKFile(name, isDirectory, type,fileSizeFloatValue)
             file.creationDate = creationDate as! NSDate?
             
-            print(creationDate)
             dataSource.append(file)
         }
         
@@ -401,17 +406,6 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return true
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
     
     // MARK: UITableView  DataSouce And Delegate
     
@@ -442,6 +436,9 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         return cell!
     }
     
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        <#code#>
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
