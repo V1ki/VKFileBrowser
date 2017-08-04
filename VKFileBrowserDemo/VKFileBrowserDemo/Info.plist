@@ -2,18 +2,39 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SFMono-Regular.otf</string>
+	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>123</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeIconFiles</key>
-			<array/>
 			<key>CFBundleTypeName</key>
-			<string>AudioFile</string>
+			<string>myapp</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>public.mp3</string>
+				<string>com.customApp.myApp</string>
+				<string>com.microsoft.powerpoint.ppt</string>
+				<string>public.item</string>
+				<string>com.microsoft.word.doc</string>
+				<string>com.adobe.pdf</string>
+				<string>com.microsoft.excel.xls</string>
+				<string>public.image</string>
+				<string>public.jpeg</string>
+				<string>public.content</string>
+				<string>public.composite-content</string>
+				<string>public.archive</string>
+				<string>public.audio</string>
+				<string>public.movie</string>
+				<string>public.text</string>
+				<string>public.data</string>
+				<string>public.source-code</string>
 			</array>
 		</dict>
 	</array>

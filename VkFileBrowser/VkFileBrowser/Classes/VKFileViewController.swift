@@ -7,16 +7,16 @@
 //
 
 import UIKit
-
-
+import Photos
+import SDWebImage
+import MobileCoreServices
 
 public func LocalizedString(_ key: String) -> String {
     return NSLocalizedString(key, comment: "")
 }
 
 
-class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDataSource,UITableViewDelegate {
-    
+class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDataSource,UITableViewDelegate,FileManagerDelegate,SSZipArchiveDelegate {
     
     
     /// MARK: -- Property
@@ -29,32 +29,163 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var bottomIconOrListBarItem: UIBarButtonItem!
     
+    let reuseIdentifier = "Cell"
+    
+    var selectedIndexPath : IndexPath?
     
     var dataSource = [VKFile]()
     
     
-    let reuseIdentifier = "Cell"
-    /// MARK: -- method
+    // MARK: - FileManager delegate --start
+    func fileManager(_ fileManager: FileManager, shouldRemoveItemAtPath path: String) -> Bool {
+        log("shouldRemoveItemAtPath",path)
+        reloadCurPage()
+        return true
+    }
+    
+    func fileManager(_ fileManager: FileManager, shouldRemoveItemAt URL: URL) -> Bool {
+        log("shouldRemoveItemAt",URL)
+        reloadCurPage()
+        return true
+    }
+    
+    func fileManager(_ fileManager: FileManager, shouldCopyItemAt srcURL: URL, to dstURL: URL) -> Bool {
+        log("shouldCopyItemAt",srcURL ,dstURL)
+        reloadCurPage()
+        return true
+    }
+    
+    func fileManager(_ fileManager: FileManager, shouldLinkItemAt srcURL: URL, to dstURL: URL) -> Bool {
+        log("shouldLinkItemAt",srcURL ,dstURL)
+        reloadCurPage()
+        return true
+    }
+    
+    func fileManager(_ fileManager: FileManager, shouldMoveItemAt srcURL: URL, to dstURL: URL) -> Bool {
+        log("shouldMoveItemAt",srcURL ,dstURL)
+        reloadCurPage()
+        return true
+    }
+    func fileManager(_ fileManager: FileManager, shouldCopyItemAtPath srcPath: String, toPath dstPath: String) -> Bool {
+        log("shouldCopyItemAtPath",srcPath ,dstPath)
+        reloadCurPage()
+        return true
+    }
+    func fileManager(_ fileManager: FileManager, shouldLinkItemAtPath srcPath: String, toPath dstPath: String) -> Bool {
+        log("shouldLinkItemAtPath",srcPath ,dstPath)
+        reloadCurPage()
+        return true
+    }
+    func fileManager(_ fileManager: FileManager, shouldMoveItemAtPath srcPath: String, toPath dstPath: String) -> Bool {
+        log("shouldMoveItemAtPath",srcPath ,dstPath)
+        reloadCurPage()
+        return true
+    }
+    func fileManager(_ fileManager: FileManager, shouldProceedAfterError error: Error, removingItemAt URL: URL) -> Bool {
+        log("shouldProceedAfterError",error ,"removingItemAt",URL)
+        return true
+    }
+    func fileManager(_ fileManager: FileManager, shouldProceedAfterError error: Error, removingItemAtPath path: String) -> Bool {
+        log("shouldProceedAfterError",error ,"removingItemAt",path)
+        return true
+    }
+    func fileManager(_ fileManager: FileManager, shouldProceedAfterError error: Error, movingItemAt srcURL: URL, to dstURL: URL) -> Bool {
+        log("shouldProceedAfterError",error ,"movingItemAt",srcURL,dstURL)
+        return true
+    }
+    func fileManager(_ fileManager: FileManager, shouldProceedAfterError error: Error, copyingItemAt srcURL: URL, to dstURL: URL) -> Bool {
+        log("shouldProceedAfterError",error ,"copyingItemAt",srcURL,dstURL)
+        return true
+    }
+    func fileManager(_ fileManager: FileManager, shouldProceedAfterError error: Error, linkingItemAt srcURL: URL, to dstURL: URL) -> Bool {
+        log("shouldProceedAfterError",error ,"linkingItemAt",srcURL,dstURL)
+        return true
+    }
+    func fileManager(_ fileManager: FileManager, shouldProceedAfterError error: Error, movingItemAtPath srcPath: String, toPath dstPath: String) -> Bool {
+        log("shouldProceedAfterError",error ,"movingItemAtPath",srcPath,dstPath)
+        return true
+    }
+    func fileManager(_ fileManager: FileManager, shouldProceedAfterError error: Error, copyingItemAtPath srcPath: String, toPath dstPath: String) -> Bool {
+        log("shouldProceedAfterError",error ,"copyingItemAtPath",srcPath,dstPath)
+        return true
+    }
+    func fileManager(_ fileManager: FileManager, shouldProceedAfterError error: Error, linkingItemAtPath srcPath: String, toPath dstPath: String) -> Bool {
+        log("shouldProceedAfterError",error ,"linkingItemAtPath",srcPath,dstPath)
+        return true
+    }
+    
+    // MARK: - FileManager delegate -- end
+    
+    
+    // MARK: -- method
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
-        self.automaticallyAdjustsScrollViewInsets = false 
+        self.automaticallyAdjustsScrollViewInsets = false
         self.initViewStyle()
         self.setTableExtraHidden()
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
-        let lookup = UIMenuItem(title: "Grok", action: #selector(runGrok))
-        UIMenuController.shared.menuItems = [lookup]
+        collectionView.mj_header = MJRefreshNormalHeader(refreshingBlock: {() in
+            self.reloadCurPage()
+            self.collectionView.mj_header.endRefreshing()
+        })
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(contextMenuHandler))
+        longPressRecognizer.minimumPressDuration = 0.3
+        longPressRecognizer.delaysTouchesBegan = true
+        self.collectionView?.addGestureRecognizer(longPressRecognizer)
+        
+        
+        fileManager.delegate = self
         
         if (currentDir == nil) {
             currentDir = documentDir
         }
-        print(currentDir)
-        
         self.title = currentDir.components(separatedBy: "/").last
         
         
         self.loadFileAtPath(currentDir)
+    }
+    
+    func contextMenuHandler(gesture: UILongPressGestureRecognizer) {
+        
+        if gesture.state == UIGestureRecognizerState.began {
+            
+            let indexPath = self.collectionView?.indexPathForItem(at: gesture.location(in: self.collectionView))
+            
+            if indexPath != nil {
+                
+                self.selectedIndexPath = indexPath
+                
+                let cell = self.collectionView?.cellForItem(at: self.selectedIndexPath!)
+                let menu = UIMenuController.shared
+                let sendMenuItem = UIMenuItem(title: "delete", action: #selector(deleteAction))
+                menu.setTargetRect(CGRect(x:0,y:5,width:60,height:80), in: (cell?.contentView)!)
+                menu.arrowDirection = .down
+                
+                
+                menu.menuItems = [sendMenuItem]
+                menu.setMenuVisible(true, animated: true)
+            }
+        }
+    }
+    
+    func deleteAction() {
+        log("deleteAction performed! selectedIndex:\(self.selectedIndexPath)")
+        if(self.selectedIndexPath != nil){
+            let row = selectedIndexPath!.row
+            let file = dataSource[row]
+            let filePath : String = self.currentDir.appending("/\(file.name!)")
+            do{
+                try fileManager.removeItem(atPath: filePath)
+                reloadCurPage()
+            }catch let err{
+                log(err)
+            }
+        }
+        
     }
     
     func runGrok(){}
@@ -100,11 +231,11 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         
         
         self.showAlertController(LocalizedString("Create New Folder"), LocalizedString("Input Name"), LocalizedString("Cancel"), LocalizedString("Save"), nil , {(action,filename) in
-                let fileDir = self.currentDir.appending("/\(filename)")
-                let createSuccess = self.createNewFolder(fileDir)
-                if(!createSuccess){
-                    self.showAlertController(LocalizedString("Warning"), LocalizedString("File Already Exist"), LocalizedString("Confirm"), nil, nil, nil)
-                }
+            let fileDir = self.currentDir.appending("/\(filename)")
+            let createSuccess = self.createNewFolder(fileDir)
+            if(!createSuccess){
+                self.showAlertController(LocalizedString("Warning"), LocalizedString("File Already Exist"), LocalizedString("Confirm"), nil, nil, nil)
+            }
         })
         
     }
@@ -114,15 +245,17 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     }
     
     
-
+    
     
     func showAlertController(_ title : String? , _ message : String? , _ cancelTitlte : String? , _ defaultTitle : String? ,_ cancelHandler:((UIAlertAction) -> Swift.Void)? = nil ,_ defalutHandler: ((UIAlertAction,String) -> Swift.Void)? = nil  ){
         
         let alertController = UIAlertController(title:title, message:message, preferredStyle: .alert)
-
+        
         let alertActionCancel = UIAlertAction(title:cancelTitlte, style: .cancel, handler: {(action) in
-
+            if(cancelHandler != nil){
                 cancelHandler!(action)
+            }
+            
         })
         alertController.addAction(alertActionCancel)
         
@@ -142,7 +275,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         self.present(alertController, animated: true, completion: {() -> Void in
             
         })
-
+        
     }
     
     
@@ -236,6 +369,11 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     }
     
     
+    func reloadCurPage(){
+        self.loadFileAtPath(self.currentDir)
+    }
+    
+    
     
     
     @IBAction func clickIconOrListBtn(_ sender: AnyObject) {
@@ -258,6 +396,67 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     
     
     
+    func selectFile(_ file :VKFile){
+        let fileDir : String = self.currentDir.appending("/\(file.name!)")
+        if file.isDirectory {
+            
+            self.currentDir = fileDir
+        
+            reloadCurPage()
+        }
+        else
+        {
+            if(file.name.hasSuffix(".7z")){
+                
+                LZMAExtractor.extract7zArchive(fileDir, dirName: self.currentDir.appending("/\(file.name.substring(to: file.name.index(before: file.name.index(file.name.endIndex, offsetBy: -2))))"), preserveDir: true)
+                
+                reloadCurPage()
+                
+                
+                return
+            }
+            else if (file.name.hasSuffix(".zip")){
+//                SSZipArchive.unzipFile(atPath: fileDir, toDestination: self.currentDir.appending("/\(file.name.substring(to: file.name.index(before: file.name.index(file.name.endIndex, offsetBy: -3))))"), delegate: self)
+                
+                SSZipArchive.unzipFile(atPath: fileDir, toDestination: self.currentDir, delegate: self)
+                return
+            }else if(file.isImageType()){
+                let imgs = dataSource.filter({$0.isImageType() })
+                var photos = [MWPhoto]()
+                
+                if(imgs.count > 0){
+                    for  vkFile in imgs {
+                        
+                        let photoUrl = URL(fileURLWithPath:self.currentDir.appending("/\(vkFile.name!)"))
+                        
+                        let photo = MWPhoto(url: photoUrl)
+                        photos.append(photo!)
+                    }
+                    
+                    
+                    let browser = MWPhotoBrowser(photos: photos)
+                    
+                    
+                    self.navigationController?.pushViewController(browser!, animated: true)
+                    
+                    return ;
+                }
+            }
+            else if(file.isSourceCodeType()){
+                
+                let sourceCodeVC = SourceViewController()
+                sourceCodeVC.mFile = file
+                self.navigationController?.pushViewController(sourceCodeVC, animated: true)
+                
+                return
+            }
+            
+            let nextVc = DocumentPreviewObject(_ : URL(fileURLWithPath: fileDir))
+            nextVc.previewVC = self.navigationController
+            nextVc.startPreview()
+        }
+    }
+    
     /*
      // MARK: - Navigation
      
@@ -268,7 +467,24 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
      }
      */
     
+    func zipArchiveDidUnzipFile(at fileIndex: Int, totalFiles: Int, archivePath: String!, fileInfo: unz_file_info) {
+//        log("zipArchiveDidUnzipFile==  fileIndex:\(fileIndex)  totalFiles:\(totalFiles)  archivePath:\(archivePath)  fileInfo:\(fileInfo)")
+    }
     
+    
+    func zipArchiveDidUnzipArchive(atPath path: String!, zipInfo: unz_global_info, unzippedPath: String!, withFilePaths filePaths: NSMutableArray!) {
+//        log("zipArchiveDidUnzipArchive== path:\(path)  zipInfo:\(zipInfo)  unzippedPath:\(unzippedPath)  filePaths:\(filePaths)")
+        reloadCurPage()
+    }
+    
+    
+    func zipArchiveWillUnzipArchive(atPath path: String!, zipInfo: unz_global_info) {
+//        log("zipArchiveWillUnzipArchive==   path:\(path)  zipInfo:\(zipInfo)")
+    }
+    
+    func zipArchiveWillUnzipFile(at fileIndex: Int, totalFiles: Int, archivePath: String!, fileInfo: unz_file_info) {
+//        log("zipArchiveWillUnzipFile==   fileIndex:\(fileIndex)  totalFiles:\(totalFiles)  archivePath:\(archivePath)  fileInfo:\(fileInfo)")
+    }
     
     func loadFileAtPath(_ path: String){
         dataSource.removeAll()
@@ -282,7 +498,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
                 let isDirectory = resourceValues[.isDirectoryKey] as? Bool ,
                 let name = resourceValues[.nameKey] as? String ,
                 let type = resourceValues[.typeIdentifierKey] as? String
-            
+                
                 else {
                     
                     continue
@@ -294,16 +510,21 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
             
             let creationDate = resourceValues[.creationDateKey]
             
-            let file = VKFile(name, isDirectory, type,fileSizeFloatValue)
+            let file = VKFile(name,self.currentDir, isDirectory, type,fileSizeFloatValue)
             file.creationDate = creationDate as! NSDate?
             
             dataSource.append(file)
+            
+            if(isDirectory){
+                directoryEnumerator.skipDescendents()
+            }
+            
         }
         
         dataSource.sort(by: {(file1,file2) -> Bool in
             return file1.compare(withOtherFile: file2, bySortType: .name)
         })
-    
+        
         currentDir = path
         
         DispatchQueue.main.async {
@@ -332,9 +553,13 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         }
         
         imgView?.tag = 1
-        imgView?.image = file.isDirectory ? #imageLiteral(resourceName: "folder") : #imageLiteral(resourceName: "file")
+        imgView?.image = file.isDirectory ? UIImage(named: "folder") : UIImage(named: "file")
         
         
+        if(file.name.contains(".jpg")||file.name.contains(".jp2") ){
+            
+            imgView?.image = UIImage(contentsOfFile: self.currentDir.appending("/\(file.name!)"))
+        }
         
         
         var checkBtn : UIButton? = cell.viewWithTag(10) as! UIButton?
@@ -345,8 +570,8 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
             cell.addSubview(checkBtn!)
         }
         
-        checkBtn?.setImage(#imageLiteral(resourceName: "uncheck"), for: .normal)
-        checkBtn?.setImage(#imageLiteral(resourceName: "check"), for: .selected)
+        checkBtn?.setImage(UIImage(named: "uncheck"), for: .normal)
+        checkBtn?.setImage(UIImage(named: "check"), for: .selected)
         checkBtn?.tag = 10
         checkBtn?.isHidden = true
         
@@ -370,7 +595,6 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return dataSource.count
     }
     
@@ -379,23 +603,15 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         return 1
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        
         let file = dataSource[indexPath.row]
-        let fileDir : String = self.currentDir.appending("/\(file.name!)")
-        if file.isDirectory {
-            let nextVc = VKFileViewController()
-            nextVc.currentDir = fileDir
-            self.navigationController?.pushViewController(nextVc, animated: true)
-        }
-        else
-        {
-            let nextVc = DocumentPreviewObject(_ : URL(fileURLWithPath: fileDir))
-            nextVc.previewVC = self.navigationController
-            nextVc.startPreview()
-        }
+        selectFile(file)
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
         return true
@@ -403,6 +619,25 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         print("destinationIndexPath")
+    }
+    
+//    func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+//        
+//        return true
+//    }
+//    
+//    
+//    func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+//        log(action)
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+    override var canBecomeFirstResponder: Bool {
+        get{
+            return true
+        }
     }
     
     
@@ -423,12 +658,12 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
             cell = UITableViewCell(style:.default, reuseIdentifier: reuseIdentifier)
         }
         let file = dataSource[indexPath.row]
-
+        
         cell?.textLabel?.text = file.name
         cell?.textLabel?.font = UIFont.systemFont(ofSize: 14)
         
         
-        cell?.imageView?.image = file.isDirectory ? #imageLiteral(resourceName: "folder") : #imageLiteral(resourceName: "file")
+        cell?.imageView?.image = file.isDirectory ? UIImage(named: "folder") : UIImage(named: "file")
         
         if file.isDirectory {
             cell?.accessoryType = .disclosureIndicator
@@ -437,26 +672,19 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     }
     
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        <#code#>
+        if(action == #selector(deleteAction)){
+            return true
+        }
+        return false
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let file = dataSource[indexPath.row]
-        let fileDir : String = self.currentDir.appending("/\(file.name!)")
-        if file.isDirectory {
-            let nextVc = VKFileViewController()
-            nextVc.currentDir = fileDir
-            self.navigationController?.pushViewController(nextVc, animated: true)
-        }
-        else
-        {
-            let nextVc = DocumentPreviewObject(_ : URL(fileURLWithPath: fileDir))
-            nextVc.previewVC = self.navigationController
-            nextVc.startPreview()
-        }
         
+        selectFile(file)
     }
     
     

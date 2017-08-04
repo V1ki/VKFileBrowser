@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MobileCoreServices
 
 class VKFile: NSObject {
     
@@ -26,11 +27,19 @@ class VKFile: NSObject {
     var name : String!
     var isDirectory : Bool
     var type : String!
+    var filePath : String!
     var fileSize : Int? = 0
     var creationDate : NSDate?
     
-    init(_ name : String , _ isDirectory : Bool ,_ type :String ,_ fileSize : Int?) {
+    override var description: String {
+        get{
+            return "name:\(name) -- type:\(type) -- fileSize:\(fileSize)"
+        }
+    }
+    
+    init(_ name : String ,_ filePath : String , _ isDirectory : Bool ,_ type :String ,_ fileSize : Int?) {
         self.name = name
+        self.filePath = filePath
         self.isDirectory = isDirectory
         self.type = type
         self.fileSize = fileSize
@@ -82,5 +91,43 @@ class VKFile: NSObject {
         return true
         
     }
+    
+    
+    func readContent() -> String{
+        
+        
+        let filePath = "\(self.filePath!)/\(self.name!)"
+        
+        do{
+           let content = try String(contentsOfFile: filePath)
+           
+            return content
+        }catch let error{
+            print(error)
+        }
+        return ""
+    }
+    
+    
+    func isImageType() -> Bool{
+        log("type:\(type) isEquals:\(UTTypeEqual(type as CFString, kUTTypeImage))  conformsTo:\(UTTypeConformsTo(type as CFString, kUTTypeImage))")
+        return UTTypeConformsTo(type as CFString, kUTTypeImage)
+        
+//        return type.contains("public.jpeg")
+    }
+    
+    func isSourceCodeType() -> Bool{
+        log("type:\(type) isEquals:\(UTTypeEqual(type as CFString, kUTTypeSourceCode))  conformsTo:\(UTTypeConformsTo(type as CFString, kUTTypeSourceCode))")
+        return UTTypeConformsTo(type as CFString, kUTTypeSourceCode)
+    }
+    
+    func isObjectiveCSourceType() -> Bool{
+        return UTTypeConformsTo(type as CFString, kUTTypeObjectiveCSource)
+    }
+    
+    func isSwiftSourceType() -> Bool{
+        return UTTypeConformsTo(type as CFString, kUTTypeSwiftSource)
+    }
+    
 
 }

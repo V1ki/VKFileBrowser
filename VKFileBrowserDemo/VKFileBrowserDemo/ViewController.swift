@@ -9,25 +9,31 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var vkFileVC : VKFileViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        vkFileVC = VKFileViewController()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let vc = VKFileViewController()
         
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vkFileVC!, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
+    func reloadData(){
+        vkFileVC?.reloadCurPage()
+    }
 
 }
 
