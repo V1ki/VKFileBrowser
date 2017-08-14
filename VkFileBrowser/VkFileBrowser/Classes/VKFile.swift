@@ -110,14 +110,13 @@ class VKFile: NSObject {
     
     
     func isImageType() -> Bool{
-        log("type:\(type) isEquals:\(UTTypeEqual(type as CFString, kUTTypeImage))  conformsTo:\(UTTypeConformsTo(type as CFString, kUTTypeImage))")
         return UTTypeConformsTo(type as CFString, kUTTypeImage)
         
 //        return type.contains("public.jpeg")
     }
     
     func isSourceCodeType() -> Bool{
-        log("type:\(type) isEquals:\(UTTypeEqual(type as CFString, kUTTypeSourceCode))  conformsTo:\(UTTypeConformsTo(type as CFString, kUTTypeSourceCode))")
+        
         return UTTypeConformsTo(type as CFString, kUTTypeSourceCode)
     }
     

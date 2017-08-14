@@ -14,7 +14,8 @@ target 'VKFileBrowserDemo' do
  pod "GCDWebServer/WebDAV", "~> 3.3"
  pod "MJRefresh"
  pod "MWPhotoBrowser"
- pod "FlowingMenu"
+ pod "Alamofire"
+ pod 'MJExtension'
  
   target 'VKFileBrowserDemoTests' do
     inherit! :search_paths

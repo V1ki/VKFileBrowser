@@ -9,3 +9,4 @@
 #import "MWPhotoBrowser.h"
 #import "SSZipArchive.h"
 #import "UIImageView+WebCache.h"
+#import "MJExtension.h"

@@ -27,8 +27,15 @@
 		5479116F1F319C3D0098945F /* SourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547911721F319C3D0098945F /* SourceViewController.xib */; };
 		547911701F319C3D0098945F /* SourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547911721F319C3D0098945F /* SourceViewController.xib */; };
 		547911781F319C640098945F /* SourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547911771F319C640098945F /* SourceViewController.swift */; };
+		5483B7CD1F4130EC00782760 /* MarkdownTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5483B7CC1F4130EC00782760 /* MarkdownTextAttachment.swift */; };
+		5483B7DE1F41575400782760 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5483B7DD1F41575400782760 /* README.md */; };
 		548BC3D71F335E10005E6660 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548D199A1F2ADDF300E962D8 /* Extension.swift */; };
 		548BC3D91F3375B4005E6660 /* SFMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 548BC3D81F3375B4005E6660 /* SFMono-Regular.otf */; };
+		548BC3DD1F34C2FA005E6660 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548BC3DC1F34C2FA005E6660 /* BaseModel.swift */; };
+		548BC3DF1F34C34B005E6660 /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548BC3DE1F34C34B005E6660 /* RepositoryModel.swift */; };
+		548BC3E11F34CCCA005E6660 /* ContentItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548BC3E01F34CCCA005E6660 /* ContentItemModel.swift */; };
+		548BC3E41F34D0D2005E6660 /* URLRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548BC3E31F34D0D2005E6660 /* URLRouter.swift */; };
+		548BC3E61F355453005E6660 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548BC3E51F355453005E6660 /* ContentModel.swift */; };
 		548D199B1F2ADDF300E962D8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548D199A1F2ADDF300E962D8 /* Extension.swift */; };
 		54B55F661F2D978A00BB1C09 /* Unrar4iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B55EF41F2D978A00BB1C09 /* Unrar4iOS.framework */; };
 		54B55F671F2D978A00BB1C09 /* 7zBuf.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55EF71F2D978A00BB1C09 /* 7zBuf.c */; };
@@ -58,6 +65,8 @@
 		54B55F7F1F2D978A00BB1C09 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F651F2D978A00BB1C09 /* SSZipArchive.m */; };
 		54C44AFA1DA054C900DD320B /* VKFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C44AEF1DA054C900DD320B /* VKFileViewController.xib */; };
 		54C44AFD1DA054C900DD320B /* VKFileViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54C44AF31DA054C900DD320B /* VKFileViewController.strings */; };
+		54C9503B1F3B705700D6AFF5 /* MarkdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C950391F3B705700D6AFF5 /* MarkdownViewController.swift */; };
+		54C9503D1F3B70BA00D6AFF5 /* MarkdownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C9503F1F3B70BA00D6AFF5 /* MarkdownViewController.xib */; };
 		54D3D9781DA55B4800BD009C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3D9771DA55B4800BD009C /* libz.tbd */; };
 		54D3D97A1DA55BBC00BD009C /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3D9791DA55BBC00BD009C /* libxml2.tbd */; };
 		79A9E3206DB77C2E64499D92 /* Pods_VKFileBrowserDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432CD5E743FA659BC76828ED /* Pods_VKFileBrowserDemoUITests.framework */; };
@@ -130,7 +139,14 @@
 		547911741F319C3F0098945F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SourceViewController.strings; sourceTree = "<group>"; };
 		547911761F319C420098945F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SourceViewController.strings"; sourceTree = "<group>"; };
 		547911771F319C640098945F /* SourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceViewController.swift; sourceTree = "<group>"; };
+		5483B7CC1F4130EC00782760 /* MarkdownTextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownTextAttachment.swift; sourceTree = "<group>"; };
+		5483B7DD1F41575400782760 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		548BC3D81F3375B4005E6660 /* SFMono-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFMono-Regular.otf"; sourceTree = "<group>"; };
+		548BC3DC1F34C2FA005E6660 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		548BC3DE1F34C34B005E6660 /* RepositoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
+		548BC3E01F34CCCA005E6660 /* ContentItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentItemModel.swift; sourceTree = "<group>"; };
+		548BC3E31F34D0D2005E6660 /* URLRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRouter.swift; sourceTree = "<group>"; };
+		548BC3E51F355453005E6660 /* ContentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		548D199A1F2ADDF300E962D8 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		54B55EF41F2D978A00BB1C09 /* Unrar4iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Unrar4iOS.framework; sourceTree = "<group>"; };
 		54B55EF61F2D978A00BB1C09 /* 7z.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7z.h; sourceTree = "<group>"; };
@@ -245,6 +261,10 @@
 		54C44B011DA054DA00DD320B /* Base */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; name = Base; path = Base.lproj/VKFileViewController.strings; sourceTree = "<group>"; };
 		54C44B021DA055AD00DD320B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VKFileViewController.strings; sourceTree = "<group>"; };
 		54C44B031DA055B000DD320B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/VKFileViewController.strings"; sourceTree = "<group>"; };
+		54C950391F3B705700D6AFF5 /* MarkdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownViewController.swift; sourceTree = "<group>"; };
+		54C9503E1F3B70BA00D6AFF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MarkdownViewController.xib; sourceTree = "<group>"; };
+		54C950411F3B70BB00D6AFF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MarkdownViewController.strings; sourceTree = "<group>"; };
+		54C950431F3B70BD00D6AFF5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MarkdownViewController.strings"; sourceTree = "<group>"; };
 		54D3D9771DA55B4800BD009C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		54D3D9791DA55BBC00BD009C /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		54F0736B1DA4048B005C3010 /* VKFileBrowserDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VKFileBrowserDemo-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -309,6 +329,7 @@
 		54475DD81D9D949200B0BB49 /* VKFileBrowserDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5483B7DD1F41575400782760 /* README.md */,
 				54B55EF21F2D978A00BB1C09 /* vendor */,
 				54475E0A1D9D94D200B0BB49 /* VkFileBrowser */,
 				54475DD91D9D949200B0BB49 /* AppDelegate.swift */,
@@ -364,6 +385,9 @@
 		54475E121D9D94D200B0BB49 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5483B7CB1F4130BD00782760 /* Widget */,
+				548BC3E21F34D099005E6660 /* Network */,
+				548BC3DB1F34C2EA005E6660 /* Model */,
 				54C44AEF1DA054C900DD320B /* VKFileViewController.xib */,
 				54C44AF31DA054C900DD320B /* VKFileViewController.strings */,
 				54475E131D9D94D200B0BB49 /* .gitkeep */,
@@ -375,8 +399,37 @@
 				548D199A1F2ADDF300E962D8 /* Extension.swift */,
 				547911721F319C3D0098945F /* SourceViewController.xib */,
 				547911771F319C640098945F /* SourceViewController.swift */,
+				54C950391F3B705700D6AFF5 /* MarkdownViewController.swift */,
+				54C9503F1F3B70BA00D6AFF5 /* MarkdownViewController.xib */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		5483B7CB1F4130BD00782760 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				5483B7CC1F4130EC00782760 /* MarkdownTextAttachment.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		548BC3DB1F34C2EA005E6660 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				548BC3DC1F34C2FA005E6660 /* BaseModel.swift */,
+				548BC3DE1F34C34B005E6660 /* RepositoryModel.swift */,
+				548BC3E01F34CCCA005E6660 /* ContentItemModel.swift */,
+				548BC3E51F355453005E6660 /* ContentModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		548BC3E21F34D099005E6660 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				548BC3E31F34D0D2005E6660 /* URLRouter.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		54B55EF21F2D978A00BB1C09 /* vendor */ = {
@@ -703,6 +756,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54C9503D1F3B70BA00D6AFF5 /* MarkdownViewController.xib in Resources */,
 				548BC3D91F3375B4005E6660 /* SFMono-Regular.otf in Resources */,
 				54C44AFD1DA054C900DD320B /* VKFileViewController.strings in Resources */,
 				54475E1E1D9D94D200B0BB49 /* Localizable.strings in Resources */,
@@ -877,11 +931,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548BC3E11F34CCCA005E6660 /* ContentItemModel.swift in Sources */,
 				54B55F6F1F2D978A00BB1C09 /* Delta.c in Sources */,
 				54B55F791F2D978A00BB1C09 /* RARExtractException.m in Sources */,
 				54475E261D9D94D200B0BB49 /* VKFileViewController.swift in Sources */,
+				54C9503B1F3B705700D6AFF5 /* MarkdownViewController.swift in Sources */,
 				54B55F7F1F2D978A00BB1C09 /* SSZipArchive.m in Sources */,
 				54B55F6A1F2D978A00BB1C09 /* 7zFile.c in Sources */,
+				548BC3E41F34D0D2005E6660 /* URLRouter.swift in Sources */,
 				54B55F671F2D978A00BB1C09 /* 7zBuf.c in Sources */,
 				54B55F701F2D978A00BB1C09 /* Lzma2Dec.c in Sources */,
 				54B55F6C1F2D978A00BB1C09 /* 7zStream.c in Sources */,
@@ -892,9 +949,12 @@
 				54B55F691F2D978A00BB1C09 /* 7zDec.c in Sources */,
 				54B55F7C1F2D978A00BB1C09 /* mztools.c in Sources */,
 				5454625A1D9ED59D0053F7F5 /* DocumentPreviewObject.swift in Sources */,
+				548BC3E61F355453005E6660 /* ContentModel.swift in Sources */,
 				54B55F7B1F2D978A00BB1C09 /* ioapi.c in Sources */,
 				54475DDC1D9D949200B0BB49 /* ViewController.swift in Sources */,
 				54475E241D9D94D200B0BB49 /* VKFile.swift in Sources */,
+				548BC3DD1F34C2FA005E6660 /* BaseModel.swift in Sources */,
+				5483B7DE1F41575400782760 /* README.md in Sources */,
 				54B55F711F2D978A00BB1C09 /* LzmaDec.c in Sources */,
 				54B55F6D1F2D978A00BB1C09 /* Alloc.c in Sources */,
 				54B55F751F2D978A00BB1C09 /* Ppmd8.c in Sources */,
@@ -904,10 +964,12 @@
 				54B55F7E1F2D978A00BB1C09 /* zip.c in Sources */,
 				54B55F741F2D978A00BB1C09 /* Ppmd7Dec.c in Sources */,
 				54B55F781F2D978A00BB1C09 /* 7zMain.c in Sources */,
+				5483B7CD1F4130EC00782760 /* MarkdownTextAttachment.swift in Sources */,
 				54B55F6E1F2D978A00BB1C09 /* CpuArch.c in Sources */,
 				54B55F731F2D978A00BB1C09 /* Ppmd7.c in Sources */,
 				54B55F6B1F2D978A00BB1C09 /* 7zIn.c in Sources */,
 				548D199B1F2ADDF300E962D8 /* Extension.swift in Sources */,
+				548BC3DF1F34C34B005E6660 /* RepositoryModel.swift in Sources */,
 				54B55F681F2D978A00BB1C09 /* 7zBuf2.c in Sources */,
 				54B55F721F2D978A00BB1C09 /* LZMAExtractor.m in Sources */,
 				54475DDA1D9D949200B0BB49 /* AppDelegate.swift in Sources */,
@@ -1002,6 +1064,16 @@
 				54C44B011DA054DA00DD320B /* Base */,
 			);
 			name = VKFileViewController.strings;
+			sourceTree = "<group>";
+		};
+		54C9503F1F3B70BA00D6AFF5 /* MarkdownViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54C9503E1F3B70BA00D6AFF5 /* Base */,
+				54C950411F3B70BB00D6AFF5 /* en */,
+				54C950431F3B70BD00D6AFF5 /* zh-Hans */,
+			);
+			name = MarkdownViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

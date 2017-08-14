@@ -10,6 +10,7 @@ import UIKit
 import Photos
 import SDWebImage
 import MobileCoreServices
+import Alamofire
 
 public func LocalizedString(_ key: String) -> String {
     return NSLocalizedString(key, comment: "")
@@ -22,7 +23,14 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     /// MARK: -- Property
     let fileManager = FileManager.default
     let documentDir : String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!
-    var currentDir : String!
+    var currentDir : String! {
+        didSet{
+            if(currentDir != nil && currentDir != oldValue){
+                reloadCurPage()
+                self.title = currentDir.components(separatedBy: "/").last
+            }
+        }
+    }
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var mTableView: UITableView!
@@ -36,34 +44,33 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     var dataSource = [VKFile]()
     
     
+    
+    
     // MARK: - FileManager delegate --start
     func fileManager(_ fileManager: FileManager, shouldRemoveItemAtPath path: String) -> Bool {
         log("shouldRemoveItemAtPath",path)
-        reloadCurPage()
+        //        reloadCurPage()
         return true
     }
     
     func fileManager(_ fileManager: FileManager, shouldRemoveItemAt URL: URL) -> Bool {
         log("shouldRemoveItemAt",URL)
-        reloadCurPage()
+        //        reloadCurPage()
         return true
     }
     
     func fileManager(_ fileManager: FileManager, shouldCopyItemAt srcURL: URL, to dstURL: URL) -> Bool {
         log("shouldCopyItemAt",srcURL ,dstURL)
-        reloadCurPage()
         return true
     }
     
     func fileManager(_ fileManager: FileManager, shouldLinkItemAt srcURL: URL, to dstURL: URL) -> Bool {
         log("shouldLinkItemAt",srcURL ,dstURL)
-        reloadCurPage()
         return true
     }
     
     func fileManager(_ fileManager: FileManager, shouldMoveItemAt srcURL: URL, to dstURL: URL) -> Bool {
         log("shouldMoveItemAt",srcURL ,dstURL)
-        reloadCurPage()
         return true
     }
     func fileManager(_ fileManager: FileManager, shouldCopyItemAtPath srcPath: String, toPath dstPath: String) -> Bool {
@@ -132,6 +139,14 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
             self.collectionView.mj_header.endRefreshing()
         })
         
+        
+        let btn = UIButton(frame: CGRect(origin:CGPoint(x:0,y:0),size:CGSize(width:50,height:40)))
+        btn.setTitle(LocalizedString("back"), for: .normal)
+        btn.setTitleColor(UIColor.black, for: .normal)
+        btn.addTarget(self, action: #selector(clickBackBtn), for: UIControlEvents.touchUpInside)
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
+        
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(contextMenuHandler))
         longPressRecognizer.minimumPressDuration = 0.3
         longPressRecognizer.delaysTouchesBegan = true
@@ -143,11 +158,27 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         if (currentDir == nil) {
             currentDir = documentDir
         }
-        self.title = currentDir.components(separatedBy: "/").last
-        
         
         self.loadFileAtPath(currentDir)
+        
     }
+    
+    func clickBackBtn(){
+        
+        
+        if(currentDir == documentDir){
+            return
+        }
+        
+        let endRange = currentDir.range(of: "/", options: .backwards, range: nil, locale: nil)
+        if(endRange != nil){
+            let str = currentDir.substring(with: currentDir.startIndex..<(endRange?.lowerBound)!)
+            currentDir = str
+            
+        }
+        
+    }
+    
     
     func contextMenuHandler(gesture: UILongPressGestureRecognizer) {
         
@@ -161,7 +192,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
                 
                 let cell = self.collectionView?.cellForItem(at: self.selectedIndexPath!)
                 let menu = UIMenuController.shared
-                let sendMenuItem = UIMenuItem(title: "delete", action: #selector(deleteAction))
+                let sendMenuItem = UIMenuItem(title: LocalizedString("delete"), action: #selector(deleteAction))
                 menu.setTargetRect(CGRect(x:0,y:5,width:60,height:80), in: (cell?.contentView)!)
                 menu.arrowDirection = .down
                 
@@ -393,6 +424,119 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         
     }
     
+    func getDirContent(_ owner:String,repo:String,path:String = "" ,ref:String = "master"){
+        Alamofire.request(URLRouter.getContents(owner: owner/*"Alamofire"*/, repo: repo/*"Alamofire"*/, path: path, ref: ref)).responseJSON { response in
+            
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+                
+                if let result  = ContentItemModel.mj_objectArray(withKeyValuesArray: json){
+                    
+                    
+                    for item in result{
+                        let itemModel = (item as! ContentItemModel)
+                        
+                        if(itemModel.isFile()){
+                            self.downloadContentItem(itemModel)
+                        }
+                        else{
+                            
+                            if let itemPath = itemModel.path{
+                                print("itemPath:\(itemPath)")
+                                self.getDirContent(owner, repo: repo,path:itemPath)
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func downloadContentItem(_ itemModel : ContentItemModel){
+        let request = Alamofire.download(itemModel.download_url!, to: { temporaryURL, response in
+            let directoryURLs = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask)
+            
+            if !directoryURLs.isEmpty {
+                var pathUrl = directoryURLs[0]
+                if let pathComponents = response.url?.pathComponents {
+                    for i in 0..<(pathComponents.count-1) {
+                        pathUrl = pathUrl.appendingPathComponent(pathComponents[i])
+                    }
+                    if(!FileManager.default.fileExists(atPath: pathUrl.absoluteString)){
+                        do {
+                            try FileManager.default.createDirectory(at: pathUrl, withIntermediateDirectories: true, attributes:nil)
+                        } catch let error {
+                            print(error)
+                        }
+                    }
+                    pathUrl = pathUrl.appendingPathComponent(pathComponents[pathComponents.count-1])
+                    
+                }
+                
+                
+                return (pathUrl, [])
+            }
+            
+            return (temporaryURL, [])
+        })
+        request.responseData(completionHandler: {(response) in
+            switch response.result{
+            case .success(_):
+                print("文件下载完毕: \(response)");
+                break
+                
+            case .failure(_): break
+                
+            }
+            
+        })
+    }
+    
+    @IBAction func clickGithubBtn(_ sender: Any) {
+        
+        //getDirContent("Alamofire", repo: "Alamofire")
+        
+        
+        let controller = UIAlertController(title:LocalizedString("Github"),message:LocalizedString("clone repositroy"),preferredStyle:.alert)
+        
+        controller.addTextField(configurationHandler: {(textField) in
+            // textField
+            textField.placeholder = LocalizedString("owner")
+        })
+        controller.addTextField(configurationHandler: {(textField) in
+            // textField
+            textField.placeholder = LocalizedString("repositroy")
+        })
+        
+        let cloneAction = UIAlertAction(title: LocalizedString("clone"), style: .default, handler: {(action) in
+            print(action)
+            let textFields = controller.textFields
+            let owner = textFields?.first?.text
+            let repo = textFields?.last?.text
+            
+            if((owner?.isEmpty)! || (repo?.isEmpty)!){
+                return
+            }
+            self.getDirContent(owner!, repo: repo!)
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: LocalizedString("cancel"), style: .cancel, handler: {(action) in
+            
+        })
+        
+        let destructiveAction = UIAlertAction(title: LocalizedString("destructive"), style: .destructive, handler: {(action) in
+            
+        })
+        controller.addAction(cloneAction)
+        controller.addAction(cancelAction)
+        controller.addAction(destructiveAction)
+        
+        self.present(controller, animated: true, completion: nil)
+        
+        
+    }
     
     
     
@@ -401,8 +545,8 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         if file.isDirectory {
             
             self.currentDir = fileDir
-        
-            reloadCurPage()
+            
+            
         }
         else
         {
@@ -416,7 +560,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
                 return
             }
             else if (file.name.hasSuffix(".zip")){
-//                SSZipArchive.unzipFile(atPath: fileDir, toDestination: self.currentDir.appending("/\(file.name.substring(to: file.name.index(before: file.name.index(file.name.endIndex, offsetBy: -3))))"), delegate: self)
+                //                SSZipArchive.unzipFile(atPath: fileDir, toDestination: self.currentDir.appending("/\(file.name.substring(to: file.name.index(before: file.name.index(file.name.endIndex, offsetBy: -3))))"), delegate: self)
                 
                 SSZipArchive.unzipFile(atPath: fileDir, toDestination: self.currentDir, delegate: self)
                 return
@@ -450,6 +594,15 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
                 
                 return
             }
+            else if(file.name.hasSuffix(".md")){
+                let markdownVC = MarkdownViewController()
+                markdownVC.mFile = file
+                self.navigationController?.pushViewController(markdownVC, animated: true)
+                
+                return
+            }
+            
+            print("fileDir:\(fileDir) == file.type:\(file.type)")
             
             let nextVc = DocumentPreviewObject(_ : URL(fileURLWithPath: fileDir))
             nextVc.previewVC = self.navigationController
@@ -468,27 +621,26 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
      */
     
     func zipArchiveDidUnzipFile(at fileIndex: Int, totalFiles: Int, archivePath: String!, fileInfo: unz_file_info) {
-//        log("zipArchiveDidUnzipFile==  fileIndex:\(fileIndex)  totalFiles:\(totalFiles)  archivePath:\(archivePath)  fileInfo:\(fileInfo)")
+        //        log("zipArchiveDidUnzipFile==  fileIndex:\(fileIndex)  totalFiles:\(totalFiles)  archivePath:\(archivePath)  fileInfo:\(fileInfo)")
     }
     
     
     func zipArchiveDidUnzipArchive(atPath path: String!, zipInfo: unz_global_info, unzippedPath: String!, withFilePaths filePaths: NSMutableArray!) {
-//        log("zipArchiveDidUnzipArchive== path:\(path)  zipInfo:\(zipInfo)  unzippedPath:\(unzippedPath)  filePaths:\(filePaths)")
+        //        log("zipArchiveDidUnzipArchive== path:\(path)  zipInfo:\(zipInfo)  unzippedPath:\(unzippedPath)  filePaths:\(filePaths)")
         reloadCurPage()
     }
     
     
     func zipArchiveWillUnzipArchive(atPath path: String!, zipInfo: unz_global_info) {
-//        log("zipArchiveWillUnzipArchive==   path:\(path)  zipInfo:\(zipInfo)")
+        //        log("zipArchiveWillUnzipArchive==   path:\(path)  zipInfo:\(zipInfo)")
     }
     
     func zipArchiveWillUnzipFile(at fileIndex: Int, totalFiles: Int, archivePath: String!, fileInfo: unz_file_info) {
-//        log("zipArchiveWillUnzipFile==   fileIndex:\(fileIndex)  totalFiles:\(totalFiles)  archivePath:\(archivePath)  fileInfo:\(fileInfo)")
+        //        log("zipArchiveWillUnzipFile==   fileIndex:\(fileIndex)  totalFiles:\(totalFiles)  archivePath:\(archivePath)  fileInfo:\(fileInfo)")
     }
     
     func loadFileAtPath(_ path: String){
         dataSource.removeAll()
-        
         
         let resourceKeys = [URLResourceKey.nameKey,URLResourceKey.isDirectoryKey,URLResourceKey.pathKey,URLResourceKey.typeIdentifierKey,URLResourceKey.totalFileSizeKey,URLResourceKey.creationDateKey]
         let directoryEnumerator = fileManager.enumerator(at:URL(fileURLWithPath: path), includingPropertiesForKeys: resourceKeys, options: [], errorHandler: nil)!
@@ -621,19 +773,19 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         print("destinationIndexPath")
     }
     
-//    func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-//        
-//        return true
-//    }
-//    
-//    
-//    func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-//        log(action)
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
+    //    func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+    //
+    //        return true
+    //    }
+    //
+    //
+    //    func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+    //        log(action)
+    //    }
+    //
+    //    func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
+    //        return true
+    //    }
     override var canBecomeFirstResponder: Bool {
         get{
             return true

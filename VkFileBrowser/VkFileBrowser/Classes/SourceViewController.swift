@@ -28,7 +28,7 @@ class SourceViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.title = mFile.name
         
         DispatchQueue.global().async{
             let startDate = Date()
@@ -53,7 +53,7 @@ class SourceViewController: BaseViewController {
                 content.enumerateLines(invoking: {(line,flag) in
                     //                print("line:\(line)")
                     
-                    let attributedLine = NSMutableAttributedString(string: line+"\n",attributes:[NSForegroundColorAttributeName:UIColor.hexColor(0xFFFFFF),NSFontAttributeName:font])
+                    let attributedLine = NSMutableAttributedString(string: line+"\n",attributes:[NSForegroundColorAttributeName:UIColor.hexColor(0xFFFFFF),NSFontAttributeName:font ?? UIFont.systemFont(ofSize: CGFloat(12))])
                     
                     //单行注释
                     let commentRange = line.range(of:"//")
@@ -91,9 +91,6 @@ class SourceViewController: BaseViewController {
                             }
                         }
                     }
-                    
-                    
-                    
                     
                     
                     aStr.append(attributedLine)
