@@ -23,6 +23,15 @@ extension NSObject {
     
 }
 
+extension UITableView{
+    
+    func hideExtraCell(){
+        let view = UIView()
+        view.backgroundColor = UIColor.clear
+        self.tableFooterView = view
+    }
+}
+
 extension String {
     func ranges(of str:String) -> [Range<String.Index>]{
         var results = [Range<String.Index>]()

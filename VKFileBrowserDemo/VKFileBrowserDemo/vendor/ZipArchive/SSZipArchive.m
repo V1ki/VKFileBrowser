@@ -6,6 +6,8 @@
 //  Copyright (c) Sam Soffes 2010-2011. All rights reserved.
 //
 
+// http://www.baidu.com
+
 #import "SSZipArchive.h"
 #include "minizip/zip.h"
 #import "zlib.h"
@@ -30,6 +32,7 @@
 #pragma mark - Unzipping
 
 + (BOOL)unzipFileAtPath:(NSString *)path toDestination:(NSString *)destination {
+    
 	return [self unzipFileAtPath:path toDestination:destination delegate:nil];
 }
 

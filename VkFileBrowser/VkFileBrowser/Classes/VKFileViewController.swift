@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import Photos
 import SDWebImage
-import MobileCoreServices
 import Alamofire
 
 public func LocalizedString(_ key: String) -> String {
@@ -17,12 +15,14 @@ public func LocalizedString(_ key: String) -> String {
 }
 
 
-class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDataSource,UITableViewDelegate,FileManagerDelegate,SSZipArchiveDelegate {
+
+let documentDir : String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!
+let resourceKeys = [URLResourceKey.nameKey,URLResourceKey.isDirectoryKey,URLResourceKey.pathKey,URLResourceKey.typeIdentifierKey,URLResourceKey.totalFileSizeKey,URLResourceKey.creationDateKey]
+
+class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICollectionViewDelegate,UITableViewDataSource,UITableViewDelegate,FileManagerDelegate,SSZipArchiveDelegate  {
     
-    
-    /// MARK: -- Property
     let fileManager = FileManager.default
-    let documentDir : String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!
+    /// MARK: -- Property
     var currentDir : String! {
         didSet{
             if(currentDir != nil && currentDir != oldValue){
@@ -44,9 +44,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     var dataSource = [VKFile]()
     
     
-    
-    
-    // MARK: - FileManager delegate --start
+    // MARK: - FileManager delegate -- start
     func fileManager(_ fileManager: FileManager, shouldRemoveItemAtPath path: String) -> Bool {
         log("shouldRemoveItemAtPath",path)
         //        reloadCurPage()
@@ -120,7 +118,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         log("shouldProceedAfterError",error ,"linkingItemAtPath",srcPath,dstPath)
         return true
     }
-    
+
     // MARK: - FileManager delegate -- end
     
     
@@ -131,7 +129,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         // Do any additional setup after loading the view.
         self.automaticallyAdjustsScrollViewInsets = false
         self.initViewStyle()
-        self.setTableExtraHidden()
+        mTableView.hideExtraCell()
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         collectionView.mj_header = MJRefreshNormalHeader(refreshingBlock: {() in
@@ -222,13 +220,6 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     func runGrok(){}
     
     
-    func setTableExtraHidden(){
-        let view = UIView()
-        view.backgroundColor = UIColor.clear
-        mTableView.tableFooterView = view
-        
-    }
-    
     func initViewStyle(){
         var containerTypes = [UIAppearanceContainer.Type]()
         containerTypes.append(VKFileViewController.self)
@@ -276,6 +267,36 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     }
     
     
+    @IBAction func clickSearchBtn(_ sender: Any) {
+        let searchVC = VKSearchViewController()
+        searchVC.callBack = {(fileURL) in
+            guard let resourceValues = try? fileURL.resourceValues(forKeys: resourceKeys),
+                let isDirectory = resourceValues[.isDirectoryKey] as? Bool ,
+                let name = resourceValues[.nameKey] as? String ,
+                let type = resourceValues[.typeIdentifierKey] as? String
+                
+                else {
+                    return
+            }
+            
+            let fileSize = resourceValues[URLResourceKey.totalFileSizeKey] as? NSNumber
+            var fileSizeFloatValue = fileSize?.intValue
+            fileSizeFloatValue = fileSizeFloatValue == nil ? 0 : fileSizeFloatValue
+            
+            let creationDate = resourceValues[.creationDateKey]
+            
+            let file = VKFile(name,(fileURL.deletingLastPathComponent?.path)!, isDirectory, type,fileSizeFloatValue)
+            file.creationDate = creationDate as! NSDate?
+
+            print(file)
+            
+            self.selectFile(file)
+
+        }
+        self.present(searchVC, animated: true, completion: nil)
+//        self.navigationController?.pushViewController(searchVC, animated: true)
+        
+    }
     
     
     func showAlertController(_ title : String? , _ message : String? , _ cancelTitlte : String? , _ defaultTitle : String? ,_ cancelHandler:((UIAlertAction) -> Swift.Void)? = nil ,_ defalutHandler: ((UIAlertAction,String) -> Swift.Void)? = nil  ){
@@ -541,12 +562,10 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     
     
     func selectFile(_ file :VKFile){
-        let fileDir : String = self.currentDir.appending("/\(file.name!)")
+        let fileDir : String = file.filePath!.appending("/\(file.name!)")
+        
         if file.isDirectory {
-            
             self.currentDir = fileDir
-            
-            
         }
         else
         {
@@ -642,8 +661,8 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     func loadFileAtPath(_ path: String){
         dataSource.removeAll()
         
-        let resourceKeys = [URLResourceKey.nameKey,URLResourceKey.isDirectoryKey,URLResourceKey.pathKey,URLResourceKey.typeIdentifierKey,URLResourceKey.totalFileSizeKey,URLResourceKey.creationDateKey]
         let directoryEnumerator = fileManager.enumerator(at:URL(fileURLWithPath: path), includingPropertiesForKeys: resourceKeys, options: [], errorHandler: nil)!
+        
         
         for case let fileURL as NSURL in directoryEnumerator {
             guard let resourceValues = try? fileURL.resourceValues(forKeys: resourceKeys),
@@ -662,7 +681,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
             
             let creationDate = resourceValues[.creationDateKey]
             
-            let file = VKFile(name,self.currentDir, isDirectory, type,fileSizeFloatValue)
+            let file = VKFile(name,path, isDirectory, type,fileSizeFloatValue)
             file.creationDate = creationDate as! NSDate?
             
             dataSource.append(file)
@@ -676,7 +695,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         dataSource.sort(by: {(file1,file2) -> Bool in
             return file1.compare(withOtherFile: file2, bySortType: .name)
         })
-        
+        print(dataSource)
         currentDir = path
         
         DispatchQueue.main.async {

@@ -33,7 +33,7 @@ class VKFile: NSObject {
     
     override var description: String {
         get{
-            return "name:\(name) -- type:\(type) -- fileSize:\(fileSize)"
+            return "name:\(name) -- filePath:\(filePath) -- type:\(type) -- fileSize:\(fileSize)"
         }
     }
     
