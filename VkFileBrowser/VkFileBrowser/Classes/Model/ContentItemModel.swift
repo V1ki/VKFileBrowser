@@ -44,7 +44,7 @@ class ContentItemModel : BaseModel {
     
     
     func isDir() -> Bool{
-        return type == "file"
+        return type == "dir"
     }
     
     

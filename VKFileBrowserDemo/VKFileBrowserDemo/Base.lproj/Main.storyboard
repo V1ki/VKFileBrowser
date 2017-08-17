@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A319" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nP7-vA-uN2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nP7-vA-uN2">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,20 +21,46 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZW-8f-lxT">
+                                <rect key="frame" x="80" y="288" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="Qyc-4l-E05"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="github"/>
+                                <connections>
+                                    <action selector="clickGithubBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xq1-CW-mrp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baJ-4w-PSo">
+                                <rect key="frame" x="238" y="288.5" width="90" height="90"/>
+                                <state key="normal" title="Button" image="FinderIcon"/>
+                                <connections>
+                                    <action selector="clickFinderBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ilm-cw-kcI"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="baJ-4w-PSo" firstAttribute="leading" secondItem="CZW-8f-lxT" secondAttribute="trailing" constant="68" id="2x4-3g-Gy8"/>
+                            <constraint firstItem="baJ-4w-PSo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="C5p-UD-KjE"/>
+                            <constraint firstItem="CZW-8f-lxT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NDa-1c-1ZU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="baJ-4w-PSo" secondAttribute="trailing" constant="31" id="TjR-vY-dbD"/>
+                            <constraint firstItem="CZW-8f-lxT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="64" id="rgm-y1-mHv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hxw-df-qoe"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="617" y="658"/>
+            <point key="canvasLocation" x="616.79999999999995" y="657.12143928035982"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fAP-gU-xQT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nP7-vA-uN2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ed8-K1-iMY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ed8-K1-iMY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -44,4 +74,8 @@
             <point key="canvasLocation" x="-422" y="608"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="FinderIcon" width="90" height="90"/>
+        <image name="github" width="90" height="90"/>
+    </resources>
 </document>

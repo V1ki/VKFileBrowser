@@ -15,7 +15,8 @@ target 'VKFileBrowserDemo' do
  pod "MJRefresh"
  pod "MWPhotoBrowser"
  pod "Alamofire"
- pod 'MJExtension'
+ pod "MJExtension"
+ pod "MBProgressHUD"
  
   target 'VKFileBrowserDemoTests' do
     inherit! :search_paths

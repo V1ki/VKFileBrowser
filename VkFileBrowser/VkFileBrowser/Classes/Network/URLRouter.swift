@@ -45,6 +45,8 @@ enum URLRouter: URLRequestConvertible {
             pathStr = "users/\(name)/following?page=\(page)"
         case .searchRepos(let page, let q, let sort):
             pathStr = "search/repositories?q=\(q)&sort=\(sort)&page=\(page)"
+        case .getRateLimite():
+            pathStr = "rate_limit"
         case .getContents(let owner,let repo,let path,var ref):
             if(ref.characters.count == 0){
                 ref = "master"
@@ -58,7 +60,7 @@ enum URLRouter: URLRequestConvertible {
         let urlStr = baseURL + pathStr
         
         let url = URL(string: urlStr)
-        print("urlStr:\(urlStr) -- url:\(url)")
+        log("urlStr:\(urlStr) -- url:\(url)")
         var request = URLRequest(url: url!)
         
         
@@ -69,7 +71,7 @@ enum URLRouter: URLRequestConvertible {
             let tt = try URLEncoding.default.encode(request, with: params)
             return tt
         } catch let error {
-            print(error)
+            log(error)
         }
         
         
@@ -83,7 +85,7 @@ enum URLRouter: URLRequestConvertible {
     case userRepos(page: Int, name: String)
     case userFollowing(page: Int, name: String)
     case userFollowers(page: Int, name: String)
-    
+    case getRateLimite()
     case searchRepos(page: Int, q: String, sort: String)
     
     case getContents(owner:String,repo:String,path:String ,ref:String)

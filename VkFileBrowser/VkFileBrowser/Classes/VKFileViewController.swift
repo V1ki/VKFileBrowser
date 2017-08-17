@@ -68,7 +68,8 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     }
     
     func fileManager(_ fileManager: FileManager, shouldMoveItemAt srcURL: URL, to dstURL: URL) -> Bool {
-        log("shouldMoveItemAt",srcURL ,dstURL)
+//        log("shouldMoveItemAt",srcURL ,dstURL)
+        reloadCurPage()
         return true
     }
     func fileManager(_ fileManager: FileManager, shouldCopyItemAtPath srcPath: String, toPath dstPath: String) -> Bool {
@@ -172,7 +173,6 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         if(endRange != nil){
             let str = currentDir.substring(with: currentDir.startIndex..<(endRange?.lowerBound)!)
             currentDir = str
-            
         }
         
     }
@@ -287,8 +287,6 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
             
             let file = VKFile(name,(fileURL.deletingLastPathComponent?.path)!, isDirectory, type,fileSizeFloatValue)
             file.creationDate = creationDate as! NSDate?
-
-            print(file)
             
             self.selectFile(file)
 
@@ -414,7 +412,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
             try self.fileManager.createDirectory(atPath: fileDir, withIntermediateDirectories: true, attributes: nil)
             self.loadFileAtPath(self.currentDir)
         }catch let error{
-            print(error)
+            log(error)
             return false
         }
         return true
@@ -449,7 +447,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         Alamofire.request(URLRouter.getContents(owner: owner/*"Alamofire"*/, repo: repo/*"Alamofire"*/, path: path, ref: ref)).responseJSON { response in
             
             if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
+//                log("JSON: \(json)") // serialized json response
                 
                 if let result  = ContentItemModel.mj_objectArray(withKeyValuesArray: json){
                     
@@ -458,12 +456,16 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
                         let itemModel = (item as! ContentItemModel)
                         
                         if(itemModel.isFile()){
-                            self.downloadContentItem(itemModel)
+                            if(itemModel.download_url != nil)
+                            {
+                                DownloadUtils.downloadFile(URL(string:itemModel.download_url!)!, completionHanler: nil)
+                            }
+                            
                         }
                         else{
                             
                             if let itemPath = itemModel.path{
-                                print("itemPath:\(itemPath)")
+//                                log("itemPath:\(itemPath)")
                                 self.getDirContent(owner, repo: repo,path:itemPath)
                             }
                             
@@ -474,46 +476,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         }
     }
     
-    func downloadContentItem(_ itemModel : ContentItemModel){
-        let request = Alamofire.download(itemModel.download_url!, to: { temporaryURL, response in
-            let directoryURLs = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask)
-            
-            if !directoryURLs.isEmpty {
-                var pathUrl = directoryURLs[0]
-                if let pathComponents = response.url?.pathComponents {
-                    for i in 0..<(pathComponents.count-1) {
-                        pathUrl = pathUrl.appendingPathComponent(pathComponents[i])
-                    }
-                    if(!FileManager.default.fileExists(atPath: pathUrl.absoluteString)){
-                        do {
-                            try FileManager.default.createDirectory(at: pathUrl, withIntermediateDirectories: true, attributes:nil)
-                        } catch let error {
-                            print(error)
-                        }
-                    }
-                    pathUrl = pathUrl.appendingPathComponent(pathComponents[pathComponents.count-1])
-                    
-                }
-                
-                
-                return (pathUrl, [])
-            }
-            
-            return (temporaryURL, [])
-        })
-        request.responseData(completionHandler: {(response) in
-            switch response.result{
-            case .success(_):
-                print("文件下载完毕: \(response)");
-                break
-                
-            case .failure(_): break
-                
-            }
-            
-        })
-    }
-    
+        
     @IBAction func clickGithubBtn(_ sender: Any) {
         
         //getDirContent("Alamofire", repo: "Alamofire")
@@ -531,7 +494,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         })
         
         let cloneAction = UIAlertAction(title: LocalizedString("clone"), style: .default, handler: {(action) in
-            print(action)
+            log(action)
             let textFields = controller.textFields
             let owner = textFields?.first?.text
             let repo = textFields?.last?.text
@@ -621,7 +584,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
                 return
             }
             
-            print("fileDir:\(fileDir) == file.type:\(file.type)")
+            log("fileDir:\(fileDir) == file.type:\(file.type)")
             
             let nextVc = DocumentPreviewObject(_ : URL(fileURLWithPath: fileDir))
             nextVc.previewVC = self.navigationController
@@ -695,7 +658,6 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         dataSource.sort(by: {(file1,file2) -> Bool in
             return file1.compare(withOtherFile: file2, bySortType: .name)
         })
-        print(dataSource)
         currentDir = path
         
         DispatchQueue.main.async {
@@ -789,7 +751,7 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        print("destinationIndexPath")
+        
     }
     
     //    func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {

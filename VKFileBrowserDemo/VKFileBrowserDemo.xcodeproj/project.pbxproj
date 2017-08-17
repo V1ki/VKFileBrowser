@@ -23,6 +23,7 @@
 		54475E251D9D94D200B0BB49 /* VkFileCustomViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475E1A1D9D94D200B0BB49 /* VkFileCustomViewLayout.swift */; };
 		54475E261D9D94D200B0BB49 /* VKFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475E1B1D9D94D200B0BB49 /* VKFileViewController.swift */; };
 		5454625A1D9ED59D0053F7F5 /* DocumentPreviewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545462581D9ED59D0053F7F5 /* DocumentPreviewObject.swift */; };
+		5474BF5F1F4542B200FD377F /* DownloadUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5474BF5E1F4542B200FD377F /* DownloadUtils.swift */; };
 		5479116E1F319C3D0098945F /* SourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547911721F319C3D0098945F /* SourceViewController.xib */; };
 		5479116F1F319C3D0098945F /* SourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547911721F319C3D0098945F /* SourceViewController.xib */; };
 		547911701F319C3D0098945F /* SourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547911721F319C3D0098945F /* SourceViewController.xib */; };
@@ -65,6 +66,8 @@
 		54B55F7E1F2D978A00BB1C09 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F621F2D978A00BB1C09 /* zip.c */; };
 		54B55F7F1F2D978A00BB1C09 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F651F2D978A00BB1C09 /* SSZipArchive.m */; };
 		54C2D5FB1F42A3C000E4BA4F /* VKSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C2D5FD1F42A3C000E4BA4F /* VKSearchViewController.xib */; };
+		54C2D6041F42BF1A00E4BA4F /* GithubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C2D6021F42BF1A00E4BA4F /* GithubViewController.swift */; };
+		54C2D6061F42BF2A00E4BA4F /* GithubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C2D6081F42BF2A00E4BA4F /* GithubViewController.xib */; };
 		54C44AFA1DA054C900DD320B /* VKFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C44AEF1DA054C900DD320B /* VKFileViewController.xib */; };
 		54C44AFD1DA054C900DD320B /* VKFileViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54C44AF31DA054C900DD320B /* VKFileViewController.strings */; };
 		54C9503B1F3B705700D6AFF5 /* MarkdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C950391F3B705700D6AFF5 /* MarkdownViewController.swift */; };
@@ -137,6 +140,7 @@
 		54475E1A1D9D94D200B0BB49 /* VkFileCustomViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VkFileCustomViewLayout.swift; sourceTree = "<group>"; };
 		54475E1B1D9D94D200B0BB49 /* VKFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKFileViewController.swift; sourceTree = "<group>"; };
 		545462581D9ED59D0053F7F5 /* DocumentPreviewObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentPreviewObject.swift; sourceTree = "<group>"; };
+		5474BF5E1F4542B200FD377F /* DownloadUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadUtils.swift; sourceTree = "<group>"; };
 		547911711F319C3D0098945F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SourceViewController.xib; sourceTree = "<group>"; };
 		547911741F319C3F0098945F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SourceViewController.strings; sourceTree = "<group>"; };
 		547911761F319C420098945F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SourceViewController.strings"; sourceTree = "<group>"; };
@@ -261,6 +265,10 @@
 		54C2D5FC1F42A3C000E4BA4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VKSearchViewController.xib; sourceTree = "<group>"; };
 		54C2D5FF1F42A3C300E4BA4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VKSearchViewController.strings; sourceTree = "<group>"; };
 		54C2D6011F42A3C600E4BA4F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/VKSearchViewController.strings"; sourceTree = "<group>"; };
+		54C2D6021F42BF1A00E4BA4F /* GithubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubViewController.swift; sourceTree = "<group>"; };
+		54C2D6071F42BF2A00E4BA4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GithubViewController.xib; sourceTree = "<group>"; };
+		54C2D60A1F42BF2D00E4BA4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/GithubViewController.strings; sourceTree = "<group>"; };
+		54C2D60C1F42BF2F00E4BA4F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/GithubViewController.strings"; sourceTree = "<group>"; };
 		54C44AF01DA054C900DD320B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VKFileViewController.xib; sourceTree = "<group>"; };
 		54C44AF41DA054C900DD320B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VKFileViewController.strings; sourceTree = "<group>"; };
 		54C44AF81DA054C900DD320B /* zh-Hans */ = {isa = PBXFileReference; explicitFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/VKFileViewController.strings"; sourceTree = "<group>"; };
@@ -395,6 +403,10 @@
 				548BC3E21F34D099005E6660 /* Network */,
 				548BC3DB1F34C2EA005E6660 /* Model */,
 				54C44AEF1DA054C900DD320B /* VKFileViewController.xib */,
+				547911721F319C3D0098945F /* SourceViewController.xib */,
+				54C9503F1F3B70BA00D6AFF5 /* MarkdownViewController.xib */,
+				54C2D5FD1F42A3C000E4BA4F /* VKSearchViewController.xib */,
+				54C2D6081F42BF2A00E4BA4F /* GithubViewController.xib */,
 				54C44AF31DA054C900DD320B /* VKFileViewController.strings */,
 				54475E131D9D94D200B0BB49 /* .gitkeep */,
 				54475E161D9D94D200B0BB49 /* BaseViewController.swift */,
@@ -403,12 +415,10 @@
 				54475E1B1D9D94D200B0BB49 /* VKFileViewController.swift */,
 				545462581D9ED59D0053F7F5 /* DocumentPreviewObject.swift */,
 				548D199A1F2ADDF300E962D8 /* Extension.swift */,
-				547911721F319C3D0098945F /* SourceViewController.xib */,
 				547911771F319C640098945F /* SourceViewController.swift */,
 				54C950391F3B705700D6AFF5 /* MarkdownViewController.swift */,
-				54C9503F1F3B70BA00D6AFF5 /* MarkdownViewController.xib */,
 				5483B7E81F4195C200782760 /* VKSearchViewController.swift */,
-				54C2D5FD1F42A3C000E4BA4F /* VKSearchViewController.xib */,
+				54C2D6021F42BF1A00E4BA4F /* GithubViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -436,6 +446,7 @@
 			isa = PBXGroup;
 			children = (
 				548BC3E31F34D0D2005E6660 /* URLRouter.swift */,
+				5474BF5E1F4542B200FD377F /* DownloadUtils.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -768,6 +779,7 @@
 				548BC3D91F3375B4005E6660 /* SFMono-Regular.otf in Resources */,
 				54C44AFD1DA054C900DD320B /* VKFileViewController.strings in Resources */,
 				54475E1E1D9D94D200B0BB49 /* Localizable.strings in Resources */,
+				54C2D6061F42BF2A00E4BA4F /* GithubViewController.xib in Resources */,
 				54C44AFA1DA054C900DD320B /* VKFileViewController.xib in Resources */,
 				54C2D5FB1F42A3C000E4BA4F /* VKSearchViewController.xib in Resources */,
 				54475DE71D9D949200B0BB49 /* LaunchScreen.storyboard in Resources */,
@@ -981,7 +993,9 @@
 				548D199B1F2ADDF300E962D8 /* Extension.swift in Sources */,
 				548BC3DF1F34C34B005E6660 /* RepositoryModel.swift in Sources */,
 				54B55F681F2D978A00BB1C09 /* 7zBuf2.c in Sources */,
+				5474BF5F1F4542B200FD377F /* DownloadUtils.swift in Sources */,
 				54B55F721F2D978A00BB1C09 /* LZMAExtractor.m in Sources */,
+				54C2D6041F42BF1A00E4BA4F /* GithubViewController.swift in Sources */,
 				54475DDA1D9D949200B0BB49 /* AppDelegate.swift in Sources */,
 				54475DE21D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodeld in Sources */,
 			);
@@ -1064,6 +1078,16 @@
 				54C2D6011F42A3C600E4BA4F /* zh-Hans */,
 			);
 			name = VKSearchViewController.xib;
+			sourceTree = "<group>";
+		};
+		54C2D6081F42BF2A00E4BA4F /* GithubViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54C2D6071F42BF2A00E4BA4F /* Base */,
+				54C2D60A1F42BF2D00E4BA4F /* en */,
+				54C2D60C1F42BF2F00E4BA4F /* zh-Hans */,
+			);
+			name = GithubViewController.xib;
 			sourceTree = "<group>";
 		};
 		54C44AEF1DA054C900DD320B /* VKFileViewController.xib */ = {

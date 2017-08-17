@@ -14,8 +14,7 @@ public func log(_ items: Any..., separator: String = "", terminator: String = ""
 }
 
 public func log(_ items: Any...)  {
-    
-    print("\(items)")
+    print(items)
 }
 
 extension NSObject {

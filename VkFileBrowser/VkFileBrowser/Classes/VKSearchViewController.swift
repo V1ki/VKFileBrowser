@@ -38,7 +38,7 @@ class VKSearchViewController: BaseViewController , UITableViewDataSource , UITab
     }
     
     func searchFile(_ fileName:String) -> [Any]{
-        print("searchFile:\(fileName)")
+        log("searchFile:\(fileName)")
         let resourceKeys = [URLResourceKey.nameKey,URLResourceKey.isDirectoryKey,URLResourceKey.pathKey,URLResourceKey.typeIdentifierKey]
         let directoryEnumerator = fileManager.enumerator(at:URL(fileURLWithPath: documentDir), includingPropertiesForKeys: resourceKeys, options: [], errorHandler: nil)!
         
@@ -46,7 +46,7 @@ class VKSearchViewController: BaseViewController , UITableViewDataSource , UITab
         
         
         
-        print("\(type(of:results))")
+        log("\(type(of:results))")
         return results
     }
     
@@ -79,7 +79,7 @@ class VKSearchViewController: BaseViewController , UITableViewDataSource , UITab
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
-        print("input searchText:\(searchText)")
+        log("input searchText:\(searchText)")
         
         if(searchWorkItem != nil){
             

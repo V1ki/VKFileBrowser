@@ -22,59 +22,6 @@ class MarkdownViewController: BaseViewController {
         }
     }
     
-    func getSavePathStr(_ url: URL?) -> String {
-        
-        var pathUrl = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last
-        if let pathComponents = url?.pathComponents {
-            for i in 0..<(pathComponents.count-1) {
-                pathUrl?.append("/"+pathComponents[i])
-            }
-            if(!FileManager.default.fileExists(atPath: pathUrl!)){
-                do {
-                    try FileManager.default.createDirectory(atPath: pathUrl!, withIntermediateDirectories: true, attributes:nil)
-                } catch let error {
-                    print(error)
-                }
-            }
-            pathUrl?.append("/"+pathComponents[pathComponents.count-1])
-            
-        }
-        
-        
-        return pathUrl!
-        
-    }
-    
-    
-    func getSavePath(_ str: String) -> DownloadRequest.DownloadFileDestination {
-        return { temporaryURL, response in
-            let directoryURLs = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask)
-            
-            if !directoryURLs.isEmpty {
-                var pathUrl = directoryURLs[0]
-                if let pathComponents = response.url?.pathComponents {
-                    for i in 0..<(pathComponents.count-1) {
-                        pathUrl = pathUrl.appendingPathComponent(pathComponents[i])
-                    }
-                    if(!FileManager.default.fileExists(atPath: pathUrl.absoluteString)){
-                        do {
-                            try FileManager.default.createDirectory(at: pathUrl, withIntermediateDirectories: true, attributes:nil)
-                        } catch let error {
-                            print(error)
-                        }
-                    }
-                    pathUrl = pathUrl.appendingPathComponent(pathComponents[pathComponents.count-1])
-                    
-                }
-                
-                
-                return (pathUrl, [])
-            }
-            
-            return (temporaryURL, [])
-        }
-    }
-    
     
     
     
@@ -112,33 +59,6 @@ class MarkdownViewController: BaseViewController {
             
         }
         
-    }
-    
-    
-    
-    func downloadImg(_ imgPath : String , completionHandler:@escaping (Bool) -> Void){
-
-        let savePath = self.getSavePath(imgPath)
-        let savePathURL = self.getSavePathStr(URL(string: imgPath))
-        print("path:\(savePathURL)  isExist:\(FileManager.default.fileExists(atPath: savePathURL))")
-        
-        if(!FileManager.default.fileExists(atPath: savePathURL)){
-            let request = Alamofire.download(imgPath, to: savePath)
-            request.responseData(completionHandler: {(response) in
-                switch response.result{
-                case .success(_):
-                    completionHandler(true)
-                    break
-                    
-                case .failure(_):
-                    completionHandler(false)
-                    break
-                    
-                }
-            })
-        }else{
-            completionHandler(true)
-        }
     }
     
     

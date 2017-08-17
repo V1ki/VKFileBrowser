@@ -111,7 +111,6 @@ class VKFile: NSObject {
     
     func isImageType() -> Bool{
         return UTTypeConformsTo(type as CFString, kUTTypeImage)
-        
 //        return type.contains("public.jpeg")
     }
     

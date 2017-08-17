@@ -56,7 +56,7 @@ class SourceViewController: BaseViewController ,UITextViewDelegate{
                 
                 
                 content.enumerateLines(invoking: {(line,flag) in
-                    //                print("line:\(line)")
+                    //                log("line:\(line)")
                     
                     let attributedLine = NSMutableAttributedString(string: line+"\n",attributes:[NSForegroundColorAttributeName:UIColor.hexColor(0xFFFFFF),NSFontAttributeName:font ?? UIFont.systemFont(ofSize: CGFloat(12))])
                     
@@ -75,7 +75,7 @@ class SourceViewController: BaseViewController ,UITextViewDelegate{
                     let urlRange = line.range(of: "^((ht|f)tps?):\\/\\/[\\w\\-]+(\\.[\\w\\-]+)+([\\w\\-\\.,@?^=%&:\\/~\\+#]*[\\w\\", options:.regularExpression , range: line.startIndex..<line.endIndex, locale: nil)
                     if(urlRange != nil)
                     {
-                        print(urlRange)
+                        log(urlRange)
                     }
                     
                     
@@ -146,7 +146,7 @@ class SourceViewController: BaseViewController ,UITextViewDelegate{
                 let endDate = Date()
                 let interval = endDate.timeIntervalSince(startDate)
                 
-                print("interval:\(interval)")
+                log("interval:\(interval)")
             }
             else if(self.mFile.isSwiftSourceType()){
                 
@@ -198,29 +198,12 @@ class SourceViewController: BaseViewController ,UITextViewDelegate{
         //得到点击的行的内容
         let line = content?.substring(with: (startBrRange?.upperBound)!..<(endBrRange?.lowerBound)!)
         
-        print("line:\(line)")
+        log("line:\(line)")
         
         // 找到 需要处理的行 的内容之后，判断 是否需要跳转，怎么跳转。
         
     }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        print("shouldChangeTextIn:\(range)")
-        return true
-    }
-    
-    
-    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        print("characterRange:\(characterRange)")
-        
-        
-        
-        return true
-    }
-    
-    
-    
-    
+
     
     
 }
