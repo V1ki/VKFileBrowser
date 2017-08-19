@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GCDWebUploaderDelegate{
 
     var window: UIWindow?
     var uploader :GCDWebUploader?
+    
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -35,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GCDWebUploaderDelegate{
         
         
         
+        
         return true
     }
     
@@ -45,8 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GCDWebUploaderDelegate{
         if(topvc is VKFileViewController){
             (topvc as! VKFileViewController).reloadCurPage()
         }
-        
-        
     }
     
     func webUploader(_ uploader: GCDWebUploader, didDeleteItemAtPath path: String) {

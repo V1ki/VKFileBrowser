@@ -7,93 +7,136 @@
 //
 
 import UIKit
+import Result
+import SwiftGit2
 
 class ViewController: UIViewController {
     
-    var vkFileVC : VKFileViewController?
+    
+    var progressHud : MBProgressHUD?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        navigationItem.leftItemsSupplementBackButton = true
     }
+
     
-    @IBAction func clickFinderBtn(_ sender: Any) {
-        vkFileVC = VKFileViewController()
-        self.navigationController?.pushViewController(vkFileVC!, animated: true)
-    }
     
-    @IBAction func clickGithubBtn(_ sender: Any) {
-        
-        
-        let alertController = UIAlertController(title: "Github", message: "SSH or HTTPS URLS", preferredStyle: .alert)
-        
-        alertController.addTextField(configurationHandler: {(textField) in
-            textField.placeholder = LocalizedString("git@github.com:owner/repo.git")
-        })
+    func clone(){
+        let alertController = UIAlertController(title: LocalizedString("Github"), message: "HTTPS URLS", preferredStyle: .alert)
         
         alertController.addTextField(configurationHandler: {(textField) in
             textField.placeholder = LocalizedString("https://github.com/owner/repo.git")
         })
         
         
-        let action = UIAlertAction(title: LocalizedString("confrim"), style: .default, handler: {(alertAction) in
+        let action = UIAlertAction(title: LocalizedString("clone"), style: .default, handler: {(alertAction) in
+
             
-            let sshUrls = (alertController.textFields?.first?.text)!
-            let httpsUrls = (alertController.textFields?.last?.text)!
+            let repoStr = (alertController.textFields?.first?.text)!
             
-            if(sshUrls.isEmpty && httpsUrls.isEmpty){
+            if(repoStr.isEmpty){
                 return
             }
-            let gitSuffix = ".git"
-            var gitPrefix = "git@github.com:"
-            var owner = ""
-            var repo = ""
             
-            if(!sshUrls.isEmpty && sshUrls.hasSuffix(gitSuffix))
-            {
-                var str = sshUrls.substring(to: sshUrls.index(sshUrls.endIndex, offsetBy: -gitSuffix.characters.count))
-                str = str.substring(from: str.index(str.startIndex, offsetBy: gitPrefix.characters.count))
-                print("str:\(str)")
+            
+            self.progressHud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            self.progressHud?.mode = MBProgressHUDMode.annularDeterminate
+            
+            
+            DispatchQueue.global().async {
+                let repoResult = RepositoryUtils.clone(repoStr,credentials: .Default(),progresssHandler: {(str, completedSteps, totalSteps) in
+                    log("str:\(str ?? "")  completedSteps:\(completedSteps)  totalSteps:\(totalSteps)")
+                    self.progressHud?.progress = Float(completedSteps) / Float(totalSteps)
+                    self.progressHud?.labelText = str ?? ""
+                })
+                DispatchQueue.main.async {
+                    self.progressHud?.hide(true)
+                }
                 
-                let components = str.components(separatedBy: "/")
-                owner = components.first!
-                repo = components.last!
-                
-                
+                if let repo = repoResult.value {
+                    
+                }
+                else{
+                    let err = repoResult.error
+                    log("err:\(err)")
+                    
+                    if(err?.domain == libGit2ErrorDomain && err?.code == -1){
+                        //请输入用户名和密码
+                        self.cloneWithUserAndPwd(repoStr)
+                    }else if(err?.domain == libGit2ErrorDomain && err?.code == -4){
+                        //file exists and is not an empty directory
+                    }
+                    
+                }
             }
             
-            gitPrefix = "https://github.com/"
-            if(!httpsUrls.isEmpty && httpsUrls.hasSuffix(gitSuffix))
-            {
-                var str = httpsUrls.substring(to: httpsUrls.index(httpsUrls.endIndex, offsetBy: -gitSuffix.characters.count))
-                str = str.substring(from: str.index(str.startIndex, offsetBy: gitPrefix.characters.count))
-                print("str:\(str)")
-                
-                let components = str.components(separatedBy: "/")
-                owner = components.first!
-                repo = components.last!
-                
-
-            }
-            let githubVC = GithubViewController()
-            githubVC.owner = owner
-            githubVC.repo = repo
-            self.navigationController?.pushViewController(githubVC, animated: true)
             
             
             
-            
-            
+            return ;
             
         })
+        
+        
         
         alertController.addAction(action)
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func cloneWithUserAndPwd(_ repoStr:String){
+        let alertController = UIAlertController(title: LocalizedString("git"), message: LocalizedString("no way to authenticate"), preferredStyle: .alert)
         
+        alertController.addTextField(configurationHandler: {(textField) in
+            textField.placeholder = LocalizedString("username")
+        })
+        
+        alertController.addTextField(configurationHandler: {(textField) in
+            textField.placeholder = LocalizedString("password")
+        })
+        
+        let cancelAction = UIAlertAction(title:LocalizedString("Cancel"),style:.cancel,handler:{(action) in
+            
+        })
+        
+        let loginAction = UIAlertAction(title: LocalizedString("Login"), style: .default, handler: {(alertAction) in
+            
+            
+            let user = (alertController.textFields?.first?.text)!
+            let pwd = (alertController.textFields?.last?.text)!
+            log("user:\(user) -- pwd:\(pwd)")
+            self.progressHud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            self.progressHud?.mode = MBProgressHUDMode.annularDeterminate
+            
+            DispatchQueue.global().async {
+                
+                let repoResult = RepositoryUtils.clone(repoStr,credentials: .Plaintext(username: user, password: pwd))
+                
+                DispatchQueue.main.async {
+                    self.progressHud?.hide(true)
+                }
+                
+                if let repo = repoResult.value {
+                    
+                }
+                else{
+                    let err = repoResult.error
+                    log("err:\(err)")
+                    
+                }
+            }
 
+            
+        })
+        alertController.addAction(cancelAction)
+        alertController.addAction(loginAction)
         
+        self.present(alertController, animated: true, completion: nil)
     }
     
     
@@ -109,10 +152,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    func reloadData(){
-        vkFileVC?.reloadCurPage()
-    }
 
 }
 
