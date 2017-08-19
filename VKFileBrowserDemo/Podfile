@@ -17,6 +17,10 @@ target 'VKFileBrowserDemo' do
  pod "Alamofire"
  pod "MJExtension"
  pod "MBProgressHUD"
+ pod "Highlightr"
+ pod "SwiftyMarkdown"
+ 
+
  
   target 'VKFileBrowserDemoTests' do
     inherit! :search_paths
