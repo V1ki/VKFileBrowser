@@ -8,7 +8,6 @@
 
 import UIKit
 import Result
-import SwiftGit2
 
 class ViewController: UIViewController {
     
@@ -49,7 +48,7 @@ class ViewController: UIViewController {
             
             
             DispatchQueue.global().async {
-                let repoResult = RepositoryUtils.clone(repoStr,credentials: .Default(),progresssHandler: {(str, completedSteps, totalSteps) in
+                let repoResult = RepositoryUtils.clone(repoStr,credentials: .default,progresssHandler: {(str, completedSteps, totalSteps) in
                     log("str:\(str ?? "")  completedSteps:\(completedSteps)  totalSteps:\(totalSteps)")
                     self.progressHud?.progress = Float(completedSteps) / Float(totalSteps)
                     self.progressHud?.labelText = str ?? ""
@@ -115,7 +114,7 @@ class ViewController: UIViewController {
             
             DispatchQueue.global().async {
                 
-                let repoResult = RepositoryUtils.clone(repoStr,credentials: .Plaintext(username: user, password: pwd))
+                let repoResult = RepositoryUtils.clone(repoStr,credentials: .plaintext(username: user, password: pwd))
                 
                 DispatchQueue.main.async {
                     self.progressHud?.hide(true)

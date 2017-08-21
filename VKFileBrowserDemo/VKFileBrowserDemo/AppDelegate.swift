@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GCDWebUploaderDelegate{
 //        let webUploader = GCDWebDAVServer(uploadDirectory: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!)
 //        webUploader?.start()
         
+        RepositoryUtils.initGit()
+        
         log("didFinishLaunchingWithOptions:\(launchOptions)")
         uploader = GCDWebUploader(uploadDirectory: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!)
         uploader!.start()
@@ -116,6 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GCDWebUploaderDelegate{
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+        RepositoryUtils.shutdownGit()
     }
     
 

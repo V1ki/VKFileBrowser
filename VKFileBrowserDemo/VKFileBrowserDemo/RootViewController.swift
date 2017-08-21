@@ -5,8 +5,10 @@
 //  Created by Vk on 2017/8/18.
 //  Copyright © 2017年 vk. All rights reserved.
 //
-
 import UIKit
+import Result
+
+import SwipeCellKit
 
 class RootViewController: UITableViewController,SSZipArchiveDelegate {
 
@@ -96,13 +98,13 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         let wifiTransferAction = UIAlertAction(title: LocalizedString("WiFi Transfer"), style: .default, handler: nil)
         let gitCloneAction = UIAlertAction(title:LocalizedString("Git Clone"), style: .default, handler: {(action) in
             
-            let vc = VKFileViewController()
+            let vc = CloneViewController()
             vc.modalPresentationStyle = .popover
             self.present(vc, animated: true, completion: nil)
             
             
             let presentationController = vc.popoverPresentationController
-            log("presentationController:\(presentationController)")
+            
             // Get the popover presentation controller and configure it.
 
             presentationController?.permittedArrowDirections = .unknown
@@ -150,42 +152,12 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
     }
     
     func loadFileAtPath(_ path: String){
-        dataSource.removeAll()
-        
-        let directoryEnumerator = fm.enumerator(at:URL(fileURLWithPath: path), includingPropertiesForKeys: resourceKeys, options: [], errorHandler: nil)!
-        
-        
-        for case let fileURL as NSURL in directoryEnumerator {
-            guard let resourceValues = try? fileURL.resourceValues(forKeys: resourceKeys),
-                let isDirectory = resourceValues[.isDirectoryKey] as? Bool ,
-                let name = resourceValues[.nameKey] as? String ,
-                let type = resourceValues[.typeIdentifierKey] as? String
-                
-                else {
-                    
-                    continue
-            }
-            
-            let fileSize = resourceValues[URLResourceKey.totalFileSizeKey] as? NSNumber
-            var fileSizeFloatValue = fileSize?.intValue
-            fileSizeFloatValue = fileSizeFloatValue == nil ? 0 : fileSizeFloatValue
-            
-            let creationDate = resourceValues[.creationDateKey]
-            
-            let file = VKFile(name,path, isDirectory, type,fileSizeFloatValue)
-            file.creationDate = creationDate as! NSDate?
-            
-            dataSource.append(file)
-            
-            if(isDirectory){
-                directoryEnumerator.skipDescendents()
-            }
-            
-        }
+        dataSource = VKFileManager.default.loadFile(at: path,loadGit: true)
         
         dataSource.sort(by: {(file1,file2) -> Bool in
             return file1.compare(withOtherFile: file2, bySortType: .name)
         })
+        
         currentDir = path
         
         DispatchQueue.main.async {
@@ -198,9 +170,30 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
     
     
     func selectFile(_ file :VKFile){
+        
+        
+        
         let fileDir : String = file.filePath!.appending("/\(file.name!)")
+        log("fileDir:\(fileDir)")
+        
         
         if file.isDirectory {
+            
+            if RepositoryUtils.isGitRepository(file.toFileURL()) {
+                //当前处于git仓库下
+                let repo = RepositoryUtils.at(file.toFileURL()).value
+                
+                RepositoryUtils.listAllCommits(repo!){ commits in
+                    
+                }
+                
+                
+                
+                
+                
+            }
+            
+            
             self.currentDir = fileDir
         }
         else
@@ -259,7 +252,7 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
             log("fileDir:\(fileDir) == file.type:\(file.type)")
             
             let nextVc = DocumentPreviewObject(_ : URL(fileURLWithPath: fileDir))
-            nextVc.previewVC = self.navigationController
+            nextVc.previewVC = self.detailViewController() as! UINavigationController?
             
             nextVc.startPreview()
         }
@@ -277,9 +270,10 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)
+        var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? SwipeTableViewCell
         if (cell == nil) {
-            cell = UITableViewCell(style:.default, reuseIdentifier: reuseIdentifier)
+            cell = SwipeTableViewCell(style:.default, reuseIdentifier: reuseIdentifier)
+            cell?.delegate = self
         }
         let file = dataSource[indexPath.row]
         
@@ -310,6 +304,11 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         
         selectFile(file)
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     
 
 }
@@ -390,5 +389,48 @@ extension RootViewController :FileManagerDelegate {
     func fileManager(_ fileManager: FileManager, shouldProceedAfterError error: Error, linkingItemAtPath srcPath: String, toPath dstPath: String) -> Bool {
         log("shouldProceedAfterError",error ,"linkingItemAtPath",srcPath,dstPath)
         return true
+    }
+}
+
+//SwipeTableViewCellDelegate
+extension RootViewController : SwipeTableViewCellDelegate {
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        
+        if(orientation == .left){
+            
+            let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+                // handle action by updating model with deletion
+                
+                
+                let file = self.dataSource[indexPath.row]
+                try! self.fm.removeItem(at: file.toFileURL())
+
+                self.dataSource.remove(at: indexPath.row)
+                
+            }
+            
+            return [deleteAction]
+        }
+        else{
+            let action = SwipeAction(style: .default, title: "Action"){ action ,indexPath in
+                
+            }
+            return [action]
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        var options = SwipeTableOptions()
+        options.expansionStyle = .destructiveAfterFill
+        options.transitionStyle = .drag
+        return options
+    }
+}
+
+extension RootViewController : UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }

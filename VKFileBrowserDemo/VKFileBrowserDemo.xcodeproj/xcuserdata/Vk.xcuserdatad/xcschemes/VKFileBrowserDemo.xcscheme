@@ -48,6 +48,16 @@
                ReferencedContainer = "container:VKFileBrowserDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "54C834DC1F4AC48E00085756"
+               BuildableName = "1Tests.xctest"
+               BlueprintName = "1Tests"
+               ReferencedContainer = "container:VKFileBrowserDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

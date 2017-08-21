@@ -18,7 +18,7 @@ DerivedData
 *.xcuserstate
 *.xcscmblueprint
 
-
+Carthage/
 Pods/
 Podfile.lock
 

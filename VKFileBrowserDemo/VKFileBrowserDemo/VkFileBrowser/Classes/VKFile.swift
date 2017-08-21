@@ -26,6 +26,8 @@ class VKFile: NSObject {
     
     var name : String!
     var isDirectory : Bool
+    var isGitRepo : Bool?
+    
     var type : String!
     var filePath : String!
     var fileSize : Int? = 0
@@ -43,10 +45,14 @@ class VKFile: NSObject {
         self.isDirectory = isDirectory
         self.type = type
         self.fileSize = fileSize
-        
-        
     }
     
+    
+    func toFileURL() -> URL{
+        let fileUrl = URL(fileURLWithPath: filePath.appending("/\(name!)"))
+        
+        return fileUrl
+    }
     
     func compare(withOtherFile otherFile:VKFile,bySortType sortType : VKFileSortType) -> Bool {
         if(sortType == .name)

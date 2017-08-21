@@ -28,6 +28,7 @@ class SourceViewController: BaseViewController ,UITextViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         sourceTV.delegate = self
+        navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
         sourceTV.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapTextView)))
         self.title = mFile.name
         

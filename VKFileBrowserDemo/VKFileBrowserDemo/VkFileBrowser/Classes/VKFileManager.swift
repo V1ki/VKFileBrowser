@@ -39,7 +39,7 @@ class VKFileManager: NSObject {
     }
     
     
-    func loadFile(at path:String) -> [VKFile]{
+    func loadFile(at path:String,loadGit shouldLoad:Bool = false) -> [VKFile]{
         
         var dataSource = [VKFile]()
         
@@ -69,6 +69,10 @@ class VKFileManager: NSObject {
             dataSource.append(file)
             
             if(isDirectory){
+                if(shouldLoad){
+                    file.isGitRepo = RepositoryUtils.isGitRepository(file.toFileURL())
+                }
+                
                 directoryEnumerator.skipDescendents()
             }
             

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E40653FC6656E87C546089F /* Pods_VKFileBrowserDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B906550E37B8E37E3EC20D /* Pods_VKFileBrowserDemo.framework */; };
+		161EFE6C683BF15634F588C3 /* Pods_VKFileBrowserDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF85517019A3D33609F5A41 /* Pods_VKFileBrowserDemoUITests.framework */; };
 		54475DDA1D9D949200B0BB49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475DD91D9D949200B0BB49 /* AppDelegate.swift */; };
 		54475DDC1D9D949200B0BB49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475DDB1D9D949200B0BB49 /* ViewController.swift */; };
 		54475DDF1D9D949200B0BB49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54475DDD1D9D949200B0BB49 /* Main.storyboard */; };
@@ -15,6 +17,19 @@
 		54475DE71D9D949200B0BB49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54475DE51D9D949200B0BB49 /* LaunchScreen.storyboard */; };
 		54475DF21D9D949200B0BB49 /* VKFileBrowserDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475DF11D9D949200B0BB49 /* VKFileBrowserDemoTests.swift */; };
 		54475DFD1D9D949200B0BB49 /* VKFileBrowserDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475DFC1D9D949200B0BB49 /* VKFileBrowserDemoUITests.swift */; };
+		544897081F4AE1ED00DB8980 /* CheckoutStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544896FA1F4AE1ED00DB8980 /* CheckoutStrategy.swift */; };
+		544897091F4AE1ED00DB8980 /* CommitIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544896FB1F4AE1ED00DB8980 /* CommitIterator.swift */; };
+		5448970A1F4AE1ED00DB8980 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544896FC1F4AE1ED00DB8980 /* Credentials.swift */; };
+		5448970B1F4AE1ED00DB8980 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544896FD1F4AE1ED00DB8980 /* Errors.swift */; };
+		5448970C1F4AE1ED00DB8980 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 544896FE1F4AE1ED00DB8980 /* Info.plist */; };
+		5448970D1F4AE1ED00DB8980 /* Libgit2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544896FF1F4AE1ED00DB8980 /* Libgit2.swift */; };
+		5448970E1F4AE1ED00DB8980 /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544897001F4AE1ED00DB8980 /* Objects.swift */; };
+		5448970F1F4AE1ED00DB8980 /* OID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544897011F4AE1ED00DB8980 /* OID.swift */; };
+		544897101F4AE1ED00DB8980 /* Pointers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544897021F4AE1ED00DB8980 /* Pointers.swift */; };
+		544897111F4AE1ED00DB8980 /* References.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544897031F4AE1ED00DB8980 /* References.swift */; };
+		544897121F4AE1ED00DB8980 /* Remotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544897041F4AE1ED00DB8980 /* Remotes.swift */; };
+		544897131F4AE1ED00DB8980 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544897051F4AE1ED00DB8980 /* Repository.swift */; };
+		544897141F4AE1ED00DB8980 /* SwiftGit2.m in Sources */ = {isa = PBXBuildFile; fileRef = 544897071F4AE1ED00DB8980 /* SwiftGit2.m */; };
 		5469C5D51F4874C800A849EC /* libMultiMarkdown.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5469C5D31F4874C800A849EC /* libMultiMarkdown.a */; };
 		5469C8911F48791B00A849EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7A01F48791B00A849EC /* Localizable.strings */; };
 		5469C8921F48791B00A849EC /* 1c.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7A51F48791B00A849EC /* 1c.js */; };
@@ -229,6 +244,11 @@
 		5469C9631F48791C00A849EC /* VKFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8871F48791B00A849EC /* VKFileViewController.swift */; };
 		5469C9641F48791C00A849EC /* VKSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8881F48791B00A849EC /* VKSearchViewController.swift */; };
 		5469C9651F48791C00A849EC /* MarkdownTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C88A1F48791B00A849EC /* MarkdownTextAttachment.swift */; };
+		5471AD501F48A48B00CBDDDD /* MultiMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5471AD4F1F48A48B00CBDDDD /* MultiMarkdown.swift */; };
+		5471AD531F48AE0A00CBDDDD /* CloneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5471AD511F48AE0A00CBDDDD /* CloneViewController.swift */; };
+		5471AD541F48AE0A00CBDDDD /* CloneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5471AD521F48AE0A00CBDDDD /* CloneViewController.xib */; };
+		5471AD571F493D9300CBDDDD /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5471AD551F493D9300CBDDDD /* SettingViewController.swift */; };
+		5471AD581F493D9300CBDDDD /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5471AD561F493D9300CBDDDD /* SettingViewController.xib */; };
 		547600E41F46E02C0014AC95 /* VKSpiltViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547600E31F46E02C0014AC95 /* VKSpiltViewController.swift */; };
 		547600E61F46E2650014AC95 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547600E51F46E2650014AC95 /* RootViewController.swift */; };
 		5483B7DE1F41575400782760 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5483B7DD1F41575400782760 /* README.md */; };
@@ -253,20 +273,15 @@
 		54B55F781F2D978A00BB1C09 /* 7zMain.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F1A1F2D978A00BB1C09 /* 7zMain.c */; };
 		54B55F791F2D978A00BB1C09 /* RARExtractException.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F571F2D978A00BB1C09 /* RARExtractException.m */; };
 		54B55F7A1F2D978A00BB1C09 /* Unrar4iOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F581F2D978A00BB1C09 /* Unrar4iOS.mm */; };
+		54C835571F4ACF2800085756 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C835561F4ACF2800085756 /* libiconv.tbd */; };
 		54D3D9781DA55B4800BD009C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3D9771DA55B4800BD009C /* libz.tbd */; };
 		54D3D97A1DA55BBC00BD009C /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3D9791DA55BBC00BD009C /* libxml2.tbd */; };
-		54F7DA191F46843C001F2299 /* SwiftGit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F7DA181F46843C001F2299 /* SwiftGit2.framework */; };
 		54F7DA281F468ACC001F2299 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 54F7DA1E1F468ACC001F2299 /* ioapi.c */; };
 		54F7DA291F468ACC001F2299 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 54F7DA201F468ACC001F2299 /* mztools.c */; };
 		54F7DA2A1F468ACC001F2299 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 54F7DA221F468ACC001F2299 /* unzip.c */; };
 		54F7DA2B1F468ACC001F2299 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 54F7DA241F468ACC001F2299 /* zip.c */; };
 		54F7DA2C1F468ACC001F2299 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F7DA271F468ACC001F2299 /* SSZipArchive.m */; };
-		54F7DA2E1F468BD2001F2299 /* SwiftGit2.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54F7DA181F46843C001F2299 /* SwiftGit2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		54F7DA321F468CD2001F2299 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F7DA311F468CD2001F2299 /* Result.framework */; };
-		54F7DA331F468CE5001F2299 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54F7DA311F468CD2001F2299 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		79A9E3206DB77C2E64499D92 /* Pods_VKFileBrowserDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432CD5E743FA659BC76828ED /* Pods_VKFileBrowserDemoUITests.framework */; };
-		DEE8946F832507B4936A29BB /* Pods_VKFileBrowserDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE0E24E3E9FC1490644FB4E /* Pods_VKFileBrowserDemoTests.framework */; };
-		EECE7DAC041BA42AA96F5251 /* Pods_VKFileBrowserDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FBF95381564F1904F39EF /* Pods_VKFileBrowserDemo.framework */; };
+		AFF3AB6F943FE30C8492583C /* Pods_VKFileBrowserDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3246D5F0418C08A357BEAC6 /* Pods_VKFileBrowserDemoTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -297,26 +312,10 @@
 			name = "Embed PlugIns";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		54F7DA2D1F468BA7001F2299 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				54F7DA2E1F468BD2001F2299 /* SwiftGit2.framework in CopyFiles */,
-				54F7DA331F468CE5001F2299 /* Result.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		001FBF95381564F1904F39EF /* Pods_VKFileBrowserDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKFileBrowserDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0FB512CC6E003141382BFD63 /* Pods-VKFileBrowserDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemoTests/Pods-VKFileBrowserDemoTests.release.xcconfig"; sourceTree = "<group>"; };
-		1AB7890722D8F81EC7FA2B41 /* Pods-VKFileBrowserDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemo/Pods-VKFileBrowserDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		2AE0E24E3E9FC1490644FB4E /* Pods_VKFileBrowserDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKFileBrowserDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		432CD5E743FA659BC76828ED /* Pods_VKFileBrowserDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKFileBrowserDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		47D90E10332ECD4F8B82FF59 /* Pods-VKFileBrowserDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemoUITests/Pods-VKFileBrowserDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		17F2D5F8F5BD6381CDF5CBE4 /* Pods-VKFileBrowserDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemoUITests/Pods-VKFileBrowserDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		54475DD61D9D949200B0BB49 /* File Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "File Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54475DD91D9D949200B0BB49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54475DDB1D9D949200B0BB49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -331,6 +330,20 @@
 		54475DF81D9D949200B0BB49 /* VKFileBrowserDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKFileBrowserDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54475DFC1D9D949200B0BB49 /* VKFileBrowserDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKFileBrowserDemoUITests.swift; sourceTree = "<group>"; };
 		54475DFE1D9D949200B0BB49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		544896FA1F4AE1ED00DB8980 /* CheckoutStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutStrategy.swift; sourceTree = "<group>"; };
+		544896FB1F4AE1ED00DB8980 /* CommitIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommitIterator.swift; sourceTree = "<group>"; };
+		544896FC1F4AE1ED00DB8980 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		544896FD1F4AE1ED00DB8980 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		544896FE1F4AE1ED00DB8980 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		544896FF1F4AE1ED00DB8980 /* Libgit2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Libgit2.swift; sourceTree = "<group>"; };
+		544897001F4AE1ED00DB8980 /* Objects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
+		544897011F4AE1ED00DB8980 /* OID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OID.swift; sourceTree = "<group>"; };
+		544897021F4AE1ED00DB8980 /* Pointers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pointers.swift; sourceTree = "<group>"; };
+		544897031F4AE1ED00DB8980 /* References.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = References.swift; sourceTree = "<group>"; };
+		544897041F4AE1ED00DB8980 /* Remotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Remotes.swift; sourceTree = "<group>"; };
+		544897051F4AE1ED00DB8980 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		544897061F4AE1ED00DB8980 /* SwiftGit2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftGit2.h; sourceTree = "<group>"; };
+		544897071F4AE1ED00DB8980 /* SwiftGit2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftGit2.m; sourceTree = "<group>"; };
 		5469C5D31F4874C800A849EC /* libMultiMarkdown.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMultiMarkdown.a; sourceTree = "<group>"; };
 		5469C5D41F4874C800A849EC /* libMultiMarkdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libMultiMarkdown.h; sourceTree = "<group>"; };
 		5469C7A11F48791B00A849EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -555,6 +568,11 @@
 		5469C88E1F48791B00A849EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/VKFileViewController.strings"; sourceTree = "<group>"; };
 		5469C88F1F48791B00A849EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/VKSearchViewController.strings"; sourceTree = "<group>"; };
 		5469C8901F48791B00A849EC /* VKFileBrowserDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VKFileBrowserDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		5471AD4F1F48A48B00CBDDDD /* MultiMarkdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiMarkdown.swift; sourceTree = "<group>"; };
+		5471AD511F48AE0A00CBDDDD /* CloneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloneViewController.swift; sourceTree = "<group>"; };
+		5471AD521F48AE0A00CBDDDD /* CloneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CloneViewController.xib; sourceTree = "<group>"; };
+		5471AD551F493D9300CBDDDD /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		5471AD561F493D9300CBDDDD /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		547600E31F46E02C0014AC95 /* VKSpiltViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKSpiltViewController.swift; sourceTree = "<group>"; };
 		547600E51F46E2650014AC95 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		5483B7DD1F41575400782760 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
@@ -654,9 +672,9 @@
 		54B55F561F2D978A00BB1C09 /* RARExtractException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RARExtractException.h; sourceTree = "<group>"; };
 		54B55F571F2D978A00BB1C09 /* RARExtractException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RARExtractException.m; sourceTree = "<group>"; };
 		54B55F581F2D978A00BB1C09 /* Unrar4iOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Unrar4iOS.mm; sourceTree = "<group>"; };
+		54C835561F4ACF2800085756 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		54D3D9771DA55B4800BD009C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		54D3D9791DA55BBC00BD009C /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
-		54F7DA181F46843C001F2299 /* SwiftGit2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGit2.framework; path = Carthage/Build/iOS/SwiftGit2.framework; sourceTree = "<group>"; };
 		54F7DA1D1F468ACC001F2299 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
 		54F7DA1E1F468ACC001F2299 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
 		54F7DA1F1F468ACC001F2299 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
@@ -668,10 +686,14 @@
 		54F7DA251F468ACC001F2299 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
 		54F7DA261F468ACC001F2299 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
 		54F7DA271F468ACC001F2299 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
-		54F7DA311F468CD2001F2299 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
-		CEB720A4B7D1EEA285E12D94 /* Pods-VKFileBrowserDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemoTests/Pods-VKFileBrowserDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E3A78DE6972EDC4B1FBDE212 /* Pods-VKFileBrowserDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemo/Pods-VKFileBrowserDemo.release.xcconfig"; sourceTree = "<group>"; };
-		FD3551651E5B9E9DB576B3AB /* Pods-VKFileBrowserDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemoUITests/Pods-VKFileBrowserDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5CB01436C1201A837CDE88BB /* Pods-VKFileBrowserDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemoTests/Pods-VKFileBrowserDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		6DF85517019A3D33609F5A41 /* Pods_VKFileBrowserDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKFileBrowserDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F6902C1E089A926CA87A2D6 /* Pods-VKFileBrowserDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemoTests/Pods-VKFileBrowserDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A6B906550E37B8E37E3EC20D /* Pods_VKFileBrowserDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKFileBrowserDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A98C2ECAFC217698F3E2C09D /* Pods-VKFileBrowserDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemoUITests/Pods-VKFileBrowserDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BB889DED40EDFF3CAA706D55 /* Pods-VKFileBrowserDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemo/Pods-VKFileBrowserDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		CCF057DF7DB243D108D8C348 /* Pods-VKFileBrowserDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemo/Pods-VKFileBrowserDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F3246D5F0418C08A357BEAC6 /* Pods_VKFileBrowserDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKFileBrowserDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -679,13 +701,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54C835571F4ACF2800085756 /* libiconv.tbd in Frameworks */,
 				5469C5D51F4874C800A849EC /* libMultiMarkdown.a in Frameworks */,
-				54F7DA321F468CD2001F2299 /* Result.framework in Frameworks */,
-				54F7DA191F46843C001F2299 /* SwiftGit2.framework in Frameworks */,
 				54B55F661F2D978A00BB1C09 /* Unrar4iOS.framework in Frameworks */,
 				54D3D97A1DA55BBC00BD009C /* libxml2.tbd in Frameworks */,
 				54D3D9781DA55B4800BD009C /* libz.tbd in Frameworks */,
-				EECE7DAC041BA42AA96F5251 /* Pods_VKFileBrowserDemo.framework in Frameworks */,
+				0E40653FC6656E87C546089F /* Pods_VKFileBrowserDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,7 +714,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEE8946F832507B4936A29BB /* Pods_VKFileBrowserDemoTests.framework in Frameworks */,
+				AFF3AB6F943FE30C8492583C /* Pods_VKFileBrowserDemoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,13 +722,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79A9E3206DB77C2E64499D92 /* Pods_VKFileBrowserDemoUITests.framework in Frameworks */,
+				161EFE6C683BF15634F588C3 /* Pods_VKFileBrowserDemoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06AB1DCEC7430CF08C36A322 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BB889DED40EDFF3CAA706D55 /* Pods-VKFileBrowserDemo.debug.xcconfig */,
+				CCF057DF7DB243D108D8C348 /* Pods-VKFileBrowserDemo.release.xcconfig */,
+				6F6902C1E089A926CA87A2D6 /* Pods-VKFileBrowserDemoTests.debug.xcconfig */,
+				5CB01436C1201A837CDE88BB /* Pods-VKFileBrowserDemoTests.release.xcconfig */,
+				A98C2ECAFC217698F3E2C09D /* Pods-VKFileBrowserDemoUITests.debug.xcconfig */,
+				17F2D5F8F5BD6381CDF5CBE4 /* Pods-VKFileBrowserDemoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		54475DCD1D9D949200B0BB49 = {
 			isa = PBXGroup;
 			children = (
@@ -716,7 +750,7 @@
 				54475DFB1D9D949200B0BB49 /* VKFileBrowserDemoUITests */,
 				54475DD71D9D949200B0BB49 /* Products */,
 				E3083DC0E4552EA83E09C30C /* Frameworks */,
-				553B59A9768D6175CF44F6A3 /* Pods */,
+				06AB1DCEC7430CF08C36A322 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -733,18 +767,22 @@
 		54475DD81D9D949200B0BB49 /* VKFileBrowserDemo */ = {
 			isa = PBXGroup;
 			children = (
-				5469C79E1F48791B00A849EC /* VKFileBrowser */,
 				5483B7DD1F41575400782760 /* README.md */,
-				54B55EF21F2D978A00BB1C09 /* vendor */,
-				54475DD91D9D949200B0BB49 /* AppDelegate.swift */,
-				54475DDB1D9D949200B0BB49 /* ViewController.swift */,
-				54475DDD1D9D949200B0BB49 /* Main.storyboard */,
-				54475DE31D9D949200B0BB49 /* Assets.xcassets */,
-				54475DE51D9D949200B0BB49 /* LaunchScreen.storyboard */,
 				54475DE81D9D949200B0BB49 /* Info.plist */,
-				54475DE01D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodeld */,
-				547600E31F46E02C0014AC95 /* VKSpiltViewController.swift */,
+				54475DD91D9D949200B0BB49 /* AppDelegate.swift */,
+				5471AD511F48AE0A00CBDDDD /* CloneViewController.swift */,
 				547600E51F46E2650014AC95 /* RootViewController.swift */,
+				5471AD551F493D9300CBDDDD /* SettingViewController.swift */,
+				54475DDB1D9D949200B0BB49 /* ViewController.swift */,
+				547600E31F46E02C0014AC95 /* VKSpiltViewController.swift */,
+				54475DE31D9D949200B0BB49 /* Assets.xcassets */,
+				5471AD521F48AE0A00CBDDDD /* CloneViewController.xib */,
+				5471AD561F493D9300CBDDDD /* SettingViewController.xib */,
+				54475DE51D9D949200B0BB49 /* LaunchScreen.storyboard */,
+				54475DDD1D9D949200B0BB49 /* Main.storyboard */,
+				54B55EF21F2D978A00BB1C09 /* vendor */,
+				5469C79E1F48791B00A849EC /* VKFileBrowser */,
+				54475DE01D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodeld */,
 			);
 			path = VKFileBrowserDemo;
 			sourceTree = "<group>";
@@ -765,6 +803,27 @@
 				54475DFE1D9D949200B0BB49 /* Info.plist */,
 			);
 			path = VKFileBrowserDemoUITests;
+			sourceTree = "<group>";
+		};
+		544896F91F4AE1ED00DB8980 /* SwiftGit2 */ = {
+			isa = PBXGroup;
+			children = (
+				544896FA1F4AE1ED00DB8980 /* CheckoutStrategy.swift */,
+				544896FB1F4AE1ED00DB8980 /* CommitIterator.swift */,
+				544896FC1F4AE1ED00DB8980 /* Credentials.swift */,
+				544896FD1F4AE1ED00DB8980 /* Errors.swift */,
+				544896FE1F4AE1ED00DB8980 /* Info.plist */,
+				544896FF1F4AE1ED00DB8980 /* Libgit2.swift */,
+				544897001F4AE1ED00DB8980 /* Objects.swift */,
+				544897011F4AE1ED00DB8980 /* OID.swift */,
+				544897021F4AE1ED00DB8980 /* Pointers.swift */,
+				544897031F4AE1ED00DB8980 /* References.swift */,
+				544897041F4AE1ED00DB8980 /* Remotes.swift */,
+				544897051F4AE1ED00DB8980 /* Repository.swift */,
+				544897061F4AE1ED00DB8980 /* SwiftGit2.h */,
+				544897071F4AE1ED00DB8980 /* SwiftGit2.m */,
+			);
+			path = SwiftGit2;
 			sourceTree = "<group>";
 		};
 		5469C79E1F48791B00A849EC /* VKFileBrowser */ = {
@@ -1063,6 +1122,7 @@
 		54B55EF21F2D978A00BB1C09 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				5471AD4F1F48A48B00CBDDDD /* MultiMarkdown.swift */,
 				54F7DA1B1F468ACC001F2299 /* ZipArchive */,
 				54B55EF31F2D978A00BB1C09 /* Frameworks */,
 				54B55EF51F2D978A00BB1C09 /* LZMASDK */,
@@ -1074,6 +1134,7 @@
 		54B55EF31F2D978A00BB1C09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				544896F91F4AE1ED00DB8980 /* SwiftGit2 */,
 				5469C5D31F4874C800A849EC /* libMultiMarkdown.a */,
 				5469C5D41F4874C800A849EC /* libMultiMarkdown.h */,
 				54B55EF41F2D978A00BB1C09 /* Unrar4iOS.framework */,
@@ -1240,29 +1301,15 @@
 			path = minizip;
 			sourceTree = "<group>";
 		};
-		553B59A9768D6175CF44F6A3 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1AB7890722D8F81EC7FA2B41 /* Pods-VKFileBrowserDemo.debug.xcconfig */,
-				E3A78DE6972EDC4B1FBDE212 /* Pods-VKFileBrowserDemo.release.xcconfig */,
-				CEB720A4B7D1EEA285E12D94 /* Pods-VKFileBrowserDemoTests.debug.xcconfig */,
-				0FB512CC6E003141382BFD63 /* Pods-VKFileBrowserDemoTests.release.xcconfig */,
-				47D90E10332ECD4F8B82FF59 /* Pods-VKFileBrowserDemoUITests.debug.xcconfig */,
-				FD3551651E5B9E9DB576B3AB /* Pods-VKFileBrowserDemoUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		E3083DC0E4552EA83E09C30C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				54F7DA311F468CD2001F2299 /* Result.framework */,
-				54F7DA181F46843C001F2299 /* SwiftGit2.framework */,
+				54C835561F4ACF2800085756 /* libiconv.tbd */,
 				54D3D9791DA55BBC00BD009C /* libxml2.tbd */,
 				54D3D9771DA55B4800BD009C /* libz.tbd */,
-				001FBF95381564F1904F39EF /* Pods_VKFileBrowserDemo.framework */,
-				2AE0E24E3E9FC1490644FB4E /* Pods_VKFileBrowserDemoTests.framework */,
-				432CD5E743FA659BC76828ED /* Pods_VKFileBrowserDemoUITests.framework */,
+				A6B906550E37B8E37E3EC20D /* Pods_VKFileBrowserDemo.framework */,
+				F3246D5F0418C08A357BEAC6 /* Pods_VKFileBrowserDemoTests.framework */,
+				6DF85517019A3D33609F5A41 /* Pods_VKFileBrowserDemoUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1274,15 +1321,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54475E011D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemo" */;
 			buildPhases = (
-				5A3B66368E0709C3E4C0EDEB /* [CP] Check Pods Manifest.lock */,
+				F17B0BE39F77035F7E8E3F89 /* [CP] Check Pods Manifest.lock */,
 				54475DD21D9D949200B0BB49 /* Sources */,
 				54475DD31D9D949200B0BB49 /* Frameworks */,
 				54475DD41D9D949200B0BB49 /* Resources */,
 				54D3D9721DA55A6B00BD009C /* Embed PlugIns */,
-				21E7724F4679A0F9D69F6951 /* [CP] Embed Pods Frameworks */,
-				54F7DA1A1F468722001F2299 /* ShellScript */,
-				48F0E162DFE4F82CBEC1BF41 /* [CP] Copy Pods Resources */,
-				54F7DA2D1F468BA7001F2299 /* CopyFiles */,
+				E129D9330546EE165839FEB6 /* [CP] Embed Pods Frameworks */,
+				ED8FB2DAD8DB282A25A0CCEB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1297,12 +1342,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54475E041D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemoTests" */;
 			buildPhases = (
-				FBEBFC78FA81F38B88A8544E /* [CP] Check Pods Manifest.lock */,
+				B480B849FEE7FFE4782EAB87 /* [CP] Check Pods Manifest.lock */,
 				54475DE91D9D949200B0BB49 /* Sources */,
 				54475DEA1D9D949200B0BB49 /* Frameworks */,
 				54475DEB1D9D949200B0BB49 /* Resources */,
-				718C0B0349EFC9E38E40A16C /* [CP] Embed Pods Frameworks */,
-				C6E8DCDBC70A2D2DAF6B1A11 /* [CP] Copy Pods Resources */,
+				BB70B0AC8503B3CBD1B73108 /* [CP] Embed Pods Frameworks */,
+				B267C7DDE967463BE62A9D1A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1318,12 +1363,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54475E071D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemoUITests" */;
 			buildPhases = (
-				61FB3478B22CDF026855FE57 /* [CP] Check Pods Manifest.lock */,
+				5B077DC0CFFDF503BAFA83FC /* [CP] Check Pods Manifest.lock */,
 				54475DF41D9D949200B0BB49 /* Sources */,
 				54475DF51D9D949200B0BB49 /* Frameworks */,
 				54475DF61D9D949200B0BB49 /* Resources */,
-				9BFD68C2BECA776E155788A6 /* [CP] Embed Pods Frameworks */,
-				1866D572963FB0BCC196F898 /* [CP] Copy Pods Resources */,
+				8BA656375673E829CB4614C1 /* [CP] Embed Pods Frameworks */,
+				E992180CA770274842E284FE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1341,7 +1386,7 @@
 		54475DCE1D9D949200B0BB49 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = vk;
 				TargetAttributes = {
@@ -1406,6 +1451,7 @@
 				5469C8A81F48791B00A849EC /* ceylon.js in Resources */,
 				5469C8AE1F48791B00A849EC /* coq.js in Resources */,
 				5469C8C31F48791C00A849EC /* elm.js in Resources */,
+				5471AD581F493D9300CBDDDD /* SettingViewController.xib in Resources */,
 				5469C8CB1F48791C00A849EC /* fsharp.js in Resources */,
 				5469C8B61F48791B00A849EC /* d.js in Resources */,
 				5469C8F61F48791C00A849EC /* mel.js in Resources */,
@@ -1528,6 +1574,7 @@
 				5469C8FB1F48791C00A849EC /* monkey.js in Resources */,
 				5469C8B71F48791B00A849EC /* dart.js in Resources */,
 				5469C8941F48791B00A849EC /* accesslog.js in Resources */,
+				5471AD541F48AE0A00CBDDDD /* CloneViewController.xib in Resources */,
 				5469C9271F48791C00A849EC /* stan.js in Resources */,
 				5469C8E21F48791C00A849EC /* jboss-cli.js in Resources */,
 				5469C8DD1F48791C00A849EC /* inform7.js in Resources */,
@@ -1576,6 +1623,7 @@
 				5469C8E91F48791C00A849EC /* leaf.js in Resources */,
 				54475DDF1D9D949200B0BB49 /* Main.storyboard in Resources */,
 				5469C8EE1F48791C00A849EC /* llvm.js in Resources */,
+				5448970C1F4AE1ED00DB8980 /* Info.plist in Resources */,
 				5469C91A1F48791C00A849EC /* ruby.js in Resources */,
 				5469C8E01F48791C00A849EC /* java.js in Resources */,
 				5469C89C1F48791B00A849EC /* aspectj.js in Resources */,
@@ -1603,67 +1651,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1866D572963FB0BCC196F898 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemoUITests/Pods-VKFileBrowserDemoUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		21E7724F4679A0F9D69F6951 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemo/Pods-VKFileBrowserDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		48F0E162DFE4F82CBEC1BF41 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemo/Pods-VKFileBrowserDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		54F7DA1A1F468722001F2299 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftGit2.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		5A3B66368E0709C3E4C0EDEB /* [CP] Check Pods Manifest.lock */ = {
+		5B077DC0CFFDF503BAFA83FC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1678,37 +1666,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		61FB3478B22CDF026855FE57 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		718C0B0349EFC9E38E40A16C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemoTests/Pods-VKFileBrowserDemoTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9BFD68C2BECA776E155788A6 /* [CP] Embed Pods Frameworks */ = {
+		8BA656375673E829CB4614C1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1723,7 +1681,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemoUITests/Pods-VKFileBrowserDemoUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C6E8DCDBC70A2D2DAF6B1A11 /* [CP] Copy Pods Resources */ = {
+		B267C7DDE967463BE62A9D1A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1738,7 +1696,82 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemoTests/Pods-VKFileBrowserDemoTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FBEBFC78FA81F38B88A8544E /* [CP] Check Pods Manifest.lock */ = {
+		B480B849FEE7FFE4782EAB87 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BB70B0AC8503B3CBD1B73108 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemoTests/Pods-VKFileBrowserDemoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E129D9330546EE165839FEB6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemo/Pods-VKFileBrowserDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E992180CA770274842E284FE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemoUITests/Pods-VKFileBrowserDemoUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED8FB2DAD8DB282A25A0CCEB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemo/Pods-VKFileBrowserDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F17B0BE39F77035F7E8E3F89 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1760,6 +1793,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5448970F1F4AE1ED00DB8980 /* OID.swift in Sources */,
+				544897121F4AE1ED00DB8980 /* Remotes.swift in Sources */,
+				544897081F4AE1ED00DB8980 /* CheckoutStrategy.swift in Sources */,
 				54F7DA2A1F468ACC001F2299 /* unzip.c in Sources */,
 				5469C9531F48791C00A849EC /* RepositoryUtils.swift in Sources */,
 				5469C9541F48791C00A849EC /* GithubViewController.swift in Sources */,
@@ -1771,38 +1807,49 @@
 				54F7DA2B1F468ACC001F2299 /* zip.c in Sources */,
 				54B55F671F2D978A00BB1C09 /* 7zBuf.c in Sources */,
 				5469C9551F48791C00A849EC /* MarkdownViewController.swift in Sources */,
+				5471AD501F48A48B00CBDDDD /* MultiMarkdown.swift in Sources */,
 				54B55F701F2D978A00BB1C09 /* Lzma2Dec.c in Sources */,
 				5469C94C1F48791C00A849EC /* Constant.swift in Sources */,
 				54F7DA2C1F468ACC001F2299 /* SSZipArchive.m in Sources */,
 				54B55F6C1F2D978A00BB1C09 /* 7zStream.c in Sources */,
 				54B55F7A1F2D978A00BB1C09 /* Unrar4iOS.mm in Sources */,
 				5469C9611F48791C00A849EC /* VkFileCustomViewLayout.swift in Sources */,
+				544897091F4AE1ED00DB8980 /* CommitIterator.swift in Sources */,
 				5469C95E1F48791C00A849EC /* Style.swift in Sources */,
 				54F7DA291F468ACC001F2299 /* mztools.c in Sources */,
 				54B55F691F2D978A00BB1C09 /* 7zDec.c in Sources */,
 				5469C94B1F48791C00A849EC /* BaseViewController.swift in Sources */,
 				54475DDC1D9D949200B0BB49 /* ViewController.swift in Sources */,
+				5448970D1F4AE1ED00DB8980 /* Libgit2.swift in Sources */,
+				544897111F4AE1ED00DB8980 /* References.swift in Sources */,
 				5483B7DE1F41575400782760 /* README.md in Sources */,
 				54B55F711F2D978A00BB1C09 /* LzmaDec.c in Sources */,
 				54B55F6D1F2D978A00BB1C09 /* Alloc.c in Sources */,
 				5469C9631F48791C00A849EC /* VKFileViewController.swift in Sources */,
 				5469C9651F48791C00A849EC /* MarkdownTextAttachment.swift in Sources */,
+				544897141F4AE1ED00DB8980 /* SwiftGit2.m in Sources */,
 				5469C95F1F48791C00A849EC /* VKFile.swift in Sources */,
 				5469C9601F48791C00A849EC /* VKFileBrowser.swift in Sources */,
 				547600E61F46E2650014AC95 /* RootViewController.swift in Sources */,
 				54F7DA281F468ACC001F2299 /* ioapi.c in Sources */,
 				5469C9621F48791C00A849EC /* VKFileManager.swift in Sources */,
 				54B55F751F2D978A00BB1C09 /* Ppmd8.c in Sources */,
+				544897101F4AE1ED00DB8980 /* Pointers.swift in Sources */,
 				54B55F761F2D978A00BB1C09 /* Ppmd8Dec.c in Sources */,
+				5471AD571F493D9300CBDDDD /* SettingViewController.swift in Sources */,
 				54B55F771F2D978A00BB1C09 /* 7zAlloc.c in Sources */,
+				5448970E1F4AE1ED00DB8980 /* Objects.swift in Sources */,
 				5469C9571F48791C00A849EC /* ContentItemModel.swift in Sources */,
 				5469C9581F48791C00A849EC /* ContentModel.swift in Sources */,
 				54B55F741F2D978A00BB1C09 /* Ppmd7Dec.c in Sources */,
+				5448970A1F4AE1ED00DB8980 /* Credentials.swift in Sources */,
 				5469C95D1F48791C00A849EC /* SourceViewController.swift in Sources */,
 				54B55F781F2D978A00BB1C09 /* 7zMain.c in Sources */,
+				5448970B1F4AE1ED00DB8980 /* Errors.swift in Sources */,
 				54B55F6E1F2D978A00BB1C09 /* CpuArch.c in Sources */,
 				5469C9591F48791C00A849EC /* RepositoryModel.swift in Sources */,
 				54B55F731F2D978A00BB1C09 /* Ppmd7.c in Sources */,
+				5471AD531F48AE0A00CBDDDD /* CloneViewController.swift in Sources */,
 				54B55F6B1F2D978A00BB1C09 /* 7zIn.c in Sources */,
 				54B55F681F2D978A00BB1C09 /* 7zBuf2.c in Sources */,
 				5469C9521F48791C00A849EC /* Extension.swift in Sources */,
@@ -1810,6 +1857,7 @@
 				5469C95C1F48791C00A849EC /* RGBtoHSV.swift in Sources */,
 				54475DDA1D9D949200B0BB49 /* AppDelegate.swift in Sources */,
 				5469C94D1F48791C00A849EC /* DocumentPreviewObject.swift in Sources */,
+				544897131F4AE1ED00DB8980 /* Repository.swift in Sources */,
 				5469C9641F48791C00A849EC /* VKSearchViewController.swift in Sources */,
 				5469C95A1F48791C00A849EC /* DownloadUtils.swift in Sources */,
 				5469C95B1F48791C00A849EC /* URLRouter.swift in Sources */,
@@ -2059,7 +2107,7 @@
 		};
 		54475E021D9D949200B0BB49 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AB7890722D8F81EC7FA2B41 /* Pods-VKFileBrowserDemo.debug.xcconfig */;
+			baseConfigurationReference = BB889DED40EDFF3CAA706D55 /* Pods-VKFileBrowserDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2070,12 +2118,19 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/SARUnArchiveANY/Frameworks",
 					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				HEADER_SEARCH_PATHS = "$(SDK_DIR)/usr/include/libxml2";
+				HEADER_SEARCH_PATHS = (
+					"$(SDK_DIR)/usr/include/libxml2",
+					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/include",
+				);
 				INFOPLIST_FILE = VKFileBrowserDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks",
+					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/libgit2-ios",
+					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/libssh2-ios/lib",
+					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/ios-openssl/lib",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -2100,9 +2155,16 @@
 					"\"SDWebImage\"",
 					"-framework",
 					"\"SwiftyMarkdown\"",
+					"-force_load",
+					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/libgit2-ios/libgit2-ios.a",
+					"-lgit2-ios",
+					"-lssl",
+					"-lcrypto",
+					"-lssh2-ios",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowserDemo;
 				PRODUCT_NAME = "File Browser";
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/include";
 				SWIFT_OBJC_BRIDGING_HEADER = "./VKFileBrowserDemo/VKFileBrowser/VKFileBrowserDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -2113,7 +2175,7 @@
 		};
 		54475E031D9D949200B0BB49 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3A78DE6972EDC4B1FBDE212 /* Pods-VKFileBrowserDemo.release.xcconfig */;
+			baseConfigurationReference = CCF057DF7DB243D108D8C348 /* Pods-VKFileBrowserDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2124,12 +2186,19 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/SARUnArchiveANY/Frameworks",
 					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				HEADER_SEARCH_PATHS = "$(SDK_DIR)/usr/include/libxml2";
+				HEADER_SEARCH_PATHS = (
+					"$(SDK_DIR)/usr/include/libxml2",
+					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/include",
+				);
 				INFOPLIST_FILE = VKFileBrowserDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks",
+					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/libgit2-ios",
+					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/libssh2-ios/lib",
+					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/ios-openssl/lib",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -2154,9 +2223,16 @@
 					"\"SDWebImage\"",
 					"-framework",
 					"\"SwiftyMarkdown\"",
+					"-force_load",
+					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/libgit2-ios/libgit2-ios.a",
+					"-lgit2-ios",
+					"-lssl",
+					"-lcrypto",
+					"-lssh2-ios",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowserDemo;
 				PRODUCT_NAME = "File Browser";
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/include";
 				SWIFT_OBJC_BRIDGING_HEADER = "./VKFileBrowserDemo/VKFileBrowser/VKFileBrowserDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/**";
@@ -2166,7 +2242,7 @@
 		};
 		54475E051D9D949200B0BB49 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CEB720A4B7D1EEA285E12D94 /* Pods-VKFileBrowserDemoTests.debug.xcconfig */;
+			baseConfigurationReference = 6F6902C1E089A926CA87A2D6 /* Pods-VKFileBrowserDemoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2182,7 +2258,7 @@
 		};
 		54475E061D9D949200B0BB49 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0FB512CC6E003141382BFD63 /* Pods-VKFileBrowserDemoTests.release.xcconfig */;
+			baseConfigurationReference = 5CB01436C1201A837CDE88BB /* Pods-VKFileBrowserDemoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2198,7 +2274,7 @@
 		};
 		54475E081D9D949200B0BB49 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47D90E10332ECD4F8B82FF59 /* Pods-VKFileBrowserDemoUITests.debug.xcconfig */;
+			baseConfigurationReference = A98C2ECAFC217698F3E2C09D /* Pods-VKFileBrowserDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 9A6T4XDGZT;
@@ -2213,7 +2289,7 @@
 		};
 		54475E091D9D949200B0BB49 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD3551651E5B9E9DB576B3AB /* Pods-VKFileBrowserDemoUITests.release.xcconfig */;
+			baseConfigurationReference = 17F2D5F8F5BD6381CDF5CBE4 /* Pods-VKFileBrowserDemoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 9A6T4XDGZT;

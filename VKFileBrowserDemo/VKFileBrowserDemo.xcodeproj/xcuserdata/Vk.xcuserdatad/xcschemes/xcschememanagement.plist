@@ -4,10 +4,30 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>1.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>17</integer>
+		</dict>
+		<key>2.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>18</integer>
+		</dict>
 		<key>VKFileBrowserDemo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>libgit2.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
+		<key>libssh2.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>20</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -23,6 +43,31 @@
 			<true/>
 		</dict>
 		<key>54475DF71D9D949200B0BB49</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54C834D41F4AC48D00085756</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54C834DC1F4AC48E00085756</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54C834F51F4AC49E00085756</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54C835021F4AC4AF00085756</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54C8350F1F4AC50000085756</key>
 		<dict>
 			<key>primary</key>
 			<true/>

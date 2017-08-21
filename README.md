@@ -5,6 +5,14 @@
 
 界面以及项目结构调整，功能列表后续补上
 
+使用的库：
+SwiftGit2 : [https://github.com/SwiftGit2/SwiftGit2](https://github.com/SwiftGit2/SwiftGit2)
+
+** 使用SwiftGit2来完成git命令相关功能 **
+
+* [x] clone 公有仓库 
+* [ ] clone 私有仓库 (拥有者账号密码登陆)
+
 
 
 
