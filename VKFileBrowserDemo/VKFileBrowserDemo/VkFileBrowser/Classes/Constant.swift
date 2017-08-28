@@ -9,8 +9,8 @@ import UIKit
 
 public let hlLangCount: UInt16 = 176
 
-public let SCREEN_WIDTH = UIScreen.main.bounds.size.width
-public let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
+public let SCREEN_WIDTH = UIScreen.main.nativeBounds.size.width
+public let SCREEN_HEIGHT = UIScreen.main.nativeBounds.size.height
 
 public let IS_PAD = UIDevice.current.userInterfaceIdiom == .pad
 public let IS_PHONE = UIDevice.current.userInterfaceIdiom == .phone

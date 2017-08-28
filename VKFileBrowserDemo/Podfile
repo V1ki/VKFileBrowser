@@ -21,6 +21,8 @@ target 'VKFileBrowserDemo' do
  pod "SwiftyMarkdown"
  pod "SwipeCellKit"
  pod "Result"
+# pod "Quick"
+# pod "Nimble"
  
   target 'VKFileBrowserDemoTests' do
     inherit! :search_paths

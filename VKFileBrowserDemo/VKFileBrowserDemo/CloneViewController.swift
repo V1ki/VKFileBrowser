@@ -21,14 +21,13 @@ class CloneViewController: BaseViewController {
         urlTextField.placeholder = LocalizedString("http and https support")
         self.descLabel.isHidden = true
         self.progressView.isHidden = true
-        
+        self.urlTextField.clearButtonMode = .whileEditing
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     func cloneProgressCallBack(_ name:String?,_ completeStep : Int ,_ totalStep : Int){
         if(name != nil){
@@ -37,6 +36,7 @@ class CloneViewController: BaseViewController {
                 self.progressView.progress = Float(completeStep) / Float(totalStep)
                 
                 self.descLabel.text = name
+                self.descLabel.sizeToFit()
             }
             
             if(totalStep == completeStep){

@@ -15,3 +15,4 @@
 
 //#import "libMultiMarkdown.h"
 #import "git2.h"
+#import "NSArray+StringArray.h"

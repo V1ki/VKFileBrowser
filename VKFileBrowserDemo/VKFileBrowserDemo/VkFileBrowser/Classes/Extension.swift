@@ -14,10 +14,6 @@ public func log(_ items: Any..., separator: String = "", terminator: String = ""
     print(items,separator,terminator)
 }
 
-public func log(_ items: Any...)  {
-    print(items)
-}
-
 extension NSObject {
 
     

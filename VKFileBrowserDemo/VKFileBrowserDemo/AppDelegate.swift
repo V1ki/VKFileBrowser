@@ -40,6 +40,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GCDWebUploaderDelegate{
         
         
         
+        
+        
+        
+        
         return true
     }
     

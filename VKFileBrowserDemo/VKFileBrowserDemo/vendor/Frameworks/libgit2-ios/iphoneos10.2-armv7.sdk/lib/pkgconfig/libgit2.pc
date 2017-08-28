@@ -1,0 +1,13 @@
+prefix=/Users/Vk/Documents/downloadSources/SwiftGit2/External/libgit2-ios/iphoneos10.2-armv7.sdk
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libgit2
+Description: The git library, take 2
+Version: 0.24.3
+
+Libs: -L"${libdir}" -lgit2
+Libs.private: -framework Security -framework CoreFoundation -lz -L/Users/Vk/Documents/downloadSources/SwiftGit2/External/libssh2-ios/bin/iphoneos10.2-armv7.sdk/lib -lssh2 -L/usr/lib -liconv
+Requires.private: 
+
+Cflags: -I${includedir}

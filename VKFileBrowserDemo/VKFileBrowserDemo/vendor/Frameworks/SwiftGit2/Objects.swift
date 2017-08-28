@@ -118,6 +118,7 @@ public struct Tree: ObjectType {
 
 		/// Create an instance with a libgit2 `git_tree_entry`.
 		public init(_ pointer: OpaquePointer) {
+            
 			let oid = OID(git_tree_entry_id(pointer).pointee)
 			attributes = Int32(git_tree_entry_filemode(pointer).rawValue)
 			object = Pointer(oid: oid, type: git_tree_entry_type(pointer))!

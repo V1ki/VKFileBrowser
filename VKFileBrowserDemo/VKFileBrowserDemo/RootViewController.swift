@@ -7,7 +7,7 @@
 //
 import UIKit
 import Result
-
+import MJRefresh
 import SwipeCellKit
 
 class RootViewController: UITableViewController,SSZipArchiveDelegate {
@@ -16,9 +16,13 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
     let fm = FileManager.default
     
     var dataSource = [VKFile]()
-    let reuseIdentifier = "Cell"
+    let repoReuseIdentifier = "repoCell"
+    let fileReuseIdentifier = "fileCell"
     var shouldGoPrev = false
     var shouldNoAnim = false
+    
+    var currentRepo : Repository?
+    var currentStatus = [String:StatusEntry]()
     
     var currentDir : String! {
         didSet{
@@ -51,7 +55,6 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         fm.delegate = self
-        
         let btn = UIButton(frame: CGRect(origin:CGPoint(x:0,y:0),size:CGSize(width:32,height:32)))
         btn.setImage(UIImage(named: "bottom_setting"), for: .normal)
         btn.setImage(UIImage(named: "bottom_setting_pressed"), for: .highlighted)
@@ -74,10 +77,12 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         
         btn2.addTarget(self, action: #selector(clickAddBtn), for: UIControlEvents.touchUpInside)
         
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btn2)
         
         self.tableView.hideExtraCell()
+        
+        self.tableView.mj_header = MJRefreshStateHeader(refreshingTarget: self, refreshingAction: #selector(reloadCurPage))
+        
         if (currentDir == nil) {
             currentDir = documentDir
         }
@@ -92,7 +97,44 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
     
     func clickAddBtn(_ sender:UIView){
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let createAction = UIAlertAction(title: LocalizedString("Create New Folder"), style: .default, handler: {(action) in
+        let createFolderAction = UIAlertAction(title: LocalizedString("Create New Folder"), style: .default, handler: {(action) in
+            
+            
+            self.showAlertController(LocalizedString("Create New Folder"), LocalizedString("File Name"), LocalizedString("Cancel"), LocalizedString("Save"), nil , {(action,filename) in
+                let fileDir = self.currentDir.appending("/\(filename)")
+                let createSuccess = VKFileManager.default.createNewFolder(fileDir)
+                if(!createSuccess){
+                    self.showAlertController(LocalizedString("Warning"), LocalizedString("File Already Exist"), LocalizedString("Confirm"), nil, nil, nil)
+                }
+                else{
+                    self.reloadCurPage()
+                }
+            })
+            
+        })
+        let createFileAction = UIAlertAction(title: LocalizedString("Create New File"), style: .default, handler: {(action) in
+            
+            
+            self.showAlertController(LocalizedString("Create New File"), LocalizedString("File Name"), LocalizedString("Cancel"), LocalizedString("Save"), nil , {(action,filename) in
+                let fileDir = self.currentDir.appending("/\(filename)")
+                let createSuccess = VKFileManager.default.createNewFile(fileDir)
+                if(!createSuccess){
+                    self.showAlertController(LocalizedString("Warning"), LocalizedString("File Already Exist"), LocalizedString("Confirm"), nil, nil, nil)
+                }
+                else{
+                    self.reloadCurPage()
+                }
+            })
+            
+            
+        })
+        let initRepositoryAction = UIAlertAction(title: LocalizedString("Init Repository"), style: .default, handler: {(action) in
+            let fileUrl = URL(fileURLWithPath: self.currentDir)
+            self.currentRepo = Repository.create(at: fileUrl).value
+            
+            self.tableView.reloadData()
+            
+            
             
         })
         let wifiTransferAction = UIAlertAction(title: LocalizedString("WiFi Transfer"), style: .default, handler: nil)
@@ -100,20 +142,27 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
             
             let vc = CloneViewController()
             vc.modalPresentationStyle = .popover
+            log("width:\(SCREEN_WIDTH),height:\(SCREEN_HEIGHT) scale:\(UIScreen.main.nativeScale)")
+            if(IS_PAD){
+                vc.preferredContentSize = CGSize(width: SCREEN_WIDTH/2 - 300, height: SCREEN_HEIGHT/4)
+            }
+            
             self.present(vc, animated: true, completion: nil)
             
             
             let presentationController = vc.popoverPresentationController
-            
             // Get the popover presentation controller and configure it.
 
-            presentationController?.permittedArrowDirections = .unknown
-            presentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
-            presentationController?.sourceRect = CGRect(x:0,y:0,width:200,height:200);
+            presentationController?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+            
+            presentationController?.sourceView = self.view
+            presentationController?.sourceRect = CGRect(x:SCREEN_WIDTH/4,y:SCREEN_HEIGHT*3/16,width:0,height:0)
         })
-        alertController.addAction(createAction)
+        alertController.addAction(createFolderAction)
+        alertController.addAction(createFileAction)
         alertController.addAction(wifiTransferAction)
         alertController.addAction(gitCloneAction)
+        alertController.addAction(initRepositoryAction)
         
 //        self.detailViewController()?.present(alertController, animated: true, completion: nil)
         let popover = alertController.popoverPresentationController
@@ -134,9 +183,20 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
             return
         }
         
+        
+        
         let endRange = currentDir.range(of: "/", options: .backwards, range: nil, locale: nil)
         if(endRange != nil){
             let str = currentDir.substring(with: currentDir.startIndex..<(endRange?.lowerBound)!)
+
+            if(currentRepo != nil){
+                let path = (currentRepo?.directoryURL?.path)!
+                let pathStr = path.components(separatedBy: documentDir).last?.trimmingCharacters(in: .whitespacesAndNewlines)
+                if(!str.contains(pathStr!)){
+                    currentRepo = nil
+                }
+                
+            }
             currentDir = str
         }
         
@@ -149,10 +209,30 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
     
     func reloadCurPage(){
         self.loadFileAtPath(self.currentDir)
+        
+        if(currentRepo == nil){
+            return
+        }
+        
+        let statusResult = currentRepo?.allStatus()
+        if let allStatus = statusResult?.value {
+            
+            if(allStatus.count > 0){
+                print("allStatus:\(allStatus)")
+                for status in allStatus {
+                    if(status.indexToWorkdir != nil){
+                        let key = status.indexToWorkdir?.newFile.path
+                        
+                        currentStatus[key!] = status
+                    }
+                }
+            }
+        }
+
     }
     
     func loadFileAtPath(_ path: String){
-        dataSource = VKFileManager.default.loadFile(at: path,loadGit: true)
+        dataSource = VKFileManager.default.loadFile(at: path)
         
         dataSource.sort(by: {(file1,file2) -> Bool in
             return file1.compare(withOtherFile: file2, bySortType: .name)
@@ -161,10 +241,19 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         currentDir = path
         
         DispatchQueue.main.async {
-            self.tableView.reloadSections(IndexSet(integer:0), with: self.shouldNoAnim ? .none : (self.shouldGoPrev ? .right: .left))
+            let indexSet = self.currentRepo == nil ? IndexSet(integer: 0) : IndexSet(integersIn: 0...1)
+            if( self.currentRepo == nil){
+                self.tableView.reloadData()
+//                self.tableView.reloadSections(indexSet, with: self.shouldNoAnim ? .none : (self.shouldGoPrev ? .right: .left))
+            }
+            else{
+                self.tableView.reloadData()
+            }
+            
+            
         }
         
-        
+
         
     }
     
@@ -174,24 +263,41 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         
         
         let fileDir : String = file.filePath!.appending("/\(file.name!)")
-        log("fileDir:\(fileDir)")
-        
         
         if file.isDirectory {
             
-            if RepositoryUtils.isGitRepository(file.toFileURL()) {
-                //当前处于git仓库下
-                let repo = RepositoryUtils.at(file.toFileURL()).value
-                
-                RepositoryUtils.listAllCommits(repo!){ commits in
+            if(currentRepo != nil){
+                if(!fileDir.contains(self.currentDir)){
                     
+                    currentRepo = nil
                 }
                 
-                
-                
-                
-                
             }
+            if (currentRepo == nil){
+                if RepositoryUtils.isGitRepository(file.toFileURL()) {
+                    //当前处于git仓库下
+                    currentRepo = RepositoryUtils.at(file.toFileURL()).value
+                    
+                    //读取status
+                    
+                    let statusResult = currentRepo?.allStatus()
+                    if let allStatus = statusResult?.value {
+                        
+                        if(allStatus.count > 0){
+                            for status in allStatus {
+                                if(status.indexToWorkdir != nil){
+                                    let key = status.indexToWorkdir?.newFile.path
+                                    
+                                    currentStatus[key!] = status
+                                }
+                            }
+                        }
+                    }
+                    
+                    
+                }
+            }
+
             
             
             self.currentDir = fileDir
@@ -242,10 +348,15 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
                 return
             }
             else if(file.name.hasSuffix(".md")){
-                let markdownVC = MarkdownViewController()
-                markdownVC.mFile = file
+//                let markdownVC = MarkdownViewController()
+//                markdownVC.mFile = file
+//                
+//                self.pushDetailViewController(markdownVC, sender: nil)
+                let sourceCodeVC = SourceViewController()
+                sourceCodeVC.mFile = file
                 
-                self.pushDetailViewController(markdownVC, sender: nil)
+                self.pushDetailViewController(sourceCodeVC, sender: nil)
+                
                 return
             }
             
@@ -259,29 +370,88 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
     }
     
 
-    // MARK: UITableView  DataSouce And Delegate
     
+
+}
+
+// MARK: UITableView  DataSouce And Delegate
+
+extension RootViewController  {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        if(currentRepo != nil && section == 0){ return 1}
         return dataSource.count
     }
     
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if(currentRepo != nil && section == 0){
+            return nil
+        }
+        if(currentRepo != nil && section == 1){
+            return "master branch"
+        }
+        
+        return nil
+    }
+    
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if(currentRepo != nil){ return 2}
+        return 1
+    }
     
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? SwipeTableViewCell
+        
+        if(currentRepo != nil && indexPath.section == 0){
+            let cell = UITableViewCell(style:.subtitle , reuseIdentifier: repoReuseIdentifier)
+            cell.textLabel?.text = LocalizedString("Repository")
+            cell.detailTextLabel?.text = LocalizedString("Status and Configuration")
+            return cell
+        }
+        
+        var cell = tableView.dequeueReusableCell(withIdentifier: fileReuseIdentifier) as? SwipeTableViewCell
         if (cell == nil) {
-            cell = SwipeTableViewCell(style:.default, reuseIdentifier: reuseIdentifier)
+            cell = SwipeTableViewCell(style:.default, reuseIdentifier: fileReuseIdentifier)
+            
+            
             cell?.delegate = self
         }
         let file = dataSource[indexPath.row]
+        cell?.imageView?.image = file.isDirectory ? UIImage(named: "folder") : UIImage(named: "file")
+        
+        var statusImgView = cell?.contentView.viewWithTag(100) as? UIImageView
+        if(statusImgView == nil){
+            statusImgView = UIImageView(frame: CGRect(x: 20, y: 5, width: 32, height: 32))
+            statusImgView?.image = UIImage(named: "AddedIcon")
+            statusImgView?.tag = 100
+            statusImgView?.isHidden = true
+            cell?.contentView.addSubview(statusImgView!)
+            
+        }
+        statusImgView?.isHidden = true
+        
         
         cell?.textLabel?.text = file.name
         cell?.textLabel?.font = UIFont.systemFont(ofSize: 14)
         
+        if let status = currentStatus[file.name] {
+            
+            if(status.isNewFile){
+                statusImgView?.isHidden = false
+                statusImgView?.image = UIImage(named: "AddedIcon")
+            }else if(status.isModified){
+                statusImgView?.isHidden = false
+                statusImgView?.image = UIImage(named: "ModifiedIcon")
+            }
+        }
         
-        cell?.imageView?.image = file.isDirectory ? UIImage(named: "folder") : UIImage(named: "file")
+        
+        
+        
+        
         
         if file.isDirectory {
             cell?.accessoryType = .disclosureIndicator
@@ -289,35 +459,37 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         return cell!
     }
     
-    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-//        if(action == #selector(deleteAction)){
-//            return true
-//        }
-        return false
-        
-    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        if(self.currentRepo != nil &&  indexPath.section == 0){
+            
+            
+            let repoVC = RepositoryViewController()
+            
+            repoVC.currentRepo = currentRepo
+            
+            self.pushDetailViewController(repoVC, sender: nil)
+            
+            return
+        }
         let file = dataSource[indexPath.row]
-        
         selectFile(file)
+        
+        
+        
     }
     
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
     
     
-
 }
 
 //FileManager Delegate
 extension RootViewController :FileManagerDelegate {
     
     func fileManager(_ fileManager: FileManager, shouldRemoveItemAtPath path: String) -> Bool {
-        log("shouldRemoveItemAtPath",path)
+//        log("shouldRemoveItemAtPath",path)
         //        reloadCurPage()
         return true
     }
@@ -402,35 +574,57 @@ extension RootViewController : SwipeTableViewCellDelegate {
             let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
                 // handle action by updating model with deletion
                 
-                
                 let file = self.dataSource[indexPath.row]
-                try! self.fm.removeItem(at: file.toFileURL())
+                try? self.fm.removeItem(at: file.toFileURL())
 
                 self.dataSource.remove(at: indexPath.row)
                 
+                self.tableView.reloadData()
             }
             
             return [deleteAction]
         }
         else{
+            
+            var actions = [SwipeAction]()
+            
+            
             let action = SwipeAction(style: .default, title: "Action"){ action ,indexPath in
                 
             }
-            return [action]
+            actions.append(action)
+            
+            
+            let file = dataSource[indexPath.row]
+            
+//            if let status = currentStatus[file.name] {
+//                
+//                if(status != nil){
+//                    
+                    let commitAction = SwipeAction(style: .default, title: "Commit"){ action ,indexPath in
+                        
+                        self.currentRepo!.commitFiles([file.gitPath!], true)
+                    }
+                    commitAction.backgroundColor = UIColor.green
+                    actions.append(commitAction)
+                    
+                    
+//                }
+//            }
+//            
+            
+            return actions
         }
         
     }
     
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
         var options = SwipeTableOptions()
-        options.expansionStyle = .destructiveAfterFill
+//        options.expansionStyle = .destructiveAfterFill
         options.transitionStyle = .drag
         return options
     }
 }
 
 extension RootViewController : UIPopoverPresentationControllerDelegate {
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
 }

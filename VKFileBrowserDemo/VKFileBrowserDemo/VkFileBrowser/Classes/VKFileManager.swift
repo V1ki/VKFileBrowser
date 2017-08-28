@@ -38,6 +38,15 @@ class VKFileManager: NSObject {
         return true
     }
     
+    func createNewFile(_ filePath:String) -> Bool {
+        let fileExists = fm.fileExists(atPath: filePath)
+        if fileExists {
+            return false
+        }
+        
+        return fm.createFile(atPath: filePath, contents: "123".data(using: .utf8), attributes: nil)
+        
+    }
     
     func loadFile(at path:String,loadGit shouldLoad:Bool = false) -> [VKFile]{
         

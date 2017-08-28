@@ -33,6 +33,14 @@ class VKFile: NSObject {
     var fileSize : Int? = 0
     var creationDate : NSDate?
     
+    
+    
+    var gitPath : String? {
+        get{
+            return name
+        }
+    }
+    
     override var description: String {
         get{
             return "name:\(name) -- filePath:\(filePath) -- type:\(type) -- fileSize:\(fileSize)"

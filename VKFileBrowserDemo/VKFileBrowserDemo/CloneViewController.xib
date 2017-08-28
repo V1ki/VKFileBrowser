@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CloneViewController" customModule="File_Browser" customModuleProvider="target">
+            <connections>
+                <outlet property="descLabel" destination="Lt8-ko-FPq" id="Y8E-kS-C2b"/>
+                <outlet property="progressView" destination="Bq1-Iv-gvE" id="rbY-cG-NQ9"/>
+                <outlet property="urlTextField" destination="ic5-Ky-AV2" id="c0w-SW-aRi"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0V-qu-avO">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <items>
+                        <navigationItem id="PIa-n4-tei">
+                            <barButtonItem key="leftBarButtonItem" style="plain" id="IhM-CE-azC">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="V1j-s6-RIq">
+                                    <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Cancel"/>
+                                    <connections>
+                                        <action selector="clickCancelAction:" destination="-1" eventType="touchUpInside" id="pCw-C5-fJj"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" style="plain" id="LlZ-Fx-35B">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Iw-A4-O9O">
+                                    <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Clone"/>
+                                    <connections>
+                                        <action selector="clickCloneBtn:" destination="-1" eventType="touchUpInside" id="pvC-w6-QsR"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lt8-ko-FPq">
+                    <rect key="frame" x="0.0" y="40" width="375" height="627"/>
+                    <color key="backgroundColor" white="1" alpha="0.79652857415902145" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bq1-Iv-gvE">
+                    <rect key="frame" x="0.0" y="40" width="375" height="2"/>
+                </progressView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNj-mv-zNp">
+                    <rect key="frame" x="0.0" y="44" width="375" height="100"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ic5-Ky-AV2">
+                            <rect key="frame" x="10" y="40" width="355" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="gi5-3h-tJl"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter remote URL for repository to clone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMM-bq-o95">
+                            <rect key="frame" x="20" y="0.0" width="312.5" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="bbA-nn-c33"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="ic5-Ky-AV2" firstAttribute="centerX" secondItem="fNj-mv-zNp" secondAttribute="centerX" id="3hP-Uk-IqI"/>
+                        <constraint firstAttribute="trailing" secondItem="ic5-Ky-AV2" secondAttribute="trailing" constant="10" id="7f9-jA-L50"/>
+                        <constraint firstAttribute="height" constant="100" id="FzQ-LD-xAj"/>
+                        <constraint firstItem="tMM-bq-o95" firstAttribute="top" secondItem="fNj-mv-zNp" secondAttribute="top" id="GXh-mQ-7XK"/>
+                        <constraint firstItem="ic5-Ky-AV2" firstAttribute="top" secondItem="tMM-bq-o95" secondAttribute="bottom" id="daR-um-6B3"/>
+                        <constraint firstItem="tMM-bq-o95" firstAttribute="leading" secondItem="fNj-mv-zNp" secondAttribute="leading" constant="20" id="e4n-PT-g1g"/>
+                        <constraint firstItem="ic5-Ky-AV2" firstAttribute="leading" secondItem="fNj-mv-zNp" secondAttribute="leading" constant="10" id="tLE-is-0NI"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Lt8-ko-FPq" secondAttribute="trailing" id="8IT-FI-g8f"/>
+                <constraint firstAttribute="bottom" secondItem="Lt8-ko-FPq" secondAttribute="bottom" id="C3e-Sh-jbp"/>
+                <constraint firstItem="t0V-qu-avO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DX7-Wp-4EL"/>
+                <constraint firstItem="t0V-qu-avO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EHl-Jk-tpB"/>
+                <constraint firstAttribute="trailing" secondItem="fNj-mv-zNp" secondAttribute="trailing" id="FpU-gt-xnB"/>
+                <constraint firstItem="fNj-mv-zNp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ITf-eg-b13"/>
+                <constraint firstItem="Bq1-Iv-gvE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="QUp-j1-m3Z"/>
+                <constraint firstItem="Bq1-Iv-gvE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QtI-ZZ-c4f"/>
+                <constraint firstItem="Lt8-ko-FPq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SGz-sp-MEd"/>
+                <constraint firstItem="Lt8-ko-FPq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="a4b-xP-hAK"/>
+                <constraint firstItem="fNj-mv-zNp" firstAttribute="top" secondItem="t0V-qu-avO" secondAttribute="bottom" id="lAT-kr-mVV"/>
+                <constraint firstAttribute="trailing" secondItem="Bq1-Iv-gvE" secondAttribute="trailing" id="o6t-BI-m61"/>
+                <constraint firstAttribute="trailing" secondItem="t0V-qu-avO" secondAttribute="trailing" id="wWD-v3-fLl"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="25.5" y="51.5"/>
+        </view>
+    </objects>
+</document>
