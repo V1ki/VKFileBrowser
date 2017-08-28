@@ -42,7 +42,6 @@ class RepositoryViewController: BaseViewController {
             let lastCommitResult = (currentRepo?.HEAD().flatMap{(currentRepo?.commit($0.oid))!} )!
             if let lastCommit = lastCommitResult.value {
                 
-                RepositoryUtils.listFiles(currentRepo!, lastCommit.tree.oid)
             }
             
         }
@@ -218,7 +217,9 @@ extension RepositoryViewController : UITableViewDataSource {
             cell?.textLabel?.text = "\(branch.name)"
             let trackingBranch = branch.trackingBranch(currentRepo!).value
             if(branch.isLocal && trackingBranch != nil){
-                cell?.detailTextLabel?.text = "tracking \(branch.name)"
+                cell?.detailTextLabel?.text = "tracking \(branch.longName)"
+            }else{
+                cell?.detailTextLabel?.text = "\(branch.longName)"
             }
             
         }

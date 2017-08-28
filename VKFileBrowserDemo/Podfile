@@ -20,7 +20,37 @@ target 'VKFileBrowserDemo' do
  pod "Highlightr"
  pod "SwiftyMarkdown"
  pod "SwipeCellKit"
+ pod "MGSwipeTableCell"
  pod "Result"
+ pod "RealmSwift"
+ pod "Texture"
+ pod "DZNEmptyDataSet"
+ pod "IGListKit"
+ pod "Moya"
+ pod "SwiftyJSON"
+ pod "ChameleonFramework/Swift"
+ pod "PermissionScope"
+ pod "FileKit"
+ pod "SwiftyUserDefaults"
+ pod "Hero"
+ pod "Hedwig"
+ pod "DeviceKit"
+ pod "Charts"
+ pod "ChartsRealm"
+ pod "GDPerformanceView-Swift"
+ pod "RxSwift"
+ pod "Timepiece"
+ pod "CryptoSwift"
+ pod "FSCalendar"
+ pod "TextFieldEffects"
+ pod 'FontAwesomeKit'
+ pod 'CoreDragon'
+ pod 'ReSwift'
+ pod 'TransitionTreasury'
+ pod "ElasticTransition"
+ pod 'VBFPopFlatButton'
+ pod 'InAppSettingsKit'
+ pod 'SCLAlertView'
 # pod "Quick"
 # pod "Nimble"
  

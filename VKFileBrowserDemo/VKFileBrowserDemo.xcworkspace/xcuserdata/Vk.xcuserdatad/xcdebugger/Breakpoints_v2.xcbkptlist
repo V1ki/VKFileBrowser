@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKFileBrowserDemo/VKFileBrowser/Classes/Git/RepositoryUtils.swift"
-            timestampString = "525592934.720817"
+            timestampString = "525604883.453544"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
             landmarkName = "checkoutBranch(_:_:)"
             landmarkType = "7">
          </BreakpointContent>

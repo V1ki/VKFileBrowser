@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CloneViewController" customModule="File_Browser" customModuleProvider="target">
             <connections>
-                <outlet property="descLabel" destination="Lt8-ko-FPq" id="Y8E-kS-C2b"/>
                 <outlet property="progressView" destination="Bq1-Iv-gvE" id="rbY-cG-NQ9"/>
                 <outlet property="urlTextField" destination="ic5-Ky-AV2" id="c0w-SW-aRi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -49,13 +48,6 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lt8-ko-FPq">
-                    <rect key="frame" x="0.0" y="40" width="375" height="627"/>
-                    <color key="backgroundColor" white="1" alpha="0.79652857415902145" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bq1-Iv-gvE">
                     <rect key="frame" x="0.0" y="40" width="375" height="2"/>
                 </progressView>
@@ -92,19 +84,26 @@
                         <constraint firstItem="ic5-Ky-AV2" firstAttribute="leading" secondItem="fNj-mv-zNp" secondAttribute="leading" constant="10" id="tLE-is-0NI"/>
                     </constraints>
                 </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tFi-VS-QvB">
+                    <rect key="frame" x="0.0" y="42" width="375" height="625"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Lt8-ko-FPq" secondAttribute="trailing" id="8IT-FI-g8f"/>
-                <constraint firstAttribute="bottom" secondItem="Lt8-ko-FPq" secondAttribute="bottom" id="C3e-Sh-jbp"/>
+                <constraint firstItem="tFi-VS-QvB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6wB-Ji-Wff"/>
+                <constraint firstAttribute="trailing" secondItem="tFi-VS-QvB" secondAttribute="trailing" id="98q-du-O1D"/>
                 <constraint firstItem="t0V-qu-avO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DX7-Wp-4EL"/>
                 <constraint firstItem="t0V-qu-avO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EHl-Jk-tpB"/>
+                <constraint firstItem="tFi-VS-QvB" firstAttribute="top" secondItem="Bq1-Iv-gvE" secondAttribute="bottom" id="EN9-o1-244"/>
                 <constraint firstAttribute="trailing" secondItem="fNj-mv-zNp" secondAttribute="trailing" id="FpU-gt-xnB"/>
                 <constraint firstItem="fNj-mv-zNp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ITf-eg-b13"/>
                 <constraint firstItem="Bq1-Iv-gvE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="QUp-j1-m3Z"/>
                 <constraint firstItem="Bq1-Iv-gvE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QtI-ZZ-c4f"/>
-                <constraint firstItem="Lt8-ko-FPq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SGz-sp-MEd"/>
-                <constraint firstItem="Lt8-ko-FPq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="a4b-xP-hAK"/>
+                <constraint firstAttribute="bottom" secondItem="tFi-VS-QvB" secondAttribute="bottom" id="ccc-ei-E8m"/>
                 <constraint firstItem="fNj-mv-zNp" firstAttribute="top" secondItem="t0V-qu-avO" secondAttribute="bottom" id="lAT-kr-mVV"/>
                 <constraint firstAttribute="trailing" secondItem="Bq1-Iv-gvE" secondAttribute="trailing" id="o6t-BI-m61"/>
                 <constraint firstAttribute="trailing" secondItem="t0V-qu-avO" secondAttribute="trailing" id="wWD-v3-fLl"/>

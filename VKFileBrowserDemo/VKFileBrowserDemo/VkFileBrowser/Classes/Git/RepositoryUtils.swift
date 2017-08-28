@@ -69,14 +69,17 @@ class RepositoryUtils: NSObject {
         
         
         
-        let repoResult = Repository.clone(from: repoUrl!, to: localPathUrl, localClone: false, bare: false, credentials: cred, checkoutStrategy: .Safe, checkoutProgress: {(str, completedSteps, totalSteps) in
-            log("str:\(str ?? "")  completedSteps:\(completedSteps)  totalSteps:\(totalSteps)")
-            
-            if(progresssHandler != nil){
-                progresssHandler!(str,completedSteps,totalSteps)
-            }
-            
-        })
+        let repoResult = Repository.cloneWithCustomFetch(repoUrl!, localPathUrl, cred)
+        /*
+         , checkoutProgress: {(str, completedSteps, totalSteps) in
+         log("str:\(str ?? "")  completedSteps:\(completedSteps)  totalSteps:\(totalSteps)")
+         
+         if(progresssHandler != nil){
+         progresssHandler!(str,completedSteps,totalSteps)
+         }
+         
+         }
+         */
         if let error = repoResult.error {
             log("error:\(error)")
         }
@@ -137,6 +140,7 @@ class RepositoryUtils: NSObject {
         
         pointer.deallocate(capacity: 1)
         options.callbacks.sideband_progress = transport_message_cb
+        options.callbacks.transfer_progress = transfer_progress_cb
         options.callbacks.payload = credentials.toPointer()
         options.callbacks.credentials = credential_cb
         
@@ -163,7 +167,6 @@ class RepositoryUtils: NSObject {
             log("error:\(NSError(gitError: error, pointOfFailure: "git_remote_get_fetch_refspecs"))")
             return
         }
-
         var fo = fetchOptions(credentials: .plaintext(username: "qq727755316", password: "wsbd110110"))
         error = git_remote_fetch(remote,strArrayPointer, &fo, "fetching remote : origin");
         guard error == GIT_OK.rawValue else{
@@ -191,7 +194,6 @@ class RepositoryUtils: NSObject {
                 let trackingCommit = (trackingBranch?.commit)!
                 let treeOID = (repo.commit(trackingCommit.oid).value)?.tree.oid
                 
-                listFiles(repo, treeOID!)
                 mergeBranch(repo, localBranch, trackingBranch!)
             }else{
                 log("error:\(trackingBranchResult.error)")
@@ -976,6 +978,39 @@ extension Branch {
     }
 }
 
+extension Repository {
+    class public func cloneWithCustomFetch(_ remoteURL: URL, _ localURL: URL,_
+                            credentials: Credentials = .default) -> Result<Repository, NSError> {
+        
+        var cloneOpts = git_clone_options()
+        git_clone_init_options(&cloneOpts, UInt32(GIT_CLONE_OPTIONS_VERSION))
+        
+        cloneOpts.bare = 0
+        
+        
+        var checkoption = git_checkout_options()
+        git_checkout_init_options(&checkoption, UInt32(GIT_CHECKOUT_OPTIONS_VERSION))
+        checkoption.checkout_strategy = GIT_CHECKOUT_SAFE.rawValue
+        cloneOpts.checkout_opts = checkoption
+        
+        cloneOpts.fetch_opts = RepositoryUtils.fetchOptions(credentials: credentials)
+        
+
+        var repoPointer: OpaquePointer? = nil
+        let remoteURLString = (remoteURL as NSURL).isFileReferenceURL() ? remoteURL.path : remoteURL.absoluteString
+        let result = localURL.withUnsafeFileSystemRepresentation { localPath in
+            git_clone(&repoPointer, remoteURLString, localPath, &cloneOpts)
+        }
+        
+        guard result == GIT_OK.rawValue else {
+            return Result.failure(NSError(gitError: result, pointOfFailure: "git_clone"))
+        }
+        
+        let repository = Repository(repoPointer!)
+        return Result.success(repository)
+    }
+}
+
 
 //(git_cert *cert, int valid, const char *host, void *payload)
 private func certificate_check(_ cert:UnsafePointer<git_cert>?,_ valid:Int32,_ host:UnsafePointer<Int8>?,_ playload: UnsafeMutableRawPointer?) -> Int32{
@@ -1058,6 +1093,27 @@ private func transport_message_cb(_ str:UnsafePointer<Int8>?,_ len:Int32,_ playl
     
     return 0
 }
+
+/*
+ /**
+ * Type for progress callbacks during indexing.  Return a value less than zero
+ * to cancel the transfer.
+ *
+ * @param stats Structure containing information about the state of the transfer
+ * @param payload Payload provided by caller
+ */
+ typedef int (*git_transfer_progress_cb)(const git_transfer_progress *stats, void *payload);
+ */
+private func transfer_progress_cb(_ stats:UnsafePointer<git_transfer_progress>?,_ playload: UnsafeMutableRawPointer?)-> Int32{
+    let progress = stats?.pointee
+    
+    print("progress indexed_objects:\(progress?.indexed_objects) received_objects:\(progress?.received_objects)  total_objects:\(progress?.total_objects)")
+    
+    return 0
+}
+
+
+
 
 /*
  /** Checkout progress notification function */

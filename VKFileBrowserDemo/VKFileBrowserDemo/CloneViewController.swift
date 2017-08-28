@@ -19,6 +19,7 @@ class CloneViewController: BaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         urlTextField.placeholder = LocalizedString("http and https support")
+        urlTextField.text = "https://github.com/qq727755316/python1.git"
         self.descLabel.isHidden = true
         self.progressView.isHidden = true
         self.urlTextField.clearButtonMode = .whileEditing

@@ -208,27 +208,30 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
     }
     
     func reloadCurPage(){
-        self.loadFileAtPath(self.currentDir)
         
-        if(currentRepo == nil){
-            return
-        }
         
-        let statusResult = currentRepo?.allStatus()
-        if let allStatus = statusResult?.value {
+        
+        
+        if(currentRepo != nil){
             
-            if(allStatus.count > 0){
-                print("allStatus:\(allStatus)")
-                for status in allStatus {
-                    if(status.indexToWorkdir != nil){
-                        let key = status.indexToWorkdir?.newFile.path
-                        
-                        currentStatus[key!] = status
+            let statusResult = currentRepo?.allStatus()
+            if let allStatus = statusResult?.value {
+                
+                if(allStatus.count > 0){
+                    print("allStatus:\(allStatus)")
+                    for status in allStatus {
+                        if(status.indexToWorkdir != nil){
+                            let key = status.indexToWorkdir?.newFile.path
+                            
+                            currentStatus[key!] = status
+                        }
                     }
                 }
             }
         }
-
+        
+        self.loadFileAtPath(self.currentDir)
+        self.tableView.mj_header.endRefreshing()
     }
     
     func loadFileAtPath(_ path: String){
@@ -448,13 +451,10 @@ extension RootViewController  {
             }
         }
         
-        
-        
-        
-        
-        
         if file.isDirectory {
             cell?.accessoryType = .disclosureIndicator
+        }else{
+            cell?.accessoryType = .none
         }
         return cell!
     }
