@@ -248,10 +248,11 @@
 		5471AD501F48A48B00CBDDDD /* MultiMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5471AD4F1F48A48B00CBDDDD /* MultiMarkdown.swift */; };
 		5471AD531F48AE0A00CBDDDD /* CloneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5471AD511F48AE0A00CBDDDD /* CloneViewController.swift */; };
 		5471AD541F48AE0A00CBDDDD /* CloneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5471AD521F48AE0A00CBDDDD /* CloneViewController.xib */; };
-		5471AD571F493D9300CBDDDD /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5471AD551F493D9300CBDDDD /* SettingViewController.swift */; };
-		5471AD581F493D9300CBDDDD /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5471AD561F493D9300CBDDDD /* SettingViewController.xib */; };
 		547600E41F46E02C0014AC95 /* VKSpiltViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547600E31F46E02C0014AC95 /* VKSpiltViewController.swift */; };
 		547600E61F46E2650014AC95 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547600E51F46E2650014AC95 /* RootViewController.swift */; };
+		54779DC71F546ED300AEC1C0 /* Unrar4iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54779DC61F546ED300AEC1C0 /* Unrar4iOS.framework */; };
+		54779DC91F54749900AEC1C0 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54779DC81F54749900AEC1C0 /* SettingsTableViewController.swift */; };
+		54779DCB1F5475EA00AEC1C0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 54779DCA1F5475EA00AEC1C0 /* Settings.bundle */; };
 		547E318F1F4D3F1E003C0CC5 /* RemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547E318D1F4D3F1E003C0CC5 /* RemoteViewController.swift */; };
 		547E31901F4D3F1E003C0CC5 /* RemoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547E318E1F4D3F1E003C0CC5 /* RemoteViewController.xib */; };
 		5483B7DE1F41575400782760 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5483B7DD1F41575400782760 /* README.md */; };
@@ -259,10 +260,10 @@
 		5487DF761F526C3300E411D5 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5487DF751F526C3300E411D5 /* Status.swift */; };
 		548AFB1E1F4BD459008C6F4B /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AFB1C1F4BD459008C6F4B /* RepositoryViewController.swift */; };
 		548AFB1F1F4BD459008C6F4B /* RepositoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548AFB1D1F4BD459008C6F4B /* RepositoryViewController.xib */; };
+		5490E20F1F5516A30041D232 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5490E20E1F5516A30041D232 /* DefaultsKeys.swift */; };
 		54962AA61F53B07800E75239 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54962AA51F53B07800E75239 /* Security.framework */; };
 		54962AA81F53C24100E75239 /* HEAD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54962AA71F53C24100E75239 /* HEAD.swift */; };
 		54962AAA1F53C68B00E75239 /* Commits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54962AA91F53C68B00E75239 /* Commits.swift */; };
-		54B55F661F2D978A00BB1C09 /* Unrar4iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B55EF41F2D978A00BB1C09 /* Unrar4iOS.framework */; };
 		54B55F671F2D978A00BB1C09 /* 7zBuf.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55EF71F2D978A00BB1C09 /* 7zBuf.c */; };
 		54B55F681F2D978A00BB1C09 /* 7zBuf2.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55EF91F2D978A00BB1C09 /* 7zBuf2.c */; };
 		54B55F691F2D978A00BB1C09 /* 7zDec.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55EFA1F2D978A00BB1C09 /* 7zDec.c */; };
@@ -583,12 +584,12 @@
 		5471AD4F1F48A48B00CBDDDD /* MultiMarkdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiMarkdown.swift; sourceTree = "<group>"; };
 		5471AD511F48AE0A00CBDDDD /* CloneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloneViewController.swift; sourceTree = "<group>"; };
 		5471AD521F48AE0A00CBDDDD /* CloneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CloneViewController.xib; sourceTree = "<group>"; };
-		5471AD551F493D9300CBDDDD /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		5471AD561F493D9300CBDDDD /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		547600E31F46E02C0014AC95 /* VKSpiltViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKSpiltViewController.swift; sourceTree = "<group>"; };
 		547600E51F46E2650014AC95 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		547712681F531EFE00B360F1 /* RepositorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositorySpec.swift; sourceTree = "<group>"; };
 		5477126A1F5321F700B360F1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		54779DC61F546ED300AEC1C0 /* Unrar4iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Unrar4iOS.framework; sourceTree = "<group>"; };
+		54779DC81F54749900AEC1C0 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		54779DCA1F5475EA00AEC1C0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		547E318D1F4D3F1E003C0CC5 /* RemoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteViewController.swift; sourceTree = "<group>"; };
 		547E318E1F4D3F1E003C0CC5 /* RemoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RemoteViewController.xib; sourceTree = "<group>"; };
 		5483B7DD1F41575400782760 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
@@ -596,10 +597,10 @@
 		5487DF751F526C3300E411D5 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		548AFB1C1F4BD459008C6F4B /* RepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		548AFB1D1F4BD459008C6F4B /* RepositoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepositoryViewController.xib; sourceTree = "<group>"; };
+		5490E20E1F5516A30041D232 /* DefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		54962AA51F53B07800E75239 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		54962AA71F53C24100E75239 /* HEAD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEAD.swift; sourceTree = "<group>"; };
 		54962AA91F53C68B00E75239 /* Commits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commits.swift; sourceTree = "<group>"; };
-		54B55EF41F2D978A00BB1C09 /* Unrar4iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Unrar4iOS.framework; sourceTree = "<group>"; };
 		54B55EF61F2D978A00BB1C09 /* 7z.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7z.h; sourceTree = "<group>"; };
 		54B55EF71F2D978A00BB1C09 /* 7zBuf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zBuf.c; sourceTree = "<group>"; };
 		54B55EF81F2D978A00BB1C09 /* 7zBuf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7zBuf.h; sourceTree = "<group>"; };
@@ -726,8 +727,8 @@
 			files = (
 				54962AA61F53B07800E75239 /* Security.framework in Frameworks */,
 				54C835571F4ACF2800085756 /* libiconv.tbd in Frameworks */,
+				54779DC71F546ED300AEC1C0 /* Unrar4iOS.framework in Frameworks */,
 				5469C5D51F4874C800A849EC /* libMultiMarkdown.a in Frameworks */,
-				54B55F661F2D978A00BB1C09 /* Unrar4iOS.framework in Frameworks */,
 				54D3D97A1DA55BBC00BD009C /* libxml2.tbd in Frameworks */,
 				54D3D9781DA55B4800BD009C /* libz.tbd in Frameworks */,
 				0E40653FC6656E87C546089F /* Pods_VKFileBrowserDemo.framework in Frameworks */,
@@ -791,18 +792,16 @@
 		54475DD81D9D949200B0BB49 /* VKFileBrowserDemo */ = {
 			isa = PBXGroup;
 			children = (
-				547712671F531C3700B360F1 /* Test */,
+				54779DCA1F5475EA00AEC1C0 /* Settings.bundle */,
 				5483B7DD1F41575400782760 /* README.md */,
 				54475DE81D9D949200B0BB49 /* Info.plist */,
 				54475DD91D9D949200B0BB49 /* AppDelegate.swift */,
 				5471AD511F48AE0A00CBDDDD /* CloneViewController.swift */,
 				547600E51F46E2650014AC95 /* RootViewController.swift */,
-				5471AD551F493D9300CBDDDD /* SettingViewController.swift */,
 				54475DDB1D9D949200B0BB49 /* ViewController.swift */,
 				547600E31F46E02C0014AC95 /* VKSpiltViewController.swift */,
 				54475DE31D9D949200B0BB49 /* Assets.xcassets */,
 				5471AD521F48AE0A00CBDDDD /* CloneViewController.xib */,
-				5471AD561F493D9300CBDDDD /* SettingViewController.xib */,
 				54475DE51D9D949200B0BB49 /* LaunchScreen.storyboard */,
 				54475DDD1D9D949200B0BB49 /* Main.storyboard */,
 				54B55EF21F2D978A00BB1C09 /* vendor */,
@@ -812,6 +811,8 @@
 				548AFB1D1F4BD459008C6F4B /* RepositoryViewController.xib */,
 				547E318D1F4D3F1E003C0CC5 /* RemoteViewController.swift */,
 				547E318E1F4D3F1E003C0CC5 /* RemoteViewController.xib */,
+				54779DC81F54749900AEC1C0 /* SettingsTableViewController.swift */,
+				5490E20E1F5516A30041D232 /* DefaultsKeys.swift */,
 			);
 			path = VKFileBrowserDemo;
 			sourceTree = "<group>";
@@ -1152,14 +1153,6 @@
 			path = Widget;
 			sourceTree = "<group>";
 		};
-		547712671F531C3700B360F1 /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				547712681F531EFE00B360F1 /* RepositorySpec.swift */,
-			);
-			path = Test;
-			sourceTree = "<group>";
-		};
 		54B55EF21F2D978A00BB1C09 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1175,12 +1168,12 @@
 		54B55EF31F2D978A00BB1C09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				54779DC61F546ED300AEC1C0 /* Unrar4iOS.framework */,
 				546F11881F4FC68F001ED7B3 /* NSArray+StringArray.h */,
 				546F11861F4FC67C001ED7B3 /* NSArray+StringArray.m */,
 				544896F91F4AE1ED00DB8980 /* SwiftGit2 */,
 				5469C5D31F4874C800A849EC /* libMultiMarkdown.a */,
 				5469C5D41F4874C800A849EC /* libMultiMarkdown.h */,
-				54B55EF41F2D978A00BB1C09 /* Unrar4iOS.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -1437,7 +1430,7 @@
 				TargetAttributes = {
 					54475DD51D9D949200B0BB49 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 3HZE7AZCZT;
+						DevelopmentTeam = 8QPQ64G7PT;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -1497,7 +1490,6 @@
 				5469C8A81F48791B00A849EC /* ceylon.js in Resources */,
 				5469C8AE1F48791B00A849EC /* coq.js in Resources */,
 				5469C8C31F48791C00A849EC /* elm.js in Resources */,
-				5471AD581F493D9300CBDDDD /* SettingViewController.xib in Resources */,
 				5469C8CB1F48791C00A849EC /* fsharp.js in Resources */,
 				5469C8B61F48791B00A849EC /* d.js in Resources */,
 				5469C8F61F48791C00A849EC /* mel.js in Resources */,
@@ -1539,6 +1531,7 @@
 				5469C9261F48791C00A849EC /* sql.js in Resources */,
 				5469C8E51F48791C00A849EC /* julia.js in Resources */,
 				5469C8BB1F48791B00A849EC /* dns.js in Resources */,
+				54779DCB1F5475EA00AEC1C0 /* Settings.bundle in Resources */,
 				5469C9171F48791C00A849EC /* roboconf.js in Resources */,
 				5469C91B1F48791C00A849EC /* ruleslanguage.js in Resources */,
 				5469C8B11F48791B00A849EC /* crmsh.js in Resources */,
@@ -1872,6 +1865,7 @@
 				54B55F691F2D978A00BB1C09 /* 7zDec.c in Sources */,
 				5469C94B1F48791C00A849EC /* BaseViewController.swift in Sources */,
 				54475DDC1D9D949200B0BB49 /* ViewController.swift in Sources */,
+				5490E20F1F5516A30041D232 /* DefaultsKeys.swift in Sources */,
 				5448970D1F4AE1ED00DB8980 /* Libgit2.swift in Sources */,
 				544897111F4AE1ED00DB8980 /* References.swift in Sources */,
 				5483B7DE1F41575400782760 /* README.md in Sources */,
@@ -1890,7 +1884,6 @@
 				54B55F751F2D978A00BB1C09 /* Ppmd8.c in Sources */,
 				544897101F4AE1ED00DB8980 /* Pointers.swift in Sources */,
 				54B55F761F2D978A00BB1C09 /* Ppmd8Dec.c in Sources */,
-				5471AD571F493D9300CBDDDD /* SettingViewController.swift in Sources */,
 				54B55F771F2D978A00BB1C09 /* 7zAlloc.c in Sources */,
 				5448970E1F4AE1ED00DB8980 /* Objects.swift in Sources */,
 				5469C9571F48791C00A849EC /* ContentItemModel.swift in Sources */,
@@ -1909,6 +1902,7 @@
 				5469C9521F48791C00A849EC /* Extension.swift in Sources */,
 				54B55F721F2D978A00BB1C09 /* LZMAExtractor.m in Sources */,
 				5469C95C1F48791C00A849EC /* RGBtoHSV.swift in Sources */,
+				54779DC91F54749900AEC1C0 /* SettingsTableViewController.swift in Sources */,
 				54475DDA1D9D949200B0BB49 /* AppDelegate.swift in Sources */,
 				5469C94D1F48791C00A849EC /* DocumentPreviewObject.swift in Sources */,
 				544897131F4AE1ED00DB8980 /* Repository.swift in Sources */,
@@ -2165,15 +2159,19 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3HZE7AZCZT;
+				DEVELOPMENT_TEAM = 8QPQ64G7PT;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/SARUnArchiveANY/Frameworks",
 					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks",
 				);
+				GCC_OPTIMIZATION_LEVEL = 3;
 				HEADER_SEARCH_PATHS = (
 					"$(SDK_DIR)/usr/include/libxml2",
 					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/include",
@@ -2213,17 +2211,17 @@
 					"-force_load",
 					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/libgit2-ios/libgit2-ios.a",
 					"-lgit2-ios",
+					"-lssh2-ios",
 					"-lssl",
 					"-lcrypto",
-					"-lssh2-ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowserDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowser;
 				PRODUCT_NAME = "File Browser";
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/include";
 				SWIFT_OBJC_BRIDGING_HEADER = "./VKFileBrowserDemo/VKFileBrowser/VKFileBrowserDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/**";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/GCDWebServer/** ${SRCROOT}/Pods/SDWebImage/** ${SRCROOT}/Pods/MJRefresh/** ${SRCROOT}/Pods/MWPhotoBrowser/** ${SRCROOT}/Pods/MJExtension/** ${SRCROOT}/Pods/MBProgressHUD/** ${SRCROOT}/Pods/InAppSettingsKit/** ${SRCROOT}/Pods/ChameleonFramework/**";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -2234,9 +2232,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3HZE7AZCZT;
+				DEVELOPMENT_TEAM = 8QPQ64G7PT;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2282,16 +2283,16 @@
 					"-force_load",
 					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/libgit2-ios/libgit2-ios.a",
 					"-lgit2-ios",
+					"-lssh2-ios",
 					"-lssl",
 					"-lcrypto",
-					"-lssh2-ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowserDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowser;
 				PRODUCT_NAME = "File Browser";
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/include";
 				SWIFT_OBJC_BRIDGING_HEADER = "./VKFileBrowserDemo/VKFileBrowser/VKFileBrowserDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/**";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/GCDWebServer/** ${SRCROOT}/Pods/SDWebImage/** ${SRCROOT}/Pods/MJRefresh/** ${SRCROOT}/Pods/MWPhotoBrowser/** ${SRCROOT}/Pods/MJExtension/** ${SRCROOT}/Pods/MBProgressHUD/** ${SRCROOT}/Pods/InAppSettingsKit/** ${SRCROOT}/Pods/ChameleonFramework/**";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;

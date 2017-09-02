@@ -18,8 +18,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        navigationItem.setLeftBarButtonItems([(splitViewController?.displayModeButtonItem)!], animated: true)
+        self.navigationController?.hidesNavigationBarHairline = true
         navigationItem.leftItemsSupplementBackButton = true
     }
 
@@ -113,8 +113,9 @@ class ViewController: UIViewController {
             self.progressHud?.mode = MBProgressHUDMode.annularDeterminate
             
             DispatchQueue.global().async {
-                
-                let repoResult = RepositoryUtils.clone(repoStr,credentials: .plaintext(username: user, password: pwd))
+                let repoResult = RepositoryUtils.clone(repoStr, {str in
+                    
+                })
                 
                 DispatchQueue.main.async {
                     self.progressHud?.hide(true)

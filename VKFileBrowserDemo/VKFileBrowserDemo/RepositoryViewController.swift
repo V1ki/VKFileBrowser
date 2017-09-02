@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import MGSwipeTableCell
+import VBFPopFlatButton
+import RxSwift
+import RxCocoa
+import ChameleonFramework
 
 class RepositoryViewController: BaseViewController {
     
@@ -29,6 +34,8 @@ class RepositoryViewController: BaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         mTableView.hideExtraCell()
+        
+        
         self.automaticallyAdjustsScrollViewInsets = false
         //        RepositoryUtils.addRefspecs(currentRepo!, "origin")
         //        RepositoryUtils.refspecs(currentRepo!)
@@ -46,58 +53,14 @@ class RepositoryViewController: BaseViewController {
             
         }
         
-        
-        
-        
-        
-        let pushBtn = UIButton(frame:CGRect(x: 0, y: 0, width: 80, height: 40))
-        
-        pushBtn.setTitle("push", for: .normal)
-        pushBtn.setTitleColor(pushBtn.tintColor, for: .normal)
-        pushBtn.addTarget(self, action: #selector(clickPushBtn), for: .touchUpInside)
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: pushBtn)
-        
-        
+
         self.reloadData()
     }
     
-    func clickPushBtn(){
-        
-        let remoteBranchesResult = currentRepo?.remoteBranches()
-        
-        
-        if let remoteBranches = remoteBranchesResult?.value {
-            if(remoteBranches.count == 0){
-                
-            }
-        }
-        
-        
-        
-        let localBranchesResult = currentRepo?.localBranches()
-        
-        if let localBranches = localBranchesResult?.value {
-            if(localBranches.count > 0){
-                
-                let remoteReuslt = currentRepo?.allRemotes()
-                if let remotes = remoteReuslt?.value {
-                    RepositoryUtils.pushBranch(currentRepo!, localBranches.first!,remotes.first!)
-                }
-                
-                
-            }
-        }
-        
-        
-        
-        
-        //
-    }
-    
-    
     
     func reloadData(){
+        dataSource.removeAll()
+        
         let remoteReuslt = currentRepo?.allRemotes()
         if let remotes = remoteReuslt?.value {
             dataSource["REMOTES"] = remotes
@@ -161,7 +124,7 @@ class RepositoryViewController: BaseViewController {
     
     
     /*
-     // MARK: - Navigation
+
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -171,6 +134,7 @@ class RepositoryViewController: BaseViewController {
      */
     
 }
+//MARK: - UITableView dataSource
 extension RepositoryViewController : UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return dataSource.count
@@ -180,10 +144,24 @@ extension RepositoryViewController : UITableViewDataSource {
         return dataSource[sectionTitles[section]]!.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)
+        var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? MGSwipeTableCell
         if(cell == nil){
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: reuseIdentifier)
+            cell = MGSwipeTableCell(style: .subtitle, reuseIdentifier: reuseIdentifier)
         }
+        cell?.textLabel?.textAlignment = .left
+        
+        var nextBtn = cell?.contentView.viewWithTag(101) as? VBFPopFlatButton
+        if(nextBtn == nil){
+            nextBtn = VBFPopFlatButton(frame: CGRect(x: self.view.mj_w - 40 , y: ((cell?.mj_h)! - 28)/2 , width: 28, height: 28), buttonType: .buttonForwardType, buttonStyle: .buttonRoundedStyle , animateToInitialState: false)
+            nextBtn?.backgroundColor = UIColor.clear
+            nextBtn?.tintColor = .flatSkyBlue
+            nextBtn?.tag = 101
+            nextBtn?.isHidden = true
+            cell?.contentView.addSubview(nextBtn!)
+        }
+        
+        nextBtn?.isHidden = true
+        
         let key = sectionTitles[indexPath.section]
         if(key == "REMOTES"){
             
@@ -191,10 +169,19 @@ extension RepositoryViewController : UITableViewDataSource {
             if(remote != nil){
                 cell?.textLabel?.text = remote?.name
                 cell?.detailTextLabel?.text = remote?.URL
-                cell?.accessoryType = .disclosureIndicator
+                
+                //configure right buttons
+                cell?.rightButtons = [MGSwipeButton(title: "Fetch", backgroundColor: .flatLime,callback:{cell in
+                    RepositoryUtils.fetchRemote(self.currentRepo!,(remote?.name)!)
+                    return true
+                })]
+                cell?.rightSwipeSettings.transition = .rotate3D
+                
+                nextBtn?.isHidden = false
             }
             else{
-                cell?.textLabel?.text = "Add"
+                cell?.textLabel?.text = "Add Remote"
+                cell?.textLabel?.textAlignment = .center
             }
         }
         else if(key.contains("COMMITS")){
@@ -214,10 +201,17 @@ extension RepositoryViewController : UITableViewDataSource {
         }
         else if(key == "LocalBranches" || key == "RemoteBranches"){
             let branch = dataSource[key]![indexPath.row] as! Branch
-            cell?.textLabel?.text = "\(branch.name)"
+            cell?.textLabel?.text = "\(branch.name) "
             let trackingBranch = branch.trackingBranch(currentRepo!).value
             if(branch.isLocal && trackingBranch != nil){
-                cell?.detailTextLabel?.text = "tracking \(branch.longName)"
+                
+                let remoteBranches = dataSource["RemoteBranches"]!
+                for case let remoteBranch as Branch  in remoteBranches {
+                    if(remoteBranch.oid == branch.oid){
+                        cell?.detailTextLabel?.text = "tracking \(remoteBranch.name)"
+                    }
+                }
+                
             }else{
                 cell?.detailTextLabel?.text = "\(branch.longName)"
             }
@@ -229,13 +223,13 @@ extension RepositoryViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 30
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 30))
         
-        let label = UILabel(frame: CGRect(x: 20, y: 20, width: tableView.frame.size.width, height: 20))
+        let label = UILabel(frame: CGRect(x: 20, y: 10, width: tableView.frame.size.width, height: 20))
         label.font = UIFont.systemFont(ofSize: 12)
         label.text = LocalizedString(sectionTitles[section])
         
@@ -268,8 +262,43 @@ extension RepositoryViewController : UITableViewDelegate {
             let remote = dataSource[key]![indexPath.row] as? Remote
             if(remote == nil){
                 
-                _ = RepositoryUtils.addRemote(currentRepo!,"origin","https://github.com/qq727755316/python1.git")
-                self.reloadData()
+                let alertController = UIAlertController(title: LocalizedString("remote"), message: LocalizedString("add remote"), preferredStyle: .alert)
+                
+                alertController.addTextField(configurationHandler: {(textField) in
+                    textField.placeholder = LocalizedString("remote name")
+                })
+                
+                alertController.addTextField(configurationHandler: {(textField) in
+                    textField.placeholder = LocalizedString("remote url")
+                })
+                
+                let cancelAction = UIAlertAction(title:LocalizedString("Cancel"),style:.cancel,handler:{(action) in
+                    
+                })
+                
+                let addAction = UIAlertAction(title: LocalizedString("add"), style: .default, handler: {(alertAction) in
+                    
+                    let name = (alertController.textFields?.first?.text)!
+                    let url = (alertController.textFields?.last?.text)!
+                    
+                    
+                    
+                    let result = RepositoryUtils.addRemote(self.currentRepo!,name,url)
+                    
+                    guard result.error == nil else{
+                        print("error:\(result.error)")
+                        return
+                    }
+                    
+                    self.reloadData()
+                    
+                })
+                alertController.addAction(cancelAction)
+                alertController.addAction(addAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+                
             }else{
                 let remoteVC = RemoteViewController()
                 remoteVC.remote = remote
@@ -281,16 +310,18 @@ extension RepositoryViewController : UITableViewDelegate {
         else if(key.contains("COMMITS")){
             let commit  = dataSource[key]![indexPath.row] as! Commit
             
-            RepositoryUtils.checkoutCommit(currentRepo!, commit)
+            let result = RepositoryUtils.checkoutCommit(currentRepo!, commit)
             
-            let oid = commit.tree.oid
-            
-            let tree = currentRepo?.tree(oid)
-            print("tree:\(tree)")
+            if(result.error == nil){
+                self.reloadData()
+            }else{
+                print("result.error:\(result.error)")
+            }
             
         }else if(key == "LocalBranches" || key == "RemoteBranches"){
             let branch  = dataSource[key]![indexPath.row] as! Branch
             RepositoryUtils.checkoutBranch(currentRepo!, branch)
+            reloadData()
         }
     }
 }

@@ -8,8 +8,9 @@
 
 import UIKit
 import Result
+import SwiftyUserDefaults
 
-
+public typealias SidebandProgressProgressBlock = (String,Int) -> Void
 class RepositoryUtils: NSObject {
     
     
@@ -57,19 +58,17 @@ class RepositoryUtils: NSObject {
     }
     
     class func at(_ url:URL) -> Result<Repository,NSError> {
-
+        
         return Repository.at(url)
     }
     
-    class func clone(_ url:String , credentials cred:Credentials = .default,progresssHandler :((String?,Int,Int) -> Void)? = nil  ) -> Result<Repository,NSError>{
-
+    class func clone(_ url:String ,_ progresssHandler :SidebandProgressProgressBlock? = nil  ) -> Result<Repository,NSError>{
+        
         let repoUrl = URL(string: url)
-
+        
         let localPathUrl = URL(fileURLWithPath: getRepoSavePath(url))
         
-        
-        
-        let repoResult = Repository.cloneWithCustomFetch(repoUrl!, localPathUrl, cred)
+        let repoResult = Repository.cloneWithCustomFetch(repoUrl!, localPathUrl,progresssHandler)
         /*
          , checkoutProgress: {(str, completedSteps, totalSteps) in
          log("str:\(str ?? "")  completedSteps:\(completedSteps)  totalSteps:\(totalSteps)")
@@ -86,7 +85,7 @@ class RepositoryUtils: NSObject {
         return repoResult
         
     }
-
+    
     
     class func listFiles(_ repo:Repository, _ oid:OID){
         let tree = repo.tree(oid).value
@@ -103,9 +102,9 @@ class RepositoryUtils: NSObject {
             case .tree:
                 //目录
                 print("enter \(treeEntry.name)   -- \(treeEntry.object.oid)")
-//                listFiles(repo, treeEntry.object.oid)
+                //                listFiles(repo, treeEntry.object.oid)
                 break
-
+                
             default:
                 print("Default")
                 break
@@ -114,60 +113,70 @@ class RepositoryUtils: NSObject {
             
         }
     }
-
     
-    class func createBranch(_ repo:Repository,commit:Commit){
-        
+    
+    class func createBranch(_ repo:Repository,commit:Commit, branchName:String) -> Result<Branch,NSError>{
+        var error : Int32 = 0
         var branchPointer : OpaquePointer? = nil
         
         var commitPointer: OpaquePointer? = nil
         var oid = commit.oid.oid
-        let result = git_object_lookup(&commitPointer, repo.pointer, &oid, GIT_OBJ_COMMIT)
+        error = git_object_lookup(&commitPointer, repo.pointer, &oid, GIT_OBJ_COMMIT)
         
-        guard result == GIT_OK.rawValue else {
-            return
+        guard error == GIT_OK.rawValue else {
+            return failure(error, "git_object_lookup")
         }
         
-        git_branch_create(&branchPointer, repo.pointer, "", commitPointer, 0)
-        
+        error = git_branch_create(&branchPointer, repo.pointer, branchName, commitPointer, 0)
+        guard error == GIT_OK.rawValue else {
+            return failure(error, "git_branch_create")
+        }
+        return Result.success(Branch(branchPointer!)!)
     }
     
-    class func fetchOptions(credentials: Credentials) -> git_fetch_options {
+    class func fetchOptions(_ progresssHandler :SidebandProgressProgressBlock? = nil ) -> git_fetch_options {
         let pointer = UnsafeMutablePointer<git_fetch_options>.allocate(capacity: 1)
         git_fetch_init_options(pointer, UInt32(GIT_FETCH_OPTIONS_VERSION))
         
         var options = pointer.move()
         
         pointer.deallocate(capacity: 1)
-        options.callbacks.sideband_progress = transport_message_cb
+        if(progresssHandler != nil){
+            let blockPointer = UnsafeMutablePointer<SidebandProgressProgressBlock>.allocate(capacity: 1)
+            blockPointer.initialize(to: progresssHandler!)
+            options.callbacks.payload = UnsafeMutableRawPointer(blockPointer)
+        }
+        
         options.callbacks.transfer_progress = transfer_progress_cb
-        options.callbacks.payload = credentials.toPointer()
+        options.callbacks.pack_progress = packbuilder_progress_cb
+        options.callbacks.sideband_progress = transport_message_cb
         options.callbacks.credentials = credential_cb
         
         return options
     }
-
     
-    class func fetchRemote(_ repo:Repository){
+    
+    class func fetchRemote(_ repo:Repository,_ remoteName:String) {
         var error:Int32 = 0
         
-
         var remote : OpaquePointer? = nil
-        error = git_remote_lookup(&remote, repo.pointer, "origin")
+        error = git_remote_lookup(&remote, repo.pointer, remoteName)
         guard error == GIT_OK.rawValue else{
             
             log("error:\(NSError(gitError: error, pointOfFailure: "git_remote_lookup"))")
             return
         }
-
-        var strArrayPointer  = UnsafeMutablePointer<git_strarray>.allocate(capacity: 1)
+        
+        let strArrayPointer  = UnsafeMutablePointer<git_strarray>.allocate(capacity: 1)
         error = git_remote_get_fetch_refspecs(strArrayPointer, remote)
         guard error == GIT_OK.rawValue else{
             
             log("error:\(NSError(gitError: error, pointOfFailure: "git_remote_get_fetch_refspecs"))")
             return
         }
-        var fo = fetchOptions(credentials: .plaintext(username: "qq727755316", password: "wsbd110110"))
+        var fo = fetchOptions({(str,line) in
+            print("str:\(str)")
+        })
         error = git_remote_fetch(remote,strArrayPointer, &fo, "fetching remote : origin");
         guard error == GIT_OK.rawValue else{
             
@@ -258,7 +267,7 @@ class RepositoryUtils: NSObject {
         
     }
     
-
+    
     
     private class func mergeBranch(_ repo:Repository, _ currentBranch:Branch ,_ remoteBranch:Branch){
         var error:Int32 = 0
@@ -458,7 +467,9 @@ class RepositoryUtils: NSObject {
         }
     }
     
-    class func checkoutCommit(_ repo:Repository,_ commit:Commit){
+    /**
+    */
+    class func checkoutCommit(_ repo:Repository,_ commit:Commit) -> Result<(),NSError>{
         var error:Int32 = 0
         
         var obj : OpaquePointer? = nil
@@ -467,14 +478,16 @@ class RepositoryUtils: NSObject {
         guard error == GIT_OK.rawValue else{
             
             log("error:\(NSError(gitError: error, pointOfFailure: "git_commit_lookup"))")
-            return
+            
+            return failure(error, "git_commit_lookup")
         }
         var treeOid = commit.tree.oid.oid
         error = git_tree_lookup(&obj, repo.pointer, &treeOid)
         guard error == GIT_OK.rawValue else{
             
             log("error:\(NSError(gitError: error, pointOfFailure: "git_tree_lookup"))")
-            return
+
+            return failure(error, "git_tree_lookup")
         }
         
         var option = git_checkout_options()
@@ -483,34 +496,33 @@ class RepositoryUtils: NSObject {
         option.target_directory = UnsafePointer<Int8>("\((repo.directoryURL?.path)!)")
         option.progress_cb = checkout_progress_cb
         guard error == GIT_OK.rawValue else{
-            
             log("error:\(NSError(gitError: error, pointOfFailure: "git_checkout_init_options"))")
-            return
+            return failure(error, "git_checkout_init_options")
         }
         
         error = git_checkout_tree(repo.pointer, obj, &option)
         guard error == GIT_OK.rawValue else{
             
             log("error:\(NSError(gitError: error, pointOfFailure: "git_checkout_tree"))")
-            return
+            return failure(error, "git_checkout_tree")
         }
         print("checkout success")
         _ = repo.moveHEADToCommit(commit)
+        return Result.success()
     }
     
     class func addRemote(_ repo:Repository,_ remoteName:String,_ remoteURL:String) ->Result<Remote,NSError> {
         
         var remote : OpaquePointer? = nil
-        let result = git_remote_create(&remote, repo.pointer,  remoteName, remoteURL)
+        let error = git_remote_create(&remote, repo.pointer,  remoteName, remoteURL)
         
-        if(result == GIT_OK.rawValue){} else{
-            log("error:\(NSError(gitError: result, pointOfFailure: "git_signature_now"))")
-            return Result.failure(NSError(gitError: result, pointOfFailure: "git_signature_now"))
-            
+        if(error == GIT_OK.rawValue){} else{
+            log("error:\(NSError(gitError: error, pointOfFailure: "git_signature_now"))")
+            return failure(error, "git_signature_now")
         }
         return Result.success(Remote(remote!))
         
-//        git_remote_add_push(repo.pointer, <#T##remote: UnsafePointer<Int8>!##UnsafePointer<Int8>!#>, <#T##refspec: UnsafePointer<Int8>!##UnsafePointer<Int8>!#>)
+        //        git_remote_add_push(repo.pointer, <#T##remote: UnsafePointer<Int8>!##UnsafePointer<Int8>!#>, <#T##refspec: UnsafePointer<Int8>!##UnsafePointer<Int8>!#>)
     }
     
     class func initFirstCommit(_ repo:Repository){
@@ -552,7 +564,7 @@ class RepositoryUtils: NSObject {
         
         
         var commitsPointer : [OpaquePointer?] = [OpaquePointer?]()
-
+        
         var newCommitID : git_oid = git_oid()
         error = git_commit_create(&newCommitID, repo.pointer, "HEAD", &signature , &signature , "UTF-8", "message", newTree, 1, &commitsPointer)
         
@@ -571,7 +583,7 @@ class RepositoryUtils: NSObject {
     }
     
     
-
+    
     
     
     class func pushRefspecs(_ repo:Repository,_ refspec:String,_ remote:Remote){
@@ -599,7 +611,7 @@ class RepositoryUtils: NSObject {
             log("error:\(NSError(gitError: error, pointOfFailure: "git_remote_connect"))")
             return
         }
-                git_remote_disconnect(remotePointer)
+        git_remote_disconnect(remotePointer)
         
         var push_options = git_push_options()
         error = git_push_init_options(&push_options, UInt32(GIT_PUSH_OPTIONS_VERSION))
@@ -618,7 +630,7 @@ class RepositoryUtils: NSObject {
             return
         }
         
-
+        
         
         
         let download_tags = GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED
@@ -647,7 +659,7 @@ class RepositoryUtils: NSObject {
         refspec = "refs/heads/\((branch.shortName)!):\(remoteBranchReference)"
         
         pushRefspecs(repo, refspec,remote)
-    
+        
     }
     
     
@@ -660,7 +672,7 @@ class RepositoryUtils: NSObject {
             error = git_tree_lookup(&oldTree, repo.pointer, &oid)
             if(error != GIT_OK.rawValue) {
                 log("error:\(NSError(gitError: error, pointOfFailure: "git_tree_lookup"))")
-                return Result.failure(NSError(gitError: error, pointOfFailure: "git_tree_lookup"))
+                return failure(error, "git_tree_lookup")
             }
         }
         
@@ -670,7 +682,7 @@ class RepositoryUtils: NSObject {
         
         if(error != GIT_OK.rawValue) {
             log("error:\(NSError(gitError: error, pointOfFailure: "git_treebuilder_new"))")
-            return Result.failure(NSError(gitError: error, pointOfFailure: "git_treebuilder_new"))
+            return failure(error, "git_treebuilder_new")
         }
         
         git_tree_free(oldTree)
@@ -683,39 +695,39 @@ class RepositoryUtils: NSObject {
         error = git_odb_open_wstream(&stream, _git_odb, 3, GIT_OBJ_BLOB)
         guard error == GIT_OK.rawValue else{
             log("error:\(NSError(gitError: error, pointOfFailure: "git_odb_open_wstream"))")
-            return Result.failure(NSError(gitError: error, pointOfFailure: "git_odb_open_wstream"))
+            return failure(error, "git_odb_open_wstream")
         }
         error = git_odb_stream_write(stream, "123", 3)
         guard error == GIT_OK.rawValue else{
             log("error:\(NSError(gitError: error, pointOfFailure: "git_odb_stream_write"))")
-            return Result.failure(NSError(gitError: error, pointOfFailure: "git_odb_stream_write"))
+            return failure(error, "git_odb_stream_write")
         }
         var oid = git_oid()
         error = git_odb_stream_finalize_write(&oid, stream);
         guard error == GIT_OK.rawValue else{
             log("error:\(NSError(gitError: error, pointOfFailure: "git_odb_stream_finalize_write"))")
-            return Result.failure(NSError(gitError: error, pointOfFailure: "git_odb_stream_finalize_write"))
+            return failure(error, "git_odb_stream_finalize_write")
         }
         git_odb_stream_free(stream)
         
         for file in files {
-//
-//            var obj : OpaquePointer? = nil
-//            print("HEAD:\((file))")
-//            error = git_revparse_single(&obj, repo.pointer, "HEAD:\((file))");
-//            if(error != GIT_OK.rawValue) {
-//                log("error:\(NSError(gitError: error, pointOfFailure: "git_revparse_single"))")
-//                return Result.failure(NSError(gitError: error, pointOfFailure: "git_revparse_single"))
-//            }
-//            
-//            error = git_treebuilder_insert(nil, treeBuilder, "\(file)", git_object_id(obj), GIT_FILEMODE_BLOB)
+            //
+            //            var obj : OpaquePointer? = nil
+            //            print("HEAD:\((file))")
+            //            error = git_revparse_single(&obj, repo.pointer, "HEAD:\((file))");
+            //            if(error != GIT_OK.rawValue) {
+            //                log("error:\(NSError(gitError: error, pointOfFailure: "git_revparse_single"))")
+            //                return Result.failure(NSError(gitError: error, pointOfFailure: "git_revparse_single"))
+            //            }
+            //
+            //            error = git_treebuilder_insert(nil, treeBuilder, "\(file)", git_object_id(obj), GIT_FILEMODE_BLOB)
             error = git_treebuilder_insert(nil, treeBuilder, "\(file)", &oid, GIT_FILEMODE_BLOB)
             if(error != GIT_OK.rawValue) {
                 log("error:\(NSError(gitError: error, pointOfFailure: "git_treebuilder_insert"))")
-                return Result.failure(NSError(gitError: error, pointOfFailure: "git_treebuilder_insert"))
+                return failure(error, "git_treebuilder_insert")
             }
-//            git_object_free(obj);
-//
+            //            git_object_free(obj);
+            //
         }
         
         
@@ -724,11 +736,11 @@ class RepositoryUtils: NSObject {
         error = git_treebuilder_write(&treeOid, treeBuilder)
         if(error != GIT_OK.rawValue) {
             log("error:\(NSError(gitError: error, pointOfFailure: "git_treebuilder_write"))")
-            return Result.failure(NSError(gitError: error, pointOfFailure: "git_treebuilder_write"))
+            return failure(error,"git_treebuilder_write")
         }
         
         git_treebuilder_free(treeBuilder)
-
+        
         return Result.success(treeOid)
     }
     
@@ -739,7 +751,7 @@ class RepositoryUtils: NSObject {
         var result = git_repository_index(&idx, repo.pointer);
         guard result == GIT_OK.rawValue else{
             print("error:\(NSError(gitError: result, pointOfFailure: "git_repository_index"))")
-            return Result.failure(NSError(gitError: result, pointOfFailure: "git_repository_index"))
+            return failure(result, "git_repository_index")
         }
         
         for file in files {
@@ -747,7 +759,7 @@ class RepositoryUtils: NSObject {
             result = git_index_add_bypath(idx, file)
             guard result == GIT_OK.rawValue else{
                 print("error:\(NSError(gitError: result, pointOfFailure: "git_index_add_bypath"))")
-                return Result.failure(NSError(gitError: result, pointOfFailure: "git_index_add_bypath"))
+                return failure(result, "git_index_add_bypath")
             }
             
         }
@@ -755,13 +767,13 @@ class RepositoryUtils: NSObject {
         error = git_index_add_all(idx, nil, GIT_INDEX_ADD_CHECK_PATHSPEC.rawValue, nil, nil)
         guard result == GIT_OK.rawValue else{
             print("error:\(NSError(gitError: result, pointOfFailure: "git_index_add_all"))")
-            return Result.failure(NSError(gitError: result, pointOfFailure: "git_index_add_all"))
+            return failure(result, "git_index_add_all")
         }
         
         error = git_index_write(idx)
         guard result == GIT_OK.rawValue else{
             print("error:\(NSError(gitError: result, pointOfFailure: "git_index_write"))")
-            return Result.failure(NSError(gitError: result, pointOfFailure: "git_index_write"))
+            return failure(result, "git_index_write")
         }
         
         var treeOid : git_oid = git_oid()
@@ -769,7 +781,7 @@ class RepositoryUtils: NSObject {
         
         guard result == GIT_OK.rawValue else{
             print("error:\(NSError(gitError: result, pointOfFailure: "git_index_write_tree"))")
-            return Result.failure(NSError(gitError: result, pointOfFailure: "git_index_add_bypath"))
+            return failure(result, "git_index_add_bypath")
         }
         git_index_free(idx)
         return Result.success(treeOid)
@@ -806,9 +818,9 @@ class RepositoryUtils: NSObject {
             return
         }
         
-//        pointer.pointee.map{
-////            print("\($0)")
-//        }
+        //        pointer.pointee.map{
+        ////            print("\($0)")
+        //        }
         
         
     }
@@ -905,10 +917,10 @@ class RepositoryUtils: NSObject {
             return $0
         }
         
-
+        
         var remotePointer: OpaquePointer? = nil
         result = git_remote_lookup(&remotePointer, repo.pointer, "\((remotes.first)!)")
-
+        
         if ( result == GIT_OK.rawValue){} else{
             print("error:\(NSError(gitError: result, pointOfFailure: "git_remote_lookup"))")
             return
@@ -947,7 +959,7 @@ class RepositoryUtils: NSObject {
         print("push success")
     }
     
-
+    
     
 }
 
@@ -967,20 +979,19 @@ extension Branch {
         error = git_branch_lookup(&branchPointer, repo.pointer, (self.shortName)!, GIT_BRANCH_LOCAL)
         guard error == GIT_OK.rawValue else {
             print("error:\(error) -- shortName:\(shortName)")
-            return Result.failure(NSError(gitError: error, pointOfFailure: "git_branch_lookup"))
+            return failure(error, "git_branch_lookup")
         }
         var outBranchPointer : OpaquePointer? = nil
         error = git_branch_upstream(&outBranchPointer, branchPointer)
         guard error == GIT_OK.rawValue else {
-            return Result.failure(NSError(gitError: error, pointOfFailure: "git_branch_upstream"))
+            return failure(error,"git_branch_upstream")
         }
         return Result.success((Branch(outBranchPointer!))!)
     }
 }
 
 extension Repository {
-    class public func cloneWithCustomFetch(_ remoteURL: URL, _ localURL: URL,_
-                            credentials: Credentials = .default) -> Result<Repository, NSError> {
+    class public func cloneWithCustomFetch(_ remoteURL: URL, _ localURL: URL,_ progresssHandler :SidebandProgressProgressBlock? = nil ) -> Result<Repository, NSError> {
         
         var cloneOpts = git_clone_options()
         git_clone_init_options(&cloneOpts, UInt32(GIT_CLONE_OPTIONS_VERSION))
@@ -993,9 +1004,9 @@ extension Repository {
         checkoption.checkout_strategy = GIT_CHECKOUT_SAFE.rawValue
         cloneOpts.checkout_opts = checkoption
         
-        cloneOpts.fetch_opts = RepositoryUtils.fetchOptions(credentials: credentials)
+        cloneOpts.fetch_opts = RepositoryUtils.fetchOptions(progresssHandler)
         
-
+        
         var repoPointer: OpaquePointer? = nil
         let remoteURLString = (remoteURL as NSURL).isFileReferenceURL() ? remoteURL.path : remoteURL.absoluteString
         let result = localURL.withUnsafeFileSystemRepresentation { localPath in
@@ -1003,7 +1014,7 @@ extension Repository {
         }
         
         guard result == GIT_OK.rawValue else {
-            return Result.failure(NSError(gitError: result, pointOfFailure: "git_clone"))
+            return failure(result, "git_clone")
         }
         
         let repository = Repository(repoPointer!)
@@ -1027,14 +1038,18 @@ private func certificate_check(_ cert:UnsafePointer<git_cert>?,_ valid:Int32,_ h
  */
 private func credential_cb(_ cred:UnsafeMutablePointer<UnsafeMutablePointer<git_cred>?>?,_ url:UnsafePointer<Int8>?,_ username_from_url:UnsafePointer<Int8>? ,_ allowed_types:UInt32,_ playload: UnsafeMutableRawPointer?) -> Int32{
     
-    let error = git_cred_userpass_plaintext_new(cred, "qq727755316", "wsbd110110");
-//    print("url:\(String(validatingUTF8:url!))  result:\(error)")
+    let error = cred_userpass_plaintext(cred)
+    
+    //    print("url:\(String(validatingUTF8:url!))  result:\(error)")
     guard error == GIT_OK.rawValue else {
         print("error:\(NSError(gitError: error, pointOfFailure: "git_cred_userpass_plaintext_new")) ")
         return error
     }
     return error
 }
+
+
+
 /**
  * Create a new ssh key credential object reading the keys from memory.
  *
@@ -1045,21 +1060,17 @@ private func credential_cb(_ cred:UnsafeMutablePointer<UnsafeMutablePointer<git_
  * @param passphrase The passphrase of the credential.
  * @return 0 for success or an error code for failure
  
-GIT_EXTERN(int) git_cred_ssh_key_memory_new(
-    git_cred **out,
-    const char *username,
-    const char *publickey,
-    const char *privatekey,
-    const char *passphrase);
+ GIT_EXTERN(int) git_cred_ssh_key_memory_new(
+ git_cred **out,
+ const char *username,
+ const char *publickey,
+ const char *privatekey,
+ const char *passphrase);
  */
 private func cred_ssh_key_memory_new(_ out:UnsafeMutablePointer<UnsafeMutablePointer<git_cred>?>?,_ username:UnsafePointer<Int8>?,_ publickey:UnsafePointer<Int8>? ,_ privatekey:UnsafePointer<Int8>?,_ passphrase:UnsafePointer<Int8>?) -> Int32{
     print("username:\(String(validatingUTF8:username!)) ")
-    let error = git_cred_userpass_plaintext_new(out, "qq727755316", "wsbd110110");
-    if error == GIT_OK.rawValue {}else {
-        print("error:\(NSError(gitError: error, pointOfFailure: "git_branch_lookup")) ")
-        return error
-    }
-    return error
+    
+    return 0
 }
 /**
  typedef int (*git_push_transfer_progress)(
@@ -1087,8 +1098,22 @@ private func push_transfer_progress(_ current:UInt32,_ total:UInt32 ,_ bytes:siz
  typedef int (*git_transport_message_cb)(const char *str, int len, void *payload);
  */
 private func transport_message_cb(_ str:UnsafePointer<Int8>?,_ len:Int32,_ playload: UnsafeMutableRawPointer?) -> Int32{
-    if(len > 0){
-        print("str:\((String(validatingUTF8:str!)))")
+    
+    if let payload = playload {
+        let buffer = payload.assumingMemoryBound(to: SidebandProgressProgressBlock.self)
+        
+        if(len > 0){
+            
+            var progressStr = (String(validatingUTF8:str!))
+            if(progressStr != nil){
+                progressStr = progressStr!.components(separatedBy: .newlines).first
+                let block: SidebandProgressProgressBlock
+                block = buffer.pointee
+                block(progressStr!,1)
+            }
+            
+        }
+        
     }
     
     return 0
@@ -1103,17 +1128,91 @@ private func transport_message_cb(_ str:UnsafePointer<Int8>?,_ len:Int32,_ playl
  * @param payload Payload provided by caller
  */
  typedef int (*git_transfer_progress_cb)(const git_transfer_progress *stats, void *payload);
+ 
+ 
+ 
+ /**
+ * This is passed as the first argument to the callback to allow the
+ * user to see the progress.
+ *
+ * - total_objects: number of objects in the packfile being downloaded
+ * - indexed_objects: received objects that have been hashed
+ * - received_objects: objects which have been downloaded
+ * - local_objects: locally-available objects that have been injected
+ *    in order to fix a thin pack.
+ * - received-bytes: size of the packfile received up to now
+ */
+ typedef struct git_transfer_progress {
+	unsigned int total_objects;
+	unsigned int indexed_objects;
+	unsigned int received_objects;
+	unsigned int local_objects;
+	unsigned int total_deltas;
+	unsigned int indexed_deltas;
+	size_t received_bytes;
+ } git_transfer_progress;
  */
 private func transfer_progress_cb(_ stats:UnsafePointer<git_transfer_progress>?,_ playload: UnsafeMutableRawPointer?)-> Int32{
-    let progress = stats?.pointee
     
-    print("progress indexed_objects:\(progress?.indexed_objects) received_objects:\(progress?.received_objects)  total_objects:\(progress?.total_objects)")
-    
+    if let progress = stats?.pointee {
+        var str = "progress total_objects:\(progress.total_objects) indexed_objects:\(progress.indexed_objects)  received_objects:\(progress.received_objects) local_objects:\(progress.local_objects) total_deltas:\(progress.total_deltas) indexed_deltas:\(progress.indexed_deltas) received_bytes:\(progress.received_bytes) \r\n"
+        str = "Rceiving objects:   \(String(format: "%.f", Float(progress.received_objects)/Float(progress.total_objects)*Float(100)))% (\(progress.received_objects)/\(progress.total_objects)) ,\(bytesToStr(progress.received_bytes))"
+        
+        if let payload = playload {
+            let buffer = payload.assumingMemoryBound(to: SidebandProgressProgressBlock.self)
+            let block: SidebandProgressProgressBlock
+            block = buffer.pointee
+            print("\(str)")
+            block(str,2)
+            
+            
+        }
+        
+    }
     return 0
 }
 
+/**
+ /** Packbuilder progress notification function */
+ typedef int (*git_packbuilder_progress)(
+	int stage,
+	unsigned int current,
+	unsigned int total,
+	void *payload);
+ */
+private func packbuilder_progress_cb(_ stage:Int32,_ current:UInt32,_ total:UInt32,_ payload: UnsafeMutableRawPointer?) -> Int32 {
+    print("stage:\(stage) current:\(current) total:\(total)")
+    return 0
+}
+private func bytesToStr(_ size:Int) -> String {
+    let v = Float(1024)
+    let kbValue = Float(size) / v
+    if(kbValue > v){
+        let mbValue = kbValue / v
+        
+        if(mbValue > v){
+            let gbValue = mbValue / v
+            return "\(String(format: "%.2f", gbValue)) GB"
+        }
+        
+        return "\(String(format: "%.2f", mbValue)) MB"
+    }
+    
+    return "\(String(format: "%.2f", kbValue)) KB"
+}
 
-
+private func cred_userpass_plaintext(_ out:UnsafeMutablePointer<UnsafeMutablePointer<git_cred>?>?) -> Int32{
+    let username = Defaults[.username]
+    let password = Defaults[.password]
+    
+    let error = git_cred_userpass_plaintext_new(out, username, password);
+    //    print("url:\(String(validatingUTF8:url!))  result:\(error)")
+    guard error == GIT_OK.rawValue else {
+        print("error:\(NSError(gitError: error, pointOfFailure: "git_cred_userpass_plaintext_new")) ")
+        return error
+    }
+    return GIT_OK.rawValue
+}
 
 /*
  /** Checkout progress notification function */
@@ -1127,6 +1226,10 @@ private func checkout_progress_cb(_ str:UnsafePointer<Int8>?,_ completed_steps:s
     if(str != nil){
         print("str:\((String(validatingUTF8:str!))) completed_steps:\(completed_steps) total_steps:\(total_steps)")
     }
-    
-    
 }
+
+
+private func failure<T>(_ errorCode:Int32 ,_ desc:String) -> Result<T,NSError> {
+    return Result.failure(NSError(gitError: errorCode, pointOfFailure: desc))
+}
+

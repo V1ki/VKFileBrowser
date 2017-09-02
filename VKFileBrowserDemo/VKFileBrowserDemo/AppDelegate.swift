@@ -9,7 +9,8 @@
 import UIKit
 import CoreData
 import GCDWebServer
-
+import SwiftyUserDefaults
+import ChameleonFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,GCDWebUploaderDelegate{
@@ -17,8 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GCDWebUploaderDelegate{
     var window: UIWindow?
     var uploader :GCDWebUploader?
     
-    
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -29,20 +28,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GCDWebUploaderDelegate{
 //        let webUploader = GCDWebDAVServer(uploadDirectory: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!)
 //        webUploader?.start()
         
+        
+        Chameleon.setGlobalThemeUsingPrimaryColor(FlatSkyBlue(), with: .contrast)
+        
         RepositoryUtils.initGit()
         
         log("didFinishLaunchingWithOptions:\(launchOptions)")
-        uploader = GCDWebUploader(uploadDirectory: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!)
-        uploader!.start()
         
-        uploader!.delegate = self
+        if(Defaults[.autoStart]){
+            
+            uploader = GCDWebUploader(uploadDirectory: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!)
+            uploader!.start()
+            
+            uploader!.delegate = self
+            
+            let str = (uploader!.serverURL?.absoluteString)!
+            
+            Defaults[.url] = str
+            
+            Defaults[.port] = Int(uploader!.port)
+            
+        }
         
-        
-        
-        
-        
-        
-        
+    
         
         return true
     }

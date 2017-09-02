@@ -8,6 +8,8 @@
 
 import UIKit
 import Highlightr
+//import RxSwift
+import RxCocoa
 
 
 class SourceViewController: BaseViewController{
@@ -32,11 +34,13 @@ class SourceViewController: BaseViewController{
         super.viewDidLoad()
         sourceTV.delegate = self
         sourceTV.isEditable = true
-        navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+//        navigationItem.leftBarButtonItems?.append((self.splitViewController?.displayModeButtonItem)!)
 //        sourceTV.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapTextView)))
         self.title = mFile.name
         
         let saveBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 30))
+        
+        
         saveBtn.addTarget(self, action: #selector(clickSaveBtn(_:)), for: .touchUpInside)
         saveBtn.setTitle(LocalizedString("save"), for: .normal)
         saveBtn.setTitleColor(saveBtn.tintColor, for: .normal)

@@ -8,7 +8,14 @@
 import UIKit
 import Result
 import MJRefresh
-import SwipeCellKit
+import MGSwipeTableCell
+import VBFPopFlatButton
+import ChameleonFramework
+import RxSwift
+import RxCocoa
+import RxDataSources
+
+let disposeBag = DisposeBag()
 
 class RootViewController: UITableViewController,SSZipArchiveDelegate {
 
@@ -50,34 +57,40 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
     var backItem : UIBarButtonItem?
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         fm.delegate = self
-        let btn = UIButton(frame: CGRect(origin:CGPoint(x:0,y:0),size:CGSize(width:32,height:32)))
-        btn.setImage(UIImage(named: "bottom_setting"), for: .normal)
-        btn.setImage(UIImage(named: "bottom_setting_pressed"), for: .highlighted)
-        btn.addTarget(self, action: #selector(clickSettingBtn), for: UIControlEvents.touchUpInside)
+        let btn = VBFPopFlatButton(frame: CGRect(origin:CGPoint(x:0,y:0),size:CGSize(width:28,height:28)), buttonType: .buttonMenuType , buttonStyle: .buttonRoundedStyle, animateToInitialState: false)
         
-        settingItem = UIBarButtonItem(customView: btn)
+        btn!.rx.controlEvent(.touchDown).bind(onNext: {
+            btn!.animate(to: .buttonMinusType )
+        }).addDisposableTo(disposeBag)
+        
+        btn!.rx.tap.bind(onNext: {
+            btn!.animate(to: .buttonMenuType )
+            self.clickSettingBtn(btn!)
+        }).addDisposableTo(disposeBag)
+        
+        
+//        btn?.addTarget(self, action: #selector(clickSettingBtn), for: UIControlEvents.touchUpInside)
+        
+        settingItem = UIBarButtonItem(customView: btn!)
         
         navigationItem.leftBarButtonItem = settingItem!
         
         
-        let btn1 = UIButton(frame: CGRect(origin:CGPoint(x:0,y:0),size:CGSize(width:36,height:36)))
-        btn1.setImage(UIImage(named: "back-icon"), for: .normal)
-        btn1.addTarget(self, action: #selector(clickBackBtn), for: UIControlEvents.touchUpInside)
+        let btn1 = VBFPopFlatButton(frame: CGRect(origin:CGPoint(x:0,y:0),size:CGSize(width:28,height:28)), buttonType: .buttonBackType, buttonStyle: .buttonRoundedStyle, animateToInitialState: false)
+        btn1?.addTarget(self, action: #selector(clickBackBtn), for: UIControlEvents.touchUpInside)
         
-        backItem = UIBarButtonItem(customView: btn1)
-        
+        backItem = UIBarButtonItem(customView: btn1!)
         
         
-        let btn2 = UIButton(type: .contactAdd)
         
-        btn2.addTarget(self, action: #selector(clickAddBtn), for: UIControlEvents.touchUpInside)
+        let btn2 = VBFPopFlatButton(frame: CGRect(origin:CGPoint(x:0,y:0),size:CGSize(width:28,height:28)), buttonType: .buttonAddType, buttonStyle: .buttonRoundedStyle, animateToInitialState: false)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btn2)
+        btn2?.addTarget(self, action: #selector(clickAddBtn), for: UIControlEvents.touchUpInside)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btn2!)
         
         self.tableView.hideExtraCell()
         
@@ -88,11 +101,32 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         }
         
         self.loadFileAtPath(currentDir)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
+//        self.tableView.dataSource = nil
+//        self.tableView.delegate = nil
+//        
+//        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, VKFile>>()
+//        
+//        let items = Observable.just([
+//            SectionModel(model: "First section", items: [VKFile("","", false ,"",0)]),
+//            SectionModel(model: "Second section", items: self.dataSource)
+//            
+//            ])
+//        
+//        
+//        dataSource.configureCell = { (dataSource, tv, indexPath, element) in
+//            
+//            return self.createCell(indexPath)
+//        }
+//        
+//        items
+//            .bind(to: tableView.rx.items(dataSource: dataSource))
+//            .disposed(by: disposeBag)
+        
+        
+        
+        
     }
     
     func clickAddBtn(_ sender:UIView){
@@ -134,10 +168,7 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
             
             self.tableView.reloadData()
             
-            
-            
         })
-        let wifiTransferAction = UIAlertAction(title: LocalizedString("WiFi Transfer"), style: .default, handler: nil)
         let gitCloneAction = UIAlertAction(title:LocalizedString("Git Clone"), style: .default, handler: {(action) in
             
             let vc = CloneViewController()
@@ -160,7 +191,6 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         })
         alertController.addAction(createFolderAction)
         alertController.addAction(createFileAction)
-        alertController.addAction(wifiTransferAction)
         alertController.addAction(gitCloneAction)
         alertController.addAction(initRepositoryAction)
         
@@ -175,9 +205,21 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         
     }
     
-    func clickSettingBtn(){}
+    func clickSettingBtn(_ sender:UIView){
+        let vc = SettingsTableViewController()
+//        vc.modalPresentationStyle = .popover
+//
+//        let popover = vc.popoverPresentationController
+//        if (popover != nil){
+//            popover?.sourceView = sender
+//            popover?.permittedArrowDirections = UIPopoverArrowDirection.any
+//        }
+//        self.present(vc, animated: true, completion: nil)
+//        
+        self.pushDetailViewController(vc, sender: nil)
+    }
 
-    func clickBackBtn(){
+    func clickBackBtn(_ sender:UIView){
         
         if(currentDir == documentDir){
             return
@@ -208,17 +250,13 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
     }
     
     func reloadCurPage(){
-        
-        
-        
-        
         if(currentRepo != nil){
             
             let statusResult = currentRepo?.allStatus()
             if let allStatus = statusResult?.value {
                 
                 if(allStatus.count > 0){
-                    print("allStatus:\(allStatus)")
+                    
                     for status in allStatus {
                         if(status.indexToWorkdir != nil){
                             let key = status.indexToWorkdir?.newFile.path
@@ -235,7 +273,7 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
     }
     
     func loadFileAtPath(_ path: String){
-        dataSource = VKFileManager.default.loadFile(at: path)
+        dataSource = VKFileManager.default.loadFile(at: path,loadGit: true)
         
         dataSource.sort(by: {(file1,file2) -> Bool in
             return file1.compare(withOtherFile: file2, bySortType: .name)
@@ -256,7 +294,6 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
             
         }
         
-
         
     }
     
@@ -342,7 +379,7 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
                     return ;
                 }
             }
-            else if(file.isSourceCodeType()){
+            else if(file.isDataType()){
                 
                 let sourceCodeVC = SourceViewController()
                 sourceCodeVC.mFile = file
@@ -380,6 +417,107 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
 // MARK: UITableView  DataSouce And Delegate
 
 extension RootViewController  {
+    
+    
+    
+    func createCell(_ indexPath: IndexPath) -> UITableViewCell{
+        if(currentRepo != nil && indexPath.section == 0){
+            let cell = UITableViewCell(style:.subtitle , reuseIdentifier: repoReuseIdentifier)
+            cell.textLabel?.text = LocalizedString("Repository")
+            cell.detailTextLabel?.text = LocalizedString("Status and Configuration")
+            return cell
+        }
+        
+        var cell = tableView.dequeueReusableCell(withIdentifier: fileReuseIdentifier) as? MGSwipeTableCell
+        if (cell == nil) {
+            cell = MGSwipeTableCell(style:.default, reuseIdentifier: fileReuseIdentifier)
+            
+            
+            cell?.delegate = self
+        }
+        let file = dataSource[indexPath.row]
+        cell?.imageView?.image = file.isDirectory ? UIImage(named: "folder") : UIImage(named: "file")
+        
+        var statusImgView = cell?.contentView.viewWithTag(100) as? UIImageView
+        if(statusImgView == nil){
+            statusImgView = UIImageView(frame: CGRect(x: 20, y: 5, width: 32, height: 32))
+            statusImgView?.image = UIImage(named: "AddedIcon")
+            statusImgView?.tag = 100
+            statusImgView?.isHidden = true
+            cell?.contentView.addSubview(statusImgView!)
+        }
+        statusImgView?.isHidden = true
+        
+        var nextBtn = cell?.contentView.viewWithTag(101) as? VBFPopFlatButton
+        if(nextBtn == nil){
+            nextBtn = VBFPopFlatButton(frame: CGRect(x: (self.view.mj_w) - 40 , y: ((cell?.mj_h)! - 28)/2 , width: 28, height: 28), buttonType: .buttonForwardType, buttonStyle: .buttonRoundedStyle , animateToInitialState: false)
+            nextBtn?.backgroundColor = UIColor.clear
+            nextBtn?.tintColor = .flatSkyBlue
+            nextBtn?.tag = 101
+            nextBtn?.isHidden = true
+            cell?.contentView.addSubview(nextBtn!)
+        }
+        
+        nextBtn?.isHidden = true
+        
+        cell?.textLabel?.text = file.name
+        cell?.textLabel?.font = UIFont.systemFont(ofSize: 14)
+        
+        if let status = currentStatus[file.name] {
+            
+            
+            if(status.isNewFile){
+                statusImgView?.isHidden = false
+                statusImgView?.image = UIImage(named: "AddedIcon")
+            }else if(status.isModified){
+                statusImgView?.isHidden = false
+                statusImgView?.image = UIImage(named: "ModifiedIcon")
+            }
+        }
+        
+        
+        if file.isDirectory {
+            nextBtn?.isHidden = false
+        }else{
+            nextBtn?.isHidden = true
+        }
+        //configure right buttons
+        //
+        
+        let commitButton = MGSwipeButton(title: "Commit", backgroundColor: .flatGreen){cell in
+            self.currentRepo!.commitFiles([file.gitPath!], true)
+            return true
+        }
+        let actionButton = MGSwipeButton(title: "Action", backgroundColor: .flatSand){cell in
+            
+            return true
+        }
+        
+        if(file.isGitRepo){
+            cell?.rightButtons = [actionButton]
+        }
+        else{
+            cell?.rightButtons = [actionButton,commitButton]
+        }
+        
+        cell?.rightSwipeSettings.transition = .rotate3D
+        
+        let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: .flatRed){cell in
+            
+            try? self.fm.removeItem(at: file.toFileURL())
+            
+            self.dataSource.remove(at: indexPath.row)
+            
+            self.tableView.reloadData()
+            
+            return true
+        }
+        cell?.leftButtons = [deleteButton]
+        cell?.leftSwipeSettings.transition = .border
+        
+        return cell!
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if(currentRepo != nil && section == 0){ return 1}
         return dataSource.count
@@ -407,56 +545,7 @@ extension RootViewController  {
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        
-        if(currentRepo != nil && indexPath.section == 0){
-            let cell = UITableViewCell(style:.subtitle , reuseIdentifier: repoReuseIdentifier)
-            cell.textLabel?.text = LocalizedString("Repository")
-            cell.detailTextLabel?.text = LocalizedString("Status and Configuration")
-            return cell
-        }
-        
-        var cell = tableView.dequeueReusableCell(withIdentifier: fileReuseIdentifier) as? SwipeTableViewCell
-        if (cell == nil) {
-            cell = SwipeTableViewCell(style:.default, reuseIdentifier: fileReuseIdentifier)
-            
-            
-            cell?.delegate = self
-        }
-        let file = dataSource[indexPath.row]
-        cell?.imageView?.image = file.isDirectory ? UIImage(named: "folder") : UIImage(named: "file")
-        
-        var statusImgView = cell?.contentView.viewWithTag(100) as? UIImageView
-        if(statusImgView == nil){
-            statusImgView = UIImageView(frame: CGRect(x: 20, y: 5, width: 32, height: 32))
-            statusImgView?.image = UIImage(named: "AddedIcon")
-            statusImgView?.tag = 100
-            statusImgView?.isHidden = true
-            cell?.contentView.addSubview(statusImgView!)
-            
-        }
-        statusImgView?.isHidden = true
-        
-        
-        cell?.textLabel?.text = file.name
-        cell?.textLabel?.font = UIFont.systemFont(ofSize: 14)
-        
-        if let status = currentStatus[file.name] {
-            
-            if(status.isNewFile){
-                statusImgView?.isHidden = false
-                statusImgView?.image = UIImage(named: "AddedIcon")
-            }else if(status.isModified){
-                statusImgView?.isHidden = false
-                statusImgView?.image = UIImage(named: "ModifiedIcon")
-            }
-        }
-        
-        if file.isDirectory {
-            cell?.accessoryType = .disclosureIndicator
-        }else{
-            cell?.accessoryType = .none
-        }
-        return cell!
+        return createCell(indexPath)
     }
     
     
@@ -565,66 +654,7 @@ extension RootViewController :FileManagerDelegate {
 }
 
 //SwipeTableViewCellDelegate
-extension RootViewController : SwipeTableViewCellDelegate {
+extension RootViewController : MGSwipeTableCellDelegate {
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        
-        if(orientation == .left){
-            
-            let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-                // handle action by updating model with deletion
-                
-                let file = self.dataSource[indexPath.row]
-                try? self.fm.removeItem(at: file.toFileURL())
-
-                self.dataSource.remove(at: indexPath.row)
-                
-                self.tableView.reloadData()
-            }
-            
-            return [deleteAction]
-        }
-        else{
-            
-            var actions = [SwipeAction]()
-            
-            
-            let action = SwipeAction(style: .default, title: "Action"){ action ,indexPath in
-                
-            }
-            actions.append(action)
-            
-            
-            let file = dataSource[indexPath.row]
-            
-//            if let status = currentStatus[file.name] {
-//                
-//                if(status != nil){
-//                    
-                    let commitAction = SwipeAction(style: .default, title: "Commit"){ action ,indexPath in
-                        
-                        self.currentRepo!.commitFiles([file.gitPath!], true)
-                    }
-                    commitAction.backgroundColor = UIColor.green
-                    actions.append(commitAction)
-                    
-                    
-//                }
-//            }
-//            
-            
-            return actions
-        }
-        
-    }
-    
-    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
-        var options = SwipeTableOptions()
-//        options.expansionStyle = .destructiveAfterFill
-        options.transitionStyle = .drag
-        return options
-    }
 }
 
-extension RootViewController : UIPopoverPresentationControllerDelegate {
-}

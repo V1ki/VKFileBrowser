@@ -1,8 +1,8 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, "9.0"
 
-target 'VKFileBrowserDemo' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+target "VKFileBrowserDemo" do
+  # Comment the next line if you"re not using Swift and don"t want to use dynamic frameworks
   use_frameworks!
 
   # Pods for VKFileBrowserDemo
@@ -22,44 +22,47 @@ target 'VKFileBrowserDemo' do
  pod "SwipeCellKit"
  pod "MGSwipeTableCell"
  pod "Result"
- pod "RealmSwift"
- pod "Texture"
- pod "DZNEmptyDataSet"
- pod "IGListKit"
+# pod "RealmSwift"
+# pod "Texture"
+# pod "DZNEmptyDataSet"
+# pod "IGListKit"
  pod "Moya"
- pod "SwiftyJSON"
- pod "ChameleonFramework/Swift"
- pod "PermissionScope"
- pod "FileKit"
+# pod "SwiftyJSON"
+ pod "ChameleonFramework/Swift", :git => "https://github.com/ViccAlexander/Chameleon.git"
+# pod "PermissionScope"
+# pod "FileKit"
  pod "SwiftyUserDefaults"
- pod "Hero"
- pod "Hedwig"
- pod "DeviceKit"
- pod "Charts"
- pod "ChartsRealm"
- pod "GDPerformanceView-Swift"
+# pod "Hero"
+# pod "Hedwig"
+# pod "DeviceKit"
+# pod "Charts"
+# pod "ChartsRealm"
+# pod "GDPerformanceView-Swift"
  pod "RxSwift"
- pod "Timepiece"
- pod "CryptoSwift"
- pod "FSCalendar"
- pod "TextFieldEffects"
- pod 'FontAwesomeKit'
- pod 'CoreDragon'
- pod 'ReSwift'
- pod 'TransitionTreasury'
- pod "ElasticTransition"
- pod 'VBFPopFlatButton'
- pod 'InAppSettingsKit'
- pod 'SCLAlertView'
+ pod 'AMScrollingNavbar'
+ pod "RxCocoa"
+ pod 'RxDataSources', '~> 1.0'
+# pod "Timepiece"
+# pod "CryptoSwift"
+# pod "FSCalendar"
+# pod "TextFieldEffects"
+# pod "FontAwesomeKit"
+# pod "CoreDragon"
+# pod "ReSwift"
+# pod "TransitionTreasury"
+# pod "ElasticTransition"
+ pod "VBFPopFlatButton"
+ pod "InAppSettingsKit"
+ pod "SCLAlertView"
 # pod "Quick"
 # pod "Nimble"
  
-  target 'VKFileBrowserDemoTests' do
+  target "VKFileBrowserDemoTests" do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'VKFileBrowserDemoUITests' do
+  target "VKFileBrowserDemoUITests" do
     inherit! :search_paths
     # Pods for testing
   end

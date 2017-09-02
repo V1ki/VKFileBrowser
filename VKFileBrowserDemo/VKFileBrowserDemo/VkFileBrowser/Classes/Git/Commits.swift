@@ -9,10 +9,15 @@
 import Foundation
 import Result
 
+import SwiftyUserDefaults
+
+
+
+
 public func userSignatureForNow() -> Result<git_signature,NSError>{
     
     var signaturePointer: UnsafeMutablePointer<git_signature>? = UnsafeMutablePointer<git_signature>.allocate(capacity: 1)
-    let error = git_signature_now(&signaturePointer, UnsafeMutablePointer<Int8>(mutating: "me"), UnsafeMutablePointer<Int8>(mutating: "me@example.com"))
+    let error = git_signature_now(&signaturePointer, UnsafeMutablePointer<Int8>(mutating: Defaults[.username]), UnsafeMutablePointer<Int8>(mutating: Defaults[.email]))
     
     guard(error == GIT_OK.rawValue) else{
         log("error:\(NSError(gitError: error, pointOfFailure: "git_signature_now"))")

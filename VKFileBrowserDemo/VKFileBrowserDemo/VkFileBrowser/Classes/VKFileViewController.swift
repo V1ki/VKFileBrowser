@@ -50,11 +50,11 @@ class VKFileViewController: BaseViewController ,UICollectionViewDataSource,UICol
         mTableView.hideExtraCell()
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
-        collectionView.mj_header = MJRefreshNormalHeader(refreshingBlock: {() in
-            self.reloadCurPage()
-            self.collectionView.mj_header.endRefreshing()
-        })
-        
+//        collectionView.mj_header = MJRefreshNormalHeader(refreshingBlock: {() in
+//            self.reloadCurPage()
+//            self.collectionView.mj_header.endRefreshing()
+//        })
+
         
         let btn = UIButton(frame: CGRect(origin:CGPoint(x:0,y:0),size:CGSize(width:50,height:40)))
         btn.setTitle(LocalizedString("back"), for: .normal)

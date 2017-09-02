@@ -64,6 +64,10 @@ extension Reference: Hashable {
 
 /// A git branch.
 public struct Branch: ReferenceType {
+    
+    /// The underlying libgit2 `git_reference` object.
+    public let pointer: OpaquePointer
+    
 	/// The full name of the reference (e.g., `refs/heads/master`).
 	public let longName: String
 
@@ -96,6 +100,7 @@ public struct Branch: ReferenceType {
 	///
 	/// Returns `nil` if the pointer isn't a branch.
 	public init?(_ pointer: OpaquePointer) {
+        self.pointer = pointer
 		var namePointer: UnsafePointer<Int8>? = nil
 		let success = git_branch_name(&namePointer, pointer)
 		guard success == GIT_OK.rawValue else {
@@ -119,6 +124,7 @@ public struct Branch: ReferenceType {
 		}
 		commit = PointerTo<Commit>(oid)
 	}
+    
 }
 
 extension Branch: Hashable {

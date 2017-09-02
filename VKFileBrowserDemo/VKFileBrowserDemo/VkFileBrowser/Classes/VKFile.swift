@@ -26,7 +26,7 @@ class VKFile: NSObject {
     
     var name : String!
     var isDirectory : Bool
-    var isGitRepo : Bool?
+    var isGitRepo : Bool = false
     
     var type : String!
     var filePath : String!
@@ -126,6 +126,10 @@ class VKFile: NSObject {
     func isImageType() -> Bool{
         return UTTypeConformsTo(type as CFString, kUTTypeImage)
 //        return type.contains("public.jpeg")
+    }
+    
+    func isDataType() -> Bool {
+        return UTTypeConformsTo(type as CFString, kUTTypeData)
     }
     
     // MARK: 文件类型 ---》 源码类型

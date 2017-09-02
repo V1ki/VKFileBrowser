@@ -7,20 +7,30 @@
 //
 
 import UIKit
-
+import SwiftyUserDefaults
+import RxSwift
+import RxCocoa
 
 class CloneViewController: BaseViewController {
 
+    @IBOutlet weak var cloneBtn: UIButton!
+    
     @IBOutlet weak var urlTextField: UITextField!
-    @IBOutlet weak var descLabel: UILabel!
+    
+    @IBOutlet weak var detailTextView: UITextView!
+    
     @IBOutlet weak var progressView: UIProgressView!
+    
+    var strs:[Int:String] = [Int:String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         urlTextField.placeholder = LocalizedString("http and https support")
-        urlTextField.text = "https://github.com/qq727755316/python1.git"
-        self.descLabel.isHidden = true
+        urlTextField.text = "https://gitee.com/qq727755316/test.git"
+        
+        
+        self.detailTextView.isHidden = true
         self.progressView.isHidden = true
         self.urlTextField.clearButtonMode = .whileEditing
     }
@@ -30,19 +40,23 @@ class CloneViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func cloneProgressCallBack(_ name:String?,_ completeStep : Int ,_ totalStep : Int){
-        if(name != nil){
-            print("name:\(name) completeStep:\(completeStep) totalStep:\(totalStep)")
-            DispatchQueue.main.async {
-                self.progressView.progress = Float(completeStep) / Float(totalStep)
-                
-                self.descLabel.text = name
-                self.descLabel.sizeToFit()
+    func cloneProgressCallBack(_ str:String,_ line:Int){
+        
+        if(line == 1){
+            if(str.contains("Compressing objects")){
+                strs[1] = str
+            }else if(str.contains("pack-reused")){
+                strs[2] = str
+            }else{
+                strs[0] = str
             }
-            
-            if(totalStep == completeStep){
-                self.dismiss(animated: true, completion: nil)
-            }
+        }
+        else if(line == 2){
+            strs[3] = str
+        }
+        
+        DispatchQueue.main.async {
+            self.detailTextView.text = "\(self.strs[0] ?? "")\n\(self.strs[1] ?? "")\n\(self.strs[2] ?? "")\n\(self.strs[3] ?? "")"
         }
     }
     
@@ -57,33 +71,56 @@ class CloneViewController: BaseViewController {
             if(urlText.isEmpty){
                 return
             }
-            self.descLabel.isHidden = false
+            
             self.progressView.isHidden = false
-            self.descLabel.text = "connecting"
-            DispatchQueue.global().async {
-                
-                let repoResult = RepositoryUtils.clone(urlText,credentials: .default,progresssHandler: self.cloneProgressCallBack)
-                if let repo = repoResult.value {
-                    
-                }else {
-                    let err = repoResult.error
-                    if(err?.domain == libGit2ErrorDomain && err?.code == -1){
-                        //请输入用户名和密码
-                        self.cloneWithUserAndPwd(urlText)
-                    }
-                }
-            }
-            
-            
-            
+            self.detailTextView.isHidden = false
+            cloneBtn.isEnabled = false
+            self.cloneWithUserAndPwd(urlText)
+
         }
-        
         
     }
     
     
+    func clone(_ urlText:String){
+        DispatchQueue.global().async {
+            let repoResult = RepositoryUtils.clone(urlText, self.cloneProgressCallBack)
+            if repoResult.value != nil {
+                self.dismiss(animated: true, completion: nil)
+            }else {
+                let err = repoResult.error
+                print("err:\(err)")
+            }
+        }
+       
+    }
+    
 
     func cloneWithUserAndPwd(_ repoStr:String){
+        
+        if(Defaults[.username].isEmpty || Defaults[.password].isEmpty){
+            
+            self.presentAlert{ isCancel in
+                if(!isCancel){
+                    self.clone(repoStr)
+                }else{
+                    self.detailTextView.isHidden = true
+                    self.progressView.isHidden = true
+                    self.cloneBtn.isEnabled = true
+                }
+                
+            }
+            return
+        }
+        print("username:\(Defaults[.username]) password:\(Defaults[.password]) ")
+        self.clone(repoStr)
+        
+        
+    }
+
+    func presentAlert(_ completeHandler:((Bool) -> Swift.Void)? = nil ){
+        
+        
         let alertController = UIAlertController(title: LocalizedString("git"), message: LocalizedString("no way to authenticate"), preferredStyle: .alert)
         
         alertController.addTextField(configurationHandler: {(textField) in
@@ -95,7 +132,9 @@ class CloneViewController: BaseViewController {
         })
         
         let cancelAction = UIAlertAction(title:LocalizedString("Cancel"),style:.cancel,handler:{(action) in
-            
+            if(completeHandler != nil){
+                completeHandler!(true)
+            }
         })
         
         let loginAction = UIAlertAction(title: LocalizedString("Login"), style: .default, handler: {(alertAction) in
@@ -104,28 +143,17 @@ class CloneViewController: BaseViewController {
             let user = (alertController.textFields?.first?.text)!
             let pwd = (alertController.textFields?.last?.text)!
             log("user:\(user) -- pwd:\(pwd)")
-            DispatchQueue.global().async {
-                
-                let repoResult = RepositoryUtils.clone(repoStr,credentials: .plaintext(username: user, password: pwd),progresssHandler: self.cloneProgressCallBack)
-                
-                
-                if let repo = repoResult.value {
-                    
-                }
-                else{
-                    let err = repoResult.error
-                    log("err:\(err)")
-                    
-                }
+            Defaults[.username] = user
+            Defaults[.password] = pwd
+            
+            
+            if(completeHandler != nil){
+                completeHandler!(false)
             }
-            
-            
         })
         alertController.addAction(cancelAction)
         alertController.addAction(loginAction)
         
         self.present(alertController, animated: true, completion: nil)
     }
-
-    
 }

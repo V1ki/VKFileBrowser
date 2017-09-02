@@ -51,12 +51,12 @@ extension UIViewController{
             return splitViewController?.viewControllers.first
         }
         
-        
         return nil
     }
     func pushDetailViewController(_ vc: UIViewController, sender: Any?){
         let detailVC = detailViewController()
         if(detailVC != nil && detailVC is UINavigationController ){
+            (detailVC as! UINavigationController).popToRootViewController(animated: true)
             (detailVC as! UINavigationController).pushViewController(vc, animated: true)
         } else {
             self.showDetailViewController(vc, sender: sender)
