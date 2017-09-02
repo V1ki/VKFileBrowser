@@ -493,14 +493,19 @@ extension RootViewController  {
             return true
         }
         
-        if(file.isGitRepo){
-            cell?.rightButtons = [actionButton]
-        }
-        else{
-            cell?.rightButtons = [actionButton,commitButton]
+        if(!file.isDirectory){
+            
+            if(file.isGitRepo){
+                cell?.rightButtons = [actionButton,commitButton]
+            }
+            else{
+                cell?.rightButtons = [actionButton]
+            }
+            cell?.rightSwipeSettings.transition = .rotate3D
         }
         
-        cell?.rightSwipeSettings.transition = .rotate3D
+        
+        
         
         let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: .flatRed){cell in
             

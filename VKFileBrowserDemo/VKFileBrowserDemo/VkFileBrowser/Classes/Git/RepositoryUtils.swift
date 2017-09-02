@@ -516,7 +516,7 @@ class RepositoryUtils: NSObject {
         var remote : OpaquePointer? = nil
         let error = git_remote_create(&remote, repo.pointer,  remoteName, remoteURL)
         
-        if(error == GIT_OK.rawValue){} else{
+        guard(error == GIT_OK.rawValue)else{
             log("error:\(NSError(gitError: error, pointOfFailure: "git_signature_now"))")
             return failure(error, "git_signature_now")
         }
@@ -524,6 +524,16 @@ class RepositoryUtils: NSObject {
         
         //        git_remote_add_push(repo.pointer, <#T##remote: UnsafePointer<Int8>!##UnsafePointer<Int8>!#>, <#T##refspec: UnsafePointer<Int8>!##UnsafePointer<Int8>!#>)
     }
+    
+    class func delRemote(_ repo:Repository,_ remoteName:String) -> Result<(),NSError>{
+        let error = git_remote_delete(repo.pointer, remoteName)
+        guard(error == GIT_OK.rawValue)else{
+            log("error:\(NSError(gitError: error, pointOfFailure: "git_remote_delete"))")
+            return failure(error, "git_remote_delete")
+        }
+        return Result.success()
+    }
+    
     
     class func initFirstCommit(_ repo:Repository){
         var error:Int32  = 0

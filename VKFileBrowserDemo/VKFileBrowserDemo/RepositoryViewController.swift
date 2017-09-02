@@ -180,8 +180,10 @@ extension RepositoryViewController : UITableViewDataSource {
                 nextBtn?.isHidden = false
             }
             else{
+                cell = MGSwipeTableCell(style: .default, reuseIdentifier: reuseIdentifier)
                 cell?.textLabel?.text = "Add Remote"
                 cell?.textLabel?.textAlignment = .center
+                
             }
         }
         else if(key.contains("COMMITS")){

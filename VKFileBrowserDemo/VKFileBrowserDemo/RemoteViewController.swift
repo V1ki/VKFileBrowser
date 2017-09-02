@@ -29,18 +29,22 @@ class RemoteViewController: BaseViewController {
         
         // Do any additional setup after loading the view.
         
+        if(self.remote == nil)
+        {
+            self.navigationController?.popViewController(animated: false)
+        }
+        
         self.automaticallyAdjustsScrollViewInsets = false
         
         self.title = LocalizedString("Remote")
         
         self.mTableView.dataSource = nil
-        self.mTableView.delegate = nil
         
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, String>>()
         
         let items = Observable.just([
             SectionModel(model: "First section", items: [""]),
-            SectionModel(model: "Second section", items: [LocalizedString("Name"),LocalizedString("URL")])
+            SectionModel(model: "Second section", items: [LocalizedString("Name"),LocalizedString("URL"),LocalizedString("Delete")])
             
             ])
         //(TableViewSectionedDataSource<S>, Int) -> String?
@@ -83,6 +87,14 @@ class RemoteViewController: BaseViewController {
                 
             }else{
                 cell?.textLabel?.text = element
+                
+                if(element == LocalizedString("Delete")){
+                    cell?.textLabel?.textAlignment = .center
+                    cell?.textLabel?.textColor = .flatRed
+                    return cell!
+                }
+                
+                
                 let textField = UITextField(frame: CGRect(x:80,y:0,width:self.view.mj_w - 100,height:cell?.mj_h ?? 40))
                 
                 if(element == LocalizedString("Name")){
@@ -90,8 +102,8 @@ class RemoteViewController: BaseViewController {
                 }else if(element == LocalizedString("URL")){
                     textField.text = self.remote?.URL
                 }
+                    cell?.addSubview(textField)
                 
-                cell?.addSubview(textField)
             }
             
             
@@ -100,6 +112,12 @@ class RemoteViewController: BaseViewController {
         }
         
         
+        
+        self.mTableView.rx.itemSelected.bind{indexPath in
+            self.mTableView.deselectRow(at: indexPath, animated: true)
+            //delete Action
+            RepositoryUtils.delRemote(self.repo!, self.remote!.name)
+        }.disposed(by: disposeBag)
         
         
         items
@@ -133,6 +151,9 @@ class RemoteViewController: BaseViewController {
 
 extension RemoteViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if(indexPath.row == 2){
+            return indexPath
+        }
         return nil
     }
 }
