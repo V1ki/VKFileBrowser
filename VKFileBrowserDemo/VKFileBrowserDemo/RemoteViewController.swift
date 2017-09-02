@@ -78,7 +78,34 @@ class RemoteViewController: BaseViewController {
                 pushBtn.setTitleColor(fetchBtn.tintColor, for: .normal)
                 pushBtn.rx.tap.bind {
                     
-                    print("click push")
+                    print("click push:\(self.repo!.HEAD())")
+                    
+                    let head = self.repo!.HEAD().value
+                    if(head == nil){
+                        // TODO:should tip fetch first
+                        return
+                    }
+                    
+                    var branch : Branch?
+                    if(head is Branch){
+                        // current Branch
+                        print("current Branch")
+                        branch = head as? Branch
+                    }
+                    else{
+                        let branches = (self.repo!.localBranches().value)!
+                        branch = branches.filter{$0.oid == head?.oid}.last
+                        
+                        if(branch == nil){
+                            // TODO:should tip fetch first
+                            
+                            return
+                        }
+                        
+                    }
+                    
+                    RepositoryUtils.pushBranch(self.repo!, (branch)!, (self.remote)!)
+                    
                     
                     }.disposed(by: disposeBag)
                 
