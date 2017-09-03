@@ -11,6 +11,7 @@ import CoreData
 import GCDWebServer
 import SwiftyUserDefaults
 import ChameleonFramework
+import ReachabilitySwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,GCDWebUploaderDelegate{
@@ -19,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GCDWebUploaderDelegate{
     var uploader :GCDWebUploader?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        
         // Override point for customization after application launch.
         
         ///NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
@@ -29,28 +32,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GCDWebUploaderDelegate{
 //        webUploader?.start()
         
         
-        Chameleon.setGlobalThemeUsingPrimaryColor(FlatSkyBlue(), with: .contrast)
+        Chameleon.setGlobalThemeUsingPrimaryColor(.flatSkyBlue, with: .contrast)
         
         RepositoryUtils.initGit()
         
         log("didFinishLaunchingWithOptions:\(launchOptions)")
         
-        if(Defaults[.autoStart]){
-            
-            uploader = GCDWebUploader(uploadDirectory: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!)
-            uploader!.start()
-            
-            uploader!.delegate = self
-            
-            let str = (uploader!.serverURL?.absoluteString)!
-            
-            Defaults[.url] = str
-            
-            Defaults[.port] = Int(uploader!.port)
-            
+        
+        let reachability = Reachability()
+        
+        reachability?.whenReachable = { reachability in
+            // this is called on a background thread, but UI updates must
+            // be on the main thread, like this:
+            DispatchQueue.main.async {
+                if reachability.isReachableViaWiFi {
+                    if(Defaults[.autoStart]){
+                        
+                        self.uploader = GCDWebUploader(uploadDirectory: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!)
+                        self.uploader!.start()
+                        
+                        self.uploader!.delegate = self
+                        
+                        let str = (self.uploader!.serverURL?.absoluteString)!
+                        
+                        Defaults[.url] = str
+                        
+                        Defaults[.port] = Int(self.uploader!.port)
+                        
+                    }
+                } else {
+                    print("Reachable via Cellular")
+                }
+            }
+        }
+        reachability?.whenUnreachable = { reachability in
+            // this is called on a background thread, but UI updates must
+            // be on the main thread, like this:
+            DispatchQueue.main.async {
+                print("Not reachable")
+            }
         }
         
-    
+        
         
         return true
     }

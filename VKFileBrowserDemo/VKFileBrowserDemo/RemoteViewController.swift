@@ -142,7 +142,7 @@ class RemoteViewController: BaseViewController {
         self.mTableView.rx.itemSelected.bind{indexPath in
             self.mTableView.deselectRow(at: indexPath, animated: true)
             //delete Action
-            let result = RepositoryUtils.delRemote(self.repo!, self.remote!.name)
+            let result = RepositoryUtils.deleteRemote(self.repo!, self.remote!.name)
             if(result.error == nil){
                 self.navigationController?.popViewController(animated: true)
             }

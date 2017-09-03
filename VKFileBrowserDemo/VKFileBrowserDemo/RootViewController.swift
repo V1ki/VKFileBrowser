@@ -496,12 +496,15 @@ extension RootViewController  {
         
         if(!file.isDirectory){
             
-            let path = (currentRepo?.directoryURL?.path)!
-            let pathStr = path.components(separatedBy: documentDir).last?.trimmingCharacters(in: .whitespacesAndNewlines)
-            if(!file.filePath.contains(pathStr!)){
-                cell?.rightButtons = [actionButton]
-            }else{
-                cell?.rightButtons = [actionButton,commitButton]
+            
+            if let path = (currentRepo?.directoryURL?.path) {
+                let pathStr = path.components(separatedBy: documentDir).last?.trimmingCharacters(in: .whitespacesAndNewlines)
+                if(!file.filePath.contains(pathStr!)){
+                    cell?.rightButtons = [actionButton]
+                }else{
+                    cell?.rightButtons = [actionButton,commitButton]
+                }
+                
             }
             
             cell?.rightSwipeSettings.transition = .rotate3D
@@ -586,7 +589,7 @@ extension RootViewController  {
 extension RootViewController :FileManagerDelegate {
     
     func fileManager(_ fileManager: FileManager, shouldRemoveItemAtPath path: String) -> Bool {
-//        log("shouldRemoveItemAtPath",path)
+        log("shouldRemoveItemAtPath",path)
         //        reloadCurPage()
         return true
     }
@@ -608,7 +611,7 @@ extension RootViewController :FileManagerDelegate {
     }
     
     func fileManager(_ fileManager: FileManager, shouldMoveItemAt srcURL: URL, to dstURL: URL) -> Bool {
-        //        log("shouldMoveItemAt",srcURL ,dstURL)
+                log("shouldMoveItemAt",srcURL ,dstURL)
         reloadCurPage()
         return true
     }

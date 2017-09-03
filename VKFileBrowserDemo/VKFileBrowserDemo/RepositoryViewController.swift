@@ -107,6 +107,7 @@ class RepositoryViewController: BaseViewController {
         let localBranchesResult = currentRepo?.localBranches()
         if let localBranches = localBranchesResult?.value {
             dataSource["LocalBranches"] = localBranches
+            log("localBranches.count: \(localBranches.count)")
         }else{
             log("error: \(localBranchesResult?.error)")
         }
@@ -149,7 +150,20 @@ extension RepositoryViewController : UITableViewDataSource {
         return dataSource[sectionTitles[section]]!.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let key = sectionTitles[indexPath.section]
+        
+        
+        if(key == "REMOTES"){
+
+            if(dataSource[key]![indexPath.row] as? Remote == nil){
+                var cell = UITableViewCell(style: .default, reuseIdentifier: reuseIdentifier)
+                cell.textLabel?.text = "Add Remote"
+                cell.textLabel?.textAlignment = .center
+                return cell
+            }
+        }
         var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? MGSwipeTableCell
+        
         if(cell == nil){
             cell = MGSwipeTableCell(style: .subtitle, reuseIdentifier: reuseIdentifier)
         }
@@ -167,7 +181,7 @@ extension RepositoryViewController : UITableViewDataSource {
         
         nextBtn?.isHidden = true
         
-        let key = sectionTitles[indexPath.section]
+        
         if(key == "REMOTES"){
             
             let remote = dataSource[key]![indexPath.row] as? Remote
@@ -182,13 +196,16 @@ extension RepositoryViewController : UITableViewDataSource {
                 })]
                 cell?.rightSwipeSettings.transition = .rotate3D
                 
-                nextBtn?.isHidden = false
-            }
-            else{
-                cell = MGSwipeTableCell(style: .default, reuseIdentifier: reuseIdentifier)
-                cell?.textLabel?.text = "Add Remote"
-                cell?.textLabel?.textAlignment = .center
                 
+                let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: .flatRed){cell in
+                    RepositoryUtils.deleteRemote(self.currentRepo!, (remote?.name)!)
+                    return true
+                }
+                cell?.leftButtons = [deleteButton]
+                cell?.leftSwipeSettings.transition = .border
+                
+                
+                nextBtn?.isHidden = false
             }
         }
         else if(key.contains("COMMITS")){

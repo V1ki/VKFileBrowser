@@ -22,6 +22,7 @@ target "VKFileBrowserDemo" do
  pod "SwipeCellKit"
  pod "MGSwipeTableCell"
  pod "Result"
+ pod 'ReachabilitySwift'
 # pod "RealmSwift"
 # pod "Texture"
 # pod "DZNEmptyDataSet"
