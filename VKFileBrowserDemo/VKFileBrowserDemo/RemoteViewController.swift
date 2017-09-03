@@ -82,7 +82,7 @@ class RemoteViewController: BaseViewController {
                     
                     let head = self.repo!.HEAD().value
                     if(head == nil){
-                        // TODO:should tip fetch first
+                        self.view.showTips("local has no content,Please fetch first")
                         return
                     }
                     
@@ -97,8 +97,7 @@ class RemoteViewController: BaseViewController {
                         branch = branches.filter{$0.oid == head?.oid}.last
                         
                         if(branch == nil){
-                            // TODO:should tip fetch first
-                            
+                            self.view.showTips("local has no content,Please fetch first")
                             return
                         }
                         
@@ -143,7 +142,14 @@ class RemoteViewController: BaseViewController {
         self.mTableView.rx.itemSelected.bind{indexPath in
             self.mTableView.deselectRow(at: indexPath, animated: true)
             //delete Action
-            RepositoryUtils.delRemote(self.repo!, self.remote!.name)
+            let result = RepositoryUtils.delRemote(self.repo!, self.remote!.name)
+            if(result.error == nil){
+                self.navigationController?.popViewController(animated: true)
+            }
+            else{
+                self.view.showTips((result.error?.description)!)
+            }
+            
         }.disposed(by: disposeBag)
         
         
