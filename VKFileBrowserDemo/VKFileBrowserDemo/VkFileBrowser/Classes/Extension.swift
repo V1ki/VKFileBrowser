@@ -8,17 +8,34 @@
 
 import Foundation
 import UIKit
+import MBProgressHUD
+
 
 
 public func log(_ items: Any..., separator: String = "", terminator: String = "")  {
     print(items,separator,terminator)
 }
 
+
+
 extension NSObject {
 
     
 }
+extension UIView{
+    public func showTips(_ tips:String){
+        
+        let hud = MBProgressHUD.showAdded(to: self, animated: true)
+        
+        hud?.mode = .text
+        hud?.labelText = tips
+        
+        hud?.hide(true, afterDelay: 1.0)
+        
+    }
+    
 
+}
 extension UITableView{
     
     func hideExtraCell(){

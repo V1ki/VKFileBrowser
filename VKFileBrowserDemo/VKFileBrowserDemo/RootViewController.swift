@@ -490,17 +490,20 @@ extension RootViewController  {
         }
         let actionButton = MGSwipeButton(title: "Action", backgroundColor: .flatSand){cell in
             
+            
             return true
         }
         
         if(!file.isDirectory){
             
-            if(file.isGitRepo){
+            let path = (currentRepo?.directoryURL?.path)!
+            let pathStr = path.components(separatedBy: documentDir).last?.trimmingCharacters(in: .whitespacesAndNewlines)
+            if(!file.filePath.contains(pathStr!)){
+                cell?.rightButtons = [actionButton]
+            }else{
                 cell?.rightButtons = [actionButton,commitButton]
             }
-            else{
-                cell?.rightButtons = [actionButton]
-            }
+            
             cell?.rightSwipeSettings.transition = .rotate3D
         }
         

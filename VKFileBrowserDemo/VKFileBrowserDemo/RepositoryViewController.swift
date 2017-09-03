@@ -58,6 +58,11 @@ class RepositoryViewController: BaseViewController {
     }
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.reloadData()
+    }
+    
+    
     func reloadData(){
         dataSource.removeAll()
         

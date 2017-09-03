@@ -517,8 +517,8 @@ class RepositoryUtils: NSObject {
         let error = git_remote_create(&remote, repo.pointer,  remoteName, remoteURL)
         
         guard(error == GIT_OK.rawValue)else{
-            log("error:\(NSError(gitError: error, pointOfFailure: "git_signature_now"))")
-            return failure(error, "git_signature_now")
+            log("error:\(NSError(gitError: error, pointOfFailure: "git_remote_create"))")
+            return failure(error, "git_remote_create")
         }
         return Result.success(Remote(remote!))
         
@@ -552,16 +552,6 @@ class RepositoryUtils: NSObject {
             log("error:\(NSError(gitError: error, pointOfFailure: "git_tree_lookup"))")
             return
         }
-        
-        
-        var authorPointer: UnsafeMutablePointer<git_signature>? = UnsafeMutablePointer<git_signature>.allocate(capacity: 1)
-        let authorResult = git_signature_now(&authorPointer, UnsafeMutablePointer<Int8>(mutating: "me"), UnsafeMutablePointer<Int8>(mutating: "me@example.com"))
-        
-        if(authorResult != GIT_OK.rawValue) {
-            log("error:\(NSError(gitError: authorResult, pointOfFailure: "git_signature_now"))")
-            return
-        }
-        
         let signatureResult = userSignatureForNow()
         
         
@@ -877,13 +867,13 @@ class RepositoryUtils: NSObject {
         }
         
         
-        var authorPointer: UnsafeMutablePointer<git_signature>? = UnsafeMutablePointer<git_signature>.allocate(capacity: 1)
-        let authorResult = git_signature_now(&authorPointer, UnsafeMutablePointer<Int8>(mutating: "me"), UnsafeMutablePointer<Int8>(mutating: "me@example.com"))
         
-        if(authorResult == GIT_OK.rawValue){} else{
-            log("error:\(NSError(gitError: authorResult, pointOfFailure: "git_signature_now"))")
-            return
-        }
+        var signature = (userSignatureForNow().value)!
+        
+//        if(authorResult == GIT_OK.rawValue){} else{
+//            log("error:\(NSError(gitError: authorResult, pointOfFailure: "git_signature_now"))")
+//            return
+//        }
         
         var commit : OpaquePointer? = nil
         var commitOid = lastCommit.oid.oid
@@ -891,7 +881,7 @@ class RepositoryUtils: NSObject {
         
         var commits = [commit]
         var newCommitID : git_oid = git_oid()
-        result = git_commit_create(&newCommitID, repo.pointer, "HEAD", authorPointer , authorPointer , "UTF-8", "message", tree, 1, &commits)
+        result = git_commit_create(&newCommitID, repo.pointer, "HEAD", &signature , &signature , "UTF-8", "message", tree, 1, &commits)
         
         if ( result == GIT_OK.rawValue){} else{
             print("error:\(NSError(gitError: result, pointOfFailure: "git_commit_create"))")
