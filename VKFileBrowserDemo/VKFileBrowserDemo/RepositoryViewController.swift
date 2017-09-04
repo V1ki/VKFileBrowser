@@ -76,7 +76,6 @@ class RepositoryViewController: BaseViewController {
         }
         dateFormatter.dateFormat = "yyyy/MM/dd"
         let commits = (currentRepo?.allCommits())!
-        print("commits.count:\(commits.count)")
         
         var allCommits = commits
         

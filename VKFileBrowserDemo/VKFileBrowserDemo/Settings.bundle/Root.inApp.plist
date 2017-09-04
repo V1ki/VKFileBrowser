@@ -100,6 +100,72 @@
             <key>KeyboardType</key>
             <string>EmailAddress</string>
 		</dict>
+        
+        
+        <dict>
+            <key>FooterText</key>
+            <string>File Browser 1.0</string>
+            <key>Title</key>
+            <string>libraries</string>
+            <key>Type</key>
+            <string>PSGroupSpecifier</string>
+        </dict>
+        <dict>
+            <key>Title</key>
+            <string>InAppSettingsKit</string>
+            <key>File</key>
+            <string>https://github.com/futuretap/InAppSettingsKit</string>
+            <key>Type</key>
+            <string>IASKOpenURLSpecifier</string>
+        </dict>
+        <dict>
+            <key>Title</key>
+            <string>SwiftGit2</string>
+            <key>File</key>
+            <string>https://github.com/SwiftGit2/SwiftGit2</string>
+            <key>Type</key>
+            <string>IASKOpenURLSpecifier</string>
+        </dict>
+        <dict>
+            <key>Title</key>
+            <string>Chameleon</string>
+            <key>File</key>
+            <string>https://github.com/ViccAlexander/Chameleon</string>
+            <key>Type</key>
+            <string>IASKOpenURLSpecifier</string>
+        </dict>
+        <dict>
+            <key>Title</key>
+            <string>RxSwift</string>
+            <key>File</key>
+            <string>https://github.com/ReactiveX/RxSwift</string>
+            <key>Type</key>
+            <string>IASKOpenURLSpecifier</string>
+        </dict>
+        <dict>
+            <key>Title</key>
+            <string>Result</string>
+            <key>File</key>
+            <string>https://github.com/antitypical/Result</string>
+            <key>Type</key>
+            <string>IASKOpenURLSpecifier</string>
+        </dict>
+        <dict>
+            <key>Title</key>
+            <string>MJRefresh</string>
+            <key>File</key>
+            <string>https://github.com/CoderMJLee/MJRefresh</string>
+            <key>Type</key>
+            <string>IASKOpenURLSpecifier</string>
+        </dict>
+        <dict>
+            <key>Title</key>
+            <string>MGSwipeTableCell</string>
+            <key>File</key>
+            <string>https://github.com/MortimerGoro/MGSwipeTableCell</string>
+            <key>Type</key>
+            <string>IASKOpenURLSpecifier</string>
+        </dict>
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>

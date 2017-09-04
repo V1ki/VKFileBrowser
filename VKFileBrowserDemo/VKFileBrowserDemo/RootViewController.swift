@@ -251,7 +251,7 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
     
     func reloadCurPage(){
         if(currentRepo != nil){
-            
+            currentStatus.removeAll()
             let statusResult = currentRepo?.allStatus()
             if let allStatus = statusResult?.value {
                 
@@ -266,6 +266,8 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
                     }
                 }
             }
+        }else{
+            currentStatus.removeAll()
         }
         
         self.loadFileAtPath(self.currentDir)

@@ -16,6 +16,7 @@ class SettingsTableViewController: IASKAppSettingsViewController ,IASKSettingsDe
         // Do any additional setup after loading the view.
         self.delegate = self
         self.neverShowPrivacySettings = true
+        self.showCreditsFooter = false
         NotificationCenter.default.addObserver(self, selector: #selector(appSettingChanged), name: NSNotification.Name(rawValue: "kAppSettingChanged"), object: nil)
         
     }
