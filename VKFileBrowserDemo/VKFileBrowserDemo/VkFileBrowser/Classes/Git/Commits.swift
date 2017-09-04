@@ -31,21 +31,52 @@ public func userSignatureForNow() -> Result<git_signature,NSError>{
 
 
 extension Repository {
-    func allCurrentCommits() -> [Commit] {
+    
+    
+    func allCommits() -> [Commit] {
+        if let branch = self.localBranches().value?.first{
+            return self.masterCommits()
+        }else{
+            return self.HEADCommits()
+        }
+    }
+    
+    func masterCommits() -> [Commit] {
+        var resultCommits = [Commit]()
+        if let branch = self.localBranches().value?.first{
+            
+            
+            let iterator = self.commits(in: branch)
+            for ciResult in iterator {
+                if let ci = ciResult.value {
+                    resultCommits.append(ci)
+                }
+                
+            }
+            
+            
+        }
+        
+        
+        return Array(Set<Commit>(resultCommits))
+    }
+    
+    func HEADCommits() -> [Commit] {
         let lastCommitResult = self.HEAD().flatMap{self.commit($0.oid)}
         var resultCommits = [Commit]()
         if let commit = lastCommitResult.value {
             resultCommits.append(commit)
-            listParentCommits(self, commit){ commits in
+            listParentCommits(commit){ commits in
                 resultCommits.append(contentsOf: commits)
             }
         }
-        return resultCommits
+        
+        return Array(Set<Commit>(resultCommits))
     }
     
-    private func listParentCommits(_ repo:Repository , _ commit:Commit ,resultHandler: ([Commit]) -> Void){
+    private func listParentCommits(_ commit:Commit ,resultHandler: ([Commit]) -> Void){
         
-        let commitParents = commit.parents.flatMap({repo.commit($0.oid)})
+        let commitParents = commit.parents.flatMap({self.commit($0.oid)})
         
         var resultCommits = [Commit]()
         for ciResult in commitParents {
@@ -53,7 +84,7 @@ extension Repository {
                 continue
             }
             
-            listParentCommits(repo, ci){ commits in
+            listParentCommits(ci){ commits in
                 resultCommits.append(contentsOf: commits)
             }
             resultCommits.append(ci)

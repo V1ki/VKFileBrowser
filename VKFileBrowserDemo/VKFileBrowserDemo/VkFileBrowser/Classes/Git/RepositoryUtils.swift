@@ -210,13 +210,16 @@ class RepositoryUtils: NSObject {
     }
     
     class func checkoutBranch(_ repo:Repository,_ branch:Branch){
+        var branchPointer:OpaquePointer? = nil
+        
+        git_branch_lookup(&branchPointer, repo.pointer, branch.name,branch.isLocal ?GIT_BRANCH_LOCAL : GIT_BRANCH_REMOTE)
+        
+        let refname = (git_reference_name(branchPointer))!
+        
         var commitPointer:OpaquePointer? = nil
         var commitOid = branch.oid.oid
-        git_commit_lookup(&commitPointer, repo.pointer, &commitOid)
         
-        let commit = Commit(commitPointer!)
-        
-        let result = checkoutCommit(repo, commit)
+        let result = checkout(repo, branchPointer, String(validatingUTF8:refname)! )
         
         guard result.error == nil else{
             return
@@ -275,7 +278,7 @@ class RepositoryUtils: NSObject {
     
     
     
-    class func checkout(_ repo:Repository,_ newRefPointer:OpaquePointer?,_ refname:String){
+    class func checkout(_ repo:Repository,_ newRefPointer:OpaquePointer?,_ refname:String) -> Result<(),NSError>{
         var error : Int32 = 0
         
         var obj : OpaquePointer? = nil
@@ -283,9 +286,9 @@ class RepositoryUtils: NSObject {
         guard error == GIT_OK.rawValue else{
             
             log("error:\(NSError(gitError: error, pointOfFailure: "git_reference_peel"))")
-            return
+            return failure(error, "git_reference_peel")
         }
-        checkoutRefname(repo, obj, refname)
+        return checkoutRefname(repo, obj, refname)
         
     }
     
@@ -686,6 +689,8 @@ class RepositoryUtils: NSObject {
     }
     
     
+    class func deleteBranch(_ repo:Repository ){}
+    
     private class func makeTree(_ repo:Repository,_ commit:Commit?,_ files:[String]) -> Result<git_oid,NSError>{
         var error : Int32 = 0
         
@@ -985,62 +990,6 @@ struct Index {
     
 }
 
-
-extension Branch {
-    func trackingBranch(_ repo:Repository)->Result<Branch?,NSError>{
-        if(isRemote){
-            return Result.success(self)
-        }
-        
-        var branchPointer : OpaquePointer? = nil
-        var error : Int32 = 0
-        error = git_branch_lookup(&branchPointer, repo.pointer, (self.shortName)!, GIT_BRANCH_LOCAL)
-        guard error == GIT_OK.rawValue else {
-            print("error:\(error) -- shortName:\(shortName)")
-            return failure(error, "git_branch_lookup")
-        }
-        var outBranchPointer : OpaquePointer? = nil
-        error = git_branch_upstream(&outBranchPointer, branchPointer)
-        guard error == GIT_OK.rawValue else {
-            return failure(error,"git_branch_upstream")
-        }
-        return Result.success((Branch(outBranchPointer!))!)
-    }
-    
-    
-/***
-     
-     - (BOOL)updateTrackingBranch:(GTBranch *)trackingBranch error:(NSError **)error {
-     int result = GIT_ENOTFOUND;
-     if (trackingBranch.branchType == GTBranchTypeRemote) {
-     result = git_branch_set_upstream(self.reference.git_reference, [trackingBranch.name stringByReplacingOccurrencesOfString:[GTBranch remoteNamePrefix] withString:@""].UTF8String);
-     } else {
-     result = git_branch_set_upstream(self.reference.git_reference, trackingBranch.shortName.UTF8String);
-     }
-     if (result != GIT_OK) {
-     if (error != NULL) *error = [NSError git_errorFor:result description:@"Failed to update tracking branch for %@", self];
-     return NO;
-     }
-     
-     return YES;
-     }
-     
- */
-    func updateTrackingBranch(_ trackingBranch:Branch){
-        var error:Int32 = GIT_ENOTFOUND.rawValue
-        if(trackingBranch.isRemote){
-            error = git_branch_set_upstream(self.pointer, trackingBranch.name.replacingOccurrences(of: "refs/remotes/", with: ""))
-        }else{
-            error = git_branch_set_upstream(self.pointer, trackingBranch.shortName);
-        }
-        guard error == GIT_OK.rawValue else {
-            log("error:\(NSError(gitError: error, pointOfFailure: "git_branch_set_upstream"))")
-            return
-        }
-        
-    }
-    
-}
 
 extension Repository {
     class public func cloneWithCustomFetch(_ remoteURL: URL, _ localURL: URL,_ progresssHandler :SidebandProgressProgressBlock? = nil ) -> Result<Repository, NSError> {

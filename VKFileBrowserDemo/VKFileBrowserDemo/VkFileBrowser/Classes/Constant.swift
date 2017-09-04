@@ -6,6 +6,7 @@
 // DO NOT MODIFY THIS FILE MANUALLY
 //
 import UIKit
+import ChameleonFramework
 
 public let hlLangCount: UInt16 = 176
 
@@ -15,6 +16,14 @@ public let SCREEN_HEIGHT = UIScreen.main.nativeBounds.size.height
 public let IS_PAD = UIDevice.current.userInterfaceIdiom == .pad
 public let IS_PHONE = UIDevice.current.userInterfaceIdiom == .phone
 
+public func LocalizedString(_ key:String) -> String {
+    return NSLocalizedString(key, comment: key)
+}
+
+let HEADCOLOR : UIColor = .flatGreen
+let localBranchColors : [UIColor] = [.flatSkyBlue,.flatBlue,.flatPowderBlue,.flatNavyBlue]
+
+let remoteBranchColors : [UIColor] = [.flatSkyBlueDark,.flatBlueDark,.flatPowderBlueDark,.flatNavyBlueDark]
 
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate

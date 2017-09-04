@@ -251,6 +251,7 @@
 		5487DF761F526C3300E411D5 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5487DF751F526C3300E411D5 /* Status.swift */; };
 		548AFB1E1F4BD459008C6F4B /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AFB1C1F4BD459008C6F4B /* RepositoryViewController.swift */; };
 		548AFB1F1F4BD459008C6F4B /* RepositoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548AFB1D1F4BD459008C6F4B /* RepositoryViewController.xib */; };
+		548C5F6C1F5D471000C454D9 /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C5F6B1F5D471000C454D9 /* Branch.swift */; };
 		5490E20F1F5516A30041D232 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5490E20E1F5516A30041D232 /* DefaultsKeys.swift */; };
 		54962AA61F53B07800E75239 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54962AA51F53B07800E75239 /* Security.framework */; };
 		54962AA81F53C24100E75239 /* HEAD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54962AA71F53C24100E75239 /* HEAD.swift */; };
@@ -575,6 +576,7 @@
 		5487DF751F526C3300E411D5 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		548AFB1C1F4BD459008C6F4B /* RepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		548AFB1D1F4BD459008C6F4B /* RepositoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepositoryViewController.xib; sourceTree = "<group>"; };
+		548C5F6B1F5D471000C454D9 /* Branch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
 		5490E20E1F5516A30041D232 /* DefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		54962AA51F53B07800E75239 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		54962AA71F53C24100E75239 /* HEAD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEAD.swift; sourceTree = "<group>"; };
@@ -1090,6 +1092,7 @@
 				5487DF751F526C3300E411D5 /* Status.swift */,
 				54962AA71F53C24100E75239 /* HEAD.swift */,
 				54962AA91F53C68B00E75239 /* Commits.swift */,
+				548C5F6B1F5D471000C454D9 /* Branch.swift */,
 			);
 			path = Git;
 			sourceTree = "<group>";
@@ -1834,6 +1837,7 @@
 				54B55F711F2D978A00BB1C09 /* LzmaDec.c in Sources */,
 				54B55F6D1F2D978A00BB1C09 /* Alloc.c in Sources */,
 				54962AA81F53C24100E75239 /* HEAD.swift in Sources */,
+				548C5F6C1F5D471000C454D9 /* Branch.swift in Sources */,
 				5487DF761F526C3300E411D5 /* Status.swift in Sources */,
 				5469C9651F48791C00A849EC /* MarkdownTextAttachment.swift in Sources */,
 				544897141F4AE1ED00DB8980 /* SwiftGit2.m in Sources */,

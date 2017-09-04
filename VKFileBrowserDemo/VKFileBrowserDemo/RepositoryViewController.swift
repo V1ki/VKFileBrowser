@@ -75,8 +75,8 @@ class RepositoryViewController: BaseViewController {
             log("error: \(remoteReuslt?.error)")
         }
         dateFormatter.dateFormat = "yyyy/MM/dd"
-        let commits = (currentRepo?.allCurrentCommits())!
-        
+        let commits = (currentRepo?.allCommits())!
+        print("commits.count:\(commits.count)")
         
         var allCommits = commits
         
@@ -102,7 +102,6 @@ class RepositoryViewController: BaseViewController {
             //            RepositoryUtils.addCommit(currentRepo!, allCommits.first!)
             
         }
-        
         
         
         let localBranchesResult = currentRepo?.localBranches()
@@ -163,12 +162,21 @@ extension RepositoryViewController : UITableViewDataSource {
         if(key == "REMOTES"){
 
             if(dataSource[key]![indexPath.row] as? Remote == nil){
-                var cell = UITableViewCell(style: .default, reuseIdentifier: reuseIdentifier)
+                let cell = UITableViewCell(style: .default, reuseIdentifier: reuseIdentifier)
                 cell.textLabel?.text = "Add Remote"
                 cell.textLabel?.textAlignment = .center
                 return cell
             }
         }
+        else if(key == "LocalBranches"){
+            if(dataSource[key]![indexPath.row] as? Branch == nil){
+                let cell = UITableViewCell(style: .default, reuseIdentifier: reuseIdentifier)
+                cell.textLabel?.text = "Add Branch"
+                cell.textLabel?.textAlignment = .center
+                return cell
+            }
+        }
+        
         var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? MGSwipeTableCell
         
         if(cell == nil){
@@ -238,32 +246,79 @@ extension RepositoryViewController : UITableViewDataSource {
             dateFormatter.dateFormat = "HH:mm"
             let timeStr = dateFormatter.string(from: ci.author.time)
             cell?.textLabel?.text = "\(msg)"
-            if(headOID == ci.oid){
-                cell?.detailTextLabel?.text = "HEAD \(ci.author.name) \(timeStr)"
-            }
-            else{
-                cell?.detailTextLabel?.text = "\(ci.author.name) \(timeStr)"
+            let detailStr = NSMutableAttributedString()
+            
+            let localBranchResult = dataSource["LocalBranches"]!.filter{($0 as!Branch).oid == ci.oid}
+            
+            
+            for i in 0..<localBranchResult.count {
+                let branch = localBranchResult[i] as! Branch
+                let branchStr = NSAttributedString(string: branch.shortName!, attributes: [ NSBackgroundColorAttributeName:localBranchColors[i]])
+                detailStr.append(branchStr)
+                detailStr.append(NSAttributedString(string:" "))
             }
             
+            
+            let remoteBranchResult = dataSource["RemoteBranches"]!.filter{($0 as!Branch).oid == ci.oid}
+            
+            
+            for i in 0..<remoteBranchResult.count {
+                let branch = remoteBranchResult[i] as! Branch
+                let branchStr = NSAttributedString(string: branch.shortName!, attributes: [ NSBackgroundColorAttributeName:remoteBranchColors[i]])
+                detailStr.append(branchStr)
+                detailStr.append(NSAttributedString(string:" "))
+            }
+            
+            
+            let headResult = currentRepo?.HEAD()
+            if let head = headResult?.value {
+                if head is Branch {
+                    
+                }else if head.oid == ci.oid {
+                    
+                    let branchStr = NSAttributedString(string: "HEAD", attributes: [ NSBackgroundColorAttributeName:HEADCOLOR])
+                    detailStr.append(branchStr)
+                    detailStr.append(NSAttributedString(string:" "))
+                }
+            }
+            
+            detailStr.append(NSAttributedString(string:"\(ci.author.name) \(timeStr)"))
+
+            cell?.detailTextLabel?.attributedText = detailStr
+            
+            
+            //configure right buttons
+            cell?.rightButtons = [MGSwipeButton(title: "Checkout", backgroundColor: .flatLime,callback:{cell in
+                
+                let result = RepositoryUtils.checkoutCommit(self.currentRepo!, ci)
+                
+                if(result.error == nil){
+                    self.reloadData()
+                }else{
+                    print("result.error:\(result.error)")
+                }
+                return true
+            })]
+            cell?.rightSwipeSettings.transition = .rotate3D
             
         }
         else if(key == "LocalBranches" || key == "RemoteBranches"){
+            
             let branch = dataSource[key]![indexPath.row] as! Branch
 //            let trackingBranch = branch.trackingBranch(currentRepo!).value
-            cell?.textLabel?.text = "\(branch.name) \(branch.oid)"
+            cell?.textLabel?.text = "\(branch.name)"
             if(branch.isLocal){
                 
-                let remoteBranches = dataSource["RemoteBranches"]!
-                for case let remoteBranch as Branch  in remoteBranches {
-                    if(remoteBranch.oid == branch.oid){
-                        cell?.detailTextLabel?.text = "tracking \(remoteBranch.name)"
-                    }
+                
+                let remoteBranches = dataSource["RemoteBranches"]! as! [Branch]
+                if let remoteBranch = (remoteBranches.filter{$0.oid == branch.oid}).first {
+                    cell?.detailTextLabel?.text = "tracking \(remoteBranch.name)"
                 }
+                
                 
             }else{
                 cell?.detailTextLabel?.text = "\(branch.longName)"
             }
-                cell?.detailTextLabel?.text = "\(branch.longName)"
         }
         
         
@@ -364,15 +419,7 @@ extension RepositoryViewController : UITableViewDelegate {
             }
         }
         else if(key.contains("COMMITS")){
-            let commit  = dataSource[key]![indexPath.row] as! Commit
-            
-            let result = RepositoryUtils.checkoutCommit(currentRepo!, commit)
-            
-            if(result.error == nil){
-                self.reloadData()
-            }else{
-                print("result.error:\(result.error)")
-            }
+
             
         }else if(key == "LocalBranches" || key == "RemoteBranches"){
             let branch  = dataSource[key]![indexPath.row] as! Branch

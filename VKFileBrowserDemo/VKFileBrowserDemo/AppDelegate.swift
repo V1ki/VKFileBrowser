@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GCDWebUploaderDelegate{
 //        webUploader?.start()
         
         
-        Chameleon.setGlobalThemeUsingPrimaryColor(.flatSkyBlue, with: .contrast)
+        Chameleon.setGlobalThemeUsingPrimaryColor(.flatSkyBlueDark, with: .contrast)
         
         RepositoryUtils.initGit()
         
@@ -80,11 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GCDWebUploaderDelegate{
     
     func reloadData(){
         
-        let topvc = (window?.rootViewController as! UINavigationController).topViewController
-        
-        if(topvc is VKFileViewController){
-            (topvc as! VKFileViewController).reloadCurPage()
-        }
+        spiltController.reloadRootData()
     }
     
     func webUploader(_ uploader: GCDWebUploader, didDeleteItemAtPath path: String) {
