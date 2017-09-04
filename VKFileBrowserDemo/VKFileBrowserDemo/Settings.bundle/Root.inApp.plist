@@ -65,6 +65,8 @@
 			<string>username</string>
 			<key>Title</key>
 			<string>username</string>
+            <key>IASKPlaceholder</key>
+            <string>Pleas input username</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>IASKTextAlignment</key>
@@ -77,6 +79,8 @@
 			<true/>
 			<key>Title</key>
 			<string>password</string>
+            <key>IASKPlaceholder</key>
+            <string>Pleas input password</string>
 			<key>Key</key>
 			<string>password</string>
 			<key>IASKTextAlignment</key>
@@ -87,10 +91,14 @@
 			<string>email</string>
 			<key>Title</key>
 			<string>email</string>
+            <key>IASKPlaceholder</key>
+            <string>Pleas input email</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>IASKTextAlignment</key>
 			<string>IASKUITextAlignmentRight</string>
+            <key>KeyboardType</key>
+            <string>EmailAddress</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>

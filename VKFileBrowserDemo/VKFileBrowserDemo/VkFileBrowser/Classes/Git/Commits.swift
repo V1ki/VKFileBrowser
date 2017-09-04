@@ -24,7 +24,7 @@ public func userSignatureForNow() -> Result<git_signature,NSError>{
     
     guard(error == GIT_OK.rawValue) else{
         log("error:\(NSError(gitError: error, pointOfFailure: "git_signature_now"))")
-        return Result.failure(NSError(gitError: error, pointOfFailure: "git_signature_now"))
+        return failure(error, "git_signature_now")
     }
     return Result.success((signaturePointer?.pointee)!)
 }
@@ -65,7 +65,7 @@ extension Repository {
 
     
     
-    func commitFiles(_ files:[String] ,_ shouldPush:Bool = false){
+    func commitFiles(_ files:[String] ,_ shouldPush:Bool = false) -> Result<(),NSError>{
         
         /*
          git_signature *me = NULL;
@@ -101,7 +101,7 @@ extension Repository {
         let result = RepositoryUtils.makeTree(self, files)
         if(result.error != nil){
             log("error:\(result.error )")
-            return
+            return .failure(result.error!)
         }
         
         var treeOid:git_oid  = (result.value)!
@@ -111,15 +111,14 @@ extension Repository {
         error = git_tree_lookup(&newTree, self.pointer, &treeOid)
         guard(error == GIT_OK.rawValue) else{
             log("error:\(NSError(gitError: error, pointOfFailure: "git_tree_lookup"))")
-            return
+            return failure(error, "git_tree_lookup")
         }
         var headPointer : OpaquePointer? = nil
         error = git_repository_head(&headPointer, self.pointer)
         
-        
         guard(error == GIT_OK.rawValue) else{
             log("error:\(NSError(gitError: error, pointOfFailure: "git_repository_head"))")
-            return
+            return failure(error, "git_repository_head")
         }
         
         //        repo.HEAD().value?.oid.description
@@ -131,14 +130,14 @@ extension Repository {
         error = git_revwalk_push(walk, &oid)
         guard(error == GIT_OK.rawValue) else{
             print("error:\(NSError(gitError: error, pointOfFailure: "git_revwalk_push"))")
-            return
+            return failure(error, "git_revwalk_push")
         }
         
         var signatureResult = userSignatureForNow()
         
         if(signatureResult.error != nil){
             log("error:\(signatureResult.error)")
-            return
+            return .failure(signatureResult.error!)
         }
         var signature = (signatureResult.value)!
         
@@ -149,7 +148,12 @@ extension Repository {
             
             var commitP : OpaquePointer? = nil
             var commitOid = (commit!).oid.oid
-            git_commit_lookup(&commitP, self.pointer, &commitOid)
+            error = git_commit_lookup(&commitP, self.pointer, &commitOid)
+            guard(error == GIT_OK.rawValue) else{
+                print("error:\(NSError(gitError: error, pointOfFailure: "git_commit_lookup"))")
+                return failure(error, "git_commit_lookup")
+            }
+            
             commitsPointer.append(commitP)
         }
         
@@ -158,7 +162,7 @@ extension Repository {
         
         guard(error == GIT_OK.rawValue) else{
             print("error:\(NSError(gitError: error, pointOfFailure: "git_commit_create"))")
-            return
+            return failure(error, "git_commit_create")
         }
         
         
@@ -166,15 +170,20 @@ extension Repository {
         error = git_commit_lookup(&newCommit, self.pointer, &newCommitID)
         guard(error == GIT_OK.rawValue) else{
             print("error:\(NSError(gitError: error, pointOfFailure: "git_commit_lookup"))")
-            return
+            return failure(error, "git_commit_lookup")
         }
+        
+        print("newCommit:\(Commit(newCommit!))")
         
         
         if shouldPush {
-            //            pushToFirstRemote(repo)
-            RepositoryUtils.pushBranch(self, (self.localBranches().value?.first)!, (self.allRemotes().value?.first)!)
+            if(self.localBranches().value?.isEmpty ?? false){
+                return .success()
+            }
+            print("\((self.allRemotes().value?.first)!)")
+            return RepositoryUtils.pushBranch(self, (self.localBranches().value?.first)!, (self.allRemotes().value?.first)!)
         }
-        
+        return .success()
         
     }
     

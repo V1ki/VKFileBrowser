@@ -8,8 +8,8 @@
 
 import Foundation
 import UIKit
-import MBProgressHUD
 
+import SVProgressHUD
 
 
 public func log(_ items: Any..., separator: String = "", terminator: String = "")  {
@@ -25,12 +25,14 @@ extension NSObject {
 extension UIView{
     public func showTips(_ tips:String){
         
-        let hud = MBProgressHUD.showAdded(to: self, animated: true)
+//        let hud = MBProgressHUD.showAdded(to: self, animated: true)
+//
+//        hud?.mode = .text
+//        hud?.labelText = tips
+//
+//        hud?.hide(true, afterDelay: 1.0)
         
-        hud?.mode = .text
-        hud?.labelText = tips
-        
-        hud?.hide(true, afterDelay: 1.0)
+        SVProgressHUD.showError(withStatus: tips)
         
     }
     

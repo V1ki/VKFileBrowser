@@ -12,6 +12,7 @@ import VBFPopFlatButton
 import RxSwift
 import RxCocoa
 import ChameleonFramework
+import SVProgressHUD
 
 class RepositoryViewController: BaseViewController {
     
@@ -35,7 +36,7 @@ class RepositoryViewController: BaseViewController {
         // Do any additional setup after loading the view.
         mTableView.hideExtraCell()
         
-        
+        self.title = currentRepo?.directoryURL?.pathComponents.last
         self.automaticallyAdjustsScrollViewInsets = false
         //        RepositoryUtils.addRefspecs(currentRepo!, "origin")
         //        RepositoryUtils.refspecs(currentRepo!)
@@ -107,7 +108,6 @@ class RepositoryViewController: BaseViewController {
         let localBranchesResult = currentRepo?.localBranches()
         if let localBranches = localBranchesResult?.value {
             dataSource["LocalBranches"] = localBranches
-            log("localBranches.count: \(localBranches.count)")
         }else{
             log("error: \(localBranchesResult?.error)")
         }
@@ -119,7 +119,7 @@ class RepositoryViewController: BaseViewController {
         }else{
             log("error: \(remoteBranchesResult?.error)")
         }
-        
+        self.reloadFileTree()
         self.mTableView.reloadData()
     }
     
@@ -147,7 +147,14 @@ extension RepositoryViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource[sectionTitles[section]]!.count
+        if sectionTitles.count > section {
+            let key = sectionTitles[section]
+            if let value = dataSource[key]{
+                return value.count
+            }
+            return 0
+        }
+        return 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let key = sectionTitles[indexPath.section]
@@ -191,14 +198,31 @@ extension RepositoryViewController : UITableViewDataSource {
                 
                 //configure right buttons
                 cell?.rightButtons = [MGSwipeButton(title: "Fetch", backgroundColor: .flatLime,callback:{cell in
-                    RepositoryUtils.fetchRemote(self.currentRepo!,(remote?.name)!)
+                    DispatchQueue.global().async {
+                        
+                        DispatchQueue.main.async {
+                            SVProgressHUD.show()
+                        }
+                        
+                        RepositoryUtils.fetchRemote(self.currentRepo!,(remote?.name)!,{str,line in
+                            print("str:\(str)")
+                        })
+                        
+                        DispatchQueue.main.async {
+                            self.reloadData()
+                            SVProgressHUD.dismiss()
+                        }
+                        
+                    }
+                    
                     return true
                 })]
                 cell?.rightSwipeSettings.transition = .rotate3D
                 
                 
                 let deleteButton = MGSwipeButton(title: "Delete", backgroundColor: .flatRed){cell in
-                    RepositoryUtils.deleteRemote(self.currentRepo!, (remote?.name)!)
+                    _ = RepositoryUtils.deleteRemote(self.currentRepo!, (remote?.name)!)
+                    self.reloadData()
                     return true
                 }
                 cell?.leftButtons = [deleteButton]
@@ -225,9 +249,9 @@ extension RepositoryViewController : UITableViewDataSource {
         }
         else if(key == "LocalBranches" || key == "RemoteBranches"){
             let branch = dataSource[key]![indexPath.row] as! Branch
-            cell?.textLabel?.text = "\(branch.name) "
-            let trackingBranch = branch.trackingBranch(currentRepo!).value
-            if(branch.isLocal && trackingBranch != nil){
+//            let trackingBranch = branch.trackingBranch(currentRepo!).value
+            cell?.textLabel?.text = "\(branch.name) \(branch.oid)"
+            if(branch.isLocal){
                 
                 let remoteBranches = dataSource["RemoteBranches"]!
                 for case let remoteBranch as Branch  in remoteBranches {
@@ -239,7 +263,7 @@ extension RepositoryViewController : UITableViewDataSource {
             }else{
                 cell?.detailTextLabel?.text = "\(branch.longName)"
             }
-            
+                cell?.detailTextLabel?.text = "\(branch.longName)"
         }
         
         
@@ -290,10 +314,18 @@ extension RepositoryViewController : UITableViewDelegate {
                 
                 alertController.addTextField(configurationHandler: {(textField) in
                     textField.placeholder = LocalizedString("remote name")
+                    textField.text = "origin"
                 })
                 
                 alertController.addTextField(configurationHandler: {(textField) in
                     textField.placeholder = LocalizedString("remote url")
+                    textField.text = "https://github.com/qq727755316/python1.git"
+                    textField.keyboardType = .URL
+                    if #available(iOS 10.0,*){
+                        textField.textContentType = .URL
+                    }
+                    
+
                 })
                 
                 let cancelAction = UIAlertAction(title:LocalizedString("Cancel"),style:.cancel,handler:{(action) in

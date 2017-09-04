@@ -12,8 +12,6 @@ import Result
 class ViewController: UIViewController {
     
     
-    var progressHud : MBProgressHUD?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,8 +107,8 @@ class ViewController: UIViewController {
             let user = (alertController.textFields?.first?.text)!
             let pwd = (alertController.textFields?.last?.text)!
             log("user:\(user) -- pwd:\(pwd)")
-            self.progressHud = MBProgressHUD.showAdded(to: self.view, animated: true)
-            self.progressHud?.mode = MBProgressHUDMode.annularDeterminate
+//            self.progressHud = MBProgressHUD.showAdded(to: self.view, animated: true)
+//            self.progressHud?.mode = MBProgressHUDMode.annularDeterminate
             
             DispatchQueue.global().async {
                 let repoResult = RepositoryUtils.clone(repoStr, {str in
@@ -118,7 +116,7 @@ class ViewController: UIViewController {
                 })
                 
                 DispatchQueue.main.async {
-                    self.progressHud?.hide(true)
+//                    self.progressHud?.hide(true)
                 }
                 
                 if let repo = repoResult.value {

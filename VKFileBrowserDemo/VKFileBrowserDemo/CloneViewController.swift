@@ -27,7 +27,7 @@ class CloneViewController: BaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         urlTextField.placeholder = LocalizedString("http and https support")
-        urlTextField.text = "https://gitee.com/qq727755316/test.git"
+        urlTextField.text = "https://github.com/qq727755316/python1.git"
         
         
         self.detailTextView.isHidden = true

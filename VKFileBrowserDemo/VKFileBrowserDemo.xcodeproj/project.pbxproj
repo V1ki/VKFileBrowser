@@ -211,22 +211,15 @@
 		5469C9421F48791C00A849EC /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8561F48791B00A849EC /* Media.xcassets */; };
 		5469C9431F48791C00A849EC /* SFMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8571F48791B00A849EC /* SFMono-Regular.otf */; };
 		5469C9441F48791C00A849EC /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 5469C85A1F48791B00A849EC /* .gitkeep */; };
-		5469C9451F48791C00A849EC /* GithubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5469C85B1F48791B00A849EC /* GithubViewController.xib */; };
 		5469C9461F48791C00A849EC /* MarkdownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5469C85D1F48791B00A849EC /* MarkdownViewController.xib */; };
 		5469C9471F48791C00A849EC /* SourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5469C85F1F48791B00A849EC /* SourceViewController.xib */; };
-		5469C9481F48791C00A849EC /* VKFileViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8611F48791B00A849EC /* VKFileViewController.strings */; };
-		5469C9491F48791C00A849EC /* VKFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8631F48791B00A849EC /* VKFileViewController.xib */; };
 		5469C94A1F48791C00A849EC /* VKSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8651F48791B00A849EC /* VKSearchViewController.xib */; };
 		5469C94B1F48791C00A849EC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8671F48791B00A849EC /* BaseViewController.swift */; };
 		5469C94C1F48791C00A849EC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8681F48791B00A849EC /* Constant.swift */; };
-		5469C94D1F48791C00A849EC /* DocumentPreviewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8691F48791B00A849EC /* DocumentPreviewObject.swift */; };
-		5469C94E1F48791C00A849EC /* GithubViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5469C86A1F48791B00A849EC /* GithubViewController.strings */; };
 		5469C94F1F48791C00A849EC /* MarkdownViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5469C86C1F48791B00A849EC /* MarkdownViewController.strings */; };
 		5469C9501F48791C00A849EC /* SourceViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5469C86E1F48791B00A849EC /* SourceViewController.strings */; };
-		5469C9511F48791C00A849EC /* VKSearchViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8711F48791B00A849EC /* VKSearchViewController.strings */; };
 		5469C9521F48791C00A849EC /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8731F48791B00A849EC /* Extension.swift */; };
 		5469C9531F48791C00A849EC /* RepositoryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8751F48791B00A849EC /* RepositoryUtils.swift */; };
-		5469C9541F48791C00A849EC /* GithubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8761F48791B00A849EC /* GithubViewController.swift */; };
 		5469C9551F48791C00A849EC /* MarkdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8771F48791B00A849EC /* MarkdownViewController.swift */; };
 		5469C9561F48791C00A849EC /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8791F48791B00A849EC /* BaseModel.swift */; };
 		5469C9571F48791C00A849EC /* ContentItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C87A1F48791B00A849EC /* ContentItemModel.swift */; };
@@ -239,9 +232,7 @@
 		5469C95E1F48791C00A849EC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8821F48791B00A849EC /* Style.swift */; };
 		5469C95F1F48791C00A849EC /* VKFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8831F48791B00A849EC /* VKFile.swift */; };
 		5469C9601F48791C00A849EC /* VKFileBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8841F48791B00A849EC /* VKFileBrowser.swift */; };
-		5469C9611F48791C00A849EC /* VkFileCustomViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8851F48791B00A849EC /* VkFileCustomViewLayout.swift */; };
 		5469C9621F48791C00A849EC /* VKFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8861F48791B00A849EC /* VKFileManager.swift */; };
-		5469C9631F48791C00A849EC /* VKFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8871F48791B00A849EC /* VKFileViewController.swift */; };
 		5469C9641F48791C00A849EC /* VKSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8881F48791B00A849EC /* VKSearchViewController.swift */; };
 		5469C9651F48791C00A849EC /* MarkdownTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C88A1F48791B00A849EC /* MarkdownTextAttachment.swift */; };
 		546F11871F4FC67C001ED7B3 /* NSArray+StringArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F11861F4FC67C001ED7B3 /* NSArray+StringArray.m */; };
@@ -539,23 +530,15 @@
 		5469C8571F48791B00A849EC /* SFMono-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFMono-Regular.otf"; sourceTree = "<group>"; };
 		5469C8581F48791B00A849EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5469C85A1F48791B00A849EC /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		5469C85C1F48791B00A849EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GithubViewController.xib; sourceTree = "<group>"; };
 		5469C85E1F48791B00A849EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MarkdownViewController.xib; sourceTree = "<group>"; };
 		5469C8601F48791B00A849EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SourceViewController.xib; sourceTree = "<group>"; };
-		5469C8621F48791B00A849EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/VKFileViewController.strings; sourceTree = "<group>"; };
-		5469C8641F48791B00A849EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VKFileViewController.xib; sourceTree = "<group>"; };
 		5469C8661F48791B00A849EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VKSearchViewController.xib; sourceTree = "<group>"; };
 		5469C8671F48791B00A849EC /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5469C8681F48791B00A849EC /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		5469C8691F48791B00A849EC /* DocumentPreviewObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentPreviewObject.swift; sourceTree = "<group>"; };
-		5469C86B1F48791B00A849EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/GithubViewController.strings; sourceTree = "<group>"; };
 		5469C86D1F48791B00A849EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MarkdownViewController.strings; sourceTree = "<group>"; };
 		5469C86F1F48791B00A849EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SourceViewController.strings; sourceTree = "<group>"; };
-		5469C8701F48791B00A849EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VKFileViewController.strings; sourceTree = "<group>"; };
-		5469C8721F48791B00A849EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VKSearchViewController.strings; sourceTree = "<group>"; };
 		5469C8731F48791B00A849EC /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		5469C8751F48791B00A849EC /* RepositoryUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryUtils.swift; sourceTree = "<group>"; };
-		5469C8761F48791B00A849EC /* GithubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubViewController.swift; sourceTree = "<group>"; };
 		5469C8771F48791B00A849EC /* MarkdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownViewController.swift; sourceTree = "<group>"; };
 		5469C8791F48791B00A849EC /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		5469C87A1F48791B00A849EC /* ContentItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentItemModel.swift; sourceTree = "<group>"; };
@@ -568,16 +551,11 @@
 		5469C8821F48791B00A849EC /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		5469C8831F48791B00A849EC /* VKFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKFile.swift; sourceTree = "<group>"; };
 		5469C8841F48791B00A849EC /* VKFileBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKFileBrowser.swift; sourceTree = "<group>"; };
-		5469C8851F48791B00A849EC /* VkFileCustomViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VkFileCustomViewLayout.swift; sourceTree = "<group>"; };
 		5469C8861F48791B00A849EC /* VKFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKFileManager.swift; sourceTree = "<group>"; };
-		5469C8871F48791B00A849EC /* VKFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKFileViewController.swift; sourceTree = "<group>"; };
 		5469C8881F48791B00A849EC /* VKSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKSearchViewController.swift; sourceTree = "<group>"; };
 		5469C88A1F48791B00A849EC /* MarkdownTextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownTextAttachment.swift; sourceTree = "<group>"; };
-		5469C88B1F48791B00A849EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/GithubViewController.strings"; sourceTree = "<group>"; };
 		5469C88C1F48791B00A849EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MarkdownViewController.strings"; sourceTree = "<group>"; };
 		5469C88D1F48791B00A849EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SourceViewController.strings"; sourceTree = "<group>"; };
-		5469C88E1F48791B00A849EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/VKFileViewController.strings"; sourceTree = "<group>"; };
-		5469C88F1F48791B00A849EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/VKSearchViewController.strings"; sourceTree = "<group>"; };
 		5469C8901F48791B00A849EC /* VKFileBrowserDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VKFileBrowserDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		546F11861F4FC67C001ED7B3 /* NSArray+StringArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+StringArray.m"; sourceTree = "<group>"; };
 		546F11881F4FC68F001ED7B3 /* NSArray+StringArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+StringArray.h"; sourceTree = "<group>"; };
@@ -1080,22 +1058,15 @@
 			isa = PBXGroup;
 			children = (
 				5469C85A1F48791B00A849EC /* .gitkeep */,
-				5469C85B1F48791B00A849EC /* GithubViewController.xib */,
 				5469C85D1F48791B00A849EC /* MarkdownViewController.xib */,
 				5469C85F1F48791B00A849EC /* SourceViewController.xib */,
-				5469C8611F48791B00A849EC /* VKFileViewController.strings */,
-				5469C8631F48791B00A849EC /* VKFileViewController.xib */,
 				5469C8651F48791B00A849EC /* VKSearchViewController.xib */,
 				5469C8671F48791B00A849EC /* BaseViewController.swift */,
 				5469C8681F48791B00A849EC /* Constant.swift */,
-				5469C8691F48791B00A849EC /* DocumentPreviewObject.swift */,
-				5469C86A1F48791B00A849EC /* GithubViewController.strings */,
 				5469C86C1F48791B00A849EC /* MarkdownViewController.strings */,
 				5469C86E1F48791B00A849EC /* SourceViewController.strings */,
-				5469C8711F48791B00A849EC /* VKSearchViewController.strings */,
 				5469C8731F48791B00A849EC /* Extension.swift */,
 				5469C8741F48791B00A849EC /* Git */,
-				5469C8761F48791B00A849EC /* GithubViewController.swift */,
 				5469C8771F48791B00A849EC /* MarkdownViewController.swift */,
 				5469C8781F48791B00A849EC /* Model */,
 				5469C87D1F48791B00A849EC /* Network */,
@@ -1104,9 +1075,7 @@
 				5469C8821F48791B00A849EC /* Style.swift */,
 				5469C8831F48791B00A849EC /* VKFile.swift */,
 				5469C8841F48791B00A849EC /* VKFileBrowser.swift */,
-				5469C8851F48791B00A849EC /* VkFileCustomViewLayout.swift */,
 				5469C8861F48791B00A849EC /* VKFileManager.swift */,
-				5469C8871F48791B00A849EC /* VKFileViewController.swift */,
 				5469C8881F48791B00A849EC /* VKSearchViewController.swift */,
 				5469C8891F48791B00A849EC /* Widget */,
 			);
@@ -1519,9 +1488,7 @@
 				5469C8A31F48791B00A849EC /* basic.js in Resources */,
 				5469C9111F48791C00A849EC /* purebasic.js in Resources */,
 				5469C8AC1F48791B00A849EC /* cmake.js in Resources */,
-				5469C9451F48791C00A849EC /* GithubViewController.xib in Resources */,
 				5469C8F31F48791C00A849EC /* mathematica.js in Resources */,
-				5469C9491F48791C00A849EC /* VKFileViewController.xib in Resources */,
 				5469C9081F48791C00A849EC /* pf.js in Resources */,
 				5469C8C41F48791C00A849EC /* erb.js in Resources */,
 				5469C91E1F48791C00A849EC /* scheme.js in Resources */,
@@ -1569,7 +1536,6 @@
 				5469C8FA1F48791C00A849EC /* mojolicious.js in Resources */,
 				5469C8CC1F48791C00A849EC /* gams.js in Resources */,
 				5469C8A11F48791B00A849EC /* axapta.js in Resources */,
-				5469C9511F48791C00A849EC /* VKSearchViewController.strings in Resources */,
 				5469C91F1F48791C00A849EC /* scilab.js in Resources */,
 				5469C93F1F48791C00A849EC /* xquery.js in Resources */,
 				5469C8D51F48791C00A849EC /* haml.js in Resources */,
@@ -1599,7 +1565,6 @@
 				5469C8E11F48791C00A849EC /* javascript.js in Resources */,
 				5469C8F51F48791C00A849EC /* maxima.js in Resources */,
 				5469C8A01F48791B00A849EC /* awk.js in Resources */,
-				5469C94E1F48791C00A849EC /* GithubViewController.strings in Resources */,
 				5469C8BF1F48791C00A849EC /* dts.js in Resources */,
 				5469C8DB1F48791C00A849EC /* http.js in Resources */,
 				5469C8991F48791B00A849EC /* arduino.js in Resources */,
@@ -1658,7 +1623,6 @@
 				5469C8CA1F48791C00A849EC /* fortran.js in Resources */,
 				5469C8B31F48791B00A849EC /* cs.js in Resources */,
 				5469C8971F48791B00A849EC /* apache.js in Resources */,
-				5469C9481F48791C00A849EC /* VKFileViewController.strings in Resources */,
 				5469C9241F48791C00A849EC /* sml.js in Resources */,
 				5469C8E91F48791C00A849EC /* leaf.js in Resources */,
 				54475DDF1D9D949200B0BB49 /* Main.storyboard in Resources */,
@@ -1840,7 +1804,6 @@
 				54962AAA1F53C68B00E75239 /* Commits.swift in Sources */,
 				5487DF741F526B5A00E411D5 /* Diff.swift in Sources */,
 				5469C9531F48791C00A849EC /* RepositoryUtils.swift in Sources */,
-				5469C9541F48791C00A849EC /* GithubViewController.swift in Sources */,
 				5469C9561F48791C00A849EC /* BaseModel.swift in Sources */,
 				547600E41F46E02C0014AC95 /* VKSpiltViewController.swift in Sources */,
 				54B55F6F1F2D978A00BB1C09 /* Delta.c in Sources */,
@@ -1856,7 +1819,6 @@
 				54F7DA2C1F468ACC001F2299 /* SSZipArchive.m in Sources */,
 				54B55F6C1F2D978A00BB1C09 /* 7zStream.c in Sources */,
 				54B55F7A1F2D978A00BB1C09 /* Unrar4iOS.mm in Sources */,
-				5469C9611F48791C00A849EC /* VkFileCustomViewLayout.swift in Sources */,
 				544897091F4AE1ED00DB8980 /* CommitIterator.swift in Sources */,
 				5469C95E1F48791C00A849EC /* Style.swift in Sources */,
 				54F7DA291F468ACC001F2299 /* mztools.c in Sources */,
@@ -1871,7 +1833,6 @@
 				5483B7DE1F41575400782760 /* README.md in Sources */,
 				54B55F711F2D978A00BB1C09 /* LzmaDec.c in Sources */,
 				54B55F6D1F2D978A00BB1C09 /* Alloc.c in Sources */,
-				5469C9631F48791C00A849EC /* VKFileViewController.swift in Sources */,
 				54962AA81F53C24100E75239 /* HEAD.swift in Sources */,
 				5487DF761F526C3300E411D5 /* Status.swift in Sources */,
 				5469C9651F48791C00A849EC /* MarkdownTextAttachment.swift in Sources */,
@@ -1904,7 +1865,6 @@
 				5469C95C1F48791C00A849EC /* RGBtoHSV.swift in Sources */,
 				54779DC91F54749900AEC1C0 /* SettingsTableViewController.swift in Sources */,
 				54475DDA1D9D949200B0BB49 /* AppDelegate.swift in Sources */,
-				5469C94D1F48791C00A849EC /* DocumentPreviewObject.swift in Sources */,
 				544897131F4AE1ED00DB8980 /* Repository.swift in Sources */,
 				5469C9641F48791C00A849EC /* VKSearchViewController.swift in Sources */,
 				5469C95A1F48791C00A849EC /* DownloadUtils.swift in Sources */,
@@ -1971,14 +1931,6 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		5469C85B1F48791B00A849EC /* GithubViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5469C85C1F48791B00A849EC /* Base */,
-			);
-			name = GithubViewController.xib;
-			sourceTree = "<group>";
-		};
 		5469C85D1F48791B00A849EC /* MarkdownViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1995,39 +1947,12 @@
 			name = SourceViewController.xib;
 			sourceTree = "<group>";
 		};
-		5469C8611F48791B00A849EC /* VKFileViewController.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5469C8621F48791B00A849EC /* Base */,
-				5469C8701F48791B00A849EC /* en */,
-				5469C88E1F48791B00A849EC /* zh-Hans */,
-			);
-			name = VKFileViewController.strings;
-			sourceTree = "<group>";
-		};
-		5469C8631F48791B00A849EC /* VKFileViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5469C8641F48791B00A849EC /* Base */,
-			);
-			name = VKFileViewController.xib;
-			sourceTree = "<group>";
-		};
 		5469C8651F48791B00A849EC /* VKSearchViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5469C8661F48791B00A849EC /* Base */,
 			);
 			name = VKSearchViewController.xib;
-			sourceTree = "<group>";
-		};
-		5469C86A1F48791B00A849EC /* GithubViewController.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5469C86B1F48791B00A849EC /* en */,
-				5469C88B1F48791B00A849EC /* zh-Hans */,
-			);
-			name = GithubViewController.strings;
 			sourceTree = "<group>";
 		};
 		5469C86C1F48791B00A849EC /* MarkdownViewController.strings */ = {
@@ -2046,15 +1971,6 @@
 				5469C88D1F48791B00A849EC /* zh-Hans */,
 			);
 			name = SourceViewController.strings;
-			sourceTree = "<group>";
-		};
-		5469C8711F48791B00A849EC /* VKSearchViewController.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5469C8721F48791B00A849EC /* en */,
-				5469C88F1F48791B00A849EC /* zh-Hans */,
-			);
-			name = VKSearchViewController.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2221,7 +2137,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "./VKFileBrowserDemo/VKFileBrowser/VKFileBrowserDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/GCDWebServer/** ${SRCROOT}/Pods/SDWebImage/** ${SRCROOT}/Pods/MJRefresh/** ${SRCROOT}/Pods/MWPhotoBrowser/** ${SRCROOT}/Pods/MJExtension/** ${SRCROOT}/Pods/MBProgressHUD/** ${SRCROOT}/Pods/InAppSettingsKit/** ${SRCROOT}/Pods/ChameleonFramework/**";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/GCDWebServer/** ${SRCROOT}/Pods/SDWebImage/** ${SRCROOT}/Pods/MJRefresh/** ${SRCROOT}/Pods/MWPhotoBrowser/** ${SRCROOT}/Pods/MJExtension/** ${SRCROOT}/Pods/SVProgressHUD/** ${SRCROOT}/Pods/InAppSettingsKit/** ${SRCROOT}/Pods/ChameleonFramework/**";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -2292,7 +2208,7 @@
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/include";
 				SWIFT_OBJC_BRIDGING_HEADER = "./VKFileBrowserDemo/VKFileBrowser/VKFileBrowserDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/GCDWebServer/** ${SRCROOT}/Pods/SDWebImage/** ${SRCROOT}/Pods/MJRefresh/** ${SRCROOT}/Pods/MWPhotoBrowser/** ${SRCROOT}/Pods/MJExtension/** ${SRCROOT}/Pods/MBProgressHUD/** ${SRCROOT}/Pods/InAppSettingsKit/** ${SRCROOT}/Pods/ChameleonFramework/**";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/GCDWebServer/** ${SRCROOT}/Pods/SDWebImage/** ${SRCROOT}/Pods/MJRefresh/** ${SRCROOT}/Pods/MWPhotoBrowser/** ${SRCROOT}/Pods/MJExtension/** ${SRCROOT}/Pods/SVProgressHUD/** ${SRCROOT}/Pods/InAppSettingsKit/** ${SRCROOT}/Pods/ChameleonFramework/**";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;

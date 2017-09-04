@@ -20,6 +20,7 @@ public let IS_PHONE = UIDevice.current.userInterfaceIdiom == .phone
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let spiltController = appDelegate.window?.rootViewController as! UISplitViewController
 
+
 public let documentDir : String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!
 public let resourceKeys = [URLResourceKey.nameKey,URLResourceKey.isDirectoryKey,URLResourceKey.pathKey,URLResourceKey.typeIdentifierKey,URLResourceKey.totalFileSizeKey,URLResourceKey.creationDateKey]
 

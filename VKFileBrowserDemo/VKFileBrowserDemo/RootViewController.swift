@@ -399,13 +399,6 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
                 
                 return
             }
-            
-            log("fileDir:\(fileDir) == file.type:\(file.type)")
-            
-            let nextVc = DocumentPreviewObject(_ : URL(fileURLWithPath: fileDir))
-            nextVc.previewVC = self.detailViewController() as! UINavigationController?
-            
-            nextVc.startPreview()
         }
     }
     
@@ -417,7 +410,6 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
 // MARK: UITableView  DataSouce And Delegate
 
 extension RootViewController  {
-    
     
     
     func createCell(_ indexPath: IndexPath) -> UITableViewCell{
@@ -485,7 +477,18 @@ extension RootViewController  {
         //
         
         let commitButton = MGSwipeButton(title: "Commit", backgroundColor: .flatGreen){cell in
-            self.currentRepo!.commitFiles([file.gitPath!], true)
+            let commitResult = self.currentRepo!.commitFiles([file.gitPath!], true)
+            
+            if let error = commitResult.error {
+                
+                if(error.domain == libGit2SignatureErrorDomain) {
+                    // email or username is empty
+                    self.view.showTips("email or username is empty")
+                }
+                
+            }
+            
+            
             return true
         }
         let actionButton = MGSwipeButton(title: "Action", backgroundColor: .flatSand){cell in
@@ -589,13 +592,13 @@ extension RootViewController  {
 extension RootViewController :FileManagerDelegate {
     
     func fileManager(_ fileManager: FileManager, shouldRemoveItemAtPath path: String) -> Bool {
-        log("shouldRemoveItemAtPath",path)
+//        log("shouldRemoveItemAtPath",path)
         //        reloadCurPage()
         return true
     }
     
     func fileManager(_ fileManager: FileManager, shouldRemoveItemAt URL: URL) -> Bool {
-        log("shouldRemoveItemAt",URL)
+//        log("shouldRemoveItemAt",URL)
         //        reloadCurPage()
         return true
     }

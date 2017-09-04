@@ -10,8 +10,8 @@
 #import "SSZipArchive.h"
 #import "UIImageView+WebCache.h"
 #import "MJExtension.h"
-#import "MBProgressHUD.h"
-
+//#import "MBProgressHUD.h"
+#import "SVProgressHUD.h"
 
 //#import "libMultiMarkdown.h"
 #import "git2.h"

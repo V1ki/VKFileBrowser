@@ -16,7 +16,7 @@ target "VKFileBrowserDemo" do
  pod "MWPhotoBrowser"
  pod "Alamofire"
  pod "MJExtension"
- pod "MBProgressHUD"
+ pod "SVProgressHUD"
  pod "Highlightr"
  pod "SwiftyMarkdown"
  pod "SwipeCellKit"

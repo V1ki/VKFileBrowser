@@ -52,7 +52,6 @@ class RepositoryUtils: NSObject {
             return false
         }
         
-        
         return true
         
     }
@@ -75,7 +74,7 @@ class RepositoryUtils: NSObject {
          
          if(progresssHandler != nil){
          progresssHandler!(str,completedSteps,totalSteps)
-         }
+         },
          
          }
          */
@@ -156,7 +155,7 @@ class RepositoryUtils: NSObject {
     }
     
     
-    class func fetchRemote(_ repo:Repository,_ remoteName:String) {
+    class func fetchRemote(_ repo:Repository,_ remoteName:String ,_ progresssHandler :SidebandProgressProgressBlock? = nil ) {
         var error:Int32 = 0
         
         var remote : OpaquePointer? = nil
@@ -174,9 +173,7 @@ class RepositoryUtils: NSObject {
             log("error:\(NSError(gitError: error, pointOfFailure: "git_remote_get_fetch_refspecs"))")
             return
         }
-        var fo = fetchOptions({(str,line) in
-            print("str:\(str)")
-        })
+        var fo = fetchOptions(progresssHandler)
         error = git_remote_fetch(remote,strArrayPointer, &fo, "fetching remote : origin");
         guard error == GIT_OK.rawValue else{
             
@@ -186,7 +183,7 @@ class RepositoryUtils: NSObject {
         
         log("fetch success")
         
-        var branch = repo.localBranches().value?.first
+        let branch = repo.localBranches().value?.first
         
         if(branch == nil){
             // current no branch .do not need merge
@@ -219,13 +216,37 @@ class RepositoryUtils: NSObject {
         
         let commit = Commit(commitPointer!)
         
-        checkoutCommit(repo, commit)
+        let result = checkoutCommit(repo, commit)
+        
+        guard result.error == nil else{
+            return
+        }
+        print("branch.shortName:\(branch.shortName)")
+        
+        if(branch.isLocal){
+            return
+        }
+        let branchName = branch.shortName!
+        let localBranchName = (branchName.components(separatedBy: "/").last)!
+        git_commit_lookup(&commitPointer, repo.pointer, &commitOid)
+        
+        let lcommit = Commit(commitPointer!)
+        print("\(lcommit)  -- localBranchName:\(localBranchName)")
+        
+        
+        let branchResult = createBranch(repo, commit: lcommit, branchName: localBranchName)
+        
+        if let localbranch = branchResult.value {
+            log("checkout \(branch.longName)  --> \(localbranch.longName) \(branch.pointer)")
+            localbranch.updateTrackingBranch(branch)
+            repo.moveHEADToRefname(localbranch.longName)
+        }
         
     }
     
     
     
-    class func checkoutRefname(_ repo:Repository,_ obj:OpaquePointer?,_ refname:String){
+    class func checkoutRefname(_ repo:Repository,_ obj:OpaquePointer?,_ refname:String) -> Result<(),NSError> {
         var error : Int32 = 0
         
         var option = git_checkout_options()
@@ -235,19 +256,20 @@ class RepositoryUtils: NSObject {
         guard error == GIT_OK.rawValue else{
             
             log("error:\(NSError(gitError: error, pointOfFailure: "git_checkout_init_options"))")
-            return
+            return failure(error, "git_checkout_init_options")
         }
         error = git_checkout_tree(repo.pointer, obj, &option)
         guard error == GIT_OK.rawValue else{
             
             log("error:\(NSError(gitError: error, pointOfFailure: "git_checkout_tree"))")
-            return
+            return failure(error, "git_checkout_tree")
         }
         
         //        let refname = git_reference_name(obj)
         
         _ = repo.moveHEADToRefname(refname)
         print("checkout success")
+        return .success()
         
     }
     
@@ -492,7 +514,7 @@ class RepositoryUtils: NSObject {
         
         var option = git_checkout_options()
         error = git_checkout_init_options(&option, UInt32(GIT_CHECKOUT_OPTIONS_VERSION))
-        option.checkout_strategy = GIT_CHECKOUT_ALLOW_CONFLICTS.rawValue | GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH.rawValue | GIT_CHECKOUT_RECREATE_MISSING.rawValue | GIT_CHECKOUT_REMOVE_UNTRACKED.rawValue
+        option.checkout_strategy = GIT_CHECKOUT_ALLOW_CONFLICTS.rawValue | GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH.rawValue | GIT_CHECKOUT_RECREATE_MISSING.rawValue | GIT_CHECKOUT_REMOVE_UNTRACKED.rawValue | GIT_CHECKOUT_SAFE.rawValue 
         option.target_directory = UnsafePointer<Int8>("\((repo.directoryURL?.path)!)")
         option.progress_cb = checkout_progress_cb
         guard error == GIT_OK.rawValue else{
@@ -525,7 +547,7 @@ class RepositoryUtils: NSObject {
         //        git_remote_add_push(repo.pointer, <#T##remote: UnsafePointer<Int8>!##UnsafePointer<Int8>!#>, <#T##refspec: UnsafePointer<Int8>!##UnsafePointer<Int8>!#>)
     }
     
-    class func delRemote(_ repo:Repository,_ remoteName:String) -> Result<(),NSError>{
+    class func deleteRemote(_ repo:Repository,_ remoteName:String) -> Result<(),NSError>{
         let error = git_remote_delete(repo.pointer, remoteName)
         guard(error == GIT_OK.rawValue)else{
             log("error:\(NSError(gitError: error, pointOfFailure: "git_remote_delete"))")
@@ -586,7 +608,7 @@ class RepositoryUtils: NSObject {
     
     
     
-    class func pushRefspecs(_ repo:Repository,_ refspec:String,_ remote:Remote){
+    class func pushRefspecs(_ repo:Repository,_ refspec:String,_ remote:Remote) -> Result<(),NSError> {
         
         var error:Int32 = 0
         var remotePointer: OpaquePointer? = nil
@@ -594,14 +616,14 @@ class RepositoryUtils: NSObject {
         guard error == GIT_OK.rawValue else{
             
             log("error:\(NSError(gitError: error, pointOfFailure: "git_remote_lookup"))")
-            return
+            return failure(error, "git_remote_lookup")
         }
         var remote_callbacks = git_remote_callbacks()
         
         error = git_remote_init_callbacks(&remote_callbacks, UInt32(GIT_REMOTE_CALLBACKS_VERSION))
         guard error == GIT_OK.rawValue else{
             log("error:\(NSError(gitError: error, pointOfFailure: "git_remote_init_callbacks"))")
-            return
+            return failure(error, "git_remote_init_callbacks")
         }
         remote_callbacks.credentials = credential_cb
         remote_callbacks.push_transfer_progress = push_transfer_progress
@@ -609,7 +631,7 @@ class RepositoryUtils: NSObject {
         error = git_remote_connect(remotePointer, GIT_DIRECTION_PUSH, &remote_callbacks, nil)
         guard error == GIT_OK.rawValue else{
             log("error:\(NSError(gitError: error, pointOfFailure: "git_remote_connect"))")
-            return
+            return failure(error, "git_remote_connect")
         }
         git_remote_disconnect(remotePointer)
         
@@ -617,7 +639,7 @@ class RepositoryUtils: NSObject {
         error = git_push_init_options(&push_options, UInt32(GIT_PUSH_OPTIONS_VERSION))
         guard error == GIT_OK.rawValue else{
             log("error:\(NSError(gitError: error, pointOfFailure: "git_push_init_options"))")
-            return
+            return failure(error, "git_push_init_options")
         }
         
         push_options.callbacks = remote_callbacks
@@ -627,10 +649,8 @@ class RepositoryUtils: NSObject {
         error = git_remote_upload(remotePointer, &git_refspecs, &push_options)
         guard error == GIT_OK.rawValue else{
             log("error:\(NSError(gitError: error, pointOfFailure: "git_remote_upload"))")
-            return
+            return failure(error, "git_remote_upload")
         }
-        
-        
         
         
         let download_tags = GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED
@@ -639,27 +659,30 @@ class RepositoryUtils: NSObject {
         error = git_remote_update_tips(remotePointer,&remote_callbacks, Int32(1), download_tags, reflog_message)
         guard error == GIT_OK.rawValue else{
             log("error:\(NSError(gitError: error, pointOfFailure: "git_remote_update_tips"))")
-            return
+            return failure(error, "git_remote_update_tips")
         }
         
         print("push success")
-        
+        return .success()
     }
     
     
-    class func pushBranch(_ repo:Repository, _ branch:Branch,_ remote:Remote){
+    class func pushBranch(_ repo:Repository, _ branch:Branch,_ remote:Remote)-> Result<(),NSError> {
         var refspec = ""
         var remoteBranchReference = "refs/heads/\((branch.shortName)!)"
         
-        let trackingBranchResult = branch.trackingBranch(repo)
-        
-        if let trackingBranch = trackingBranchResult.value {
-            remoteBranchReference = "refs/heads/\((trackingBranch?.shortName)!)"
-        }
+//        let trackingBranchResult = branch.trackingBranch(repo)
+//
+//        if let trackingBranch = trackingBranchResult.value {
+//            remoteBranchReference = "refs/heads/\((trackingBranch?.shortName)!)"
+//        }
+//
         refspec = "refs/heads/\((branch.shortName)!):\(remoteBranchReference)"
-        
-        pushRefspecs(repo, refspec,remote)
-        
+        print("\(refspec)")
+
+        // init ,push
+        //refs/heads/master:refs/heads/master
+        return pushRefspecs(repo, refspec,remote)
     }
     
     
@@ -870,11 +893,6 @@ class RepositoryUtils: NSObject {
         
         var signature = (userSignatureForNow().value)!
         
-//        if(authorResult == GIT_OK.rawValue){} else{
-//            log("error:\(NSError(gitError: authorResult, pointOfFailure: "git_signature_now"))")
-//            return
-//        }
-        
         var commit : OpaquePointer? = nil
         var commitOid = lastCommit.oid.oid
         git_commit_lookup(&commit, repo.pointer, &commitOid)
@@ -988,6 +1006,40 @@ extension Branch {
         }
         return Result.success((Branch(outBranchPointer!))!)
     }
+    
+    
+/***
+     
+     - (BOOL)updateTrackingBranch:(GTBranch *)trackingBranch error:(NSError **)error {
+     int result = GIT_ENOTFOUND;
+     if (trackingBranch.branchType == GTBranchTypeRemote) {
+     result = git_branch_set_upstream(self.reference.git_reference, [trackingBranch.name stringByReplacingOccurrencesOfString:[GTBranch remoteNamePrefix] withString:@""].UTF8String);
+     } else {
+     result = git_branch_set_upstream(self.reference.git_reference, trackingBranch.shortName.UTF8String);
+     }
+     if (result != GIT_OK) {
+     if (error != NULL) *error = [NSError git_errorFor:result description:@"Failed to update tracking branch for %@", self];
+     return NO;
+     }
+     
+     return YES;
+     }
+     
+ */
+    func updateTrackingBranch(_ trackingBranch:Branch){
+        var error:Int32 = GIT_ENOTFOUND.rawValue
+        if(trackingBranch.isRemote){
+            error = git_branch_set_upstream(self.pointer, trackingBranch.name.replacingOccurrences(of: "refs/remotes/", with: ""))
+        }else{
+            error = git_branch_set_upstream(self.pointer, trackingBranch.shortName);
+        }
+        guard error == GIT_OK.rawValue else {
+            log("error:\(NSError(gitError: error, pointOfFailure: "git_branch_set_upstream"))")
+            return
+        }
+        
+    }
+    
 }
 
 extension Repository {
@@ -1229,7 +1281,7 @@ private func checkout_progress_cb(_ str:UnsafePointer<Int8>?,_ completed_steps:s
 }
 
 
-private func failure<T>(_ errorCode:Int32 ,_ desc:String) -> Result<T,NSError> {
+public func failure<T>(_ errorCode:Int32 ,_ desc:String) -> Result<T,NSError> {
     return Result.failure(NSError(gitError: errorCode, pointOfFailure: desc))
 }
 

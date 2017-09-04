@@ -38,4 +38,23 @@ class VKSpiltViewController: UISplitViewController,UISplitViewControllerDelegate
     }
     */
 
+    
+    
+}
+extension UISplitViewController {
+    
+    func reloadRootData(){
+        let firstViewController = self.viewControllers.first
+        if let rootVC = firstViewController as? RootViewController{
+            rootVC.reloadCurPage()
+        }
+    }
+    
+}
+extension UIViewController {
+    
+    func reloadFileTree(){
+        spiltController.reloadRootData()
+    }
+    
 }

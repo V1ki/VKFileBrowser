@@ -1,7 +1,9 @@
 import Foundation
 
-
+// libgit2 error domain
 public let libGit2ErrorDomain = "org.libgit2.libgit2"
+// signature error domain
+public let libGit2SignatureErrorDomain = "org.libgit2.libgit2.signature"
 
 internal extension NSError {
 	/// Returns an NSError with an error domain and message for libgit2 errors.
@@ -22,6 +24,10 @@ internal extension NSError {
 
 		if let pointOfFailure = pointOfFailure {
 			userInfo[NSLocalizedFailureReasonErrorKey] = "\(pointOfFailure) failed."
+            if pointOfFailure.contains("git_signature"){
+                self.init(domain: libGit2SignatureErrorDomain, code: code, userInfo: userInfo)
+                return
+            }
 		}
 
 		self.init(domain: libGit2ErrorDomain, code: code, userInfo: userInfo)

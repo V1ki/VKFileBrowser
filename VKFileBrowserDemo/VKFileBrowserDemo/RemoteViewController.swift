@@ -64,8 +64,12 @@ class RemoteViewController: BaseViewController {
                 fetchBtn.setTitle(LocalizedString("Fetch"), for: .normal)
                 fetchBtn.setTitleColor(fetchBtn.tintColor, for: .normal)
                 fetchBtn.rx.tap.bind {
-                    print("click fetch")
-                    RepositoryUtils.fetchRemote(self.repo!, self.remote!.name)
+                    
+//                    let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+                    RepositoryUtils.fetchRemote(self.repo!, self.remote!.name,{str,line in
+                        print("\(str)")
+                    })
+                    
                     
                 }.disposed(by: disposeBag)
                 
