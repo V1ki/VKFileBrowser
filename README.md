@@ -8,13 +8,13 @@
 
 
 使用的库：
-InAppSettingsKit : [https://github.com/futuretap/InAppSettingsKit](https://github.com/futuretap/InAppSettingsKit)
-SwiftGit2 : [https://github.com/SwiftGit2/SwiftGit2](https://github.com/SwiftGit2/SwiftGit2)
-Chameleon : [https://github.com/ViccAlexander/Chameleon](https://github.com/ViccAlexander/Chameleon)
-RxSwift : [https://github.com/ReactiveX/RxSwift](https://github.com/ReactiveX/RxSwift)
-Result : [https://github.com/antitypical/Result](https://github.com/antitypical/Result)
-MJRefresh : [https://github.com/CoderMJLee/MJRefresh](https://github.com/CoderMJLee/MJRefresh)
-MGSwipeTableCell : [https://github.com/MortimerGoro/MGSwipeTableCell](https://github.com/MortimerGoro/MGSwipeTableCell)
+* InAppSettingsKit : [https://github.com/futuretap/InAppSettingsKit](https://github.com/futuretap/InAppSettingsKit)
+* SwiftGit2 : [https://github.com/SwiftGit2/SwiftGit2](https://github.com/SwiftGit2/SwiftGit2)
+* Chameleon : [https://github.com/ViccAlexander/Chameleon](https://github.com/ViccAlexander/Chameleon)
+* RxSwift : [https://github.com/ReactiveX/RxSwift](https://github.com/ReactiveX/RxSwift)
+* Result : [https://github.com/antitypical/Result](https://github.com/antitypical/Result)
+* MJRefresh : [https://github.com/CoderMJLee/MJRefresh](https://github.com/CoderMJLee/MJRefresh)
+* MGSwipeTableCell : [https://github.com/MortimerGoro/MGSwipeTableCell](https://github.com/MortimerGoro/MGSwipeTableCell)
 
 ** 使用SwiftGit2来完成git命令相关功能 **
 
