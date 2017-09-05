@@ -39,7 +39,7 @@ class RemoteViewController: BaseViewController {
                 if(self.remote!.name == remoteName){
                     self.remote?.rename(self.repo!, remoteName)
                 }
-                if(remote!.URL == remoteUrl){
+                if(self.remote!.URL == remoteUrl){
                     self.remote?.updatePushUrl(self.repo!, remoteUrl)
                 }
             }

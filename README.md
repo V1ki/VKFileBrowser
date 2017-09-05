@@ -28,5 +28,5 @@
 * [x] checkout commit
 * [x] checkout commit
 * [ ] add line number
-* [ ] add file change 
+* [ ] add file change
 

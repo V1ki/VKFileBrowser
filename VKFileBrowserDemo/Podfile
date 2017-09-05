@@ -55,7 +55,8 @@ target "VKFileBrowserDemo" do
  pod "VBFPopFlatButton"
  pod "InAppSettingsKit"
  pod "SCLAlertView"
- 
+ pod 'SnapKit'
+ pod 'CYRTextView'
 # pod "Quick"
 # pod "Nimble"
  

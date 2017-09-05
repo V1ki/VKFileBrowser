@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0E40653FC6656E87C546089F /* Pods_VKFileBrowserDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B906550E37B8E37E3EC20D /* Pods_VKFileBrowserDemo.framework */; };
 		161EFE6C683BF15634F588C3 /* Pods_VKFileBrowserDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF85517019A3D33609F5A41 /* Pods_VKFileBrowserDemoUITests.framework */; };
+		54008A8C1F5E92E0005CCE1B /* VKTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54008A8B1F5E92E0005CCE1B /* VKTextView.swift */; };
+		54008A8E1F5E96E8005CCE1B /* VKTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54008A8D1F5E96E8005CCE1B /* VKTextStorage.swift */; };
+		54008A901F5E970C005CCE1B /* VKLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54008A8F1F5E970C005CCE1B /* VKLayoutManager.swift */; };
 		54475DDA1D9D949200B0BB49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475DD91D9D949200B0BB49 /* AppDelegate.swift */; };
 		54475DDC1D9D949200B0BB49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475DDB1D9D949200B0BB49 /* ViewController.swift */; };
 		54475DDF1D9D949200B0BB49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54475DDD1D9D949200B0BB49 /* Main.storyboard */; };
@@ -212,7 +215,6 @@
 		5469C9431F48791C00A849EC /* SFMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8571F48791B00A849EC /* SFMono-Regular.otf */; };
 		5469C9441F48791C00A849EC /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 5469C85A1F48791B00A849EC /* .gitkeep */; };
 		5469C9461F48791C00A849EC /* MarkdownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5469C85D1F48791B00A849EC /* MarkdownViewController.xib */; };
-		5469C9471F48791C00A849EC /* SourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5469C85F1F48791B00A849EC /* SourceViewController.xib */; };
 		5469C94A1F48791C00A849EC /* VKSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8651F48791B00A849EC /* VKSearchViewController.xib */; };
 		5469C94B1F48791C00A849EC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8671F48791B00A849EC /* BaseViewController.swift */; };
 		5469C94C1F48791C00A849EC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8681F48791B00A849EC /* Constant.swift */; };
@@ -236,6 +238,7 @@
 		5469C9641F48791C00A849EC /* VKSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8881F48791B00A849EC /* VKSearchViewController.swift */; };
 		5469C9651F48791C00A849EC /* MarkdownTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C88A1F48791B00A849EC /* MarkdownTextAttachment.swift */; };
 		546F11871F4FC67C001ED7B3 /* NSArray+StringArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F11861F4FC67C001ED7B3 /* NSArray+StringArray.m */; };
+		547061191F5EED9000A5E508 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547061181F5EED9000A5E508 /* Cocoa.framework */; };
 		5471AD501F48A48B00CBDDDD /* MultiMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5471AD4F1F48A48B00CBDDDD /* MultiMarkdown.swift */; };
 		5471AD531F48AE0A00CBDDDD /* CloneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5471AD511F48AE0A00CBDDDD /* CloneViewController.swift */; };
 		5471AD541F48AE0A00CBDDDD /* CloneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5471AD521F48AE0A00CBDDDD /* CloneViewController.xib */; };
@@ -320,6 +323,9 @@
 
 /* Begin PBXFileReference section */
 		17F2D5F8F5BD6381CDF5CBE4 /* Pods-VKFileBrowserDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemoUITests/Pods-VKFileBrowserDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		54008A8B1F5E92E0005CCE1B /* VKTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKTextView.swift; sourceTree = "<group>"; };
+		54008A8D1F5E96E8005CCE1B /* VKTextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKTextStorage.swift; sourceTree = "<group>"; };
+		54008A8F1F5E970C005CCE1B /* VKLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLayoutManager.swift; sourceTree = "<group>"; };
 		54475DD61D9D949200B0BB49 /* File Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "File Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54475DD91D9D949200B0BB49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54475DDB1D9D949200B0BB49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -533,7 +539,6 @@
 		5469C8581F48791B00A849EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5469C85A1F48791B00A849EC /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		5469C85E1F48791B00A849EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MarkdownViewController.xib; sourceTree = "<group>"; };
-		5469C8601F48791B00A849EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SourceViewController.xib; sourceTree = "<group>"; };
 		5469C8661F48791B00A849EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VKSearchViewController.xib; sourceTree = "<group>"; };
 		5469C8671F48791B00A849EC /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5469C8681F48791B00A849EC /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -561,6 +566,7 @@
 		5469C8901F48791B00A849EC /* VKFileBrowserDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VKFileBrowserDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		546F11861F4FC67C001ED7B3 /* NSArray+StringArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+StringArray.m"; sourceTree = "<group>"; };
 		546F11881F4FC68F001ED7B3 /* NSArray+StringArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+StringArray.h"; sourceTree = "<group>"; };
+		547061181F5EED9000A5E508 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = ../../../../../../System/Library/Frameworks/Cocoa.framework; sourceTree = "<group>"; };
 		5471AD4F1F48A48B00CBDDDD /* MultiMarkdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiMarkdown.swift; sourceTree = "<group>"; };
 		5471AD511F48AE0A00CBDDDD /* CloneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloneViewController.swift; sourceTree = "<group>"; };
 		5471AD521F48AE0A00CBDDDD /* CloneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CloneViewController.xib; sourceTree = "<group>"; };
@@ -707,6 +713,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				547061191F5EED9000A5E508 /* Cocoa.framework in Frameworks */,
 				54962AA61F53B07800E75239 /* Security.framework in Frameworks */,
 				54C835571F4ACF2800085756 /* libiconv.tbd in Frameworks */,
 				54779DC71F546ED300AEC1C0 /* Unrar4iOS.framework in Frameworks */,
@@ -1063,7 +1070,6 @@
 			children = (
 				5469C85A1F48791B00A849EC /* .gitkeep */,
 				5469C85D1F48791B00A849EC /* MarkdownViewController.xib */,
-				5469C85F1F48791B00A849EC /* SourceViewController.xib */,
 				5469C8651F48791B00A849EC /* VKSearchViewController.xib */,
 				5469C8671F48791B00A849EC /* BaseViewController.swift */,
 				5469C8681F48791B00A849EC /* Constant.swift */,
@@ -1124,6 +1130,9 @@
 			isa = PBXGroup;
 			children = (
 				5469C88A1F48791B00A849EC /* MarkdownTextAttachment.swift */,
+				54008A8B1F5E92E0005CCE1B /* VKTextView.swift */,
+				54008A8D1F5E96E8005CCE1B /* VKTextStorage.swift */,
+				54008A8F1F5E970C005CCE1B /* VKLayoutManager.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -1315,6 +1324,7 @@
 		E3083DC0E4552EA83E09C30C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				547061181F5EED9000A5E508 /* Cocoa.framework */,
 				54962AA51F53B07800E75239 /* Security.framework */,
 				5477126A1F5321F700B360F1 /* XCTest.framework */,
 				54C835561F4ACF2800085756 /* libiconv.tbd */,
@@ -1576,7 +1586,6 @@
 				5469C8991F48791B00A849EC /* arduino.js in Resources */,
 				5469C8CE1F48791C00A849EC /* gcode.js in Resources */,
 				5469C9101F48791C00A849EC /* puppet.js in Resources */,
-				5469C9471F48791C00A849EC /* SourceViewController.xib in Resources */,
 				5469C8961F48791B00A849EC /* ada.js in Resources */,
 				5469C8EF1F48791C00A849EC /* lsl.js in Resources */,
 				5469C9231F48791C00A849EC /* smalltalk.js in Resources */,
@@ -1810,11 +1819,13 @@
 				54962AAA1F53C68B00E75239 /* Commits.swift in Sources */,
 				5487DF741F526B5A00E411D5 /* Diff.swift in Sources */,
 				5469C9531F48791C00A849EC /* RepositoryUtils.swift in Sources */,
+				54008A8E1F5E96E8005CCE1B /* VKTextStorage.swift in Sources */,
 				5469C9561F48791C00A849EC /* BaseModel.swift in Sources */,
 				547600E41F46E02C0014AC95 /* VKSpiltViewController.swift in Sources */,
 				54B55F6F1F2D978A00BB1C09 /* Delta.c in Sources */,
 				54B55F791F2D978A00BB1C09 /* RARExtractException.m in Sources */,
 				5480A9BE1F5DBBF20064F1D5 /* Remote.swift in Sources */,
+				54008A8C1F5E92E0005CCE1B /* VKTextView.swift in Sources */,
 				54B55F6A1F2D978A00BB1C09 /* 7zFile.c in Sources */,
 				54F7DA2B1F468ACC001F2299 /* zip.c in Sources */,
 				54B55F671F2D978A00BB1C09 /* 7zBuf.c in Sources */,
@@ -1843,6 +1854,7 @@
 				54962AA81F53C24100E75239 /* HEAD.swift in Sources */,
 				548C5F6C1F5D471000C454D9 /* Branch.swift in Sources */,
 				5487DF761F526C3300E411D5 /* Status.swift in Sources */,
+				54008A901F5E970C005CCE1B /* VKLayoutManager.swift in Sources */,
 				5469C9651F48791C00A849EC /* MarkdownTextAttachment.swift in Sources */,
 				544897141F4AE1ED00DB8980 /* SwiftGit2.m in Sources */,
 				5469C95F1F48791C00A849EC /* VKFile.swift in Sources */,
@@ -1945,14 +1957,6 @@
 				5469C85E1F48791B00A849EC /* Base */,
 			);
 			name = MarkdownViewController.xib;
-			sourceTree = "<group>";
-		};
-		5469C85F1F48791B00A849EC /* SourceViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5469C8601F48791B00A849EC /* Base */,
-			);
-			name = SourceViewController.xib;
 			sourceTree = "<group>";
 		};
 		5469C8651F48791B00A849EC /* VKSearchViewController.xib */ = {
@@ -2145,7 +2149,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "./VKFileBrowserDemo/VKFileBrowser/VKFileBrowserDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/GCDWebServer/** ${SRCROOT}/Pods/SDWebImage/** ${SRCROOT}/Pods/MJRefresh/** ${SRCROOT}/Pods/MWPhotoBrowser/** ${SRCROOT}/Pods/MJExtension/** ${SRCROOT}/Pods/SVProgressHUD/** ${SRCROOT}/Pods/InAppSettingsKit/** ${SRCROOT}/Pods/ChameleonFramework/**";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/GCDWebServer/** ${SRCROOT}/Pods/SDWebImage/** ${SRCROOT}/Pods/MJRefresh/** ${SRCROOT}/Pods/MWPhotoBrowser/** ${SRCROOT}/Pods/MJExtension/** ${SRCROOT}/Pods/SVProgressHUD/** ${SRCROOT}/Pods/InAppSettingsKit/** ${SRCROOT}/Pods/ChameleonFramework/** ${SRCROOT}/Pods/CYRTextView/**";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -2216,7 +2220,7 @@
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/include";
 				SWIFT_OBJC_BRIDGING_HEADER = "./VKFileBrowserDemo/VKFileBrowser/VKFileBrowserDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/GCDWebServer/** ${SRCROOT}/Pods/SDWebImage/** ${SRCROOT}/Pods/MJRefresh/** ${SRCROOT}/Pods/MWPhotoBrowser/** ${SRCROOT}/Pods/MJExtension/** ${SRCROOT}/Pods/SVProgressHUD/** ${SRCROOT}/Pods/InAppSettingsKit/** ${SRCROOT}/Pods/ChameleonFramework/**";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/GCDWebServer/** ${SRCROOT}/Pods/SDWebImage/** ${SRCROOT}/Pods/MJRefresh/** ${SRCROOT}/Pods/MWPhotoBrowser/** ${SRCROOT}/Pods/MJExtension/** ${SRCROOT}/Pods/SVProgressHUD/** ${SRCROOT}/Pods/InAppSettingsKit/** ${SRCROOT}/Pods/ChameleonFramework/** ${SRCROOT}/Pods/CYRTextView/**";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
