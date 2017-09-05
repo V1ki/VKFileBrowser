@@ -246,6 +246,7 @@
 		54779DCB1F5475EA00AEC1C0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 54779DCA1F5475EA00AEC1C0 /* Settings.bundle */; };
 		547E318F1F4D3F1E003C0CC5 /* RemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547E318D1F4D3F1E003C0CC5 /* RemoteViewController.swift */; };
 		547E31901F4D3F1E003C0CC5 /* RemoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547E318E1F4D3F1E003C0CC5 /* RemoteViewController.xib */; };
+		5480A9BE1F5DBBF20064F1D5 /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5480A9BD1F5DBBF20064F1D5 /* Remote.swift */; };
 		5483B7DE1F41575400782760 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5483B7DD1F41575400782760 /* README.md */; };
 		5487DF741F526B5A00E411D5 /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5487DF731F526B5A00E411D5 /* Diff.swift */; };
 		5487DF761F526C3300E411D5 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5487DF751F526C3300E411D5 /* Status.swift */; };
@@ -571,6 +572,7 @@
 		54779DCA1F5475EA00AEC1C0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		547E318D1F4D3F1E003C0CC5 /* RemoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteViewController.swift; sourceTree = "<group>"; };
 		547E318E1F4D3F1E003C0CC5 /* RemoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RemoteViewController.xib; sourceTree = "<group>"; };
+		5480A9BD1F5DBBF20064F1D5 /* Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
 		5483B7DD1F41575400782760 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		5487DF731F526B5A00E411D5 /* Diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
 		5487DF751F526C3300E411D5 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
@@ -1093,6 +1095,7 @@
 				54962AA71F53C24100E75239 /* HEAD.swift */,
 				54962AA91F53C68B00E75239 /* Commits.swift */,
 				548C5F6B1F5D471000C454D9 /* Branch.swift */,
+				5480A9BD1F5DBBF20064F1D5 /* Remote.swift */,
 			);
 			path = Git;
 			sourceTree = "<group>";
@@ -1811,6 +1814,7 @@
 				547600E41F46E02C0014AC95 /* VKSpiltViewController.swift in Sources */,
 				54B55F6F1F2D978A00BB1C09 /* Delta.c in Sources */,
 				54B55F791F2D978A00BB1C09 /* RARExtractException.m in Sources */,
+				5480A9BE1F5DBBF20064F1D5 /* Remote.swift in Sources */,
 				54B55F6A1F2D978A00BB1C09 /* 7zFile.c in Sources */,
 				54F7DA2B1F468ACC001F2299 /* zip.c in Sources */,
 				54B55F671F2D978A00BB1C09 /* 7zBuf.c in Sources */,

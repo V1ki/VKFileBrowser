@@ -546,9 +546,9 @@ class RepositoryUtils: NSObject {
             return failure(error, "git_remote_create")
         }
         return Result.success(Remote(remote!))
-        
-        //        git_remote_add_push(repo.pointer, <#T##remote: UnsafePointer<Int8>!##UnsafePointer<Int8>!#>, <#T##refspec: UnsafePointer<Int8>!##UnsafePointer<Int8>!#>)
     }
+    
+
     
     class func deleteRemote(_ repo:Repository,_ remoteName:String) -> Result<(),NSError>{
         let error = git_remote_delete(repo.pointer, remoteName)

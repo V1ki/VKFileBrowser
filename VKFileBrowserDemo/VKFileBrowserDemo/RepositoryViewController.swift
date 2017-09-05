@@ -318,6 +318,17 @@ extension RepositoryViewController : UITableViewDataSource {
             }else{
                 cell?.detailTextLabel?.text = "\(branch.longName)"
             }
+            
+            
+            //configure right buttons
+            cell?.rightButtons = [MGSwipeButton(title: "Checkout", backgroundColor: .flatLime,callback:{cell in
+                
+                RepositoryUtils.checkoutBranch(self.currentRepo!, branch)
+                
+                self.reloadData()
+                return true
+            })]
+            cell?.rightSwipeSettings.transition = .rotate3D
         }
         
         
@@ -421,9 +432,7 @@ extension RepositoryViewController : UITableViewDelegate {
 
             
         }else if(key == "LocalBranches" || key == "RemoteBranches"){
-            let branch  = dataSource[key]![indexPath.row] as! Branch
-            RepositoryUtils.checkoutBranch(currentRepo!, branch)
-            reloadData()
+            
         }
     }
 }

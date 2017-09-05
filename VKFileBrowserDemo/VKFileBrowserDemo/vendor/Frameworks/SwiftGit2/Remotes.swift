@@ -10,6 +10,7 @@
 
 /// A remote in a git repository.
 public struct Remote {
+    public let pointer: OpaquePointer
 	/// The name of the remote.
 	public let name: String
 
@@ -20,6 +21,7 @@ public struct Remote {
 
 	/// Create an instance with a libgit2 `git_remote`.
 	public init(_ pointer: OpaquePointer) {
+        self.pointer = pointer
 		name = String(validatingUTF8: git_remote_name(pointer))!
 		URL = String(validatingUTF8: git_remote_url(pointer))!
 	}

@@ -12,17 +12,15 @@ import RxCocoa
 import RxDataSources
 
 
-
-
 class RemoteViewController: BaseViewController {
     
     let cellIdentifier = "CELL"
-    let dataSource = [[""],["Name","URL"]]
     
     @IBOutlet weak var mTableView: UITableView!
     var repo:Repository?
     var remote:Remote?
-    
+    var remoteName : String?
+    var remoteUrl : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +32,22 @@ class RemoteViewController: BaseViewController {
             self.navigationController?.popViewController(animated: false)
         }
         
+        let saveBtn = UIButton(frame: CGRect(x:0,y:0,width:50,height:30 ))
+        saveBtn.setTitle(LocalizedString("Save"), for: .normal)
+        saveBtn.rx.tap.bind {
+            if let remoteName = self.remoteName ,let remoteUrl = self.remoteUrl {
+                if(self.remote!.name == remoteName){
+                    self.remote?.rename(self.repo!, remoteName)
+                }
+                if(remote!.URL == remoteUrl){
+                    self.remote?.updatePushUrl(self.repo!, remoteUrl)
+                }
+            }
+            
+        }.disposed(by: disposeBag)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveBtn)
+        
+        
         self.automaticallyAdjustsScrollViewInsets = false
         
         self.title = LocalizedString("Remote")
@@ -44,8 +58,10 @@ class RemoteViewController: BaseViewController {
         
         let items = Observable.just([
             SectionModel(model: "First section", items: [""]),
-            SectionModel(model: "Second section", items: [LocalizedString("Name"),LocalizedString("URL"),LocalizedString("Delete")])
-            
+            SectionModel(model: "Second section", items: [LocalizedString("Name"),LocalizedString("URL"),
+//                                                          LocalizedString("Test")
+                ]),
+            SectionModel(model: "Third section", items: [LocalizedString("Delete")])
             ])
         //(TableViewSectionedDataSource<S>, Int) -> String?
         dataSource.titleForHeaderInSection = {tDataSource,section in
@@ -123,21 +139,24 @@ class RemoteViewController: BaseViewController {
                     cell?.textLabel?.textColor = .flatRed
                     return cell!
                 }
-                
+                if(element == LocalizedString("Test")){
+                    cell?.textLabel?.textAlignment = .center
+                    cell?.textLabel?.textColor = .flatSkyBlue
+                    return cell!
+                }
                 
                 let textField = UITextField(frame: CGRect(x:80,y:0,width:self.view.mj_w - 100,height:cell?.mj_h ?? 40))
                 
                 if(element == LocalizedString("Name")){
                     textField.text = self.remote?.name
+                    textField.rx.text.bind{str in self.remoteName = str}.disposed(by: disposeBag)
                 }else if(element == LocalizedString("URL")){
                     textField.text = self.remote?.URL
+                    textField.rx.text.bind{str in self.remoteUrl = str}.disposed(by: disposeBag)
                 }
                     cell?.addSubview(textField)
                 
             }
-            
-            
-            
             return cell!
         }
         
@@ -145,14 +164,19 @@ class RemoteViewController: BaseViewController {
         
         self.mTableView.rx.itemSelected.bind{indexPath in
             self.mTableView.deselectRow(at: indexPath, animated: true)
-            //delete Action
-            let result = RepositoryUtils.deleteRemote(self.repo!, self.remote!.name)
-            if(result.error == nil){
-                self.navigationController?.popViewController(animated: true)
+            
+            if indexPath.row == 0 && indexPath.section == 2{
+            
+                //delete Action
+                let result = RepositoryUtils.deleteRemote(self.repo!, self.remote!.name)
+                if(result.error == nil){
+                    self.navigationController?.popViewController(animated: true)
+                }
+                else{
+                    self.view.showTips((result.error?.description)!)
+                }
             }
-            else{
-                self.view.showTips((result.error?.description)!)
-            }
+            
             
         }.disposed(by: disposeBag)
         
@@ -188,7 +212,7 @@ class RemoteViewController: BaseViewController {
 
 extension RemoteViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if(indexPath.row == 2){
+        if(indexPath.row == 2 || (indexPath.row == 0 && indexPath.section == 2)){
             return indexPath
         }
         return nil
