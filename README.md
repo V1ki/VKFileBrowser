@@ -19,16 +19,14 @@
 ** 使用SwiftGit2来完成git命令相关功能 **
 
 * [x] clone 公有仓库 
-* [x ] clone 私有仓库 (拥有者账号密码登陆)
-* [x ] init 仓库
-* [x ] add Remote
-* [x ] delete Remote
-* [x ] fetch And Push
-* [x ] checkout branch
-* [x ] checkout commit
-
-
-
-
-
+* [x] clone 私有仓库 (拥有者账号密码登陆)
+* [x] init 仓库
+* [x] add Remote
+* [x] delete Remote
+* [x] fetch And Push
+* [x] checkout branch
+* [x] checkout commit
+* [x] checkout commit
+* [ ] add line number
+* [ ] add file change 
 
