@@ -16,7 +16,7 @@ import ChameleonFramework
 
 class SourceViewController: BaseViewController{
     
-    var sourceTV: UITextView = UITextView()
+    var sourceTV: VKTextView = VKTextView()
     
     var saveItem : UIBarButtonItem = UIBarButtonItem()
     
@@ -42,14 +42,13 @@ class SourceViewController: BaseViewController{
         self.view.addSubview(sourceTV)
         sourceTV.snp.makeConstraints{ make in
             make.top.equalTo(0)
-            make.left.equalTo(0).offset(50)
+            make.left.equalTo(0)
             make.width.equalTo(self.view)
             make.height.equalTo(self.view)
         }
         
 //        sourceTV.frame = CGRect(x: 0, y: 0, width: self.view.width , height: self.view.snp.height)
-        
-        
+
         sourceTV.delegate = self
         sourceTV.isEditable = true
 //        navigationItem.leftBarButtonItems?.append((self.splitViewController?.displayModeButtonItem)!)
@@ -83,29 +82,15 @@ class SourceViewController: BaseViewController{
             
             // You can omit the second parameter to use automatic language detection.
             let highlightedCode = self.highlightr?.highlight(content)
-            let endDate = Date()
-            let interval = endDate.timeIntervalSince(startDate)
+//            let endDate = Date()
+//            let interval = endDate.timeIntervalSince(startDate)
             
 //            let bStr = HighlightJS().paint(code: content)
             
-            log("interval:\(interval)")
+//            log("interval:\(interval)")
             
             DispatchQueue.main.async {
                 self.sourceTV.attributedText = highlightedCode
-//                CGSize size = [m_textView.text sizeWithFont:[m_textView font]];
-//                int length = size.height;
-//                int colomNumber = m_textView.contentSize.height/length;
-                let size = self.sourceTV.sizeThatFits(self.sourceTV.frame.size)
-                let components = self.sourceTV.text.components(separatedBy: .newlines)
-                var str = ""
-                for i in 1...components.count {
-                    str += "\(i)\n"
-                }
-                
-                
-                print("components:\(components.count) sourceTV.frame:\(self.sourceTV.frame) :\(size)")
-                
-                
                 
 //                self.sourceTV.backgroundColor = UIColor.hexColor(0x1F2029)
             }
@@ -188,11 +173,13 @@ extension SourceViewController : UITextViewDelegate {
         log("textViewDidEndEditing")
         let index = self.navigationItem.rightBarButtonItems?.index(of: saveItem)
         self.navigationItem.rightBarButtonItems?.remove(at: index!)
+        
+        let highlightedCode = self.highlightr?.highlight(textView.text)
+        textView.attributedText = highlightedCode
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        let highlightedCode = self.highlightr?.highlight(textView.text)
-        textView.attributedText = highlightedCode
+
     }
     
 }

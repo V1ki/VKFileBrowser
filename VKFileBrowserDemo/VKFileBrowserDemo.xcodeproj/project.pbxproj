@@ -238,7 +238,6 @@
 		5469C9641F48791C00A849EC /* VKSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8881F48791B00A849EC /* VKSearchViewController.swift */; };
 		5469C9651F48791C00A849EC /* MarkdownTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C88A1F48791B00A849EC /* MarkdownTextAttachment.swift */; };
 		546F11871F4FC67C001ED7B3 /* NSArray+StringArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F11861F4FC67C001ED7B3 /* NSArray+StringArray.m */; };
-		547061191F5EED9000A5E508 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547061181F5EED9000A5E508 /* Cocoa.framework */; };
 		5471AD501F48A48B00CBDDDD /* MultiMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5471AD4F1F48A48B00CBDDDD /* MultiMarkdown.swift */; };
 		5471AD531F48AE0A00CBDDDD /* CloneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5471AD511F48AE0A00CBDDDD /* CloneViewController.swift */; };
 		5471AD541F48AE0A00CBDDDD /* CloneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5471AD521F48AE0A00CBDDDD /* CloneViewController.xib */; };
@@ -713,7 +712,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				547061191F5EED9000A5E508 /* Cocoa.framework in Frameworks */,
 				54962AA61F53B07800E75239 /* Security.framework in Frameworks */,
 				54C835571F4ACF2800085756 /* libiconv.tbd in Frameworks */,
 				54779DC71F546ED300AEC1C0 /* Unrar4iOS.framework in Frameworks */,

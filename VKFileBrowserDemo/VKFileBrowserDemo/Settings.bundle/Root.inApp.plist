@@ -166,6 +166,14 @@
             <key>Type</key>
             <string>IASKOpenURLSpecifier</string>
         </dict>
+        <dict>
+            <key>Title</key>
+            <string>TextKit_LineNumbers</string>
+            <key>File</key>
+            <string>https://github.com/alldritt/TextKit_LineNumbers</string>
+            <key>Type</key>
+            <string>IASKOpenURLSpecifier</string>
+        </dict>
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>

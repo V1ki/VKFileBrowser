@@ -15,6 +15,8 @@
 * Result : [https://github.com/antitypical/Result](https://github.com/antitypical/Result)
 * MJRefresh : [https://github.com/CoderMJLee/MJRefresh](https://github.com/CoderMJLee/MJRefresh)
 * MGSwipeTableCell : [https://github.com/MortimerGoro/MGSwipeTableCell](https://github.com/MortimerGoro/MGSwipeTableCell)
+* TextKit_LineNumbers : [https://github.com/alldritt/TextKit_LineNumbers](https://github.com/alldritt/TextKit_LineNumbers)
+使用TextKit_LineNumbers 作为参考，实现 显示行数
 
 ** 使用SwiftGit2来完成git命令相关功能 **
 
@@ -27,6 +29,6 @@
 * [x] checkout branch
 * [x] checkout commit
 * [x] checkout commit
-* [ ] add line number
+* [x] add line number
 * [ ] add file change
 
