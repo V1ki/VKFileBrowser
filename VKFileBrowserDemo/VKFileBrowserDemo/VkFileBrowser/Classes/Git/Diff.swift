@@ -173,6 +173,39 @@ extension Repository {
     
     
     
+    func diffFile(_ filename:String){
+        let commits = self.allCommits()
+        if let firstCommit = commits.first {
+            let treeResult = self.tree(firstCommit.tree.oid)
+            if let tree = treeResult.value {
+                for entry in (tree.entries) {
+                    let treeEntry = entry.value
+                    
+                    switch treeEntry.object {
+                    case .blob:
+                        //文件
+                        print("\(treeEntry.name)")
+                        
+                        break
+                    case .tree:
+                        //目录
+                        print("enter \(treeEntry.name)   -- \(treeEntry.object.oid)")
+                        //                listFiles(repo, treeEntry.object.oid)
+                        break
+                        
+                    default:
+                        print("Default")
+                        break
+                    }
+                    
+                    
+                }
+            }
+        }
+        
+    }
+    
+    
     
     func diffTreeToWorkDir(_ oldTreeOid:OID){
         var pointer : OpaquePointer? = nil

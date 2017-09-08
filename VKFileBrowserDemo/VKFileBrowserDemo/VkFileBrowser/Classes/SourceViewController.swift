@@ -13,10 +13,10 @@ import RxCocoa
 import SnapKit
 import ChameleonFramework
 
-
 class SourceViewController: BaseViewController{
     
     var sourceTV: VKTextView = VKTextView()
+    var bottomBar : UITabBar = UITabBar()
     
     var saveItem : UIBarButtonItem = UIBarButtonItem()
     
@@ -37,14 +37,28 @@ class SourceViewController: BaseViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         self.view.addSubview(sourceTV)
+        self.view.addSubview(bottomBar)
+        
+        let contentItem = UITabBarItem(tabBarSystemItem: .downloads , tag: 1)
+        let changeItem = UITabBarItem(tabBarSystemItem: .featured, tag: 2)
+        
+        bottomBar.setItems([contentItem,changeItem], animated: true)
+        bottomBar.tintColor = .black
+        
+        bottomBar.snp.makeConstraints{ make in
+            make.bottom.equalTo(0)
+            make.top.equalTo(0)
+            make.left.equalTo(0)
+            make.height.equalTo(50)
+        }
+        
         sourceTV.snp.makeConstraints{ make in
             make.top.equalTo(0)
             make.left.equalTo(0)
             make.width.equalTo(self.view)
-            make.height.equalTo(self.view)
+            make.height.equalTo(self.view).offset(-50)
         }
         
 //        sourceTV.frame = CGRect(x: 0, y: 0, width: self.view.width , height: self.view.snp.height)
@@ -95,10 +109,6 @@ class SourceViewController: BaseViewController{
 //                self.sourceTV.backgroundColor = UIColor.hexColor(0x1F2029)
             }
         }
-        
-        
-        
-        
         
     }
     
