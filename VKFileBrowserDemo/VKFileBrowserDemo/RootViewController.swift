@@ -346,6 +346,9 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         }
         else
         {
+            
+            
+            
             if(file.name.hasSuffix(".7z")){
                 
                 LZMAExtractor.extract7zArchive(fileDir, dirName: self.currentDir.appending("/\(file.name.substring(to: file.name.index(before: file.name.index(file.name.endIndex, offsetBy: -2))))"), preserveDir: true)
@@ -382,6 +385,12 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
                 }
             }
             else if(file.isDataType()){
+                
+                
+//                currentRepo?.diffFile("README")
+                currentRepo?.blame(filePath: file.gitPath!)
+//                return
+                
                 
                 let sourceCodeVC = SourceViewController()
                 sourceCodeVC.mFile = file

@@ -128,6 +128,50 @@ extension DiffLine : CustomStringConvertible {
     }
 }
 
+struct DiffHunk {
+    
+    /**
+     * Structure describing a hunk of a diff.
+ 
+    typedef struct {
+    int    old_start;     /**< Starting line number in old_file */
+    int    old_lines;     /**< Number of lines in old_file */
+    int    new_start;     /**< Starting line number in new_file */
+    int    new_lines;     /**< Number of lines in new_file */
+    size_t header_len;    /**< Number of bytes in header text */
+    char   header[128];   /**< Header text, NUL-byte terminated */
+    } git_diff_hunk;
+*/
+    
+    let oldStart : Int
+    let oldLines : Int
+    let newStart : Int
+    let newLines : Int
+    let headerLen : Int
+    let header : String
+    
+    init(_ hunk : git_diff_hunk) {
+        
+        oldStart = Int(hunk.old_start )
+        oldLines = Int(hunk.old_lines)
+        newStart = Int(hunk.new_start)
+        newLines = Int(hunk.new_lines)
+        headerLen = Int(hunk.header_len)
+        header = ""
+//        header = String(UnicodeScalar(UInt8(hunk.header)))
+//        header = String(validatingUTF8: )!
+    }
+    
+}
+
+extension DiffHunk : CustomStringConvertible {
+    var description: String {
+        get{
+            return "oldStart:\(oldStart) oldLines:\(oldLines) newStart:\(newStart) newLines:\(newLines) headerLen:\(headerLen) "
+        }
+    }
+}
+
 
 
 extension Repository {
@@ -174,6 +218,7 @@ extension Repository {
     
     
     func diffFile(_ filename:String){
+        var error : Int32 = 0
         let commits = self.allCommits()
         if let firstCommit = commits.first {
             let treeResult = self.tree(firstCommit.tree.oid)
@@ -185,6 +230,39 @@ extension Repository {
                     case .blob:
                         //文件
                         print("\(treeEntry.name)")
+                        print("\(self.blob(treeEntry.object.oid))")
+                        
+                        
+                        var firstBlob : OpaquePointer? = nil
+                        var foid = treeEntry.object.oid.oid
+                        error = git_blob_lookup(&firstBlob, self.pointer, &foid)
+                        guard error == GIT_OK.rawValue else {
+                            print("error:\(error)")
+                            return
+                        }
+                        
+                        var oid = git_oid()
+                        error = git_blob_create_fromworkdir(&oid, self.pointer, "README")
+                        guard error == GIT_OK.rawValue else {
+                            print("error:\(error)")
+                            return
+                        }
+                        
+                        
+                        var lastBlob : OpaquePointer? = nil
+                        error = git_blob_lookup(&lastBlob, self.pointer, &oid)
+                        guard error == GIT_OK.rawValue else {
+                            print("error:\(error)")
+                            return
+                        }
+                        
+                        
+                        error = git_diff_blobs(firstBlob, nil, lastBlob, nil, nil, gitDiffFileCB, gitDiffBinaryCB, gitDiffHunkCB, gitDiffLineCB, nil)
+                        guard error == GIT_OK.rawValue else {
+                            print("error:\(error)")
+                            return
+                        }
+                        print("success")
                         
                         break
                     case .tree:
@@ -239,19 +317,18 @@ extension Repository {
 
 private func gitDiffFileCB(_ delta:UnsafePointer<git_diff_delta>?, progress:Float,playload: UnsafeMutableRawPointer?) ->Int32{
     
-    let delta = DiffDelta((delta?.pointee)!)
-    //    print("delta:\(delta))")
+        print("delta:\(DiffDelta((delta?.pointee)!)))")
     return 0
 }
 private func gitDiffBinaryCB(_ delta:UnsafePointer<git_diff_delta>?, binary:UnsafePointer<git_diff_binary>?,playload: UnsafeMutableRawPointer?)->Int32{
-    //    print("gitDiffBinaryCB")
+        print("gitDiffBinaryCB")
     return 0
 }
 private func gitDiffHunkCB(_ delta:UnsafePointer<git_diff_delta>?,hunk: UnsafePointer<git_diff_hunk>?,playload: UnsafeMutableRawPointer?)->Int32{
-    //    print("gitDiffHunkCB")
+    print("delta:\(DiffDelta((delta?.pointee)!))) hunk:\(DiffHunk((hunk?.pointee)!))")
     return 0
 }
-private func gitDiffLineCB(delta:UnsafePointer<git_diff_delta>?,huk: UnsafePointer<git_diff_hunk>?, line:UnsafePointer<git_diff_line>?,playload: UnsafeMutableRawPointer?)->Int32{
-    //    print("line:\(DiffLine((line?.pointee)!))")
+private func gitDiffLineCB(delta:UnsafePointer<git_diff_delta>?,hunk: UnsafePointer<git_diff_hunk>?, line:UnsafePointer<git_diff_line>?,playload: UnsafeMutableRawPointer?)->Int32{
+        print("delta:\(DiffDelta((delta?.pointee)!))) line:\(DiffLine((line?.pointee)!))  hunk:\(DiffHunk((hunk?.pointee)!))")
     return 0
 }

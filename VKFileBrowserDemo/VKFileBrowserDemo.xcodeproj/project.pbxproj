@@ -35,182 +35,6 @@
 		544897141F4AE1ED00DB8980 /* SwiftGit2.m in Sources */ = {isa = PBXBuildFile; fileRef = 544897071F4AE1ED00DB8980 /* SwiftGit2.m */; };
 		5469C5D51F4874C800A849EC /* libMultiMarkdown.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5469C5D31F4874C800A849EC /* libMultiMarkdown.a */; };
 		5469C8911F48791B00A849EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7A01F48791B00A849EC /* Localizable.strings */; };
-		5469C8921F48791B00A849EC /* 1c.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7A51F48791B00A849EC /* 1c.js */; };
-		5469C8931F48791B00A849EC /* abnf.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7A61F48791B00A849EC /* abnf.js */; };
-		5469C8941F48791B00A849EC /* accesslog.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7A71F48791B00A849EC /* accesslog.js */; };
-		5469C8951F48791B00A849EC /* actionscript.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7A81F48791B00A849EC /* actionscript.js */; };
-		5469C8961F48791B00A849EC /* ada.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7A91F48791B00A849EC /* ada.js */; };
-		5469C8971F48791B00A849EC /* apache.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7AA1F48791B00A849EC /* apache.js */; };
-		5469C8981F48791B00A849EC /* applescript.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7AB1F48791B00A849EC /* applescript.js */; };
-		5469C8991F48791B00A849EC /* arduino.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7AC1F48791B00A849EC /* arduino.js */; };
-		5469C89A1F48791B00A849EC /* armasm.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7AD1F48791B00A849EC /* armasm.js */; };
-		5469C89B1F48791B00A849EC /* asciidoc.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7AE1F48791B00A849EC /* asciidoc.js */; };
-		5469C89C1F48791B00A849EC /* aspectj.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7AF1F48791B00A849EC /* aspectj.js */; };
-		5469C89D1F48791B00A849EC /* autohotkey.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7B01F48791B00A849EC /* autohotkey.js */; };
-		5469C89E1F48791B00A849EC /* autoit.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7B11F48791B00A849EC /* autoit.js */; };
-		5469C89F1F48791B00A849EC /* avrasm.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7B21F48791B00A849EC /* avrasm.js */; };
-		5469C8A01F48791B00A849EC /* awk.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7B31F48791B00A849EC /* awk.js */; };
-		5469C8A11F48791B00A849EC /* axapta.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7B41F48791B00A849EC /* axapta.js */; };
-		5469C8A21F48791B00A849EC /* bash.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7B51F48791B00A849EC /* bash.js */; };
-		5469C8A31F48791B00A849EC /* basic.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7B61F48791B00A849EC /* basic.js */; };
-		5469C8A41F48791B00A849EC /* bnf.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7B71F48791B00A849EC /* bnf.js */; };
-		5469C8A51F48791B00A849EC /* brainfuck.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7B81F48791B00A849EC /* brainfuck.js */; };
-		5469C8A61F48791B00A849EC /* cal.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7B91F48791B00A849EC /* cal.js */; };
-		5469C8A71F48791B00A849EC /* capnproto.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7BA1F48791B00A849EC /* capnproto.js */; };
-		5469C8A81F48791B00A849EC /* ceylon.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7BB1F48791B00A849EC /* ceylon.js */; };
-		5469C8A91F48791B00A849EC /* clean.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7BC1F48791B00A849EC /* clean.js */; };
-		5469C8AA1F48791B00A849EC /* clojure-repl.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7BD1F48791B00A849EC /* clojure-repl.js */; };
-		5469C8AB1F48791B00A849EC /* clojure.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7BE1F48791B00A849EC /* clojure.js */; };
-		5469C8AC1F48791B00A849EC /* cmake.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7BF1F48791B00A849EC /* cmake.js */; };
-		5469C8AD1F48791B00A849EC /* coffeescript.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7C01F48791B00A849EC /* coffeescript.js */; };
-		5469C8AE1F48791B00A849EC /* coq.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7C11F48791B00A849EC /* coq.js */; };
-		5469C8AF1F48791B00A849EC /* cos.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7C21F48791B00A849EC /* cos.js */; };
-		5469C8B01F48791B00A849EC /* cpp.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7C31F48791B00A849EC /* cpp.js */; };
-		5469C8B11F48791B00A849EC /* crmsh.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7C41F48791B00A849EC /* crmsh.js */; };
-		5469C8B21F48791B00A849EC /* crystal.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7C51F48791B00A849EC /* crystal.js */; };
-		5469C8B31F48791B00A849EC /* cs.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7C61F48791B00A849EC /* cs.js */; };
-		5469C8B41F48791B00A849EC /* csp.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7C71F48791B00A849EC /* csp.js */; };
-		5469C8B51F48791B00A849EC /* css.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7C81F48791B00A849EC /* css.js */; };
-		5469C8B61F48791B00A849EC /* d.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7C91F48791B00A849EC /* d.js */; };
-		5469C8B71F48791B00A849EC /* dart.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7CA1F48791B00A849EC /* dart.js */; };
-		5469C8B81F48791B00A849EC /* delphi.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7CB1F48791B00A849EC /* delphi.js */; };
-		5469C8B91F48791B00A849EC /* diff.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7CC1F48791B00A849EC /* diff.js */; };
-		5469C8BA1F48791B00A849EC /* django.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7CD1F48791B00A849EC /* django.js */; };
-		5469C8BB1F48791B00A849EC /* dns.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7CE1F48791B00A849EC /* dns.js */; };
-		5469C8BC1F48791B00A849EC /* dockerfile.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7CF1F48791B00A849EC /* dockerfile.js */; };
-		5469C8BD1F48791B00A849EC /* dos.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7D01F48791B00A849EC /* dos.js */; };
-		5469C8BE1F48791C00A849EC /* dsconfig.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7D11F48791B00A849EC /* dsconfig.js */; };
-		5469C8BF1F48791C00A849EC /* dts.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7D21F48791B00A849EC /* dts.js */; };
-		5469C8C01F48791C00A849EC /* dust.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7D31F48791B00A849EC /* dust.js */; };
-		5469C8C11F48791C00A849EC /* ebnf.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7D41F48791B00A849EC /* ebnf.js */; };
-		5469C8C21F48791C00A849EC /* elixir.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7D51F48791B00A849EC /* elixir.js */; };
-		5469C8C31F48791C00A849EC /* elm.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7D61F48791B00A849EC /* elm.js */; };
-		5469C8C41F48791C00A849EC /* erb.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7D71F48791B00A849EC /* erb.js */; };
-		5469C8C51F48791C00A849EC /* erlang-repl.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7D81F48791B00A849EC /* erlang-repl.js */; };
-		5469C8C61F48791C00A849EC /* erlang.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7D91F48791B00A849EC /* erlang.js */; };
-		5469C8C71F48791C00A849EC /* excel.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7DA1F48791B00A849EC /* excel.js */; };
-		5469C8C81F48791C00A849EC /* fix.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7DB1F48791B00A849EC /* fix.js */; };
-		5469C8C91F48791C00A849EC /* flix.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7DC1F48791B00A849EC /* flix.js */; };
-		5469C8CA1F48791C00A849EC /* fortran.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7DD1F48791B00A849EC /* fortran.js */; };
-		5469C8CB1F48791C00A849EC /* fsharp.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7DE1F48791B00A849EC /* fsharp.js */; };
-		5469C8CC1F48791C00A849EC /* gams.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7DF1F48791B00A849EC /* gams.js */; };
-		5469C8CD1F48791C00A849EC /* gauss.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7E01F48791B00A849EC /* gauss.js */; };
-		5469C8CE1F48791C00A849EC /* gcode.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7E11F48791B00A849EC /* gcode.js */; };
-		5469C8CF1F48791C00A849EC /* gherkin.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7E21F48791B00A849EC /* gherkin.js */; };
-		5469C8D01F48791C00A849EC /* glsl.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7E31F48791B00A849EC /* glsl.js */; };
-		5469C8D11F48791C00A849EC /* go.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7E41F48791B00A849EC /* go.js */; };
-		5469C8D21F48791C00A849EC /* golo.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7E51F48791B00A849EC /* golo.js */; };
-		5469C8D31F48791C00A849EC /* gradle.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7E61F48791B00A849EC /* gradle.js */; };
-		5469C8D41F48791C00A849EC /* groovy.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7E71F48791B00A849EC /* groovy.js */; };
-		5469C8D51F48791C00A849EC /* haml.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7E81F48791B00A849EC /* haml.js */; };
-		5469C8D61F48791C00A849EC /* handlebars.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7E91F48791B00A849EC /* handlebars.js */; };
-		5469C8D71F48791C00A849EC /* haskell.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7EA1F48791B00A849EC /* haskell.js */; };
-		5469C8D81F48791C00A849EC /* haxe.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7EB1F48791B00A849EC /* haxe.js */; };
-		5469C8D91F48791C00A849EC /* hsp.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7EC1F48791B00A849EC /* hsp.js */; };
-		5469C8DA1F48791C00A849EC /* htmlbars.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7ED1F48791B00A849EC /* htmlbars.js */; };
-		5469C8DB1F48791C00A849EC /* http.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7EE1F48791B00A849EC /* http.js */; };
-		5469C8DC1F48791C00A849EC /* hy.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7EF1F48791B00A849EC /* hy.js */; };
-		5469C8DD1F48791C00A849EC /* inform7.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7F01F48791B00A849EC /* inform7.js */; };
-		5469C8DE1F48791C00A849EC /* ini.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7F11F48791B00A849EC /* ini.js */; };
-		5469C8DF1F48791C00A849EC /* irpf90.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7F21F48791B00A849EC /* irpf90.js */; };
-		5469C8E01F48791C00A849EC /* java.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7F31F48791B00A849EC /* java.js */; };
-		5469C8E11F48791C00A849EC /* javascript.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7F41F48791B00A849EC /* javascript.js */; };
-		5469C8E21F48791C00A849EC /* jboss-cli.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7F51F48791B00A849EC /* jboss-cli.js */; };
-		5469C8E31F48791C00A849EC /* json.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7F61F48791B00A849EC /* json.js */; };
-		5469C8E41F48791C00A849EC /* julia-repl.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7F71F48791B00A849EC /* julia-repl.js */; };
-		5469C8E51F48791C00A849EC /* julia.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7F81F48791B00A849EC /* julia.js */; };
-		5469C8E61F48791C00A849EC /* kotlin.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7F91F48791B00A849EC /* kotlin.js */; };
-		5469C8E71F48791C00A849EC /* lasso.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7FA1F48791B00A849EC /* lasso.js */; };
-		5469C8E81F48791C00A849EC /* ldif.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7FB1F48791B00A849EC /* ldif.js */; };
-		5469C8E91F48791C00A849EC /* leaf.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7FC1F48791B00A849EC /* leaf.js */; };
-		5469C8EA1F48791C00A849EC /* less.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7FD1F48791B00A849EC /* less.js */; };
-		5469C8EB1F48791C00A849EC /* lisp.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7FE1F48791B00A849EC /* lisp.js */; };
-		5469C8EC1F48791C00A849EC /* livecodeserver.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7FF1F48791B00A849EC /* livecodeserver.js */; };
-		5469C8ED1F48791C00A849EC /* livescript.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8001F48791B00A849EC /* livescript.js */; };
-		5469C8EE1F48791C00A849EC /* llvm.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8011F48791B00A849EC /* llvm.js */; };
-		5469C8EF1F48791C00A849EC /* lsl.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8021F48791B00A849EC /* lsl.js */; };
-		5469C8F01F48791C00A849EC /* lua.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8031F48791B00A849EC /* lua.js */; };
-		5469C8F11F48791C00A849EC /* makefile.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8041F48791B00A849EC /* makefile.js */; };
-		5469C8F21F48791C00A849EC /* markdown.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8051F48791B00A849EC /* markdown.js */; };
-		5469C8F31F48791C00A849EC /* mathematica.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8061F48791B00A849EC /* mathematica.js */; };
-		5469C8F41F48791C00A849EC /* matlab.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8071F48791B00A849EC /* matlab.js */; };
-		5469C8F51F48791C00A849EC /* maxima.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8081F48791B00A849EC /* maxima.js */; };
-		5469C8F61F48791C00A849EC /* mel.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8091F48791B00A849EC /* mel.js */; };
-		5469C8F71F48791C00A849EC /* mercury.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C80A1F48791B00A849EC /* mercury.js */; };
-		5469C8F81F48791C00A849EC /* mipsasm.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C80B1F48791B00A849EC /* mipsasm.js */; };
-		5469C8F91F48791C00A849EC /* mizar.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C80C1F48791B00A849EC /* mizar.js */; };
-		5469C8FA1F48791C00A849EC /* mojolicious.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C80D1F48791B00A849EC /* mojolicious.js */; };
-		5469C8FB1F48791C00A849EC /* monkey.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C80E1F48791B00A849EC /* monkey.js */; };
-		5469C8FC1F48791C00A849EC /* moonscript.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C80F1F48791B00A849EC /* moonscript.js */; };
-		5469C8FD1F48791C00A849EC /* n1ql.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8101F48791B00A849EC /* n1ql.js */; };
-		5469C8FE1F48791C00A849EC /* nginx.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8111F48791B00A849EC /* nginx.js */; };
-		5469C8FF1F48791C00A849EC /* nimrod.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8121F48791B00A849EC /* nimrod.js */; };
-		5469C9001F48791C00A849EC /* nix.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8131F48791B00A849EC /* nix.js */; };
-		5469C9011F48791C00A849EC /* nsis.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8141F48791B00A849EC /* nsis.js */; };
-		5469C9021F48791C00A849EC /* objectivec.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8151F48791B00A849EC /* objectivec.js */; };
-		5469C9031F48791C00A849EC /* ocaml.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8161F48791B00A849EC /* ocaml.js */; };
-		5469C9041F48791C00A849EC /* openscad.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8171F48791B00A849EC /* openscad.js */; };
-		5469C9051F48791C00A849EC /* oxygene.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8181F48791B00A849EC /* oxygene.js */; };
-		5469C9061F48791C00A849EC /* parser3.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8191F48791B00A849EC /* parser3.js */; };
-		5469C9071F48791C00A849EC /* perl.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C81A1F48791B00A849EC /* perl.js */; };
-		5469C9081F48791C00A849EC /* pf.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C81B1F48791B00A849EC /* pf.js */; };
-		5469C9091F48791C00A849EC /* php.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C81C1F48791B00A849EC /* php.js */; };
-		5469C90A1F48791C00A849EC /* pony.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C81D1F48791B00A849EC /* pony.js */; };
-		5469C90B1F48791C00A849EC /* powershell.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C81E1F48791B00A849EC /* powershell.js */; };
-		5469C90C1F48791C00A849EC /* processing.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C81F1F48791B00A849EC /* processing.js */; };
-		5469C90D1F48791C00A849EC /* profile.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8201F48791B00A849EC /* profile.js */; };
-		5469C90E1F48791C00A849EC /* prolog.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8211F48791B00A849EC /* prolog.js */; };
-		5469C90F1F48791C00A849EC /* protobuf.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8221F48791B00A849EC /* protobuf.js */; };
-		5469C9101F48791C00A849EC /* puppet.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8231F48791B00A849EC /* puppet.js */; };
-		5469C9111F48791C00A849EC /* purebasic.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8241F48791B00A849EC /* purebasic.js */; };
-		5469C9121F48791C00A849EC /* python.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8251F48791B00A849EC /* python.js */; };
-		5469C9131F48791C00A849EC /* q.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8261F48791B00A849EC /* q.js */; };
-		5469C9141F48791C00A849EC /* qml.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8271F48791B00A849EC /* qml.js */; };
-		5469C9151F48791C00A849EC /* r.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8281F48791B00A849EC /* r.js */; };
-		5469C9161F48791C00A849EC /* rib.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8291F48791B00A849EC /* rib.js */; };
-		5469C9171F48791C00A849EC /* roboconf.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C82A1F48791B00A849EC /* roboconf.js */; };
-		5469C9181F48791C00A849EC /* routeros.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C82B1F48791B00A849EC /* routeros.js */; };
-		5469C9191F48791C00A849EC /* rsl.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C82C1F48791B00A849EC /* rsl.js */; };
-		5469C91A1F48791C00A849EC /* ruby.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C82D1F48791B00A849EC /* ruby.js */; };
-		5469C91B1F48791C00A849EC /* ruleslanguage.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C82E1F48791B00A849EC /* ruleslanguage.js */; };
-		5469C91C1F48791C00A849EC /* rust.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C82F1F48791B00A849EC /* rust.js */; };
-		5469C91D1F48791C00A849EC /* scala.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8301F48791B00A849EC /* scala.js */; };
-		5469C91E1F48791C00A849EC /* scheme.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8311F48791B00A849EC /* scheme.js */; };
-		5469C91F1F48791C00A849EC /* scilab.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8321F48791B00A849EC /* scilab.js */; };
-		5469C9201F48791C00A849EC /* scss.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8331F48791B00A849EC /* scss.js */; };
-		5469C9211F48791C00A849EC /* shell.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8341F48791B00A849EC /* shell.js */; };
-		5469C9221F48791C00A849EC /* smali.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8351F48791B00A849EC /* smali.js */; };
-		5469C9231F48791C00A849EC /* smalltalk.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8361F48791B00A849EC /* smalltalk.js */; };
-		5469C9241F48791C00A849EC /* sml.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8371F48791B00A849EC /* sml.js */; };
-		5469C9251F48791C00A849EC /* sqf.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8381F48791B00A849EC /* sqf.js */; };
-		5469C9261F48791C00A849EC /* sql.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8391F48791B00A849EC /* sql.js */; };
-		5469C9271F48791C00A849EC /* stan.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C83A1F48791B00A849EC /* stan.js */; };
-		5469C9281F48791C00A849EC /* stata.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C83B1F48791B00A849EC /* stata.js */; };
-		5469C9291F48791C00A849EC /* step21.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C83C1F48791B00A849EC /* step21.js */; };
-		5469C92A1F48791C00A849EC /* stylus.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C83D1F48791B00A849EC /* stylus.js */; };
-		5469C92B1F48791C00A849EC /* subunit.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C83E1F48791B00A849EC /* subunit.js */; };
-		5469C92C1F48791C00A849EC /* swift.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C83F1F48791B00A849EC /* swift.js */; };
-		5469C92D1F48791C00A849EC /* taggerscript.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8401F48791B00A849EC /* taggerscript.js */; };
-		5469C92E1F48791C00A849EC /* tap.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8411F48791B00A849EC /* tap.js */; };
-		5469C92F1F48791C00A849EC /* tcl.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8421F48791B00A849EC /* tcl.js */; };
-		5469C9301F48791C00A849EC /* tex.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8431F48791B00A849EC /* tex.js */; };
-		5469C9311F48791C00A849EC /* thrift.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8441F48791B00A849EC /* thrift.js */; };
-		5469C9321F48791C00A849EC /* tp.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8451F48791B00A849EC /* tp.js */; };
-		5469C9331F48791C00A849EC /* twig.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8461F48791B00A849EC /* twig.js */; };
-		5469C9341F48791C00A849EC /* typescript.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8471F48791B00A849EC /* typescript.js */; };
-		5469C9351F48791C00A849EC /* vala.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8481F48791B00A849EC /* vala.js */; };
-		5469C9361F48791C00A849EC /* vbnet.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8491F48791B00A849EC /* vbnet.js */; };
-		5469C9371F48791C00A849EC /* vbscript-html.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C84A1F48791B00A849EC /* vbscript-html.js */; };
-		5469C9381F48791C00A849EC /* vbscript.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C84B1F48791B00A849EC /* vbscript.js */; };
-		5469C9391F48791C00A849EC /* verilog.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C84C1F48791B00A849EC /* verilog.js */; };
-		5469C93A1F48791C00A849EC /* vhdl.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C84D1F48791B00A849EC /* vhdl.js */; };
-		5469C93B1F48791C00A849EC /* vim.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C84E1F48791B00A849EC /* vim.js */; };
-		5469C93C1F48791C00A849EC /* x86asm.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C84F1F48791B00A849EC /* x86asm.js */; };
-		5469C93D1F48791C00A849EC /* xl.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8501F48791B00A849EC /* xl.js */; };
-		5469C93E1F48791C00A849EC /* xml.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8511F48791B00A849EC /* xml.js */; };
-		5469C93F1F48791C00A849EC /* xquery.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8521F48791B00A849EC /* xquery.js */; };
-		5469C9401F48791C00A849EC /* yaml.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8531F48791B00A849EC /* yaml.js */; };
-		5469C9411F48791C00A849EC /* zephir.js in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8541F48791B00A849EC /* zephir.js */; };
 		5469C9421F48791C00A849EC /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8561F48791B00A849EC /* Media.xcassets */; };
 		5469C9431F48791C00A849EC /* SFMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8571F48791B00A849EC /* SFMono-Regular.otf */; };
 		5469C9441F48791C00A849EC /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 5469C85A1F48791B00A849EC /* .gitkeep */; };
@@ -241,6 +65,7 @@
 		5471AD501F48A48B00CBDDDD /* MultiMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5471AD4F1F48A48B00CBDDDD /* MultiMarkdown.swift */; };
 		5471AD531F48AE0A00CBDDDD /* CloneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5471AD511F48AE0A00CBDDDD /* CloneViewController.swift */; };
 		5471AD541F48AE0A00CBDDDD /* CloneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5471AD521F48AE0A00CBDDDD /* CloneViewController.xib */; };
+		547459FE1F628F1300B966D6 /* VKDiffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547459FD1F628F1300B966D6 /* VKDiffView.swift */; };
 		547600E41F46E02C0014AC95 /* VKSpiltViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547600E31F46E02C0014AC95 /* VKSpiltViewController.swift */; };
 		547600E61F46E2650014AC95 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547600E51F46E2650014AC95 /* RootViewController.swift */; };
 		54779DC71F546ED300AEC1C0 /* Unrar4iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54779DC61F546ED300AEC1C0 /* Unrar4iOS.framework */; };
@@ -287,6 +112,8 @@
 		54F7DA2A1F468ACC001F2299 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 54F7DA221F468ACC001F2299 /* unzip.c */; };
 		54F7DA2B1F468ACC001F2299 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 54F7DA241F468ACC001F2299 /* zip.c */; };
 		54F7DA2C1F468ACC001F2299 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F7DA271F468ACC001F2299 /* SSZipArchive.m */; };
+		54FD23601F63101500CB1B97 /* Reflog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FD235F1F63101500CB1B97 /* Reflog.swift */; };
+		54FD23621F631A7B00CB1B97 /* Blame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FD23611F631A7B00CB1B97 /* Blame.swift */; };
 		AFF3AB6F943FE30C8492583C /* Pods_VKFileBrowserDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3246D5F0418C08A357BEAC6 /* Pods_VKFileBrowserDemoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -357,182 +184,6 @@
 		5469C5D41F4874C800A849EC /* libMultiMarkdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libMultiMarkdown.h; sourceTree = "<group>"; };
 		5469C7A11F48791B00A849EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5469C7A21F48791B00A849EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5469C7A51F48791B00A849EC /* 1c.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = 1c.js; sourceTree = "<group>"; };
-		5469C7A61F48791B00A849EC /* abnf.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = abnf.js; sourceTree = "<group>"; };
-		5469C7A71F48791B00A849EC /* accesslog.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = accesslog.js; sourceTree = "<group>"; };
-		5469C7A81F48791B00A849EC /* actionscript.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = actionscript.js; sourceTree = "<group>"; };
-		5469C7A91F48791B00A849EC /* ada.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ada.js; sourceTree = "<group>"; };
-		5469C7AA1F48791B00A849EC /* apache.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = apache.js; sourceTree = "<group>"; };
-		5469C7AB1F48791B00A849EC /* applescript.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = applescript.js; sourceTree = "<group>"; };
-		5469C7AC1F48791B00A849EC /* arduino.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = arduino.js; sourceTree = "<group>"; };
-		5469C7AD1F48791B00A849EC /* armasm.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = armasm.js; sourceTree = "<group>"; };
-		5469C7AE1F48791B00A849EC /* asciidoc.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = asciidoc.js; sourceTree = "<group>"; };
-		5469C7AF1F48791B00A849EC /* aspectj.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = aspectj.js; sourceTree = "<group>"; };
-		5469C7B01F48791B00A849EC /* autohotkey.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = autohotkey.js; sourceTree = "<group>"; };
-		5469C7B11F48791B00A849EC /* autoit.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = autoit.js; sourceTree = "<group>"; };
-		5469C7B21F48791B00A849EC /* avrasm.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = avrasm.js; sourceTree = "<group>"; };
-		5469C7B31F48791B00A849EC /* awk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = awk.js; sourceTree = "<group>"; };
-		5469C7B41F48791B00A849EC /* axapta.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = axapta.js; sourceTree = "<group>"; };
-		5469C7B51F48791B00A849EC /* bash.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bash.js; sourceTree = "<group>"; };
-		5469C7B61F48791B00A849EC /* basic.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = basic.js; sourceTree = "<group>"; };
-		5469C7B71F48791B00A849EC /* bnf.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bnf.js; sourceTree = "<group>"; };
-		5469C7B81F48791B00A849EC /* brainfuck.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = brainfuck.js; sourceTree = "<group>"; };
-		5469C7B91F48791B00A849EC /* cal.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cal.js; sourceTree = "<group>"; };
-		5469C7BA1F48791B00A849EC /* capnproto.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = capnproto.js; sourceTree = "<group>"; };
-		5469C7BB1F48791B00A849EC /* ceylon.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ceylon.js; sourceTree = "<group>"; };
-		5469C7BC1F48791B00A849EC /* clean.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = clean.js; sourceTree = "<group>"; };
-		5469C7BD1F48791B00A849EC /* clojure-repl.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "clojure-repl.js"; sourceTree = "<group>"; };
-		5469C7BE1F48791B00A849EC /* clojure.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = clojure.js; sourceTree = "<group>"; };
-		5469C7BF1F48791B00A849EC /* cmake.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cmake.js; sourceTree = "<group>"; };
-		5469C7C01F48791B00A849EC /* coffeescript.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = coffeescript.js; sourceTree = "<group>"; };
-		5469C7C11F48791B00A849EC /* coq.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = coq.js; sourceTree = "<group>"; };
-		5469C7C21F48791B00A849EC /* cos.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cos.js; sourceTree = "<group>"; };
-		5469C7C31F48791B00A849EC /* cpp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cpp.js; sourceTree = "<group>"; };
-		5469C7C41F48791B00A849EC /* crmsh.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = crmsh.js; sourceTree = "<group>"; };
-		5469C7C51F48791B00A849EC /* crystal.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = crystal.js; sourceTree = "<group>"; };
-		5469C7C61F48791B00A849EC /* cs.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cs.js; sourceTree = "<group>"; };
-		5469C7C71F48791B00A849EC /* csp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = csp.js; sourceTree = "<group>"; };
-		5469C7C81F48791B00A849EC /* css.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = css.js; sourceTree = "<group>"; };
-		5469C7C91F48791B00A849EC /* d.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = d.js; sourceTree = "<group>"; };
-		5469C7CA1F48791B00A849EC /* dart.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = dart.js; sourceTree = "<group>"; };
-		5469C7CB1F48791B00A849EC /* delphi.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = delphi.js; sourceTree = "<group>"; };
-		5469C7CC1F48791B00A849EC /* diff.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = diff.js; sourceTree = "<group>"; };
-		5469C7CD1F48791B00A849EC /* django.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = django.js; sourceTree = "<group>"; };
-		5469C7CE1F48791B00A849EC /* dns.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = dns.js; sourceTree = "<group>"; };
-		5469C7CF1F48791B00A849EC /* dockerfile.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = dockerfile.js; sourceTree = "<group>"; };
-		5469C7D01F48791B00A849EC /* dos.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = dos.js; sourceTree = "<group>"; };
-		5469C7D11F48791B00A849EC /* dsconfig.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = dsconfig.js; sourceTree = "<group>"; };
-		5469C7D21F48791B00A849EC /* dts.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = dts.js; sourceTree = "<group>"; };
-		5469C7D31F48791B00A849EC /* dust.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = dust.js; sourceTree = "<group>"; };
-		5469C7D41F48791B00A849EC /* ebnf.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ebnf.js; sourceTree = "<group>"; };
-		5469C7D51F48791B00A849EC /* elixir.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = elixir.js; sourceTree = "<group>"; };
-		5469C7D61F48791B00A849EC /* elm.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = elm.js; sourceTree = "<group>"; };
-		5469C7D71F48791B00A849EC /* erb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = erb.js; sourceTree = "<group>"; };
-		5469C7D81F48791B00A849EC /* erlang-repl.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "erlang-repl.js"; sourceTree = "<group>"; };
-		5469C7D91F48791B00A849EC /* erlang.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = erlang.js; sourceTree = "<group>"; };
-		5469C7DA1F48791B00A849EC /* excel.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = excel.js; sourceTree = "<group>"; };
-		5469C7DB1F48791B00A849EC /* fix.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = fix.js; sourceTree = "<group>"; };
-		5469C7DC1F48791B00A849EC /* flix.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = flix.js; sourceTree = "<group>"; };
-		5469C7DD1F48791B00A849EC /* fortran.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = fortran.js; sourceTree = "<group>"; };
-		5469C7DE1F48791B00A849EC /* fsharp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = fsharp.js; sourceTree = "<group>"; };
-		5469C7DF1F48791B00A849EC /* gams.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = gams.js; sourceTree = "<group>"; };
-		5469C7E01F48791B00A849EC /* gauss.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = gauss.js; sourceTree = "<group>"; };
-		5469C7E11F48791B00A849EC /* gcode.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = gcode.js; sourceTree = "<group>"; };
-		5469C7E21F48791B00A849EC /* gherkin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = gherkin.js; sourceTree = "<group>"; };
-		5469C7E31F48791B00A849EC /* glsl.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = glsl.js; sourceTree = "<group>"; };
-		5469C7E41F48791B00A849EC /* go.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = go.js; sourceTree = "<group>"; };
-		5469C7E51F48791B00A849EC /* golo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = golo.js; sourceTree = "<group>"; };
-		5469C7E61F48791B00A849EC /* gradle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = gradle.js; sourceTree = "<group>"; };
-		5469C7E71F48791B00A849EC /* groovy.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = groovy.js; sourceTree = "<group>"; };
-		5469C7E81F48791B00A849EC /* haml.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = haml.js; sourceTree = "<group>"; };
-		5469C7E91F48791B00A849EC /* handlebars.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = handlebars.js; sourceTree = "<group>"; };
-		5469C7EA1F48791B00A849EC /* haskell.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = haskell.js; sourceTree = "<group>"; };
-		5469C7EB1F48791B00A849EC /* haxe.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = haxe.js; sourceTree = "<group>"; };
-		5469C7EC1F48791B00A849EC /* hsp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = hsp.js; sourceTree = "<group>"; };
-		5469C7ED1F48791B00A849EC /* htmlbars.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = htmlbars.js; sourceTree = "<group>"; };
-		5469C7EE1F48791B00A849EC /* http.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = http.js; sourceTree = "<group>"; };
-		5469C7EF1F48791B00A849EC /* hy.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = hy.js; sourceTree = "<group>"; };
-		5469C7F01F48791B00A849EC /* inform7.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = inform7.js; sourceTree = "<group>"; };
-		5469C7F11F48791B00A849EC /* ini.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ini.js; sourceTree = "<group>"; };
-		5469C7F21F48791B00A849EC /* irpf90.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = irpf90.js; sourceTree = "<group>"; };
-		5469C7F31F48791B00A849EC /* java.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = java.js; sourceTree = "<group>"; };
-		5469C7F41F48791B00A849EC /* javascript.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = javascript.js; sourceTree = "<group>"; };
-		5469C7F51F48791B00A849EC /* jboss-cli.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jboss-cli.js"; sourceTree = "<group>"; };
-		5469C7F61F48791B00A849EC /* json.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = json.js; sourceTree = "<group>"; };
-		5469C7F71F48791B00A849EC /* julia-repl.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "julia-repl.js"; sourceTree = "<group>"; };
-		5469C7F81F48791B00A849EC /* julia.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = julia.js; sourceTree = "<group>"; };
-		5469C7F91F48791B00A849EC /* kotlin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = kotlin.js; sourceTree = "<group>"; };
-		5469C7FA1F48791B00A849EC /* lasso.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lasso.js; sourceTree = "<group>"; };
-		5469C7FB1F48791B00A849EC /* ldif.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ldif.js; sourceTree = "<group>"; };
-		5469C7FC1F48791B00A849EC /* leaf.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = leaf.js; sourceTree = "<group>"; };
-		5469C7FD1F48791B00A849EC /* less.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = less.js; sourceTree = "<group>"; };
-		5469C7FE1F48791B00A849EC /* lisp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lisp.js; sourceTree = "<group>"; };
-		5469C7FF1F48791B00A849EC /* livecodeserver.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = livecodeserver.js; sourceTree = "<group>"; };
-		5469C8001F48791B00A849EC /* livescript.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = livescript.js; sourceTree = "<group>"; };
-		5469C8011F48791B00A849EC /* llvm.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = llvm.js; sourceTree = "<group>"; };
-		5469C8021F48791B00A849EC /* lsl.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lsl.js; sourceTree = "<group>"; };
-		5469C8031F48791B00A849EC /* lua.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lua.js; sourceTree = "<group>"; };
-		5469C8041F48791B00A849EC /* makefile.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = makefile.js; sourceTree = "<group>"; };
-		5469C8051F48791B00A849EC /* markdown.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = markdown.js; sourceTree = "<group>"; };
-		5469C8061F48791B00A849EC /* mathematica.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mathematica.js; sourceTree = "<group>"; };
-		5469C8071F48791B00A849EC /* matlab.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = matlab.js; sourceTree = "<group>"; };
-		5469C8081F48791B00A849EC /* maxima.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = maxima.js; sourceTree = "<group>"; };
-		5469C8091F48791B00A849EC /* mel.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mel.js; sourceTree = "<group>"; };
-		5469C80A1F48791B00A849EC /* mercury.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mercury.js; sourceTree = "<group>"; };
-		5469C80B1F48791B00A849EC /* mipsasm.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mipsasm.js; sourceTree = "<group>"; };
-		5469C80C1F48791B00A849EC /* mizar.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mizar.js; sourceTree = "<group>"; };
-		5469C80D1F48791B00A849EC /* mojolicious.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mojolicious.js; sourceTree = "<group>"; };
-		5469C80E1F48791B00A849EC /* monkey.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = monkey.js; sourceTree = "<group>"; };
-		5469C80F1F48791B00A849EC /* moonscript.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = moonscript.js; sourceTree = "<group>"; };
-		5469C8101F48791B00A849EC /* n1ql.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = n1ql.js; sourceTree = "<group>"; };
-		5469C8111F48791B00A849EC /* nginx.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = nginx.js; sourceTree = "<group>"; };
-		5469C8121F48791B00A849EC /* nimrod.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = nimrod.js; sourceTree = "<group>"; };
-		5469C8131F48791B00A849EC /* nix.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = nix.js; sourceTree = "<group>"; };
-		5469C8141F48791B00A849EC /* nsis.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = nsis.js; sourceTree = "<group>"; };
-		5469C8151F48791B00A849EC /* objectivec.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = objectivec.js; sourceTree = "<group>"; };
-		5469C8161F48791B00A849EC /* ocaml.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ocaml.js; sourceTree = "<group>"; };
-		5469C8171F48791B00A849EC /* openscad.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = openscad.js; sourceTree = "<group>"; };
-		5469C8181F48791B00A849EC /* oxygene.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = oxygene.js; sourceTree = "<group>"; };
-		5469C8191F48791B00A849EC /* parser3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = parser3.js; sourceTree = "<group>"; };
-		5469C81A1F48791B00A849EC /* perl.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = perl.js; sourceTree = "<group>"; };
-		5469C81B1F48791B00A849EC /* pf.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = pf.js; sourceTree = "<group>"; };
-		5469C81C1F48791B00A849EC /* php.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = php.js; sourceTree = "<group>"; };
-		5469C81D1F48791B00A849EC /* pony.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = pony.js; sourceTree = "<group>"; };
-		5469C81E1F48791B00A849EC /* powershell.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = powershell.js; sourceTree = "<group>"; };
-		5469C81F1F48791B00A849EC /* processing.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = processing.js; sourceTree = "<group>"; };
-		5469C8201F48791B00A849EC /* profile.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = profile.js; sourceTree = "<group>"; };
-		5469C8211F48791B00A849EC /* prolog.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = prolog.js; sourceTree = "<group>"; };
-		5469C8221F48791B00A849EC /* protobuf.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = protobuf.js; sourceTree = "<group>"; };
-		5469C8231F48791B00A849EC /* puppet.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = puppet.js; sourceTree = "<group>"; };
-		5469C8241F48791B00A849EC /* purebasic.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = purebasic.js; sourceTree = "<group>"; };
-		5469C8251F48791B00A849EC /* python.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = python.js; sourceTree = "<group>"; };
-		5469C8261F48791B00A849EC /* q.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = q.js; sourceTree = "<group>"; };
-		5469C8271F48791B00A849EC /* qml.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = qml.js; sourceTree = "<group>"; };
-		5469C8281F48791B00A849EC /* r.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = r.js; sourceTree = "<group>"; };
-		5469C8291F48791B00A849EC /* rib.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = rib.js; sourceTree = "<group>"; };
-		5469C82A1F48791B00A849EC /* roboconf.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = roboconf.js; sourceTree = "<group>"; };
-		5469C82B1F48791B00A849EC /* routeros.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = routeros.js; sourceTree = "<group>"; };
-		5469C82C1F48791B00A849EC /* rsl.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = rsl.js; sourceTree = "<group>"; };
-		5469C82D1F48791B00A849EC /* ruby.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ruby.js; sourceTree = "<group>"; };
-		5469C82E1F48791B00A849EC /* ruleslanguage.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ruleslanguage.js; sourceTree = "<group>"; };
-		5469C82F1F48791B00A849EC /* rust.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = rust.js; sourceTree = "<group>"; };
-		5469C8301F48791B00A849EC /* scala.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = scala.js; sourceTree = "<group>"; };
-		5469C8311F48791B00A849EC /* scheme.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = scheme.js; sourceTree = "<group>"; };
-		5469C8321F48791B00A849EC /* scilab.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = scilab.js; sourceTree = "<group>"; };
-		5469C8331F48791B00A849EC /* scss.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = scss.js; sourceTree = "<group>"; };
-		5469C8341F48791B00A849EC /* shell.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = shell.js; sourceTree = "<group>"; };
-		5469C8351F48791B00A849EC /* smali.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = smali.js; sourceTree = "<group>"; };
-		5469C8361F48791B00A849EC /* smalltalk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = smalltalk.js; sourceTree = "<group>"; };
-		5469C8371F48791B00A849EC /* sml.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sml.js; sourceTree = "<group>"; };
-		5469C8381F48791B00A849EC /* sqf.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sqf.js; sourceTree = "<group>"; };
-		5469C8391F48791B00A849EC /* sql.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sql.js; sourceTree = "<group>"; };
-		5469C83A1F48791B00A849EC /* stan.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = stan.js; sourceTree = "<group>"; };
-		5469C83B1F48791B00A849EC /* stata.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = stata.js; sourceTree = "<group>"; };
-		5469C83C1F48791B00A849EC /* step21.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = step21.js; sourceTree = "<group>"; };
-		5469C83D1F48791B00A849EC /* stylus.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = stylus.js; sourceTree = "<group>"; };
-		5469C83E1F48791B00A849EC /* subunit.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = subunit.js; sourceTree = "<group>"; };
-		5469C83F1F48791B00A849EC /* swift.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = swift.js; sourceTree = "<group>"; };
-		5469C8401F48791B00A849EC /* taggerscript.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = taggerscript.js; sourceTree = "<group>"; };
-		5469C8411F48791B00A849EC /* tap.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tap.js; sourceTree = "<group>"; };
-		5469C8421F48791B00A849EC /* tcl.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tcl.js; sourceTree = "<group>"; };
-		5469C8431F48791B00A849EC /* tex.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tex.js; sourceTree = "<group>"; };
-		5469C8441F48791B00A849EC /* thrift.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = thrift.js; sourceTree = "<group>"; };
-		5469C8451F48791B00A849EC /* tp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tp.js; sourceTree = "<group>"; };
-		5469C8461F48791B00A849EC /* twig.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = twig.js; sourceTree = "<group>"; };
-		5469C8471F48791B00A849EC /* typescript.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = typescript.js; sourceTree = "<group>"; };
-		5469C8481F48791B00A849EC /* vala.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = vala.js; sourceTree = "<group>"; };
-		5469C8491F48791B00A849EC /* vbnet.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = vbnet.js; sourceTree = "<group>"; };
-		5469C84A1F48791B00A849EC /* vbscript-html.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "vbscript-html.js"; sourceTree = "<group>"; };
-		5469C84B1F48791B00A849EC /* vbscript.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = vbscript.js; sourceTree = "<group>"; };
-		5469C84C1F48791B00A849EC /* verilog.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = verilog.js; sourceTree = "<group>"; };
-		5469C84D1F48791B00A849EC /* vhdl.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = vhdl.js; sourceTree = "<group>"; };
-		5469C84E1F48791B00A849EC /* vim.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = vim.js; sourceTree = "<group>"; };
-		5469C84F1F48791B00A849EC /* x86asm.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = x86asm.js; sourceTree = "<group>"; };
-		5469C8501F48791B00A849EC /* xl.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = xl.js; sourceTree = "<group>"; };
-		5469C8511F48791B00A849EC /* xml.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = xml.js; sourceTree = "<group>"; };
-		5469C8521F48791B00A849EC /* xquery.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = xquery.js; sourceTree = "<group>"; };
-		5469C8531F48791B00A849EC /* yaml.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = yaml.js; sourceTree = "<group>"; };
-		5469C8541F48791B00A849EC /* zephir.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = zephir.js; sourceTree = "<group>"; };
 		5469C8561F48791B00A849EC /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		5469C8571F48791B00A849EC /* SFMono-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFMono-Regular.otf"; sourceTree = "<group>"; };
 		5469C8581F48791B00A849EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -569,6 +220,7 @@
 		5471AD4F1F48A48B00CBDDDD /* MultiMarkdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiMarkdown.swift; sourceTree = "<group>"; };
 		5471AD511F48AE0A00CBDDDD /* CloneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloneViewController.swift; sourceTree = "<group>"; };
 		5471AD521F48AE0A00CBDDDD /* CloneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CloneViewController.xib; sourceTree = "<group>"; };
+		547459FD1F628F1300B966D6 /* VKDiffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKDiffView.swift; sourceTree = "<group>"; };
 		547600E31F46E02C0014AC95 /* VKSpiltViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKSpiltViewController.swift; sourceTree = "<group>"; };
 		547600E51F46E2650014AC95 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		5477126A1F5321F700B360F1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -697,6 +349,8 @@
 		54F7DA251F468ACC001F2299 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
 		54F7DA261F468ACC001F2299 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
 		54F7DA271F468ACC001F2299 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
+		54FD235F1F63101500CB1B97 /* Reflog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reflog.swift; sourceTree = "<group>"; };
+		54FD23611F631A7B00CB1B97 /* Blame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blame.swift; sourceTree = "<group>"; };
 		5CB01436C1201A837CDE88BB /* Pods-VKFileBrowserDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemoTests/Pods-VKFileBrowserDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		6DF85517019A3D33609F5A41 /* Pods_VKFileBrowserDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKFileBrowserDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F6902C1E089A926CA87A2D6 /* Pods-VKFileBrowserDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemoTests/Pods-VKFileBrowserDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -857,210 +511,10 @@
 			isa = PBXGroup;
 			children = (
 				5469C7A01F48791B00A849EC /* Localizable.strings */,
-				5469C7A31F48791B00A849EC /* highlight */,
 				5469C8561F48791B00A849EC /* Media.xcassets */,
 				5469C8571F48791B00A849EC /* SFMono-Regular.otf */,
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		5469C7A31F48791B00A849EC /* highlight */ = {
-			isa = PBXGroup;
-			children = (
-				5469C7A41F48791B00A849EC /* languages */,
-				5469C8551F48791B00A849EC /* styles */,
-			);
-			path = highlight;
-			sourceTree = "<group>";
-		};
-		5469C7A41F48791B00A849EC /* languages */ = {
-			isa = PBXGroup;
-			children = (
-				5469C7A51F48791B00A849EC /* 1c.js */,
-				5469C7A61F48791B00A849EC /* abnf.js */,
-				5469C7A71F48791B00A849EC /* accesslog.js */,
-				5469C7A81F48791B00A849EC /* actionscript.js */,
-				5469C7A91F48791B00A849EC /* ada.js */,
-				5469C7AA1F48791B00A849EC /* apache.js */,
-				5469C7AB1F48791B00A849EC /* applescript.js */,
-				5469C7AC1F48791B00A849EC /* arduino.js */,
-				5469C7AD1F48791B00A849EC /* armasm.js */,
-				5469C7AE1F48791B00A849EC /* asciidoc.js */,
-				5469C7AF1F48791B00A849EC /* aspectj.js */,
-				5469C7B01F48791B00A849EC /* autohotkey.js */,
-				5469C7B11F48791B00A849EC /* autoit.js */,
-				5469C7B21F48791B00A849EC /* avrasm.js */,
-				5469C7B31F48791B00A849EC /* awk.js */,
-				5469C7B41F48791B00A849EC /* axapta.js */,
-				5469C7B51F48791B00A849EC /* bash.js */,
-				5469C7B61F48791B00A849EC /* basic.js */,
-				5469C7B71F48791B00A849EC /* bnf.js */,
-				5469C7B81F48791B00A849EC /* brainfuck.js */,
-				5469C7B91F48791B00A849EC /* cal.js */,
-				5469C7BA1F48791B00A849EC /* capnproto.js */,
-				5469C7BB1F48791B00A849EC /* ceylon.js */,
-				5469C7BC1F48791B00A849EC /* clean.js */,
-				5469C7BD1F48791B00A849EC /* clojure-repl.js */,
-				5469C7BE1F48791B00A849EC /* clojure.js */,
-				5469C7BF1F48791B00A849EC /* cmake.js */,
-				5469C7C01F48791B00A849EC /* coffeescript.js */,
-				5469C7C11F48791B00A849EC /* coq.js */,
-				5469C7C21F48791B00A849EC /* cos.js */,
-				5469C7C31F48791B00A849EC /* cpp.js */,
-				5469C7C41F48791B00A849EC /* crmsh.js */,
-				5469C7C51F48791B00A849EC /* crystal.js */,
-				5469C7C61F48791B00A849EC /* cs.js */,
-				5469C7C71F48791B00A849EC /* csp.js */,
-				5469C7C81F48791B00A849EC /* css.js */,
-				5469C7C91F48791B00A849EC /* d.js */,
-				5469C7CA1F48791B00A849EC /* dart.js */,
-				5469C7CB1F48791B00A849EC /* delphi.js */,
-				5469C7CC1F48791B00A849EC /* diff.js */,
-				5469C7CD1F48791B00A849EC /* django.js */,
-				5469C7CE1F48791B00A849EC /* dns.js */,
-				5469C7CF1F48791B00A849EC /* dockerfile.js */,
-				5469C7D01F48791B00A849EC /* dos.js */,
-				5469C7D11F48791B00A849EC /* dsconfig.js */,
-				5469C7D21F48791B00A849EC /* dts.js */,
-				5469C7D31F48791B00A849EC /* dust.js */,
-				5469C7D41F48791B00A849EC /* ebnf.js */,
-				5469C7D51F48791B00A849EC /* elixir.js */,
-				5469C7D61F48791B00A849EC /* elm.js */,
-				5469C7D71F48791B00A849EC /* erb.js */,
-				5469C7D81F48791B00A849EC /* erlang-repl.js */,
-				5469C7D91F48791B00A849EC /* erlang.js */,
-				5469C7DA1F48791B00A849EC /* excel.js */,
-				5469C7DB1F48791B00A849EC /* fix.js */,
-				5469C7DC1F48791B00A849EC /* flix.js */,
-				5469C7DD1F48791B00A849EC /* fortran.js */,
-				5469C7DE1F48791B00A849EC /* fsharp.js */,
-				5469C7DF1F48791B00A849EC /* gams.js */,
-				5469C7E01F48791B00A849EC /* gauss.js */,
-				5469C7E11F48791B00A849EC /* gcode.js */,
-				5469C7E21F48791B00A849EC /* gherkin.js */,
-				5469C7E31F48791B00A849EC /* glsl.js */,
-				5469C7E41F48791B00A849EC /* go.js */,
-				5469C7E51F48791B00A849EC /* golo.js */,
-				5469C7E61F48791B00A849EC /* gradle.js */,
-				5469C7E71F48791B00A849EC /* groovy.js */,
-				5469C7E81F48791B00A849EC /* haml.js */,
-				5469C7E91F48791B00A849EC /* handlebars.js */,
-				5469C7EA1F48791B00A849EC /* haskell.js */,
-				5469C7EB1F48791B00A849EC /* haxe.js */,
-				5469C7EC1F48791B00A849EC /* hsp.js */,
-				5469C7ED1F48791B00A849EC /* htmlbars.js */,
-				5469C7EE1F48791B00A849EC /* http.js */,
-				5469C7EF1F48791B00A849EC /* hy.js */,
-				5469C7F01F48791B00A849EC /* inform7.js */,
-				5469C7F11F48791B00A849EC /* ini.js */,
-				5469C7F21F48791B00A849EC /* irpf90.js */,
-				5469C7F31F48791B00A849EC /* java.js */,
-				5469C7F41F48791B00A849EC /* javascript.js */,
-				5469C7F51F48791B00A849EC /* jboss-cli.js */,
-				5469C7F61F48791B00A849EC /* json.js */,
-				5469C7F71F48791B00A849EC /* julia-repl.js */,
-				5469C7F81F48791B00A849EC /* julia.js */,
-				5469C7F91F48791B00A849EC /* kotlin.js */,
-				5469C7FA1F48791B00A849EC /* lasso.js */,
-				5469C7FB1F48791B00A849EC /* ldif.js */,
-				5469C7FC1F48791B00A849EC /* leaf.js */,
-				5469C7FD1F48791B00A849EC /* less.js */,
-				5469C7FE1F48791B00A849EC /* lisp.js */,
-				5469C7FF1F48791B00A849EC /* livecodeserver.js */,
-				5469C8001F48791B00A849EC /* livescript.js */,
-				5469C8011F48791B00A849EC /* llvm.js */,
-				5469C8021F48791B00A849EC /* lsl.js */,
-				5469C8031F48791B00A849EC /* lua.js */,
-				5469C8041F48791B00A849EC /* makefile.js */,
-				5469C8051F48791B00A849EC /* markdown.js */,
-				5469C8061F48791B00A849EC /* mathematica.js */,
-				5469C8071F48791B00A849EC /* matlab.js */,
-				5469C8081F48791B00A849EC /* maxima.js */,
-				5469C8091F48791B00A849EC /* mel.js */,
-				5469C80A1F48791B00A849EC /* mercury.js */,
-				5469C80B1F48791B00A849EC /* mipsasm.js */,
-				5469C80C1F48791B00A849EC /* mizar.js */,
-				5469C80D1F48791B00A849EC /* mojolicious.js */,
-				5469C80E1F48791B00A849EC /* monkey.js */,
-				5469C80F1F48791B00A849EC /* moonscript.js */,
-				5469C8101F48791B00A849EC /* n1ql.js */,
-				5469C8111F48791B00A849EC /* nginx.js */,
-				5469C8121F48791B00A849EC /* nimrod.js */,
-				5469C8131F48791B00A849EC /* nix.js */,
-				5469C8141F48791B00A849EC /* nsis.js */,
-				5469C8151F48791B00A849EC /* objectivec.js */,
-				5469C8161F48791B00A849EC /* ocaml.js */,
-				5469C8171F48791B00A849EC /* openscad.js */,
-				5469C8181F48791B00A849EC /* oxygene.js */,
-				5469C8191F48791B00A849EC /* parser3.js */,
-				5469C81A1F48791B00A849EC /* perl.js */,
-				5469C81B1F48791B00A849EC /* pf.js */,
-				5469C81C1F48791B00A849EC /* php.js */,
-				5469C81D1F48791B00A849EC /* pony.js */,
-				5469C81E1F48791B00A849EC /* powershell.js */,
-				5469C81F1F48791B00A849EC /* processing.js */,
-				5469C8201F48791B00A849EC /* profile.js */,
-				5469C8211F48791B00A849EC /* prolog.js */,
-				5469C8221F48791B00A849EC /* protobuf.js */,
-				5469C8231F48791B00A849EC /* puppet.js */,
-				5469C8241F48791B00A849EC /* purebasic.js */,
-				5469C8251F48791B00A849EC /* python.js */,
-				5469C8261F48791B00A849EC /* q.js */,
-				5469C8271F48791B00A849EC /* qml.js */,
-				5469C8281F48791B00A849EC /* r.js */,
-				5469C8291F48791B00A849EC /* rib.js */,
-				5469C82A1F48791B00A849EC /* roboconf.js */,
-				5469C82B1F48791B00A849EC /* routeros.js */,
-				5469C82C1F48791B00A849EC /* rsl.js */,
-				5469C82D1F48791B00A849EC /* ruby.js */,
-				5469C82E1F48791B00A849EC /* ruleslanguage.js */,
-				5469C82F1F48791B00A849EC /* rust.js */,
-				5469C8301F48791B00A849EC /* scala.js */,
-				5469C8311F48791B00A849EC /* scheme.js */,
-				5469C8321F48791B00A849EC /* scilab.js */,
-				5469C8331F48791B00A849EC /* scss.js */,
-				5469C8341F48791B00A849EC /* shell.js */,
-				5469C8351F48791B00A849EC /* smali.js */,
-				5469C8361F48791B00A849EC /* smalltalk.js */,
-				5469C8371F48791B00A849EC /* sml.js */,
-				5469C8381F48791B00A849EC /* sqf.js */,
-				5469C8391F48791B00A849EC /* sql.js */,
-				5469C83A1F48791B00A849EC /* stan.js */,
-				5469C83B1F48791B00A849EC /* stata.js */,
-				5469C83C1F48791B00A849EC /* step21.js */,
-				5469C83D1F48791B00A849EC /* stylus.js */,
-				5469C83E1F48791B00A849EC /* subunit.js */,
-				5469C83F1F48791B00A849EC /* swift.js */,
-				5469C8401F48791B00A849EC /* taggerscript.js */,
-				5469C8411F48791B00A849EC /* tap.js */,
-				5469C8421F48791B00A849EC /* tcl.js */,
-				5469C8431F48791B00A849EC /* tex.js */,
-				5469C8441F48791B00A849EC /* thrift.js */,
-				5469C8451F48791B00A849EC /* tp.js */,
-				5469C8461F48791B00A849EC /* twig.js */,
-				5469C8471F48791B00A849EC /* typescript.js */,
-				5469C8481F48791B00A849EC /* vala.js */,
-				5469C8491F48791B00A849EC /* vbnet.js */,
-				5469C84A1F48791B00A849EC /* vbscript-html.js */,
-				5469C84B1F48791B00A849EC /* vbscript.js */,
-				5469C84C1F48791B00A849EC /* verilog.js */,
-				5469C84D1F48791B00A849EC /* vhdl.js */,
-				5469C84E1F48791B00A849EC /* vim.js */,
-				5469C84F1F48791B00A849EC /* x86asm.js */,
-				5469C8501F48791B00A849EC /* xl.js */,
-				5469C8511F48791B00A849EC /* xml.js */,
-				5469C8521F48791B00A849EC /* xquery.js */,
-				5469C8531F48791B00A849EC /* yaml.js */,
-				5469C8541F48791B00A849EC /* zephir.js */,
-			);
-			path = languages;
-			sourceTree = "<group>";
-		};
-		5469C8551F48791B00A849EC /* styles */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = styles;
 			sourceTree = "<group>";
 		};
 		5469C8591F48791B00A849EC /* Classes */ = {
@@ -1100,6 +554,8 @@
 				54962AA91F53C68B00E75239 /* Commits.swift */,
 				548C5F6B1F5D471000C454D9 /* Branch.swift */,
 				5480A9BD1F5DBBF20064F1D5 /* Remote.swift */,
+				54FD235F1F63101500CB1B97 /* Reflog.swift */,
+				54FD23611F631A7B00CB1B97 /* Blame.swift */,
 			);
 			path = Git;
 			sourceTree = "<group>";
@@ -1131,6 +587,7 @@
 				54008A8B1F5E92E0005CCE1B /* VKTextView.swift */,
 				54008A8D1F5E96E8005CCE1B /* VKTextStorage.swift */,
 				54008A8F1F5E970C005CCE1B /* VKLayoutManager.swift */,
+				547459FD1F628F1300B966D6 /* VKDiffView.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -1456,198 +913,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5469C9141F48791C00A849EC /* qml.js in Resources */,
-				5469C8E31F48791C00A849EC /* json.js in Resources */,
-				5469C90A1F48791C00A849EC /* pony.js in Resources */,
-				5469C8C01F48791C00A849EC /* dust.js in Resources */,
 				547E31901F4D3F1E003C0CC5 /* RemoteViewController.xib in Resources */,
 				5469C9501F48791C00A849EC /* SourceViewController.strings in Resources */,
-				5469C8C11F48791C00A849EC /* ebnf.js in Resources */,
-				5469C8B01F48791B00A849EC /* cpp.js in Resources */,
-				5469C8DA1F48791C00A849EC /* htmlbars.js in Resources */,
-				5469C91D1F48791C00A849EC /* scala.js in Resources */,
-				5469C9181F48791C00A849EC /* routeros.js in Resources */,
-				5469C92D1F48791C00A849EC /* taggerscript.js in Resources */,
-				5469C90D1F48791C00A849EC /* profile.js in Resources */,
-				5469C9301F48791C00A849EC /* tex.js in Resources */,
-				5469C8A81F48791B00A849EC /* ceylon.js in Resources */,
-				5469C8AE1F48791B00A849EC /* coq.js in Resources */,
-				5469C8C31F48791C00A849EC /* elm.js in Resources */,
-				5469C8CB1F48791C00A849EC /* fsharp.js in Resources */,
-				5469C8B61F48791B00A849EC /* d.js in Resources */,
-				5469C8F61F48791C00A849EC /* mel.js in Resources */,
-				5469C91C1F48791C00A849EC /* rust.js in Resources */,
-				5469C93A1F48791C00A849EC /* vhdl.js in Resources */,
-				5469C8D01F48791C00A849EC /* glsl.js in Resources */,
-				5469C8D21F48791C00A849EC /* golo.js in Resources */,
-				5469C8D61F48791C00A849EC /* handlebars.js in Resources */,
 				5469C94A1F48791C00A849EC /* VKSearchViewController.xib in Resources */,
-				5469C9151F48791C00A849EC /* r.js in Resources */,
-				5469C8FD1F48791C00A849EC /* n1ql.js in Resources */,
-				5469C8A61F48791B00A849EC /* cal.js in Resources */,
-				5469C92B1F48791C00A849EC /* subunit.js in Resources */,
-				5469C9161F48791C00A849EC /* rib.js in Resources */,
-				5469C8A21F48791B00A849EC /* bash.js in Resources */,
-				5469C8B81F48791B00A849EC /* delphi.js in Resources */,
 				5469C9431F48791C00A849EC /* SFMono-Regular.otf in Resources */,
-				5469C92E1F48791C00A849EC /* tap.js in Resources */,
-				5469C8BE1F48791C00A849EC /* dsconfig.js in Resources */,
-				5469C8BD1F48791B00A849EC /* dos.js in Resources */,
-				5469C92C1F48791C00A849EC /* swift.js in Resources */,
-				5469C9411F48791C00A849EC /* zephir.js in Resources */,
-				5469C9381F48791C00A849EC /* vbscript.js in Resources */,
-				5469C92A1F48791C00A849EC /* stylus.js in Resources */,
-				5469C90C1F48791C00A849EC /* processing.js in Resources */,
-				5469C8BC1F48791B00A849EC /* dockerfile.js in Resources */,
-				5469C8A31F48791B00A849EC /* basic.js in Resources */,
-				5469C9111F48791C00A849EC /* purebasic.js in Resources */,
-				5469C8AC1F48791B00A849EC /* cmake.js in Resources */,
-				5469C8F31F48791C00A849EC /* mathematica.js in Resources */,
-				5469C9081F48791C00A849EC /* pf.js in Resources */,
-				5469C8C41F48791C00A849EC /* erb.js in Resources */,
-				5469C91E1F48791C00A849EC /* scheme.js in Resources */,
-				5469C8A71F48791B00A849EC /* capnproto.js in Resources */,
-				5469C8E41F48791C00A849EC /* julia-repl.js in Resources */,
-				5469C8EA1F48791C00A849EC /* less.js in Resources */,
-				5469C9261F48791C00A849EC /* sql.js in Resources */,
-				5469C8E51F48791C00A849EC /* julia.js in Resources */,
-				5469C8BB1F48791B00A849EC /* dns.js in Resources */,
 				54779DCB1F5475EA00AEC1C0 /* Settings.bundle in Resources */,
-				5469C9171F48791C00A849EC /* roboconf.js in Resources */,
-				5469C91B1F48791C00A849EC /* ruleslanguage.js in Resources */,
-				5469C8B11F48791B00A849EC /* crmsh.js in Resources */,
-				5469C8F91F48791C00A849EC /* mizar.js in Resources */,
-				5469C8AA1F48791B00A849EC /* clojure-repl.js in Resources */,
-				5469C8E61F48791C00A849EC /* kotlin.js in Resources */,
-				5469C8F01F48791C00A849EC /* lua.js in Resources */,
-				5469C9001F48791C00A849EC /* nix.js in Resources */,
-				5469C8B51F48791B00A849EC /* css.js in Resources */,
-				5469C9251F48791C00A849EC /* sqf.js in Resources */,
-				5469C8D71F48791C00A849EC /* haskell.js in Resources */,
 				5469C94F1F48791C00A849EC /* MarkdownViewController.strings in Resources */,
-				5469C8AF1F48791B00A849EC /* cos.js in Resources */,
-				5469C90B1F48791C00A849EC /* powershell.js in Resources */,
-				5469C9021F48791C00A849EC /* objectivec.js in Resources */,
-				5469C9011F48791C00A849EC /* nsis.js in Resources */,
-				5469C89A1F48791B00A849EC /* armasm.js in Resources */,
-				5469C8F21F48791C00A849EC /* markdown.js in Resources */,
-				5469C9031F48791C00A849EC /* ocaml.js in Resources */,
-				5469C8C61F48791C00A849EC /* erlang.js in Resources */,
-				5469C8EC1F48791C00A849EC /* livecodeserver.js in Resources */,
-				5469C8C81F48791C00A849EC /* fix.js in Resources */,
-				5469C8C21F48791C00A849EC /* elixir.js in Resources */,
-				5469C93B1F48791C00A849EC /* vim.js in Resources */,
-				5469C89B1F48791B00A849EC /* asciidoc.js in Resources */,
-				5469C9041F48791C00A849EC /* openscad.js in Resources */,
-				5469C8FE1F48791C00A849EC /* nginx.js in Resources */,
-				5469C8BA1F48791B00A849EC /* django.js in Resources */,
-				5469C8D41F48791C00A849EC /* groovy.js in Resources */,
-				5469C8D31F48791C00A849EC /* gradle.js in Resources */,
-				5469C92F1F48791C00A849EC /* tcl.js in Resources */,
-				5469C8DE1F48791C00A849EC /* ini.js in Resources */,
-				5469C9281F48791C00A849EC /* stata.js in Resources */,
 				54475DE71D9D949200B0BB49 /* LaunchScreen.storyboard in Resources */,
-				5469C8FA1F48791C00A849EC /* mojolicious.js in Resources */,
-				5469C8CC1F48791C00A849EC /* gams.js in Resources */,
-				5469C8A11F48791B00A849EC /* axapta.js in Resources */,
-				5469C91F1F48791C00A849EC /* scilab.js in Resources */,
-				5469C93F1F48791C00A849EC /* xquery.js in Resources */,
-				5469C8D51F48791C00A849EC /* haml.js in Resources */,
-				5469C9371F48791C00A849EC /* vbscript-html.js in Resources */,
-				5469C8921F48791B00A849EC /* 1c.js in Resources */,
 				548AFB1F1F4BD459008C6F4B /* RepositoryViewController.xib in Resources */,
-				5469C8A41F48791B00A849EC /* bnf.js in Resources */,
-				5469C9201F48791C00A849EC /* scss.js in Resources */,
-				5469C8FF1F48791C00A849EC /* nimrod.js in Resources */,
-				5469C89F1F48791B00A849EC /* avrasm.js in Resources */,
-				5469C8AB1F48791B00A849EC /* clojure.js in Resources */,
 				5469C8911F48791B00A849EC /* Localizable.strings in Resources */,
-				5469C9211F48791C00A849EC /* shell.js in Resources */,
-				5469C9121F48791C00A849EC /* python.js in Resources */,
-				5469C8F71F48791C00A849EC /* mercury.js in Resources */,
-				5469C9221F48791C00A849EC /* smali.js in Resources */,
-				5469C9311F48791C00A849EC /* thrift.js in Resources */,
-				5469C89D1F48791B00A849EC /* autohotkey.js in Resources */,
-				5469C9321F48791C00A849EC /* tp.js in Resources */,
-				5469C90F1F48791C00A849EC /* protobuf.js in Resources */,
-				5469C9091F48791C00A849EC /* php.js in Resources */,
-				5469C9351F48791C00A849EC /* vala.js in Resources */,
-				5469C93C1F48791C00A849EC /* x86asm.js in Resources */,
 				5469C9421F48791C00A849EC /* Media.xcassets in Resources */,
-				5469C9051F48791C00A849EC /* oxygene.js in Resources */,
-				5469C9071F48791C00A849EC /* perl.js in Resources */,
-				5469C8E11F48791C00A849EC /* javascript.js in Resources */,
-				5469C8F51F48791C00A849EC /* maxima.js in Resources */,
-				5469C8A01F48791B00A849EC /* awk.js in Resources */,
-				5469C8BF1F48791C00A849EC /* dts.js in Resources */,
-				5469C8DB1F48791C00A849EC /* http.js in Resources */,
-				5469C8991F48791B00A849EC /* arduino.js in Resources */,
-				5469C8CE1F48791C00A849EC /* gcode.js in Resources */,
-				5469C9101F48791C00A849EC /* puppet.js in Resources */,
-				5469C8961F48791B00A849EC /* ada.js in Resources */,
-				5469C8EF1F48791C00A849EC /* lsl.js in Resources */,
-				5469C9231F48791C00A849EC /* smalltalk.js in Resources */,
-				5469C8931F48791B00A849EC /* abnf.js in Resources */,
-				5469C8ED1F48791C00A849EC /* livescript.js in Resources */,
-				5469C8FB1F48791C00A849EC /* monkey.js in Resources */,
-				5469C8B71F48791B00A849EC /* dart.js in Resources */,
-				5469C8941F48791B00A849EC /* accesslog.js in Resources */,
 				5471AD541F48AE0A00CBDDDD /* CloneViewController.xib in Resources */,
-				5469C9271F48791C00A849EC /* stan.js in Resources */,
-				5469C8E21F48791C00A849EC /* jboss-cli.js in Resources */,
-				5469C8DD1F48791C00A849EC /* inform7.js in Resources */,
-				5469C8B41F48791B00A849EC /* csp.js in Resources */,
-				5469C8B21F48791B00A849EC /* crystal.js in Resources */,
-				5469C8C91F48791C00A849EC /* flix.js in Resources */,
-				5469C93D1F48791C00A849EC /* xl.js in Resources */,
-				5469C93E1F48791C00A849EC /* xml.js in Resources */,
-				5469C9391F48791C00A849EC /* verilog.js in Resources */,
-				5469C8E81F48791C00A849EC /* ldif.js in Resources */,
-				5469C8F81F48791C00A849EC /* mipsasm.js in Resources */,
-				5469C8F11F48791C00A849EC /* makefile.js in Resources */,
-				5469C9331F48791C00A849EC /* twig.js in Resources */,
-				5469C8D11F48791C00A849EC /* go.js in Resources */,
 				5469C9461F48791C00A849EC /* MarkdownViewController.xib in Resources */,
-				5469C9401F48791C00A849EC /* yaml.js in Resources */,
-				5469C8981F48791B00A849EC /* applescript.js in Resources */,
-				5469C8AD1F48791B00A849EC /* coffeescript.js in Resources */,
-				5469C9191F48791C00A849EC /* rsl.js in Resources */,
-				5469C90E1F48791C00A849EC /* prolog.js in Resources */,
-				5469C8CF1F48791C00A849EC /* gherkin.js in Resources */,
-				5469C8951F48791B00A849EC /* actionscript.js in Resources */,
-				5469C9291F48791C00A849EC /* step21.js in Resources */,
-				5469C89E1F48791B00A849EC /* autoit.js in Resources */,
-				5469C8A91F48791B00A849EC /* clean.js in Resources */,
 				54475DE41D9D949200B0BB49 /* Assets.xcassets in Resources */,
-				5469C9361F48791C00A849EC /* vbnet.js in Resources */,
 				5469C9441F48791C00A849EC /* .gitkeep in Resources */,
-				5469C8D91F48791C00A849EC /* hsp.js in Resources */,
-				5469C9131F48791C00A849EC /* q.js in Resources */,
-				5469C8F41F48791C00A849EC /* matlab.js in Resources */,
-				5469C8CD1F48791C00A849EC /* gauss.js in Resources */,
-				5469C8A51F48791B00A849EC /* brainfuck.js in Resources */,
-				5469C8D81F48791C00A849EC /* haxe.js in Resources */,
-				5469C8EB1F48791C00A849EC /* lisp.js in Resources */,
-				5469C9061F48791C00A849EC /* parser3.js in Resources */,
-				5469C8DC1F48791C00A849EC /* hy.js in Resources */,
-				5469C8C51F48791C00A849EC /* erlang-repl.js in Resources */,
-				5469C8C71F48791C00A849EC /* excel.js in Resources */,
-				5469C8E71F48791C00A849EC /* lasso.js in Resources */,
-				5469C8CA1F48791C00A849EC /* fortran.js in Resources */,
-				5469C8B31F48791B00A849EC /* cs.js in Resources */,
-				5469C8971F48791B00A849EC /* apache.js in Resources */,
-				5469C9241F48791C00A849EC /* sml.js in Resources */,
-				5469C8E91F48791C00A849EC /* leaf.js in Resources */,
 				54475DDF1D9D949200B0BB49 /* Main.storyboard in Resources */,
-				5469C8EE1F48791C00A849EC /* llvm.js in Resources */,
 				5448970C1F4AE1ED00DB8980 /* Info.plist in Resources */,
-				5469C91A1F48791C00A849EC /* ruby.js in Resources */,
-				5469C8E01F48791C00A849EC /* java.js in Resources */,
-				5469C89C1F48791B00A849EC /* aspectj.js in Resources */,
-				5469C9341F48791C00A849EC /* typescript.js in Resources */,
-				5469C8DF1F48791C00A849EC /* irpf90.js in Resources */,
-				5469C8B91F48791B00A849EC /* diff.js in Resources */,
-				5469C8FC1F48791C00A849EC /* moonscript.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1829,6 +1110,7 @@
 				54B55F671F2D978A00BB1C09 /* 7zBuf.c in Sources */,
 				5469C9551F48791C00A849EC /* MarkdownViewController.swift in Sources */,
 				5471AD501F48A48B00CBDDDD /* MultiMarkdown.swift in Sources */,
+				54FD23621F631A7B00CB1B97 /* Blame.swift in Sources */,
 				547E318F1F4D3F1E003C0CC5 /* RemoteViewController.swift in Sources */,
 				54B55F701F2D978A00BB1C09 /* Lzma2Dec.c in Sources */,
 				5469C94C1F48791C00A849EC /* Constant.swift in Sources */,
@@ -1873,12 +1155,14 @@
 				54B55F781F2D978A00BB1C09 /* 7zMain.c in Sources */,
 				5448970B1F4AE1ED00DB8980 /* Errors.swift in Sources */,
 				54B55F6E1F2D978A00BB1C09 /* CpuArch.c in Sources */,
+				547459FE1F628F1300B966D6 /* VKDiffView.swift in Sources */,
 				5469C9591F48791C00A849EC /* RepositoryModel.swift in Sources */,
 				54B55F731F2D978A00BB1C09 /* Ppmd7.c in Sources */,
 				5471AD531F48AE0A00CBDDDD /* CloneViewController.swift in Sources */,
 				54B55F6B1F2D978A00BB1C09 /* 7zIn.c in Sources */,
 				54B55F681F2D978A00BB1C09 /* 7zBuf2.c in Sources */,
 				5469C9521F48791C00A849EC /* Extension.swift in Sources */,
+				54FD23601F63101500CB1B97 /* Reflog.swift in Sources */,
 				54B55F721F2D978A00BB1C09 /* LZMAExtractor.m in Sources */,
 				5469C95C1F48791C00A849EC /* RGBtoHSV.swift in Sources */,
 				54779DC91F54749900AEC1C0 /* SettingsTableViewController.swift in Sources */,

@@ -17,6 +17,8 @@ class SourceViewController: BaseViewController{
     
     var sourceTV: VKTextView = VKTextView()
     var bottomBar : UITabBar = UITabBar()
+    var diffView : VKDiffView = VKDiffView()
+    
     
     var saveItem : UIBarButtonItem = UIBarButtonItem()
     
@@ -37,25 +39,36 @@ class SourceViewController: BaseViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.addSubview(sourceTV)
+        self.view.addSubview(diffView)
         self.view.addSubview(bottomBar)
+        
+        
         
         let contentItem = UITabBarItem(tabBarSystemItem: .downloads , tag: 1)
         let changeItem = UITabBarItem(tabBarSystemItem: .featured, tag: 2)
         
+        bottomBar.delegate = self
         bottomBar.setItems([contentItem,changeItem], animated: true)
         bottomBar.tintColor = .black
         
         bottomBar.snp.makeConstraints{ make in
             make.bottom.equalTo(0)
-            make.top.equalTo(0)
             make.left.equalTo(0)
+            make.width.equalTo(self.view)
             make.height.equalTo(50)
         }
-        
+
         sourceTV.snp.makeConstraints{ make in
             make.top.equalTo(0)
+            make.left.equalTo(0)
+            make.width.equalTo(self.view)
+            make.height.equalTo(self.view).offset(-50)
+        }
+        
+        
+        diffView.snp.makeConstraints{ make in
+            make.top.equalTo(64)
             make.left.equalTo(0)
             make.width.equalTo(self.view)
             make.height.equalTo(self.view).offset(-50)
@@ -78,7 +91,9 @@ class SourceViewController: BaseViewController{
         saveItem = UIBarButtonItem(customView: saveBtn)
 //        self.navigationItem.rightBarButtonItem = saveItem
 
+//        self.navigationItem.leftBarButtonItems?.append((self.splitViewController?.displayModeButtonItem)!)
         
+        self.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
         
         DispatchQueue.global().async{
             let startDate = Date()
@@ -105,10 +120,13 @@ class SourceViewController: BaseViewController{
             
             DispatchQueue.main.async {
                 self.sourceTV.attributedText = highlightedCode
-                
+                self.diffView.beforeView.attributedText = highlightedCode
 //                self.sourceTV.backgroundColor = UIColor.hexColor(0x1F2029)
             }
         }
+        
+        
+        
         
     }
     
@@ -197,6 +215,19 @@ extension SourceViewController : UITextViewDelegate {
 
 extension SourceViewController : UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+    }
+}
+
+extension SourceViewController : UITabBarDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        if item.tag == 1 {
+            diffView.isHidden = true
+        }
+        else if item.tag == 2 {
+            diffView.isHidden = false
+        }
         
     }
 }
