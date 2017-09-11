@@ -106,6 +106,7 @@
 		54B55F781F2D978A00BB1C09 /* 7zMain.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F1A1F2D978A00BB1C09 /* 7zMain.c */; };
 		54B55F791F2D978A00BB1C09 /* RARExtractException.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F571F2D978A00BB1C09 /* RARExtractException.m */; };
 		54B55F7A1F2D978A00BB1C09 /* Unrar4iOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F581F2D978A00BB1C09 /* Unrar4iOS.mm */; };
+		54B7BC031F6685F600B3D5D2 /* WebBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7BC011F6685F600B3D5D2 /* WebBrowserController.swift */; };
 		54B8C6A01F65A25A00EFA888 /* Pathspec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B8C69F1F65A25A00EFA888 /* Pathspec.swift */; };
 		54C835571F4ACF2800085756 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C835561F4ACF2800085756 /* libiconv.tbd */; };
 		54D3D9781DA55B4800BD009C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3D9771DA55B4800BD009C /* libz.tbd */; };
@@ -340,6 +341,7 @@
 		54B55F561F2D978A00BB1C09 /* RARExtractException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RARExtractException.h; sourceTree = "<group>"; };
 		54B55F571F2D978A00BB1C09 /* RARExtractException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RARExtractException.m; sourceTree = "<group>"; };
 		54B55F581F2D978A00BB1C09 /* Unrar4iOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Unrar4iOS.mm; sourceTree = "<group>"; };
+		54B7BC011F6685F600B3D5D2 /* WebBrowserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserController.swift; sourceTree = "<group>"; };
 		54B8C69F1F65A25A00EFA888 /* Pathspec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pathspec.swift; sourceTree = "<group>"; };
 		54C835561F4ACF2800085756 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		54D3D9771DA55B4800BD009C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -460,6 +462,7 @@
 				547E318E1F4D3F1E003C0CC5 /* RemoteViewController.xib */,
 				54779DC81F54749900AEC1C0 /* SettingsTableViewController.swift */,
 				5490E20E1F5516A30041D232 /* DefaultsKeys.swift */,
+				54B7BC011F6685F600B3D5D2 /* WebBrowserController.swift */,
 			);
 			path = VKFileBrowserDemo;
 			sourceTree = "<group>";
@@ -1147,6 +1150,7 @@
 				5487DF761F526C3300E411D5 /* Status.swift in Sources */,
 				54008A901F5E970C005CCE1B /* VKLayoutManager.swift in Sources */,
 				5469C9651F48791C00A849EC /* MarkdownTextAttachment.swift in Sources */,
+				54B7BC031F6685F600B3D5D2 /* WebBrowserController.swift in Sources */,
 				544897141F4AE1ED00DB8980 /* SwiftGit2.m in Sources */,
 				5469C95F1F48791C00A849EC /* VKFile.swift in Sources */,
 				54B8C6A01F65A25A00EFA888 /* Pathspec.swift in Sources */,

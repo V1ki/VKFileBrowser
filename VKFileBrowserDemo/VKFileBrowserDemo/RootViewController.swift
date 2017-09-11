@@ -162,6 +162,18 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
             
             
         })
+        
+        let debugHtmlAction = UIAlertAction(title: LocalizedString("Debug html"), style: .default, handler: {(action) in
+            let vc = WebBrowserController()
+            if let splitVc = self.splitViewController {
+                splitVc.preferredDisplayMode = .primaryHidden
+            }
+            
+            self.pushDetailViewController(vc, sender: nil)
+            
+            
+            
+        })
         let initRepositoryAction = UIAlertAction(title: LocalizedString("Init Repository"), style: .default, handler: {(action) in
             let fileUrl = URL(fileURLWithPath: self.currentDir)
             self.repo = Repository.create(at: fileUrl).value
@@ -193,6 +205,7 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         alertController.addAction(createFileAction)
         alertController.addAction(gitCloneAction)
         alertController.addAction(initRepositoryAction)
+        alertController.addAction(debugHtmlAction)
         
 //        self.detailViewController()?.present(alertController, animated: true, completion: nil)
         let popover = alertController.popoverPresentationController

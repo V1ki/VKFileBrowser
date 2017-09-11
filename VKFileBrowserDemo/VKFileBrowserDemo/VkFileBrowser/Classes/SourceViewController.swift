@@ -236,10 +236,10 @@ extension SourceViewController : UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         
         if item.tag == 1 {
-            diffView.isHidden = true
+//            diffView.isHidden = true
         }
         else if item.tag == 2 {
-            diffView.isHidden = false
+//            diffView.isHidden = false
         }
         
     }
