@@ -132,7 +132,7 @@ extension Repository {
             return
         }
         
-        log("statusFlags:\(statusFlags)")
+        print("statusFlags:\(statusFlags)")
         
         
         

@@ -80,6 +80,8 @@
 		548AFB1E1F4BD459008C6F4B /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AFB1C1F4BD459008C6F4B /* RepositoryViewController.swift */; };
 		548AFB1F1F4BD459008C6F4B /* RepositoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548AFB1D1F4BD459008C6F4B /* RepositoryViewController.xib */; };
 		548C5F6C1F5D471000C454D9 /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C5F6B1F5D471000C454D9 /* Branch.swift */; };
+		548D345A1F6576CF00D50114 /* Revwalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548D34581F6576CE00D50114 /* Revwalk.swift */; };
+		548D345B1F6576CF00D50114 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548D34591F6576CE00D50114 /* Log.swift */; };
 		5490E20F1F5516A30041D232 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5490E20E1F5516A30041D232 /* DefaultsKeys.swift */; };
 		54962AA61F53B07800E75239 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54962AA51F53B07800E75239 /* Security.framework */; };
 		54962AA81F53C24100E75239 /* HEAD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54962AA71F53C24100E75239 /* HEAD.swift */; };
@@ -104,6 +106,7 @@
 		54B55F781F2D978A00BB1C09 /* 7zMain.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F1A1F2D978A00BB1C09 /* 7zMain.c */; };
 		54B55F791F2D978A00BB1C09 /* RARExtractException.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F571F2D978A00BB1C09 /* RARExtractException.m */; };
 		54B55F7A1F2D978A00BB1C09 /* Unrar4iOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F581F2D978A00BB1C09 /* Unrar4iOS.mm */; };
+		54B8C6A01F65A25A00EFA888 /* Pathspec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B8C69F1F65A25A00EFA888 /* Pathspec.swift */; };
 		54C835571F4ACF2800085756 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C835561F4ACF2800085756 /* libiconv.tbd */; };
 		54D3D9781DA55B4800BD009C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3D9771DA55B4800BD009C /* libz.tbd */; };
 		54D3D97A1DA55BBC00BD009C /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3D9791DA55BBC00BD009C /* libxml2.tbd */; };
@@ -236,6 +239,8 @@
 		548AFB1C1F4BD459008C6F4B /* RepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		548AFB1D1F4BD459008C6F4B /* RepositoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepositoryViewController.xib; sourceTree = "<group>"; };
 		548C5F6B1F5D471000C454D9 /* Branch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
+		548D34581F6576CE00D50114 /* Revwalk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Revwalk.swift; sourceTree = "<group>"; };
+		548D34591F6576CE00D50114 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		5490E20E1F5516A30041D232 /* DefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		54962AA51F53B07800E75239 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		54962AA71F53C24100E75239 /* HEAD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEAD.swift; sourceTree = "<group>"; };
@@ -335,6 +340,7 @@
 		54B55F561F2D978A00BB1C09 /* RARExtractException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RARExtractException.h; sourceTree = "<group>"; };
 		54B55F571F2D978A00BB1C09 /* RARExtractException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RARExtractException.m; sourceTree = "<group>"; };
 		54B55F581F2D978A00BB1C09 /* Unrar4iOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Unrar4iOS.mm; sourceTree = "<group>"; };
+		54B8C69F1F65A25A00EFA888 /* Pathspec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pathspec.swift; sourceTree = "<group>"; };
 		54C835561F4ACF2800085756 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		54D3D9771DA55B4800BD009C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		54D3D9791DA55BBC00BD009C /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
@@ -547,6 +553,8 @@
 		5469C8741F48791B00A849EC /* Git */ = {
 			isa = PBXGroup;
 			children = (
+				548D34591F6576CE00D50114 /* Log.swift */,
+				548D34581F6576CE00D50114 /* Revwalk.swift */,
 				5469C8751F48791B00A849EC /* RepositoryUtils.swift */,
 				5487DF731F526B5A00E411D5 /* Diff.swift */,
 				5487DF751F526C3300E411D5 /* Status.swift */,
@@ -556,6 +564,7 @@
 				5480A9BD1F5DBBF20064F1D5 /* Remote.swift */,
 				54FD235F1F63101500CB1B97 /* Reflog.swift */,
 				54FD23611F631A7B00CB1B97 /* Blame.swift */,
+				54B8C69F1F65A25A00EFA888 /* Pathspec.swift */,
 			);
 			path = Git;
 			sourceTree = "<group>";
@@ -1105,6 +1114,7 @@
 				54B55F791F2D978A00BB1C09 /* RARExtractException.m in Sources */,
 				5480A9BE1F5DBBF20064F1D5 /* Remote.swift in Sources */,
 				54008A8C1F5E92E0005CCE1B /* VKTextView.swift in Sources */,
+				548D345A1F6576CF00D50114 /* Revwalk.swift in Sources */,
 				54B55F6A1F2D978A00BB1C09 /* 7zFile.c in Sources */,
 				54F7DA2B1F468ACC001F2299 /* zip.c in Sources */,
 				54B55F671F2D978A00BB1C09 /* 7zBuf.c in Sources */,
@@ -1125,6 +1135,7 @@
 				54B55F691F2D978A00BB1C09 /* 7zDec.c in Sources */,
 				5469C94B1F48791C00A849EC /* BaseViewController.swift in Sources */,
 				54475DDC1D9D949200B0BB49 /* ViewController.swift in Sources */,
+				548D345B1F6576CF00D50114 /* Log.swift in Sources */,
 				5490E20F1F5516A30041D232 /* DefaultsKeys.swift in Sources */,
 				5448970D1F4AE1ED00DB8980 /* Libgit2.swift in Sources */,
 				544897111F4AE1ED00DB8980 /* References.swift in Sources */,
@@ -1138,6 +1149,7 @@
 				5469C9651F48791C00A849EC /* MarkdownTextAttachment.swift in Sources */,
 				544897141F4AE1ED00DB8980 /* SwiftGit2.m in Sources */,
 				5469C95F1F48791C00A849EC /* VKFile.swift in Sources */,
+				54B8C6A01F65A25A00EFA888 /* Pathspec.swift in Sources */,
 				5469C9601F48791C00A849EC /* VKFileBrowser.swift in Sources */,
 				547600E61F46E2650014AC95 /* RootViewController.swift in Sources */,
 				54F7DA281F468ACC001F2299 /* ioapi.c in Sources */,

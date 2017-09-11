@@ -30,5 +30,5 @@
 * [x] checkout commit
 * [x] checkout commit
 * [x] add line number
-* [ ] add file change
+* [ ]  html debug 
 

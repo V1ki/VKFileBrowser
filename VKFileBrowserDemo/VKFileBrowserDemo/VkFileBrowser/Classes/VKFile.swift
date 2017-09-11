@@ -33,12 +33,29 @@ class VKFile: NSObject {
     var fileSize : Int? = 0
     var creationDate : NSDate?
     
-    
-    
-    var gitPath : String? {
-        get{
-            return name
+    //repo?.log(file.gitpath(repo?.directoryURL?.path)!)
+    func gitpath(_ repo:Repository?) -> String?{
+        
+        if repo == nil {
+            return nil
         }
+        var repoPath = repo?.directoryURL?.path
+        let fileUrl = self.toFileURL()
+        let filePathStr = fileUrl.path
+        
+        
+        let lastRepoPath = repoPath!.components(separatedBy: documentDir).last
+        let lastFilePath = filePathStr.components(separatedBy: documentDir).last
+        
+        if lastFilePath!.contains(lastRepoPath!) {
+            if let gitpath = lastFilePath!.components(separatedBy: lastRepoPath!).last {
+                let gitpathStr = gitpath.substring(from: gitpath.index(gitpath.startIndex, offsetBy: 1))
+                print("gitPath:\(gitpathStr)")
+                return gitpathStr
+            }
+        }
+        return nil
+        
     }
     
     override var description: String {
@@ -56,7 +73,7 @@ class VKFile: NSObject {
     }
     
     
-    func toFileURL() -> URL{
+    func toFileURL(_ repoPath:String? = nil ) -> URL{
         let fileUrl = URL(fileURLWithPath: filePath.appending("/\(name!)"))
         
         return fileUrl

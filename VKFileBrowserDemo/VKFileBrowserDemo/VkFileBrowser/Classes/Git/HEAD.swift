@@ -18,7 +18,7 @@ extension Repository {
         error = git_repository_set_head_detached(self.pointer, &oid);
         guard error == GIT_OK.rawValue else{
             
-            log("error:\(NSError(gitError: error, pointOfFailure: "git_repository_set_head_detached"))")
+            print("error:\(NSError(gitError: error, pointOfFailure: "git_repository_set_head_detached"))")
             return Result.failure(NSError(gitError: error, pointOfFailure: "git_repository_set_head_detached"))
         }
         print("moveHEADToCommit success")
@@ -30,7 +30,7 @@ extension Repository {
         error = git_repository_set_head(self.pointer, refname)
         guard error == GIT_OK.rawValue else{
             
-            log("error:\(NSError(gitError: error, pointOfFailure: "git_repository_set_head"))")
+            print("error:\(NSError(gitError: error, pointOfFailure: "git_repository_set_head"))")
             return Result.failure(NSError(gitError: error, pointOfFailure: "git_repository_set_head"))
         }
         print("moveHEADToRefname success")

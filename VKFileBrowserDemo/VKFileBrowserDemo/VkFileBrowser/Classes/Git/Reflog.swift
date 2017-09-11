@@ -19,12 +19,18 @@ extension Repository {
         }
         
         let count = git_reflog_entrycount(reflogPointer)
-        
+        print("count:\(count)")
         for i in 0..<count {
             let logEntry = git_reflog_entry_byindex(reflogPointer, i)
             
+            let entryMessage = git_reflog_entry_message(logEntry)
+            
+            print("entryMesssage:\(String(validatingUTF8:entryMessage!)! )")
         }
         
     }
+    
+    
+    
     
 }

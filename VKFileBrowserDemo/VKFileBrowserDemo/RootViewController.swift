@@ -28,7 +28,7 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
     var shouldGoPrev = false
     var shouldNoAnim = false
     
-    var currentRepo : Repository?
+    var repo : Repository?
     var currentStatus = [String:StatusEntry]()
     
     var currentDir : String! {
@@ -164,7 +164,7 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         })
         let initRepositoryAction = UIAlertAction(title: LocalizedString("Init Repository"), style: .default, handler: {(action) in
             let fileUrl = URL(fileURLWithPath: self.currentDir)
-            self.currentRepo = Repository.create(at: fileUrl).value
+            self.repo = Repository.create(at: fileUrl).value
             
             self.tableView.reloadData()
             
@@ -231,11 +231,11 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         if(endRange != nil){
             let str = currentDir.substring(with: currentDir.startIndex..<(endRange?.lowerBound)!)
 
-            if(currentRepo != nil){
-                let path = (currentRepo?.directoryURL?.path)!
+            if(repo != nil){
+                let path = (repo?.directoryURL?.path)!
                 let pathStr = path.components(separatedBy: documentDir).last?.trimmingCharacters(in: .whitespacesAndNewlines)
                 if(!str.contains(pathStr!)){
-                    currentRepo = nil
+                    repo = nil
                 }
                 
             }
@@ -250,9 +250,9 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
     }
     
     func reloadCurPage(){
-        if(currentRepo != nil){
+        if(repo != nil){
             currentStatus.removeAll()
-            let statusResult = currentRepo?.allStatus()
+            let statusResult = repo?.allStatus()
             if let allStatus = statusResult?.value {
                 
                 if(allStatus.count > 0){
@@ -284,8 +284,8 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         currentDir = path
         
         DispatchQueue.main.async {
-            let indexSet = self.currentRepo == nil ? IndexSet(integer: 0) : IndexSet(integersIn: 0...1)
-            if( self.currentRepo == nil){
+            let indexSet = self.repo == nil ? IndexSet(integer: 0) : IndexSet(integersIn: 0...1)
+            if( self.repo == nil){
                 self.tableView.reloadData()
 //                self.tableView.reloadSections(indexSet, with: self.shouldNoAnim ? .none : (self.shouldGoPrev ? .right: .left))
             }
@@ -308,21 +308,21 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         
         if file.isDirectory {
             
-            if(currentRepo != nil){
+            if(repo != nil){
                 if(!fileDir.contains(self.currentDir)){
                     
-                    currentRepo = nil
+                    repo = nil
                 }
                 
             }
-            if (currentRepo == nil){
+            if (repo == nil){
                 if RepositoryUtils.isGitRepository(file.toFileURL()) {
                     //当前处于git仓库下
-                    currentRepo = RepositoryUtils.at(file.toFileURL()).value
+                    repo = RepositoryUtils.at(file.toFileURL()).value
                     
                     //读取status
                     
-                    let statusResult = currentRepo?.allStatus()
+                    let statusResult = repo?.allStatus()
                     if let allStatus = statusResult?.value {
                         
                         if(allStatus.count > 0){
@@ -387,13 +387,18 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
             else if(file.isDataType()){
                 
                 
-//                currentRepo?.diffFile("README")
-                currentRepo?.blame(filePath: file.gitPath!)
+//                repo?.diffFile("README")
+//                repo?.blame(filePath: file.gitPath!)
+//                repo?.revwalk()
+//                repo?.log()
+                
 //                return
+                //repo?.log(file.gitpath(currentRepo?.directoryURL?.path)!)
                 
                 
                 let sourceCodeVC = SourceViewController()
                 sourceCodeVC.mFile = file
+                sourceCodeVC.repo = repo
                 
                 self.pushDetailViewController(sourceCodeVC, sender: nil)
                 return
@@ -424,7 +429,7 @@ extension RootViewController  {
     
     
     func createCell(_ indexPath: IndexPath) -> UITableViewCell{
-        if(currentRepo != nil && indexPath.section == 0){
+        if(repo != nil && indexPath.section == 0){
             let cell = UITableViewCell(style:.subtitle , reuseIdentifier: repoReuseIdentifier)
             cell.textLabel?.text = LocalizedString("Repository")
             cell.detailTextLabel?.text = LocalizedString("Status and Configuration")
@@ -488,7 +493,7 @@ extension RootViewController  {
         //
         
         let commitButton = MGSwipeButton(title: "Commit", backgroundColor: .flatGreen){cell in
-            let commitResult = self.currentRepo!.commitFiles([file.gitPath!], true)
+            let commitResult = self.repo!.commitFiles([file.gitpath(self.repo)!], true)
             
             if let error = commitResult.error {
                 
@@ -511,7 +516,7 @@ extension RootViewController  {
         if(!file.isDirectory){
             
             
-            if let path = (currentRepo?.directoryURL?.path) {
+            if let path = (repo?.directoryURL?.path) {
                 let pathStr = path.components(separatedBy: documentDir).last?.trimmingCharacters(in: .whitespacesAndNewlines)
                 if(!file.filePath.contains(pathStr!)){
                     cell?.rightButtons = [actionButton]
@@ -544,16 +549,16 @@ extension RootViewController  {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        if(currentRepo != nil && section == 0){ return 1}
+        if(repo != nil && section == 0){ return 1}
         return dataSource.count
     }
     
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if(currentRepo != nil && section == 0){
+        if(repo != nil && section == 0){
             return nil
         }
-        if(currentRepo != nil && section == 1){
+        if(repo != nil && section == 1){
             return "master branch"
         }
         
@@ -562,7 +567,7 @@ extension RootViewController  {
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if(currentRepo != nil){ return 2}
+        if(repo != nil){ return 2}
         return 1
     }
     
@@ -577,12 +582,12 @@ extension RootViewController  {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if(self.currentRepo != nil &&  indexPath.section == 0){
+        if(self.repo != nil &&  indexPath.section == 0){
             
             
             let repoVC = RepositoryViewController()
             
-            repoVC.currentRepo = currentRepo
+            repoVC.currentRepo = repo
             
             self.pushDetailViewController(repoVC, sender: nil)
             

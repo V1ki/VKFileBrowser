@@ -131,7 +131,7 @@ extension Repository {
         //如果lastCommit 是空，表示没有文件。
         let result = RepositoryUtils.makeTree(self, files)
         if(result.error != nil){
-            log("error:\(result.error )")
+            print("error:\(result.error )")
             return .failure(result.error!)
         }
         
@@ -141,14 +141,14 @@ extension Repository {
         var newTree : OpaquePointer? = nil
         error = git_tree_lookup(&newTree, self.pointer, &treeOid)
         guard(error == GIT_OK.rawValue) else{
-            log("error:\(NSError(gitError: error, pointOfFailure: "git_tree_lookup"))")
+            print("error:\(NSError(gitError: error, pointOfFailure: "git_tree_lookup"))")
             return failure(error, "git_tree_lookup")
         }
         var headPointer : OpaquePointer? = nil
         error = git_repository_head(&headPointer, self.pointer)
         
         guard(error == GIT_OK.rawValue) else{
-            log("error:\(NSError(gitError: error, pointOfFailure: "git_repository_head"))")
+            print("error:\(NSError(gitError: error, pointOfFailure: "git_repository_head"))")
             return failure(error, "git_repository_head")
         }
         
@@ -167,7 +167,7 @@ extension Repository {
         var signatureResult = userSignatureForNow()
         
         if(signatureResult.error != nil){
-            log("error:\(signatureResult.error)")
+            print("error:\(signatureResult.error)")
             return .failure(signatureResult.error!)
         }
         var signature = (signatureResult.value)!

@@ -17,8 +17,10 @@ class SourceViewController: BaseViewController{
     
     var sourceTV: VKTextView = VKTextView()
     var bottomBar : UITabBar = UITabBar()
-    var diffView : VKDiffView = VKDiffView()
+//    var diffView : VKDiffView = VKDiffView()
     
+    var repo : Repository? 
+    var commits : [Commit] = [Commit]()
     
     var saveItem : UIBarButtonItem = UIBarButtonItem()
     
@@ -40,8 +42,8 @@ class SourceViewController: BaseViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(sourceTV)
-        self.view.addSubview(diffView)
-        self.view.addSubview(bottomBar)
+//        self.view.addSubview(diffView)
+//        self.view.addSubview(bottomBar)
         
         
         
@@ -51,28 +53,28 @@ class SourceViewController: BaseViewController{
         bottomBar.delegate = self
         bottomBar.setItems([contentItem,changeItem], animated: true)
         bottomBar.tintColor = .black
-        
-        bottomBar.snp.makeConstraints{ make in
-            make.bottom.equalTo(0)
-            make.left.equalTo(0)
-            make.width.equalTo(self.view)
-            make.height.equalTo(50)
-        }
+//
+//        bottomBar.snp.makeConstraints{ make in
+//            make.bottom.equalTo(0)
+//            make.left.equalTo(0)
+//            make.width.equalTo(self.view)
+//            make.height.equalTo(50)
+//        }
 
         sourceTV.snp.makeConstraints{ make in
             make.top.equalTo(0)
             make.left.equalTo(0)
             make.width.equalTo(self.view)
-            make.height.equalTo(self.view).offset(-50)
+            make.height.equalTo(self.view)
         }
         
-        
-        diffView.snp.makeConstraints{ make in
-            make.top.equalTo(64)
-            make.left.equalTo(0)
-            make.width.equalTo(self.view)
-            make.height.equalTo(self.view).offset(-50)
-        }
+//
+//        diffView.snp.makeConstraints{ make in
+//            make.top.equalTo(64)
+//            make.left.equalTo(0)
+//            make.width.equalTo(self.view)
+//            make.height.equalTo(self.view).offset(-50)
+//        }
         
 //        sourceTV.frame = CGRect(x: 0, y: 0, width: self.view.width , height: self.view.snp.height)
 
@@ -94,7 +96,9 @@ class SourceViewController: BaseViewController{
 //        self.navigationItem.leftBarButtonItems?.append((self.splitViewController?.displayModeButtonItem)!)
         
         self.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
-        
+        DispatchQueue.main.async {
+            SVProgressHUD.show()
+        }
         DispatchQueue.global().async{
             let startDate = Date()
             
@@ -120,9 +124,18 @@ class SourceViewController: BaseViewController{
             
             DispatchQueue.main.async {
                 self.sourceTV.attributedText = highlightedCode
-                self.diffView.beforeView.attributedText = highlightedCode
-//                self.sourceTV.backgroundColor = UIColor.hexColor(0x1F2029)
+//                self.diffView.beforeView.attributedText = highlightedCode
+                //                self.sourceTV.backgroundColor = UIColor.hexColor(0x1F2029)
+                SVProgressHUD.dismiss()
             }
+            
+            if let repo = self.repo {
+                if let gitPath = self.mFile.gitpath(repo) {
+                    self.commits = repo.log(gitPath)
+                }
+                
+            }
+
         }
         
         
