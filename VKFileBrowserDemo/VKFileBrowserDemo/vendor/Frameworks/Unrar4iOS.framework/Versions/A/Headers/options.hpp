@@ -1,36 +1,27 @@
 #ifndef _RAR_OPTIONS_
 #define _RAR_OPTIONS_
 
-#define DEFAULT_RECOVERY     -1
+#define DEFAULT_RECOVERY    -1
 
 #define DEFAULT_RECVOLUMES  -10
 
-#define VOLSIZE_AUTO   INT64NDF // Automatically detect the volume size.
-
 enum PATH_EXCL_MODE {
-  EXCL_UNCHANGED=0,    // Process paths as is (default).
-  EXCL_SKIPWHOLEPATH,  // -ep  (exclude the path completely)
-  EXCL_BASEPATH,       // -ep1 (exclude the base part of path)
-  EXCL_SAVEFULLPATH,   // -ep2 (the full path without the disk letter)
-  EXCL_ABSPATH,        // -ep3 (the full path with the disk letter)
-
-  EXCL_SKIPABSPATH     // Works as EXCL_BASEPATH for fully qualified paths
-                       // and as EXCL_UNCHANGED for relative paths.
-                       // Used by WinRAR GUI only.
+  EXCL_NONE,EXCL_BASEPATH,EXCL_SKIPWHOLEPATH,EXCL_SAVEFULLPATH,
+  EXCL_SKIPABSPATH,EXCL_ABSPATH
 };
 
 enum {SOLID_NONE=0,SOLID_NORMAL=1,SOLID_COUNT=2,SOLID_FILEEXT=4,
       SOLID_VOLUME_DEPENDENT=8,SOLID_VOLUME_INDEPENDENT=16};
 
-enum {ARCTIME_NONE=0,ARCTIME_KEEP,ARCTIME_LATEST};
+enum {ARCTIME_NONE,ARCTIME_KEEP,ARCTIME_LATEST};
 
 enum EXTTIME_MODE {
-  EXTTIME_NONE=0,EXTTIME_1S,EXTTIME_HIGH1,EXTTIME_HIGH2,EXTTIME_HIGH3
+  EXTTIME_NONE,EXTTIME_1S,EXTTIME_HIGH1,EXTTIME_HIGH2,EXTTIME_HIGH3
 };
 
-enum {NAMES_ORIGINALCASE=0,NAMES_UPPERCASE,NAMES_LOWERCASE};
+enum {NAMES_ORIGINALCASE,NAMES_UPPERCASE,NAMES_LOWERCASE};
 
-enum MESSAGE_TYPE {MSG_STDOUT=0,MSG_STDERR,MSG_ERRONLY,MSG_NULL};
+enum MESSAGE_TYPE {MSG_STDOUT,MSG_STDERR,MSG_ERRONLY,MSG_NULL};
 
 enum RECURSE_MODE 
 {
@@ -51,7 +42,7 @@ enum OVERWRITE_MODE
 
 enum RAR_CHARSET { RCH_DEFAULT=0,RCH_ANSI,RCH_OEM,RCH_UNICODE };
 
-#define     MAX_FILTER_TYPES           16
+#define     MAX_FILTERS           16
 enum FilterState {FILTER_DEFAULT=0,FILTER_AUTO,FILTER_FORCE,FILTER_DISABLE};
 
 
@@ -61,8 +52,6 @@ struct FilterMode
   int Param1;
   int Param2;
 };
-
-#define MAX_GENERATE_MASK  128
 
 
 class RAROptions
@@ -77,16 +66,15 @@ class RAROptions
     bool InclAttrSet;
     uint WinSize;
     char TempPath[NM];
-    bool ConfigDisabled; // Switch -cfg-.
+    char SFXModule[NM];
     char ExtrPath[NM];
     wchar ExtrPathW[NM];
     char CommentFile[NM];
-    wchar CommentFileW[NM];
     RAR_CHARSET CommentCharset;
     RAR_CHARSET FilelistCharset;
     char ArcPath[NM];
     wchar ArcPathW[NM];
-    SecPassword Password;
+    char Password[MAXPASSWORD];
     bool EncryptHeaders;
     char LogName[NM];
     MESSAGE_TYPE MsgStream;
@@ -121,13 +109,12 @@ class RAROptions
     int Priority;
     int SleepTime;
     bool KeepBroken;
+    bool EraseDisk;
     bool OpenShared;
     bool DeleteFiles;
-#ifndef SFX_MODULE
-    bool GenerateArcName;
-    char GenerateMask[MAX_GENERATE_MASK];
-#endif
     bool SyncFiles;
+    bool GenerateArcName;
+    char GenerateMask[80];
     bool ProcessEA;
     bool SaveStreams;
     bool SetCompressedAttr;
@@ -140,7 +127,7 @@ class RAROptions
     bool Lock;
     bool Test;
     bool VolumePause;
-    FilterMode FilterModes[MAX_FILTER_TYPES];
+    FilterMode FilterModes[MAX_FILTERS];
     char EmailTo[NM];
     uint VersionControl;
     bool NoEndBlock;
@@ -152,7 +139,7 @@ class RAROptions
     EXTTIME_MODE xarctime;
     char CompressStdin[NM];
 
-#ifdef RAR_SMP
+#ifdef PACK_SMP
     uint Threads;
 #endif
 

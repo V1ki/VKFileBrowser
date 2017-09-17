@@ -22,4 +22,8 @@ extension DefaultsKeys {
     static let url = DefaultsKey<String?>("url")
     static let port = DefaultsKey<Int>("port")
     
+    
+    // MARK: - Debug HTML settings
+    static let consoleViewHeight = DefaultsKey<Double>("consoleViewHeight")
+    
 }

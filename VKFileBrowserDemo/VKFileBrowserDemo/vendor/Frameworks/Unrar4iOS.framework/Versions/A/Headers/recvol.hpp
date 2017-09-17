@@ -6,10 +6,6 @@ class RecVolumes
   private:
     File *SrcFile[256];
     Array<byte> Buf;
-
-#ifdef RAR_SMP
-    ThreadPool RSThreadPool;
-#endif
   public:
     RecVolumes();
     ~RecVolumes();

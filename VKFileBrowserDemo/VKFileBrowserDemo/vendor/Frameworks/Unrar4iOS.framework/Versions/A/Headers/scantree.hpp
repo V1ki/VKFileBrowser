@@ -19,7 +19,7 @@ class ScanTree
 {
   private:
     bool GetNextMask();
-    SCAN_CODE FindProc(FindData *FD);
+    SCAN_CODE FindProc(FindData *FindData);
 
     FindFile *FindStack[MAXSCANDEPTH];
     int Depth;

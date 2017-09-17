@@ -23,7 +23,9 @@ target "VKFileBrowserDemo" do
  pod "MGSwipeTableCell"
  pod "Result"
  pod 'ReachabilitySwift'
-# pod "RealmSwift"
+ pod "RealmSwift"
+ pod "RxRealm"
+ pod "RxRealmDataSources"
 # pod "Texture"
 # pod "DZNEmptyDataSet"
 # pod "IGListKit"
@@ -33,7 +35,7 @@ target "VKFileBrowserDemo" do
 # pod "PermissionScope"
 # pod "FileKit"
  pod "SwiftyUserDefaults"
-# pod "Hero"
+ pod "Hero"
 # pod "Hedwig"
 # pod "DeviceKit"
 # pod "Charts"
@@ -57,6 +59,7 @@ target "VKFileBrowserDemo" do
  pod "SCLAlertView"
  pod 'SnapKit'
  pod 'CYRTextView'
+ pod 'TinyConsole'
 # pod "Quick"
 # pod "Nimble"
  

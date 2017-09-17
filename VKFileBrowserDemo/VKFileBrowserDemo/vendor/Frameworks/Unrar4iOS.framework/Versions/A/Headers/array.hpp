@@ -15,11 +15,10 @@ template <class T> class Array
     ~Array();
     inline void CleanData();
     inline T& operator [](size_t Item);
-    inline size_t Size(); // Returns the size in items, not in bytes.
+    inline size_t Size();
     void Add(size_t Items);
     void Alloc(size_t Items);
     void Reset();
-    void SoftReset();
     void operator = (Array<T> &Src);
     void Push(T Item);
     T* Addr() {return(Buffer);}
@@ -41,7 +40,7 @@ template <class T> Array<T>::Array()
 
 template <class T> Array<T>::Array(size_t Size)
 {
-  Buffer=(T *)malloc(sizeof(T)*Size);
+  Buffer=(T *)rarmalloc(sizeof(T)*Size);
   if (Buffer==NULL && Size!=0)
     ErrHandler.MemoryError();
 
@@ -52,7 +51,7 @@ template <class T> Array<T>::Array(size_t Size)
 template <class T> Array<T>::~Array()
 {
   if (Buffer!=NULL)
-    free(Buffer);
+    rarfree(Buffer);
 }
 
 
@@ -76,7 +75,7 @@ template <class T> void Array<T>::Add(size_t Items)
     size_t Suggested=AllocSize+AllocSize/4+32;
     size_t NewSize=Max(BufSize,Suggested);
 
-    Buffer=(T *)realloc(Buffer,NewSize*sizeof(T));
+    Buffer=(T *)rarrealloc(Buffer,NewSize*sizeof(T));
     if (Buffer==NULL)
       ErrHandler.MemoryError();
     AllocSize=NewSize;
@@ -97,19 +96,11 @@ template <class T> void Array<T>::Reset()
 {
   if (Buffer!=NULL)
   {
-    free(Buffer);
+    rarfree(Buffer);
     Buffer=NULL;
   }
   BufSize=0;
   AllocSize=0;
-}
-
-
-// Reste buffer size, but preserve already allocated memory if any,
-// so we can reuse it without wasting time to allocation.
-template <class T> void Array<T>::SoftReset()
-{
-  BufSize=0;
 }
 
 

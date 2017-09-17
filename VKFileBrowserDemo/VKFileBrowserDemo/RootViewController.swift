@@ -14,6 +14,7 @@ import ChameleonFramework
 import RxSwift
 import RxCocoa
 import RxDataSources
+import TinyConsole
 
 let disposeBag = DisposeBag()
 
@@ -102,6 +103,12 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         
         self.loadFileAtPath(currentDir)
         
+//
+//        let button = UIButton(frame:CGRect(x:12,y:6,width:54,height:30))
+//        button.setImage(#imageLiteral(resourceName: "back"), for: .normal)
+//
+//        self.navigationController?.navigationItem.leftBarButtonItems = [UIBarButtonItem(customView:button)]
+        
         
 //        self.tableView.dataSource = nil
 //        self.tableView.delegate = nil
@@ -165,10 +172,6 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
         
         let debugHtmlAction = UIAlertAction(title: LocalizedString("Debug html"), style: .default, handler: {(action) in
             let vc = WebBrowserController()
-            if let splitVc = self.splitViewController {
-                splitVc.preferredDisplayMode = .primaryHidden
-            }
-            
             self.pushDetailViewController(vc, sender: nil)
             
             
@@ -314,7 +317,6 @@ class RootViewController: UITableViewController,SSZipArchiveDelegate {
     
     
     func selectFile(_ file :VKFile){
-        
         
         
         let fileDir : String = file.filePath!.appending("/\(file.name!)")

@@ -8,135 +8,107 @@
 
 /* Begin PBXBuildFile section */
 		0E40653FC6656E87C546089F /* Pods_VKFileBrowserDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B906550E37B8E37E3EC20D /* Pods_VKFileBrowserDemo.framework */; };
-		161EFE6C683BF15634F588C3 /* Pods_VKFileBrowserDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF85517019A3D33609F5A41 /* Pods_VKFileBrowserDemoUITests.framework */; };
-		54008A8C1F5E92E0005CCE1B /* VKTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54008A8B1F5E92E0005CCE1B /* VKTextView.swift */; };
-		54008A8E1F5E96E8005CCE1B /* VKTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54008A8D1F5E96E8005CCE1B /* VKTextStorage.swift */; };
-		54008A901F5E970C005CCE1B /* VKLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54008A8F1F5E970C005CCE1B /* VKLayoutManager.swift */; };
+		543BF7E61F6EE03A001E750C /* libMultiMarkdown.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 543BF5251F6EE02A001E750C /* libMultiMarkdown.a */; };
+		543BF9B81F6EE03B001E750C /* NSArray+StringArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7291F6EE02C001E750C /* NSArray+StringArray.m */; };
+		543BF9B91F6EE03B001E750C /* CheckoutStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF72B1F6EE02C001E750C /* CheckoutStrategy.swift */; };
+		543BF9BA1F6EE03B001E750C /* CommitIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF72C1F6EE02C001E750C /* CommitIterator.swift */; };
+		543BF9BB1F6EE03B001E750C /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF72D1F6EE02C001E750C /* Credentials.swift */; };
+		543BF9BC1F6EE03B001E750C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF72E1F6EE02C001E750C /* Errors.swift */; };
+		543BF9BD1F6EE03B001E750C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 543BF72F1F6EE02C001E750C /* Info.plist */; };
+		543BF9BE1F6EE03B001E750C /* Libgit2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7301F6EE02C001E750C /* Libgit2.swift */; };
+		543BF9BF1F6EE03B001E750C /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7311F6EE02C001E750C /* Objects.swift */; };
+		543BF9C01F6EE03B001E750C /* OID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7321F6EE02C001E750C /* OID.swift */; };
+		543BF9C11F6EE03B001E750C /* Pointers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7331F6EE02C001E750C /* Pointers.swift */; };
+		543BF9C21F6EE03B001E750C /* References.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7341F6EE02C001E750C /* References.swift */; };
+		543BF9C31F6EE03B001E750C /* Remotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7351F6EE02C001E750C /* Remotes.swift */; };
+		543BF9C41F6EE03B001E750C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7361F6EE02C001E750C /* Repository.swift */; };
+		543BF9C51F6EE03B001E750C /* SwiftGit2.m in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7381F6EE02C001E750C /* SwiftGit2.m */; };
+		543BF9C71F6EE03B001E750C /* 7zBuf.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF73C1F6EE02C001E750C /* 7zBuf.c */; };
+		543BF9C81F6EE03B001E750C /* 7zBuf2.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF73E1F6EE02C001E750C /* 7zBuf2.c */; };
+		543BF9C91F6EE03B001E750C /* 7zDec.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF73F1F6EE02C001E750C /* 7zDec.c */; };
+		543BF9CA1F6EE03B001E750C /* 7zFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7401F6EE02C001E750C /* 7zFile.c */; };
+		543BF9CB1F6EE03B001E750C /* 7zIn.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7421F6EE02C001E750C /* 7zIn.c */; };
+		543BF9CC1F6EE03B001E750C /* 7zStream.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7431F6EE02C001E750C /* 7zStream.c */; };
+		543BF9CD1F6EE03B001E750C /* Alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7451F6EE02C001E750C /* Alloc.c */; };
+		543BF9CE1F6EE03B001E750C /* CpuArch.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7471F6EE02C001E750C /* CpuArch.c */; };
+		543BF9CF1F6EE03B001E750C /* Delta.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7491F6EE02C001E750C /* Delta.c */; };
+		543BF9D01F6EE03B001E750C /* Lzma2Dec.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF74C1F6EE02C001E750C /* Lzma2Dec.c */; };
+		543BF9D11F6EE03B001E750C /* LzmaDec.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF74E1F6EE02C001E750C /* LzmaDec.c */; };
+		543BF9D21F6EE03B001E750C /* LZMAExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7511F6EE02C001E750C /* LZMAExtractor.m */; };
+		543BF9D31F6EE03B001E750C /* Ppmd7.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7531F6EE02C001E750C /* Ppmd7.c */; };
+		543BF9D41F6EE03B001E750C /* Ppmd7Dec.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7551F6EE02C001E750C /* Ppmd7Dec.c */; };
+		543BF9D51F6EE03B001E750C /* Ppmd8.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7561F6EE02C001E750C /* Ppmd8.c */; };
+		543BF9D61F6EE03B001E750C /* Ppmd8Dec.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7581F6EE02C001E750C /* Ppmd8Dec.c */; };
+		543BF9D71F6EE03B001E750C /* 7zAlloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF75D1F6EE02C001E750C /* 7zAlloc.c */; };
+		543BF9D81F6EE03B001E750C /* 7zMain.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF75F1F6EE02C001E750C /* 7zMain.c */; };
+		543BF9D91F6EE03B001E750C /* MultiMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7601F6EE02C001E750C /* MultiMarkdown.swift */; };
+		543BF9DC1F6EE03B001E750C /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7A21F6EE02C001E750C /* ioapi.c */; };
+		543BF9DD1F6EE03B001E750C /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7A41F6EE02C001E750C /* mztools.c */; };
+		543BF9DE1F6EE03B001E750C /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7A61F6EE02C001E750C /* unzip.c */; };
+		543BF9DF1F6EE03B001E750C /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7A81F6EE02C001E750C /* zip.c */; };
+		543BF9E01F6EE03B001E750C /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7AB1F6EE02C001E750C /* SSZipArchive.m */; };
+		543BF9E31F6EE03B001E750C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 543BF7B01F6EE02D001E750C /* Localizable.strings */; };
+		543BF9E41F6EE03B001E750C /* Blame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7B31F6EE02D001E750C /* Blame.swift */; };
+		543BF9E51F6EE03B001E750C /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7B41F6EE02D001E750C /* Branch.swift */; };
+		543BF9E61F6EE03B001E750C /* Commits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7B51F6EE02D001E750C /* Commits.swift */; };
+		543BF9E71F6EE03B001E750C /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7B61F6EE02D001E750C /* Diff.swift */; };
+		543BF9E81F6EE03B001E750C /* HEAD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7B71F6EE02D001E750C /* HEAD.swift */; };
+		543BF9E91F6EE03B001E750C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7B81F6EE02D001E750C /* Log.swift */; };
+		543BF9EA1F6EE03B001E750C /* Pathspec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7B91F6EE02D001E750C /* Pathspec.swift */; };
+		543BF9EB1F6EE03B001E750C /* Reflog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7BA1F6EE02D001E750C /* Reflog.swift */; };
+		543BF9EC1F6EE03B001E750C /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7BB1F6EE02D001E750C /* Remote.swift */; };
+		543BF9ED1F6EE03B001E750C /* RepositoryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7BC1F6EE02D001E750C /* RepositoryUtils.swift */; };
+		543BF9EE1F6EE03B001E750C /* Revwalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7BD1F6EE02D001E750C /* Revwalk.swift */; };
+		543BF9EF1F6EE03B001E750C /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7BE1F6EE02D001E750C /* Status.swift */; };
+		543BF9F01F6EE03B001E750C /* VKURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7C01F6EE02E001E750C /* VKURLProtocol.swift */; };
+		543BF9F21F6EE03B001E750C /* MarkdownTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7C31F6EE02F001E750C /* MarkdownTextAttachment.swift */; };
+		543BF9F31F6EE03B001E750C /* VKDiffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7C41F6EE02F001E750C /* VKDiffView.swift */; };
+		543BF9F41F6EE03B001E750C /* VKLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7C51F6EE02F001E750C /* VKLayoutManager.swift */; };
+		543BF9F51F6EE03B001E750C /* VKTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7C61F6EE02F001E750C /* VKTextStorage.swift */; };
+		543BF9F61F6EE03B001E750C /* VKTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7C71F6EE02F001E750C /* VKTextView.swift */; };
+		543BF9F91F6EE03B001E750C /* DownloadUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7CD1F6EE030001E750C /* DownloadUtils.swift */; };
+		543BF9FA1F6EE03B001E750C /* URLRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7CE1F6EE030001E750C /* URLRouter.swift */; };
+		543BF9FB1F6EE03B001E750C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 543BF7D01F6EE032001E750C /* Media.xcassets */; };
+		543BF9FC1F6EE03B001E750C /* VKSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7D11F6EE033001E750C /* VKSearchViewController.swift */; };
+		543BF9FD1F6EE03B001E750C /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7D31F6EE033001E750C /* BaseModel.swift */; };
+		543BF9FE1F6EE03B001E750C /* ContentItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7D41F6EE033001E750C /* ContentItemModel.swift */; };
+		543BF9FF1F6EE03B001E750C /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7D51F6EE033001E750C /* ContentModel.swift */; };
+		543BFA001F6EE03B001E750C /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7D61F6EE033001E750C /* RepositoryModel.swift */; };
+		543BFA011F6EE03B001E750C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7D71F6EE034001E750C /* Constant.swift */; };
+		543BFA021F6EE03B001E750C /* MarkdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7D81F6EE035001E750C /* MarkdownViewController.swift */; };
+		543BFA031F6EE03B001E750C /* VKFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7D91F6EE036001E750C /* VKFile.swift */; };
+		543BFA041F6EE03B001E750C /* SourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7DA1F6EE036001E750C /* SourceViewController.swift */; };
+		543BFA061F6EE03B001E750C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7DC1F6EE037001E750C /* BaseViewController.swift */; };
+		543BFA081F6EE03B001E750C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7DE1F6EE038001E750C /* Extension.swift */; };
+		543BFA091F6EE03B001E750C /* VKFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7DF1F6EE039001E750C /* VKFileManager.swift */; };
+		543BFA0A1F6EE03B001E750C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 543BF7E11F6EE039001E750C /* Localizable.strings */; };
+		544194CF1F6EAB840032C7D9 /* UITextField+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544194CE1F6EAB840032C7D9 /* UITextField+Rx.swift */; };
 		54475DDA1D9D949200B0BB49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475DD91D9D949200B0BB49 /* AppDelegate.swift */; };
 		54475DDC1D9D949200B0BB49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475DDB1D9D949200B0BB49 /* ViewController.swift */; };
 		54475DDF1D9D949200B0BB49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54475DDD1D9D949200B0BB49 /* Main.storyboard */; };
-		54475DE21D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 54475DE01D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodeld */; };
 		54475DE41D9D949200B0BB49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54475DE31D9D949200B0BB49 /* Assets.xcassets */; };
 		54475DE71D9D949200B0BB49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54475DE51D9D949200B0BB49 /* LaunchScreen.storyboard */; };
-		54475DF21D9D949200B0BB49 /* VKFileBrowserDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475DF11D9D949200B0BB49 /* VKFileBrowserDemoTests.swift */; };
-		54475DFD1D9D949200B0BB49 /* VKFileBrowserDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54475DFC1D9D949200B0BB49 /* VKFileBrowserDemoUITests.swift */; };
-		544897081F4AE1ED00DB8980 /* CheckoutStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544896FA1F4AE1ED00DB8980 /* CheckoutStrategy.swift */; };
-		544897091F4AE1ED00DB8980 /* CommitIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544896FB1F4AE1ED00DB8980 /* CommitIterator.swift */; };
-		5448970A1F4AE1ED00DB8980 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544896FC1F4AE1ED00DB8980 /* Credentials.swift */; };
-		5448970B1F4AE1ED00DB8980 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544896FD1F4AE1ED00DB8980 /* Errors.swift */; };
-		5448970C1F4AE1ED00DB8980 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 544896FE1F4AE1ED00DB8980 /* Info.plist */; };
-		5448970D1F4AE1ED00DB8980 /* Libgit2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544896FF1F4AE1ED00DB8980 /* Libgit2.swift */; };
-		5448970E1F4AE1ED00DB8980 /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544897001F4AE1ED00DB8980 /* Objects.swift */; };
-		5448970F1F4AE1ED00DB8980 /* OID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544897011F4AE1ED00DB8980 /* OID.swift */; };
-		544897101F4AE1ED00DB8980 /* Pointers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544897021F4AE1ED00DB8980 /* Pointers.swift */; };
-		544897111F4AE1ED00DB8980 /* References.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544897031F4AE1ED00DB8980 /* References.swift */; };
-		544897121F4AE1ED00DB8980 /* Remotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544897041F4AE1ED00DB8980 /* Remotes.swift */; };
-		544897131F4AE1ED00DB8980 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544897051F4AE1ED00DB8980 /* Repository.swift */; };
-		544897141F4AE1ED00DB8980 /* SwiftGit2.m in Sources */ = {isa = PBXBuildFile; fileRef = 544897071F4AE1ED00DB8980 /* SwiftGit2.m */; };
-		5469C5D51F4874C800A849EC /* libMultiMarkdown.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5469C5D31F4874C800A849EC /* libMultiMarkdown.a */; };
-		5469C8911F48791B00A849EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5469C7A01F48791B00A849EC /* Localizable.strings */; };
-		5469C9421F48791C00A849EC /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8561F48791B00A849EC /* Media.xcassets */; };
-		5469C9431F48791C00A849EC /* SFMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8571F48791B00A849EC /* SFMono-Regular.otf */; };
-		5469C9441F48791C00A849EC /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 5469C85A1F48791B00A849EC /* .gitkeep */; };
-		5469C9461F48791C00A849EC /* MarkdownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5469C85D1F48791B00A849EC /* MarkdownViewController.xib */; };
-		5469C94A1F48791C00A849EC /* VKSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5469C8651F48791B00A849EC /* VKSearchViewController.xib */; };
-		5469C94B1F48791C00A849EC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8671F48791B00A849EC /* BaseViewController.swift */; };
-		5469C94C1F48791C00A849EC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8681F48791B00A849EC /* Constant.swift */; };
-		5469C94F1F48791C00A849EC /* MarkdownViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5469C86C1F48791B00A849EC /* MarkdownViewController.strings */; };
-		5469C9501F48791C00A849EC /* SourceViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5469C86E1F48791B00A849EC /* SourceViewController.strings */; };
-		5469C9521F48791C00A849EC /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8731F48791B00A849EC /* Extension.swift */; };
-		5469C9531F48791C00A849EC /* RepositoryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8751F48791B00A849EC /* RepositoryUtils.swift */; };
-		5469C9551F48791C00A849EC /* MarkdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8771F48791B00A849EC /* MarkdownViewController.swift */; };
-		5469C9561F48791C00A849EC /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8791F48791B00A849EC /* BaseModel.swift */; };
-		5469C9571F48791C00A849EC /* ContentItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C87A1F48791B00A849EC /* ContentItemModel.swift */; };
-		5469C9581F48791C00A849EC /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C87B1F48791B00A849EC /* ContentModel.swift */; };
-		5469C9591F48791C00A849EC /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C87C1F48791B00A849EC /* RepositoryModel.swift */; };
-		5469C95A1F48791C00A849EC /* DownloadUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C87E1F48791B00A849EC /* DownloadUtils.swift */; };
-		5469C95B1F48791C00A849EC /* URLRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C87F1F48791B00A849EC /* URLRouter.swift */; };
-		5469C95C1F48791C00A849EC /* RGBtoHSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8801F48791B00A849EC /* RGBtoHSV.swift */; };
-		5469C95D1F48791C00A849EC /* SourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8811F48791B00A849EC /* SourceViewController.swift */; };
-		5469C95E1F48791C00A849EC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8821F48791B00A849EC /* Style.swift */; };
-		5469C95F1F48791C00A849EC /* VKFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8831F48791B00A849EC /* VKFile.swift */; };
-		5469C9601F48791C00A849EC /* VKFileBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8841F48791B00A849EC /* VKFileBrowser.swift */; };
-		5469C9621F48791C00A849EC /* VKFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8861F48791B00A849EC /* VKFileManager.swift */; };
-		5469C9641F48791C00A849EC /* VKSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C8881F48791B00A849EC /* VKSearchViewController.swift */; };
-		5469C9651F48791C00A849EC /* MarkdownTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469C88A1F48791B00A849EC /* MarkdownTextAttachment.swift */; };
-		546F11871F4FC67C001ED7B3 /* NSArray+StringArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F11861F4FC67C001ED7B3 /* NSArray+StringArray.m */; };
-		5471AD501F48A48B00CBDDDD /* MultiMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5471AD4F1F48A48B00CBDDDD /* MultiMarkdown.swift */; };
 		5471AD531F48AE0A00CBDDDD /* CloneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5471AD511F48AE0A00CBDDDD /* CloneViewController.swift */; };
 		5471AD541F48AE0A00CBDDDD /* CloneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5471AD521F48AE0A00CBDDDD /* CloneViewController.xib */; };
-		547459FE1F628F1300B966D6 /* VKDiffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547459FD1F628F1300B966D6 /* VKDiffView.swift */; };
 		547600E41F46E02C0014AC95 /* VKSpiltViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547600E31F46E02C0014AC95 /* VKSpiltViewController.swift */; };
 		547600E61F46E2650014AC95 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547600E51F46E2650014AC95 /* RootViewController.swift */; };
-		54779DC71F546ED300AEC1C0 /* Unrar4iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54779DC61F546ED300AEC1C0 /* Unrar4iOS.framework */; };
 		54779DC91F54749900AEC1C0 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54779DC81F54749900AEC1C0 /* SettingsTableViewController.swift */; };
 		54779DCB1F5475EA00AEC1C0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 54779DCA1F5475EA00AEC1C0 /* Settings.bundle */; };
+		547D35541F6D85E9006F785C /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547D35531F6D85E9006F785C /* HistoryItem.swift */; };
 		547E318F1F4D3F1E003C0CC5 /* RemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547E318D1F4D3F1E003C0CC5 /* RemoteViewController.swift */; };
 		547E31901F4D3F1E003C0CC5 /* RemoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547E318E1F4D3F1E003C0CC5 /* RemoteViewController.xib */; };
-		5480A9BE1F5DBBF20064F1D5 /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5480A9BD1F5DBBF20064F1D5 /* Remote.swift */; };
+		5481682C1F6A6F1D00D59DB7 /* NetworkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5481682B1F6A6F1D00D59DB7 /* NetworkItem.swift */; };
 		5483B7DE1F41575400782760 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5483B7DD1F41575400782760 /* README.md */; };
-		5487DF741F526B5A00E411D5 /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5487DF731F526B5A00E411D5 /* Diff.swift */; };
-		5487DF761F526C3300E411D5 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5487DF751F526C3300E411D5 /* Status.swift */; };
 		548AFB1E1F4BD459008C6F4B /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AFB1C1F4BD459008C6F4B /* RepositoryViewController.swift */; };
 		548AFB1F1F4BD459008C6F4B /* RepositoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548AFB1D1F4BD459008C6F4B /* RepositoryViewController.xib */; };
-		548C5F6C1F5D471000C454D9 /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C5F6B1F5D471000C454D9 /* Branch.swift */; };
-		548D345A1F6576CF00D50114 /* Revwalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548D34581F6576CE00D50114 /* Revwalk.swift */; };
-		548D345B1F6576CF00D50114 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548D34591F6576CE00D50114 /* Log.swift */; };
 		5490E20F1F5516A30041D232 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5490E20E1F5516A30041D232 /* DefaultsKeys.swift */; };
 		54962AA61F53B07800E75239 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54962AA51F53B07800E75239 /* Security.framework */; };
-		54962AA81F53C24100E75239 /* HEAD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54962AA71F53C24100E75239 /* HEAD.swift */; };
-		54962AAA1F53C68B00E75239 /* Commits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54962AA91F53C68B00E75239 /* Commits.swift */; };
-		54B55F671F2D978A00BB1C09 /* 7zBuf.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55EF71F2D978A00BB1C09 /* 7zBuf.c */; };
-		54B55F681F2D978A00BB1C09 /* 7zBuf2.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55EF91F2D978A00BB1C09 /* 7zBuf2.c */; };
-		54B55F691F2D978A00BB1C09 /* 7zDec.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55EFA1F2D978A00BB1C09 /* 7zDec.c */; };
-		54B55F6A1F2D978A00BB1C09 /* 7zFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55EFB1F2D978A00BB1C09 /* 7zFile.c */; };
-		54B55F6B1F2D978A00BB1C09 /* 7zIn.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55EFD1F2D978A00BB1C09 /* 7zIn.c */; };
-		54B55F6C1F2D978A00BB1C09 /* 7zStream.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55EFE1F2D978A00BB1C09 /* 7zStream.c */; };
-		54B55F6D1F2D978A00BB1C09 /* Alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F001F2D978A00BB1C09 /* Alloc.c */; };
-		54B55F6E1F2D978A00BB1C09 /* CpuArch.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F021F2D978A00BB1C09 /* CpuArch.c */; };
-		54B55F6F1F2D978A00BB1C09 /* Delta.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F041F2D978A00BB1C09 /* Delta.c */; };
-		54B55F701F2D978A00BB1C09 /* Lzma2Dec.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F071F2D978A00BB1C09 /* Lzma2Dec.c */; };
-		54B55F711F2D978A00BB1C09 /* LzmaDec.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F091F2D978A00BB1C09 /* LzmaDec.c */; };
-		54B55F721F2D978A00BB1C09 /* LZMAExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F0C1F2D978A00BB1C09 /* LZMAExtractor.m */; };
-		54B55F731F2D978A00BB1C09 /* Ppmd7.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F0E1F2D978A00BB1C09 /* Ppmd7.c */; };
-		54B55F741F2D978A00BB1C09 /* Ppmd7Dec.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F101F2D978A00BB1C09 /* Ppmd7Dec.c */; };
-		54B55F751F2D978A00BB1C09 /* Ppmd8.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F111F2D978A00BB1C09 /* Ppmd8.c */; };
-		54B55F761F2D978A00BB1C09 /* Ppmd8Dec.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F131F2D978A00BB1C09 /* Ppmd8Dec.c */; };
-		54B55F771F2D978A00BB1C09 /* 7zAlloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F181F2D978A00BB1C09 /* 7zAlloc.c */; };
-		54B55F781F2D978A00BB1C09 /* 7zMain.c in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F1A1F2D978A00BB1C09 /* 7zMain.c */; };
-		54B55F791F2D978A00BB1C09 /* RARExtractException.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F571F2D978A00BB1C09 /* RARExtractException.m */; };
-		54B55F7A1F2D978A00BB1C09 /* Unrar4iOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 54B55F581F2D978A00BB1C09 /* Unrar4iOS.mm */; };
 		54B7BC031F6685F600B3D5D2 /* WebBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7BC011F6685F600B3D5D2 /* WebBrowserController.swift */; };
-		54B8C6A01F65A25A00EFA888 /* Pathspec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B8C69F1F65A25A00EFA888 /* Pathspec.swift */; };
 		54C835571F4ACF2800085756 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C835561F4ACF2800085756 /* libiconv.tbd */; };
 		54D3D9781DA55B4800BD009C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3D9771DA55B4800BD009C /* libz.tbd */; };
 		54D3D97A1DA55BBC00BD009C /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3D9791DA55BBC00BD009C /* libxml2.tbd */; };
-		54F7DA281F468ACC001F2299 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 54F7DA1E1F468ACC001F2299 /* ioapi.c */; };
-		54F7DA291F468ACC001F2299 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 54F7DA201F468ACC001F2299 /* mztools.c */; };
-		54F7DA2A1F468ACC001F2299 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 54F7DA221F468ACC001F2299 /* unzip.c */; };
-		54F7DA2B1F468ACC001F2299 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 54F7DA241F468ACC001F2299 /* zip.c */; };
-		54F7DA2C1F468ACC001F2299 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F7DA271F468ACC001F2299 /* SSZipArchive.m */; };
-		54FD23601F63101500CB1B97 /* Reflog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FD235F1F63101500CB1B97 /* Reflog.swift */; };
-		54FD23621F631A7B00CB1B97 /* Blame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FD23611F631A7B00CB1B97 /* Blame.swift */; };
-		AFF3AB6F943FE30C8492583C /* Pods_VKFileBrowserDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3246D5F0418C08A357BEAC6 /* Pods_VKFileBrowserDemoTests.framework */; };
+		54EED33E1F6A93EE00C2539D /* HeaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EED33D1F6A93EE00C2539D /* HeaderItem.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		54475DEE1D9D949200B0BB49 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 54475DCE1D9D949200B0BB49 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 54475DD51D9D949200B0BB49;
-			remoteInfo = VKFileBrowserDemo;
-		};
-		54475DF91D9D949200B0BB49 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 54475DCE1D9D949200B0BB49 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 54475DD51D9D949200B0BB49;
-			remoteInfo = VKFileBrowserDemo;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		54D3D9721DA55A6B00BD009C /* Embed PlugIns */ = {
@@ -153,212 +125,137 @@
 
 /* Begin PBXFileReference section */
 		17F2D5F8F5BD6381CDF5CBE4 /* Pods-VKFileBrowserDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemoUITests/Pods-VKFileBrowserDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
-		54008A8B1F5E92E0005CCE1B /* VKTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKTextView.swift; sourceTree = "<group>"; };
-		54008A8D1F5E96E8005CCE1B /* VKTextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKTextStorage.swift; sourceTree = "<group>"; };
-		54008A8F1F5E970C005CCE1B /* VKLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLayoutManager.swift; sourceTree = "<group>"; };
+		543BF5251F6EE02A001E750C /* libMultiMarkdown.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMultiMarkdown.a; sourceTree = "<group>"; };
+		543BF5261F6EE02A001E750C /* libMultiMarkdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libMultiMarkdown.h; sourceTree = "<group>"; };
+		543BF7281F6EE02C001E750C /* NSArray+StringArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+StringArray.h"; sourceTree = "<group>"; };
+		543BF7291F6EE02C001E750C /* NSArray+StringArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+StringArray.m"; sourceTree = "<group>"; };
+		543BF72B1F6EE02C001E750C /* CheckoutStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutStrategy.swift; sourceTree = "<group>"; };
+		543BF72C1F6EE02C001E750C /* CommitIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommitIterator.swift; sourceTree = "<group>"; };
+		543BF72D1F6EE02C001E750C /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		543BF72E1F6EE02C001E750C /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		543BF72F1F6EE02C001E750C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		543BF7301F6EE02C001E750C /* Libgit2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Libgit2.swift; sourceTree = "<group>"; };
+		543BF7311F6EE02C001E750C /* Objects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
+		543BF7321F6EE02C001E750C /* OID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OID.swift; sourceTree = "<group>"; };
+		543BF7331F6EE02C001E750C /* Pointers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pointers.swift; sourceTree = "<group>"; };
+		543BF7341F6EE02C001E750C /* References.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = References.swift; sourceTree = "<group>"; };
+		543BF7351F6EE02C001E750C /* Remotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Remotes.swift; sourceTree = "<group>"; };
+		543BF7361F6EE02C001E750C /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		543BF7371F6EE02C001E750C /* SwiftGit2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftGit2.h; sourceTree = "<group>"; };
+		543BF7381F6EE02C001E750C /* SwiftGit2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftGit2.m; sourceTree = "<group>"; };
+		543BF73B1F6EE02C001E750C /* 7z.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7z.h; sourceTree = "<group>"; };
+		543BF73C1F6EE02C001E750C /* 7zBuf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zBuf.c; sourceTree = "<group>"; };
+		543BF73D1F6EE02C001E750C /* 7zBuf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7zBuf.h; sourceTree = "<group>"; };
+		543BF73E1F6EE02C001E750C /* 7zBuf2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zBuf2.c; sourceTree = "<group>"; };
+		543BF73F1F6EE02C001E750C /* 7zDec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zDec.c; sourceTree = "<group>"; };
+		543BF7401F6EE02C001E750C /* 7zFile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zFile.c; sourceTree = "<group>"; };
+		543BF7411F6EE02C001E750C /* 7zFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7zFile.h; sourceTree = "<group>"; };
+		543BF7421F6EE02C001E750C /* 7zIn.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zIn.c; sourceTree = "<group>"; };
+		543BF7431F6EE02C001E750C /* 7zStream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zStream.c; sourceTree = "<group>"; };
+		543BF7441F6EE02C001E750C /* 7zVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7zVersion.h; sourceTree = "<group>"; };
+		543BF7451F6EE02C001E750C /* Alloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Alloc.c; sourceTree = "<group>"; };
+		543BF7461F6EE02C001E750C /* Alloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alloc.h; sourceTree = "<group>"; };
+		543BF7471F6EE02C001E750C /* CpuArch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CpuArch.c; sourceTree = "<group>"; };
+		543BF7481F6EE02C001E750C /* CpuArch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CpuArch.h; sourceTree = "<group>"; };
+		543BF7491F6EE02C001E750C /* Delta.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Delta.c; sourceTree = "<group>"; };
+		543BF74A1F6EE02C001E750C /* Delta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Delta.h; sourceTree = "<group>"; };
+		543BF74B1F6EE02C001E750C /* LzHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LzHash.h; sourceTree = "<group>"; };
+		543BF74C1F6EE02C001E750C /* Lzma2Dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Lzma2Dec.c; sourceTree = "<group>"; };
+		543BF74D1F6EE02C001E750C /* Lzma2Dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lzma2Dec.h; sourceTree = "<group>"; };
+		543BF74E1F6EE02C001E750C /* LzmaDec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LzmaDec.c; sourceTree = "<group>"; };
+		543BF74F1F6EE02C001E750C /* LzmaDec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LzmaDec.h; sourceTree = "<group>"; };
+		543BF7501F6EE02C001E750C /* LZMAExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZMAExtractor.h; sourceTree = "<group>"; };
+		543BF7511F6EE02C001E750C /* LZMAExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZMAExtractor.m; sourceTree = "<group>"; };
+		543BF7521F6EE02C001E750C /* Ppmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ppmd.h; sourceTree = "<group>"; };
+		543BF7531F6EE02C001E750C /* Ppmd7.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Ppmd7.c; sourceTree = "<group>"; };
+		543BF7541F6EE02C001E750C /* Ppmd7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ppmd7.h; sourceTree = "<group>"; };
+		543BF7551F6EE02C001E750C /* Ppmd7Dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Ppmd7Dec.c; sourceTree = "<group>"; };
+		543BF7561F6EE02C001E750C /* Ppmd8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Ppmd8.c; sourceTree = "<group>"; };
+		543BF7571F6EE02C001E750C /* Ppmd8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ppmd8.h; sourceTree = "<group>"; };
+		543BF7581F6EE02C001E750C /* Ppmd8Dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Ppmd8Dec.c; sourceTree = "<group>"; };
+		543BF7591F6EE02C001E750C /* RotateDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotateDefs.h; sourceTree = "<group>"; };
+		543BF75A1F6EE02C001E750C /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
+		543BF75D1F6EE02C001E750C /* 7zAlloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zAlloc.c; sourceTree = "<group>"; };
+		543BF75E1F6EE02C001E750C /* 7zAlloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7zAlloc.h; sourceTree = "<group>"; };
+		543BF75F1F6EE02C001E750C /* 7zMain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zMain.c; sourceTree = "<group>"; };
+		543BF7601F6EE02C001E750C /* MultiMarkdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiMarkdown.swift; sourceTree = "<group>"; };
+		543BF7A11F6EE02C001E750C /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		543BF7A21F6EE02C001E750C /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		543BF7A31F6EE02C001E750C /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		543BF7A41F6EE02C001E750C /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		543BF7A51F6EE02C001E750C /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		543BF7A61F6EE02C001E750C /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		543BF7A71F6EE02C001E750C /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		543BF7A81F6EE02C001E750C /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		543BF7A91F6EE02C001E750C /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		543BF7AA1F6EE02C001E750C /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
+		543BF7AB1F6EE02C001E750C /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
+		543BF7B11F6EE02D001E750C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Localizable.strings; sourceTree = "<group>"; };
+		543BF7B31F6EE02D001E750C /* Blame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blame.swift; sourceTree = "<group>"; };
+		543BF7B41F6EE02D001E750C /* Branch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
+		543BF7B51F6EE02D001E750C /* Commits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commits.swift; sourceTree = "<group>"; };
+		543BF7B61F6EE02D001E750C /* Diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
+		543BF7B71F6EE02D001E750C /* HEAD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEAD.swift; sourceTree = "<group>"; };
+		543BF7B81F6EE02D001E750C /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		543BF7B91F6EE02D001E750C /* Pathspec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pathspec.swift; sourceTree = "<group>"; };
+		543BF7BA1F6EE02D001E750C /* Reflog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reflog.swift; sourceTree = "<group>"; };
+		543BF7BB1F6EE02D001E750C /* Remote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
+		543BF7BC1F6EE02D001E750C /* RepositoryUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryUtils.swift; sourceTree = "<group>"; };
+		543BF7BD1F6EE02D001E750C /* Revwalk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Revwalk.swift; sourceTree = "<group>"; };
+		543BF7BE1F6EE02D001E750C /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		543BF7C01F6EE02E001E750C /* VKURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKURLProtocol.swift; sourceTree = "<group>"; };
+		543BF7C31F6EE02F001E750C /* MarkdownTextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownTextAttachment.swift; sourceTree = "<group>"; };
+		543BF7C41F6EE02F001E750C /* VKDiffView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKDiffView.swift; sourceTree = "<group>"; };
+		543BF7C51F6EE02F001E750C /* VKLayoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKLayoutManager.swift; sourceTree = "<group>"; };
+		543BF7C61F6EE02F001E750C /* VKTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKTextStorage.swift; sourceTree = "<group>"; };
+		543BF7C71F6EE02F001E750C /* VKTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKTextView.swift; sourceTree = "<group>"; };
+		543BF7CD1F6EE030001E750C /* DownloadUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadUtils.swift; sourceTree = "<group>"; };
+		543BF7CE1F6EE030001E750C /* URLRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRouter.swift; sourceTree = "<group>"; };
+		543BF7CF1F6EE031001E750C /* VKFileBrowserDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VKFileBrowserDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		543BF7D01F6EE032001E750C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		543BF7D11F6EE033001E750C /* VKSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKSearchViewController.swift; sourceTree = "<group>"; };
+		543BF7D31F6EE033001E750C /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		543BF7D41F6EE033001E750C /* ContentItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentItemModel.swift; sourceTree = "<group>"; };
+		543BF7D51F6EE033001E750C /* ContentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
+		543BF7D61F6EE033001E750C /* RepositoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
+		543BF7D71F6EE034001E750C /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		543BF7D81F6EE035001E750C /* MarkdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownViewController.swift; sourceTree = "<group>"; };
+		543BF7D91F6EE036001E750C /* VKFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKFile.swift; sourceTree = "<group>"; };
+		543BF7DA1F6EE036001E750C /* SourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceViewController.swift; sourceTree = "<group>"; };
+		543BF7DC1F6EE037001E750C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		543BF7DE1F6EE038001E750C /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		543BF7DF1F6EE039001E750C /* VKFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKFileManager.swift; sourceTree = "<group>"; };
+		543BF7E21F6EE039001E750C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		544194CE1F6EAB840032C7D9 /* UITextField+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Rx.swift"; sourceTree = "<group>"; };
 		54475DD61D9D949200B0BB49 /* File Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "File Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54475DD91D9D949200B0BB49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54475DDB1D9D949200B0BB49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		54475DDE1D9D949200B0BB49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		54475DE11D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VKFileBrowserDemo.xcdatamodel; sourceTree = "<group>"; };
 		54475DE31D9D949200B0BB49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54475DE61D9D949200B0BB49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54475DE81D9D949200B0BB49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		54475DED1D9D949200B0BB49 /* VKFileBrowserDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKFileBrowserDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		54475DF11D9D949200B0BB49 /* VKFileBrowserDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKFileBrowserDemoTests.swift; sourceTree = "<group>"; };
-		54475DF31D9D949200B0BB49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		54475DF81D9D949200B0BB49 /* VKFileBrowserDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKFileBrowserDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		54475DFC1D9D949200B0BB49 /* VKFileBrowserDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKFileBrowserDemoUITests.swift; sourceTree = "<group>"; };
-		54475DFE1D9D949200B0BB49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		544896FA1F4AE1ED00DB8980 /* CheckoutStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutStrategy.swift; sourceTree = "<group>"; };
-		544896FB1F4AE1ED00DB8980 /* CommitIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommitIterator.swift; sourceTree = "<group>"; };
-		544896FC1F4AE1ED00DB8980 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
-		544896FD1F4AE1ED00DB8980 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		544896FE1F4AE1ED00DB8980 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		544896FF1F4AE1ED00DB8980 /* Libgit2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Libgit2.swift; sourceTree = "<group>"; };
-		544897001F4AE1ED00DB8980 /* Objects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
-		544897011F4AE1ED00DB8980 /* OID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OID.swift; sourceTree = "<group>"; };
-		544897021F4AE1ED00DB8980 /* Pointers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pointers.swift; sourceTree = "<group>"; };
-		544897031F4AE1ED00DB8980 /* References.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = References.swift; sourceTree = "<group>"; };
-		544897041F4AE1ED00DB8980 /* Remotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Remotes.swift; sourceTree = "<group>"; };
-		544897051F4AE1ED00DB8980 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		544897061F4AE1ED00DB8980 /* SwiftGit2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftGit2.h; sourceTree = "<group>"; };
-		544897071F4AE1ED00DB8980 /* SwiftGit2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftGit2.m; sourceTree = "<group>"; };
-		5469C5D31F4874C800A849EC /* libMultiMarkdown.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMultiMarkdown.a; sourceTree = "<group>"; };
-		5469C5D41F4874C800A849EC /* libMultiMarkdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libMultiMarkdown.h; sourceTree = "<group>"; };
-		5469C7A11F48791B00A849EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5469C7A21F48791B00A849EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5469C8561F48791B00A849EC /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		5469C8571F48791B00A849EC /* SFMono-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFMono-Regular.otf"; sourceTree = "<group>"; };
-		5469C8581F48791B00A849EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		5469C85A1F48791B00A849EC /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		5469C85E1F48791B00A849EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MarkdownViewController.xib; sourceTree = "<group>"; };
-		5469C8661F48791B00A849EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VKSearchViewController.xib; sourceTree = "<group>"; };
-		5469C8671F48791B00A849EC /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		5469C8681F48791B00A849EC /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		5469C86D1F48791B00A849EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MarkdownViewController.strings; sourceTree = "<group>"; };
-		5469C86F1F48791B00A849EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SourceViewController.strings; sourceTree = "<group>"; };
-		5469C8731F48791B00A849EC /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		5469C8751F48791B00A849EC /* RepositoryUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryUtils.swift; sourceTree = "<group>"; };
-		5469C8771F48791B00A849EC /* MarkdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownViewController.swift; sourceTree = "<group>"; };
-		5469C8791F48791B00A849EC /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
-		5469C87A1F48791B00A849EC /* ContentItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentItemModel.swift; sourceTree = "<group>"; };
-		5469C87B1F48791B00A849EC /* ContentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
-		5469C87C1F48791B00A849EC /* RepositoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
-		5469C87E1F48791B00A849EC /* DownloadUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadUtils.swift; sourceTree = "<group>"; };
-		5469C87F1F48791B00A849EC /* URLRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRouter.swift; sourceTree = "<group>"; };
-		5469C8801F48791B00A849EC /* RGBtoHSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBtoHSV.swift; sourceTree = "<group>"; };
-		5469C8811F48791B00A849EC /* SourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceViewController.swift; sourceTree = "<group>"; };
-		5469C8821F48791B00A849EC /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
-		5469C8831F48791B00A849EC /* VKFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKFile.swift; sourceTree = "<group>"; };
-		5469C8841F48791B00A849EC /* VKFileBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKFileBrowser.swift; sourceTree = "<group>"; };
-		5469C8861F48791B00A849EC /* VKFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKFileManager.swift; sourceTree = "<group>"; };
-		5469C8881F48791B00A849EC /* VKSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKSearchViewController.swift; sourceTree = "<group>"; };
-		5469C88A1F48791B00A849EC /* MarkdownTextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownTextAttachment.swift; sourceTree = "<group>"; };
-		5469C88C1F48791B00A849EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MarkdownViewController.strings"; sourceTree = "<group>"; };
-		5469C88D1F48791B00A849EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SourceViewController.strings"; sourceTree = "<group>"; };
-		5469C8901F48791B00A849EC /* VKFileBrowserDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VKFileBrowserDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		546F11861F4FC67C001ED7B3 /* NSArray+StringArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+StringArray.m"; sourceTree = "<group>"; };
-		546F11881F4FC68F001ED7B3 /* NSArray+StringArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+StringArray.h"; sourceTree = "<group>"; };
 		547061181F5EED9000A5E508 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = ../../../../../../System/Library/Frameworks/Cocoa.framework; sourceTree = "<group>"; };
-		5471AD4F1F48A48B00CBDDDD /* MultiMarkdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiMarkdown.swift; sourceTree = "<group>"; };
 		5471AD511F48AE0A00CBDDDD /* CloneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloneViewController.swift; sourceTree = "<group>"; };
 		5471AD521F48AE0A00CBDDDD /* CloneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CloneViewController.xib; sourceTree = "<group>"; };
-		547459FD1F628F1300B966D6 /* VKDiffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKDiffView.swift; sourceTree = "<group>"; };
 		547600E31F46E02C0014AC95 /* VKSpiltViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKSpiltViewController.swift; sourceTree = "<group>"; };
 		547600E51F46E2650014AC95 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		5477126A1F5321F700B360F1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		54779DC61F546ED300AEC1C0 /* Unrar4iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Unrar4iOS.framework; sourceTree = "<group>"; };
 		54779DC81F54749900AEC1C0 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		54779DCA1F5475EA00AEC1C0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		547D35531F6D85E9006F785C /* HistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItem.swift; sourceTree = "<group>"; };
 		547E318D1F4D3F1E003C0CC5 /* RemoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteViewController.swift; sourceTree = "<group>"; };
 		547E318E1F4D3F1E003C0CC5 /* RemoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RemoteViewController.xib; sourceTree = "<group>"; };
-		5480A9BD1F5DBBF20064F1D5 /* Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
+		5481682B1F6A6F1D00D59DB7 /* NetworkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkItem.swift; sourceTree = "<group>"; };
 		5483B7DD1F41575400782760 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
-		5487DF731F526B5A00E411D5 /* Diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
-		5487DF751F526C3300E411D5 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		548AFB1C1F4BD459008C6F4B /* RepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		548AFB1D1F4BD459008C6F4B /* RepositoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepositoryViewController.xib; sourceTree = "<group>"; };
-		548C5F6B1F5D471000C454D9 /* Branch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
-		548D34581F6576CE00D50114 /* Revwalk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Revwalk.swift; sourceTree = "<group>"; };
-		548D34591F6576CE00D50114 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		5490E20E1F5516A30041D232 /* DefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		54962AA51F53B07800E75239 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		54962AA71F53C24100E75239 /* HEAD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEAD.swift; sourceTree = "<group>"; };
-		54962AA91F53C68B00E75239 /* Commits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commits.swift; sourceTree = "<group>"; };
-		54B55EF61F2D978A00BB1C09 /* 7z.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7z.h; sourceTree = "<group>"; };
-		54B55EF71F2D978A00BB1C09 /* 7zBuf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zBuf.c; sourceTree = "<group>"; };
-		54B55EF81F2D978A00BB1C09 /* 7zBuf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7zBuf.h; sourceTree = "<group>"; };
-		54B55EF91F2D978A00BB1C09 /* 7zBuf2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zBuf2.c; sourceTree = "<group>"; };
-		54B55EFA1F2D978A00BB1C09 /* 7zDec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zDec.c; sourceTree = "<group>"; };
-		54B55EFB1F2D978A00BB1C09 /* 7zFile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zFile.c; sourceTree = "<group>"; };
-		54B55EFC1F2D978A00BB1C09 /* 7zFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7zFile.h; sourceTree = "<group>"; };
-		54B55EFD1F2D978A00BB1C09 /* 7zIn.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zIn.c; sourceTree = "<group>"; };
-		54B55EFE1F2D978A00BB1C09 /* 7zStream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zStream.c; sourceTree = "<group>"; };
-		54B55EFF1F2D978A00BB1C09 /* 7zVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7zVersion.h; sourceTree = "<group>"; };
-		54B55F001F2D978A00BB1C09 /* Alloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Alloc.c; sourceTree = "<group>"; };
-		54B55F011F2D978A00BB1C09 /* Alloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alloc.h; sourceTree = "<group>"; };
-		54B55F021F2D978A00BB1C09 /* CpuArch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CpuArch.c; sourceTree = "<group>"; };
-		54B55F031F2D978A00BB1C09 /* CpuArch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CpuArch.h; sourceTree = "<group>"; };
-		54B55F041F2D978A00BB1C09 /* Delta.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Delta.c; sourceTree = "<group>"; };
-		54B55F051F2D978A00BB1C09 /* Delta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Delta.h; sourceTree = "<group>"; };
-		54B55F061F2D978A00BB1C09 /* LzHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LzHash.h; sourceTree = "<group>"; };
-		54B55F071F2D978A00BB1C09 /* Lzma2Dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Lzma2Dec.c; sourceTree = "<group>"; };
-		54B55F081F2D978A00BB1C09 /* Lzma2Dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lzma2Dec.h; sourceTree = "<group>"; };
-		54B55F091F2D978A00BB1C09 /* LzmaDec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LzmaDec.c; sourceTree = "<group>"; };
-		54B55F0A1F2D978A00BB1C09 /* LzmaDec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LzmaDec.h; sourceTree = "<group>"; };
-		54B55F0B1F2D978A00BB1C09 /* LZMAExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZMAExtractor.h; sourceTree = "<group>"; };
-		54B55F0C1F2D978A00BB1C09 /* LZMAExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZMAExtractor.m; sourceTree = "<group>"; };
-		54B55F0D1F2D978A00BB1C09 /* Ppmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ppmd.h; sourceTree = "<group>"; };
-		54B55F0E1F2D978A00BB1C09 /* Ppmd7.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Ppmd7.c; sourceTree = "<group>"; };
-		54B55F0F1F2D978A00BB1C09 /* Ppmd7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ppmd7.h; sourceTree = "<group>"; };
-		54B55F101F2D978A00BB1C09 /* Ppmd7Dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Ppmd7Dec.c; sourceTree = "<group>"; };
-		54B55F111F2D978A00BB1C09 /* Ppmd8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Ppmd8.c; sourceTree = "<group>"; };
-		54B55F121F2D978A00BB1C09 /* Ppmd8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ppmd8.h; sourceTree = "<group>"; };
-		54B55F131F2D978A00BB1C09 /* Ppmd8Dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Ppmd8Dec.c; sourceTree = "<group>"; };
-		54B55F141F2D978A00BB1C09 /* RotateDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotateDefs.h; sourceTree = "<group>"; };
-		54B55F151F2D978A00BB1C09 /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
-		54B55F181F2D978A00BB1C09 /* 7zAlloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zAlloc.c; sourceTree = "<group>"; };
-		54B55F191F2D978A00BB1C09 /* 7zAlloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7zAlloc.h; sourceTree = "<group>"; };
-		54B55F1A1F2D978A00BB1C09 /* 7zMain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zMain.c; sourceTree = "<group>"; };
-		54B55F1D1F2D978A00BB1C09 /* archive.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = archive.hpp; sourceTree = "<group>"; };
-		54B55F1E1F2D978A00BB1C09 /* array.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = array.hpp; sourceTree = "<group>"; };
-		54B55F1F1F2D978A00BB1C09 /* cmddata.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cmddata.hpp; sourceTree = "<group>"; };
-		54B55F201F2D978A00BB1C09 /* coder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = coder.hpp; sourceTree = "<group>"; };
-		54B55F211F2D978A00BB1C09 /* compress.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = compress.hpp; sourceTree = "<group>"; };
-		54B55F221F2D978A00BB1C09 /* consio.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = consio.hpp; sourceTree = "<group>"; };
-		54B55F231F2D978A00BB1C09 /* crc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = crc.hpp; sourceTree = "<group>"; };
-		54B55F241F2D978A00BB1C09 /* crypt.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = crypt.hpp; sourceTree = "<group>"; };
-		54B55F251F2D978A00BB1C09 /* dll.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dll.hpp; sourceTree = "<group>"; };
-		54B55F261F2D978A00BB1C09 /* encname.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = encname.hpp; sourceTree = "<group>"; };
-		54B55F271F2D978A00BB1C09 /* errhnd.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = errhnd.hpp; sourceTree = "<group>"; };
-		54B55F281F2D978A00BB1C09 /* extinfo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = extinfo.hpp; sourceTree = "<group>"; };
-		54B55F291F2D978A00BB1C09 /* extract.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = extract.hpp; sourceTree = "<group>"; };
-		54B55F2A1F2D978A00BB1C09 /* filcreat.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = filcreat.hpp; sourceTree = "<group>"; };
-		54B55F2B1F2D978A00BB1C09 /* file.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = file.hpp; sourceTree = "<group>"; };
-		54B55F2C1F2D978A00BB1C09 /* filefn.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = filefn.hpp; sourceTree = "<group>"; };
-		54B55F2D1F2D978A00BB1C09 /* filestr.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = filestr.hpp; sourceTree = "<group>"; };
-		54B55F2E1F2D978A00BB1C09 /* find.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = find.hpp; sourceTree = "<group>"; };
-		54B55F2F1F2D978A00BB1C09 /* getbits.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = getbits.hpp; sourceTree = "<group>"; };
-		54B55F301F2D978A00BB1C09 /* global.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = global.hpp; sourceTree = "<group>"; };
-		54B55F311F2D978A00BB1C09 /* headers.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = headers.hpp; sourceTree = "<group>"; };
-		54B55F321F2D978A00BB1C09 /* isnt.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = isnt.hpp; sourceTree = "<group>"; };
-		54B55F331F2D978A00BB1C09 /* list.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = list.hpp; sourceTree = "<group>"; };
-		54B55F341F2D978A00BB1C09 /* loclang.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = loclang.hpp; sourceTree = "<group>"; };
-		54B55F351F2D978A00BB1C09 /* log.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = log.hpp; sourceTree = "<group>"; };
-		54B55F361F2D978A00BB1C09 /* match.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = match.hpp; sourceTree = "<group>"; };
-		54B55F371F2D978A00BB1C09 /* model.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = model.hpp; sourceTree = "<group>"; };
-		54B55F381F2D978A00BB1C09 /* options.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = options.hpp; sourceTree = "<group>"; };
-		54B55F391F2D978A00BB1C09 /* os.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = os.hpp; sourceTree = "<group>"; };
-		54B55F3A1F2D978A00BB1C09 /* pathfn.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pathfn.hpp; sourceTree = "<group>"; };
-		54B55F3B1F2D978A00BB1C09 /* rar.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rar.hpp; sourceTree = "<group>"; };
-		54B55F3C1F2D978A00BB1C09 /* rardefs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rardefs.hpp; sourceTree = "<group>"; };
-		54B55F3D1F2D978A00BB1C09 /* rarlang.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rarlang.hpp; sourceTree = "<group>"; };
-		54B55F3E1F2D978A00BB1C09 /* raros.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = raros.hpp; sourceTree = "<group>"; };
-		54B55F3F1F2D978A00BB1C09 /* rartypes.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rartypes.hpp; sourceTree = "<group>"; };
-		54B55F401F2D978A00BB1C09 /* rarvm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rarvm.hpp; sourceTree = "<group>"; };
-		54B55F411F2D978A00BB1C09 /* rawread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rawread.hpp; sourceTree = "<group>"; };
-		54B55F421F2D978A00BB1C09 /* rdwrfn.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rdwrfn.hpp; sourceTree = "<group>"; };
-		54B55F431F2D978A00BB1C09 /* recvol.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = recvol.hpp; sourceTree = "<group>"; };
-		54B55F441F2D978A00BB1C09 /* resource.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = resource.hpp; sourceTree = "<group>"; };
-		54B55F451F2D978A00BB1C09 /* rijndael.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rijndael.hpp; sourceTree = "<group>"; };
-		54B55F461F2D978A00BB1C09 /* rs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rs.hpp; sourceTree = "<group>"; };
-		54B55F471F2D978A00BB1C09 /* savepos.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = savepos.hpp; sourceTree = "<group>"; };
-		54B55F481F2D978A00BB1C09 /* scantree.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = scantree.hpp; sourceTree = "<group>"; };
-		54B55F491F2D978A00BB1C09 /* sha1.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = sha1.hpp; sourceTree = "<group>"; };
-		54B55F4A1F2D978A00BB1C09 /* smallfn.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = smallfn.hpp; sourceTree = "<group>"; };
-		54B55F4B1F2D978A00BB1C09 /* strfn.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = strfn.hpp; sourceTree = "<group>"; };
-		54B55F4C1F2D978A00BB1C09 /* strlist.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = strlist.hpp; sourceTree = "<group>"; };
-		54B55F4D1F2D978A00BB1C09 /* suballoc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = suballoc.hpp; sourceTree = "<group>"; };
-		54B55F4E1F2D978A00BB1C09 /* system.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = system.hpp; sourceTree = "<group>"; };
-		54B55F4F1F2D978A00BB1C09 /* timefn.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = timefn.hpp; sourceTree = "<group>"; };
-		54B55F501F2D978A00BB1C09 /* ulinks.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ulinks.hpp; sourceTree = "<group>"; };
-		54B55F511F2D978A00BB1C09 /* unicode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = unicode.hpp; sourceTree = "<group>"; };
-		54B55F521F2D978A00BB1C09 /* unpack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = unpack.hpp; sourceTree = "<group>"; };
-		54B55F531F2D978A00BB1C09 /* Unrar4iOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unrar4iOS.h; sourceTree = "<group>"; };
-		54B55F541F2D978A00BB1C09 /* version.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = version.hpp; sourceTree = "<group>"; };
-		54B55F551F2D978A00BB1C09 /* volume.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = volume.hpp; sourceTree = "<group>"; };
-		54B55F561F2D978A00BB1C09 /* RARExtractException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RARExtractException.h; sourceTree = "<group>"; };
-		54B55F571F2D978A00BB1C09 /* RARExtractException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RARExtractException.m; sourceTree = "<group>"; };
-		54B55F581F2D978A00BB1C09 /* Unrar4iOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Unrar4iOS.mm; sourceTree = "<group>"; };
 		54B7BC011F6685F600B3D5D2 /* WebBrowserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserController.swift; sourceTree = "<group>"; };
-		54B8C69F1F65A25A00EFA888 /* Pathspec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pathspec.swift; sourceTree = "<group>"; };
 		54C835561F4ACF2800085756 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		54D3D9771DA55B4800BD009C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		54D3D9791DA55BBC00BD009C /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
-		54F7DA1D1F468ACC001F2299 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
-		54F7DA1E1F468ACC001F2299 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
-		54F7DA1F1F468ACC001F2299 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
-		54F7DA201F468ACC001F2299 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
-		54F7DA211F468ACC001F2299 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
-		54F7DA221F468ACC001F2299 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
-		54F7DA231F468ACC001F2299 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
-		54F7DA241F468ACC001F2299 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
-		54F7DA251F468ACC001F2299 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
-		54F7DA261F468ACC001F2299 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
-		54F7DA271F468ACC001F2299 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
-		54FD235F1F63101500CB1B97 /* Reflog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reflog.swift; sourceTree = "<group>"; };
-		54FD23611F631A7B00CB1B97 /* Blame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blame.swift; sourceTree = "<group>"; };
+		54EED33D1F6A93EE00C2539D /* HeaderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderItem.swift; sourceTree = "<group>"; };
 		5CB01436C1201A837CDE88BB /* Pods-VKFileBrowserDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemoTests/Pods-VKFileBrowserDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		6DF85517019A3D33609F5A41 /* Pods_VKFileBrowserDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKFileBrowserDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F6902C1E089A926CA87A2D6 /* Pods-VKFileBrowserDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemoTests/Pods-VKFileBrowserDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -376,27 +273,10 @@
 			files = (
 				54962AA61F53B07800E75239 /* Security.framework in Frameworks */,
 				54C835571F4ACF2800085756 /* libiconv.tbd in Frameworks */,
-				54779DC71F546ED300AEC1C0 /* Unrar4iOS.framework in Frameworks */,
-				5469C5D51F4874C800A849EC /* libMultiMarkdown.a in Frameworks */,
 				54D3D97A1DA55BBC00BD009C /* libxml2.tbd in Frameworks */,
+				543BF7E61F6EE03A001E750C /* libMultiMarkdown.a in Frameworks */,
 				54D3D9781DA55B4800BD009C /* libz.tbd in Frameworks */,
 				0E40653FC6656E87C546089F /* Pods_VKFileBrowserDemo.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		54475DEA1D9D949200B0BB49 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AFF3AB6F943FE30C8492583C /* Pods_VKFileBrowserDemoTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		54475DF51D9D949200B0BB49 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				161EFE6C683BF15634F588C3 /* Pods_VKFileBrowserDemoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,12 +296,213 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		543BF4821F6EE02A001E750C /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				543BF4831F6EE02A001E750C /* Frameworks */,
+				543BF73A1F6EE02C001E750C /* LZMASDK */,
+				543BF7601F6EE02C001E750C /* MultiMarkdown.swift */,
+				543BF79F1F6EE02C001E750C /* ZipArchive */,
+			);
+			path = vendor;
+			sourceTree = "<group>";
+		};
+		543BF4831F6EE02A001E750C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				543BF5251F6EE02A001E750C /* libMultiMarkdown.a */,
+				543BF5261F6EE02A001E750C /* libMultiMarkdown.h */,
+				543BF7281F6EE02C001E750C /* NSArray+StringArray.h */,
+				543BF7291F6EE02C001E750C /* NSArray+StringArray.m */,
+				543BF72A1F6EE02C001E750C /* SwiftGit2 */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		543BF72A1F6EE02C001E750C /* SwiftGit2 */ = {
+			isa = PBXGroup;
+			children = (
+				543BF72B1F6EE02C001E750C /* CheckoutStrategy.swift */,
+				543BF72C1F6EE02C001E750C /* CommitIterator.swift */,
+				543BF72D1F6EE02C001E750C /* Credentials.swift */,
+				543BF72E1F6EE02C001E750C /* Errors.swift */,
+				543BF72F1F6EE02C001E750C /* Info.plist */,
+				543BF7301F6EE02C001E750C /* Libgit2.swift */,
+				543BF7311F6EE02C001E750C /* Objects.swift */,
+				543BF7321F6EE02C001E750C /* OID.swift */,
+				543BF7331F6EE02C001E750C /* Pointers.swift */,
+				543BF7341F6EE02C001E750C /* References.swift */,
+				543BF7351F6EE02C001E750C /* Remotes.swift */,
+				543BF7361F6EE02C001E750C /* Repository.swift */,
+				543BF7371F6EE02C001E750C /* SwiftGit2.h */,
+				543BF7381F6EE02C001E750C /* SwiftGit2.m */,
+			);
+			path = SwiftGit2;
+			sourceTree = "<group>";
+		};
+		543BF73A1F6EE02C001E750C /* LZMASDK */ = {
+			isa = PBXGroup;
+			children = (
+				543BF73B1F6EE02C001E750C /* 7z.h */,
+				543BF73C1F6EE02C001E750C /* 7zBuf.c */,
+				543BF73D1F6EE02C001E750C /* 7zBuf.h */,
+				543BF73E1F6EE02C001E750C /* 7zBuf2.c */,
+				543BF73F1F6EE02C001E750C /* 7zDec.c */,
+				543BF7401F6EE02C001E750C /* 7zFile.c */,
+				543BF7411F6EE02C001E750C /* 7zFile.h */,
+				543BF7421F6EE02C001E750C /* 7zIn.c */,
+				543BF7431F6EE02C001E750C /* 7zStream.c */,
+				543BF7441F6EE02C001E750C /* 7zVersion.h */,
+				543BF7451F6EE02C001E750C /* Alloc.c */,
+				543BF7461F6EE02C001E750C /* Alloc.h */,
+				543BF7471F6EE02C001E750C /* CpuArch.c */,
+				543BF7481F6EE02C001E750C /* CpuArch.h */,
+				543BF7491F6EE02C001E750C /* Delta.c */,
+				543BF74A1F6EE02C001E750C /* Delta.h */,
+				543BF74B1F6EE02C001E750C /* LzHash.h */,
+				543BF74C1F6EE02C001E750C /* Lzma2Dec.c */,
+				543BF74D1F6EE02C001E750C /* Lzma2Dec.h */,
+				543BF74E1F6EE02C001E750C /* LzmaDec.c */,
+				543BF74F1F6EE02C001E750C /* LzmaDec.h */,
+				543BF7501F6EE02C001E750C /* LZMAExtractor.h */,
+				543BF7511F6EE02C001E750C /* LZMAExtractor.m */,
+				543BF7521F6EE02C001E750C /* Ppmd.h */,
+				543BF7531F6EE02C001E750C /* Ppmd7.c */,
+				543BF7541F6EE02C001E750C /* Ppmd7.h */,
+				543BF7551F6EE02C001E750C /* Ppmd7Dec.c */,
+				543BF7561F6EE02C001E750C /* Ppmd8.c */,
+				543BF7571F6EE02C001E750C /* Ppmd8.h */,
+				543BF7581F6EE02C001E750C /* Ppmd8Dec.c */,
+				543BF7591F6EE02C001E750C /* RotateDefs.h */,
+				543BF75A1F6EE02C001E750C /* Types.h */,
+				543BF75B1F6EE02C001E750C /* Util */,
+			);
+			path = LZMASDK;
+			sourceTree = "<group>";
+		};
+		543BF75B1F6EE02C001E750C /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				543BF75C1F6EE02C001E750C /* 7z */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		543BF75C1F6EE02C001E750C /* 7z */ = {
+			isa = PBXGroup;
+			children = (
+				543BF75D1F6EE02C001E750C /* 7zAlloc.c */,
+				543BF75E1F6EE02C001E750C /* 7zAlloc.h */,
+				543BF75F1F6EE02C001E750C /* 7zMain.c */,
+			);
+			path = 7z;
+			sourceTree = "<group>";
+		};
+		543BF79F1F6EE02C001E750C /* ZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				543BF7A01F6EE02C001E750C /* minizip */,
+				543BF7AA1F6EE02C001E750C /* SSZipArchive.h */,
+				543BF7AB1F6EE02C001E750C /* SSZipArchive.m */,
+			);
+			path = ZipArchive;
+			sourceTree = "<group>";
+		};
+		543BF7A01F6EE02C001E750C /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				543BF7A11F6EE02C001E750C /* crypt.h */,
+				543BF7A21F6EE02C001E750C /* ioapi.c */,
+				543BF7A31F6EE02C001E750C /* ioapi.h */,
+				543BF7A41F6EE02C001E750C /* mztools.c */,
+				543BF7A51F6EE02C001E750C /* mztools.h */,
+				543BF7A61F6EE02C001E750C /* unzip.c */,
+				543BF7A71F6EE02C001E750C /* unzip.h */,
+				543BF7A81F6EE02C001E750C /* zip.c */,
+				543BF7A91F6EE02C001E750C /* zip.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
+		543BF7AF1F6EE02D001E750C /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				543BF7B01F6EE02D001E750C /* Localizable.strings */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		543BF7B21F6EE02D001E750C /* Git */ = {
+			isa = PBXGroup;
+			children = (
+				543BF7B31F6EE02D001E750C /* Blame.swift */,
+				543BF7B41F6EE02D001E750C /* Branch.swift */,
+				543BF7B51F6EE02D001E750C /* Commits.swift */,
+				543BF7B61F6EE02D001E750C /* Diff.swift */,
+				543BF7B71F6EE02D001E750C /* HEAD.swift */,
+				543BF7B81F6EE02D001E750C /* Log.swift */,
+				543BF7B91F6EE02D001E750C /* Pathspec.swift */,
+				543BF7BA1F6EE02D001E750C /* Reflog.swift */,
+				543BF7BB1F6EE02D001E750C /* Remote.swift */,
+				543BF7BC1F6EE02D001E750C /* RepositoryUtils.swift */,
+				543BF7BD1F6EE02D001E750C /* Revwalk.swift */,
+				543BF7BE1F6EE02D001E750C /* Status.swift */,
+			);
+			path = Git;
+			sourceTree = "<group>";
+		};
+		543BF7BF1F6EE02D001E750C /* URL */ = {
+			isa = PBXGroup;
+			children = (
+				543BF7C01F6EE02E001E750C /* VKURLProtocol.swift */,
+			);
+			path = URL;
+			sourceTree = "<group>";
+		};
+		543BF7C21F6EE02F001E750C /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				543BF7C31F6EE02F001E750C /* MarkdownTextAttachment.swift */,
+				543BF7C41F6EE02F001E750C /* VKDiffView.swift */,
+				543BF7C51F6EE02F001E750C /* VKLayoutManager.swift */,
+				543BF7C61F6EE02F001E750C /* VKTextStorage.swift */,
+				543BF7C71F6EE02F001E750C /* VKTextView.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		543BF7CC1F6EE030001E750C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				543BF7CD1F6EE030001E750C /* DownloadUtils.swift */,
+				543BF7CE1F6EE030001E750C /* URLRouter.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		543BF7D21F6EE033001E750C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				543BF7D31F6EE033001E750C /* BaseModel.swift */,
+				543BF7D41F6EE033001E750C /* ContentItemModel.swift */,
+				543BF7D51F6EE033001E750C /* ContentModel.swift */,
+				543BF7D61F6EE033001E750C /* RepositoryModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		543BF7E01F6EE039001E750C /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				543BF7E11F6EE039001E750C /* Localizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
 		54475DCD1D9D949200B0BB49 = {
 			isa = PBXGroup;
 			children = (
 				54475DD81D9D949200B0BB49 /* VKFileBrowserDemo */,
-				54475DF01D9D949200B0BB49 /* VKFileBrowserDemoTests */,
-				54475DFB1D9D949200B0BB49 /* VKFileBrowserDemoUITests */,
 				54475DD71D9D949200B0BB49 /* Products */,
 				E3083DC0E4552EA83E09C30C /* Frameworks */,
 				06AB1DCEC7430CF08C36A322 /* Pods */,
@@ -432,8 +513,6 @@
 			isa = PBXGroup;
 			children = (
 				54475DD61D9D949200B0BB49 /* File Browser.app */,
-				54475DED1D9D949200B0BB49 /* VKFileBrowserDemoTests.xctest */,
-				54475DF81D9D949200B0BB49 /* VKFileBrowserDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -442,350 +521,48 @@
 			isa = PBXGroup;
 			children = (
 				54779DCA1F5475EA00AEC1C0 /* Settings.bundle */,
+				543BF7CF1F6EE031001E750C /* VKFileBrowserDemo-Bridging-Header.h */,
 				5483B7DD1F41575400782760 /* README.md */,
 				54475DE81D9D949200B0BB49 /* Info.plist */,
 				54475DD91D9D949200B0BB49 /* AppDelegate.swift */,
+				543BF7DC1F6EE037001E750C /* BaseViewController.swift */,
 				5471AD511F48AE0A00CBDDDD /* CloneViewController.swift */,
+				543BF7D71F6EE034001E750C /* Constant.swift */,
+				5490E20E1F5516A30041D232 /* DefaultsKeys.swift */,
+				543BF7DE1F6EE038001E750C /* Extension.swift */,
+				54EED33D1F6A93EE00C2539D /* HeaderItem.swift */,
+				547D35531F6D85E9006F785C /* HistoryItem.swift */,
+				543BF7D81F6EE035001E750C /* MarkdownViewController.swift */,
+				5481682B1F6A6F1D00D59DB7 /* NetworkItem.swift */,
+				547E318D1F4D3F1E003C0CC5 /* RemoteViewController.swift */,
+				548AFB1C1F4BD459008C6F4B /* RepositoryViewController.swift */,
 				547600E51F46E2650014AC95 /* RootViewController.swift */,
+				54779DC81F54749900AEC1C0 /* SettingsTableViewController.swift */,
+				543BF7DA1F6EE036001E750C /* SourceViewController.swift */,
+				544194CE1F6EAB840032C7D9 /* UITextField+Rx.swift */,
 				54475DDB1D9D949200B0BB49 /* ViewController.swift */,
+				543BF7D91F6EE036001E750C /* VKFile.swift */,
+				543BF7DF1F6EE039001E750C /* VKFileManager.swift */,
+				543BF7D11F6EE033001E750C /* VKSearchViewController.swift */,
 				547600E31F46E02C0014AC95 /* VKSpiltViewController.swift */,
+				54B7BC011F6685F600B3D5D2 /* WebBrowserController.swift */,
 				54475DE31D9D949200B0BB49 /* Assets.xcassets */,
+				543BF7D01F6EE032001E750C /* Media.xcassets */,
 				5471AD521F48AE0A00CBDDDD /* CloneViewController.xib */,
+				547E318E1F4D3F1E003C0CC5 /* RemoteViewController.xib */,
+				548AFB1D1F4BD459008C6F4B /* RepositoryViewController.xib */,
+				543BF7AF1F6EE02D001E750C /* Base.lproj */,
+				543BF7E01F6EE039001E750C /* en.lproj */,
+				543BF7B21F6EE02D001E750C /* Git */,
 				54475DE51D9D949200B0BB49 /* LaunchScreen.storyboard */,
 				54475DDD1D9D949200B0BB49 /* Main.storyboard */,
-				54B55EF21F2D978A00BB1C09 /* vendor */,
-				5469C79E1F48791B00A849EC /* VKFileBrowser */,
-				54475DE01D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodeld */,
-				548AFB1C1F4BD459008C6F4B /* RepositoryViewController.swift */,
-				548AFB1D1F4BD459008C6F4B /* RepositoryViewController.xib */,
-				547E318D1F4D3F1E003C0CC5 /* RemoteViewController.swift */,
-				547E318E1F4D3F1E003C0CC5 /* RemoteViewController.xib */,
-				54779DC81F54749900AEC1C0 /* SettingsTableViewController.swift */,
-				5490E20E1F5516A30041D232 /* DefaultsKeys.swift */,
-				54B7BC011F6685F600B3D5D2 /* WebBrowserController.swift */,
+				543BF7D21F6EE033001E750C /* Model */,
+				543BF7CC1F6EE030001E750C /* Network */,
+				543BF7BF1F6EE02D001E750C /* URL */,
+				543BF4821F6EE02A001E750C /* vendor */,
+				543BF7C21F6EE02F001E750C /* Widget */,
 			);
 			path = VKFileBrowserDemo;
-			sourceTree = "<group>";
-		};
-		54475DF01D9D949200B0BB49 /* VKFileBrowserDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				54475DF11D9D949200B0BB49 /* VKFileBrowserDemoTests.swift */,
-				54475DF31D9D949200B0BB49 /* Info.plist */,
-			);
-			path = VKFileBrowserDemoTests;
-			sourceTree = "<group>";
-		};
-		54475DFB1D9D949200B0BB49 /* VKFileBrowserDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				54475DFC1D9D949200B0BB49 /* VKFileBrowserDemoUITests.swift */,
-				54475DFE1D9D949200B0BB49 /* Info.plist */,
-			);
-			path = VKFileBrowserDemoUITests;
-			sourceTree = "<group>";
-		};
-		544896F91F4AE1ED00DB8980 /* SwiftGit2 */ = {
-			isa = PBXGroup;
-			children = (
-				544896FA1F4AE1ED00DB8980 /* CheckoutStrategy.swift */,
-				544896FB1F4AE1ED00DB8980 /* CommitIterator.swift */,
-				544896FC1F4AE1ED00DB8980 /* Credentials.swift */,
-				544896FD1F4AE1ED00DB8980 /* Errors.swift */,
-				544896FE1F4AE1ED00DB8980 /* Info.plist */,
-				544896FF1F4AE1ED00DB8980 /* Libgit2.swift */,
-				544897001F4AE1ED00DB8980 /* Objects.swift */,
-				544897011F4AE1ED00DB8980 /* OID.swift */,
-				544897021F4AE1ED00DB8980 /* Pointers.swift */,
-				544897031F4AE1ED00DB8980 /* References.swift */,
-				544897041F4AE1ED00DB8980 /* Remotes.swift */,
-				544897051F4AE1ED00DB8980 /* Repository.swift */,
-				544897061F4AE1ED00DB8980 /* SwiftGit2.h */,
-				544897071F4AE1ED00DB8980 /* SwiftGit2.m */,
-			);
-			path = SwiftGit2;
-			sourceTree = "<group>";
-		};
-		5469C79E1F48791B00A849EC /* VKFileBrowser */ = {
-			isa = PBXGroup;
-			children = (
-				5469C79F1F48791B00A849EC /* Assets */,
-				5469C8591F48791B00A849EC /* Classes */,
-				5469C8901F48791B00A849EC /* VKFileBrowserDemo-Bridging-Header.h */,
-			);
-			path = VKFileBrowser;
-			sourceTree = "<group>";
-		};
-		5469C79F1F48791B00A849EC /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				5469C7A01F48791B00A849EC /* Localizable.strings */,
-				5469C8561F48791B00A849EC /* Media.xcassets */,
-				5469C8571F48791B00A849EC /* SFMono-Regular.otf */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		5469C8591F48791B00A849EC /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				5469C85A1F48791B00A849EC /* .gitkeep */,
-				5469C85D1F48791B00A849EC /* MarkdownViewController.xib */,
-				5469C8651F48791B00A849EC /* VKSearchViewController.xib */,
-				5469C8671F48791B00A849EC /* BaseViewController.swift */,
-				5469C8681F48791B00A849EC /* Constant.swift */,
-				5469C86C1F48791B00A849EC /* MarkdownViewController.strings */,
-				5469C86E1F48791B00A849EC /* SourceViewController.strings */,
-				5469C8731F48791B00A849EC /* Extension.swift */,
-				5469C8741F48791B00A849EC /* Git */,
-				5469C8771F48791B00A849EC /* MarkdownViewController.swift */,
-				5469C8781F48791B00A849EC /* Model */,
-				5469C87D1F48791B00A849EC /* Network */,
-				5469C8801F48791B00A849EC /* RGBtoHSV.swift */,
-				5469C8811F48791B00A849EC /* SourceViewController.swift */,
-				5469C8821F48791B00A849EC /* Style.swift */,
-				5469C8831F48791B00A849EC /* VKFile.swift */,
-				5469C8841F48791B00A849EC /* VKFileBrowser.swift */,
-				5469C8861F48791B00A849EC /* VKFileManager.swift */,
-				5469C8881F48791B00A849EC /* VKSearchViewController.swift */,
-				5469C8891F48791B00A849EC /* Widget */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		5469C8741F48791B00A849EC /* Git */ = {
-			isa = PBXGroup;
-			children = (
-				548D34591F6576CE00D50114 /* Log.swift */,
-				548D34581F6576CE00D50114 /* Revwalk.swift */,
-				5469C8751F48791B00A849EC /* RepositoryUtils.swift */,
-				5487DF731F526B5A00E411D5 /* Diff.swift */,
-				5487DF751F526C3300E411D5 /* Status.swift */,
-				54962AA71F53C24100E75239 /* HEAD.swift */,
-				54962AA91F53C68B00E75239 /* Commits.swift */,
-				548C5F6B1F5D471000C454D9 /* Branch.swift */,
-				5480A9BD1F5DBBF20064F1D5 /* Remote.swift */,
-				54FD235F1F63101500CB1B97 /* Reflog.swift */,
-				54FD23611F631A7B00CB1B97 /* Blame.swift */,
-				54B8C69F1F65A25A00EFA888 /* Pathspec.swift */,
-			);
-			path = Git;
-			sourceTree = "<group>";
-		};
-		5469C8781F48791B00A849EC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				5469C8791F48791B00A849EC /* BaseModel.swift */,
-				5469C87A1F48791B00A849EC /* ContentItemModel.swift */,
-				5469C87B1F48791B00A849EC /* ContentModel.swift */,
-				5469C87C1F48791B00A849EC /* RepositoryModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		5469C87D1F48791B00A849EC /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				5469C87E1F48791B00A849EC /* DownloadUtils.swift */,
-				5469C87F1F48791B00A849EC /* URLRouter.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		5469C8891F48791B00A849EC /* Widget */ = {
-			isa = PBXGroup;
-			children = (
-				5469C88A1F48791B00A849EC /* MarkdownTextAttachment.swift */,
-				54008A8B1F5E92E0005CCE1B /* VKTextView.swift */,
-				54008A8D1F5E96E8005CCE1B /* VKTextStorage.swift */,
-				54008A8F1F5E970C005CCE1B /* VKLayoutManager.swift */,
-				547459FD1F628F1300B966D6 /* VKDiffView.swift */,
-			);
-			path = Widget;
-			sourceTree = "<group>";
-		};
-		54B55EF21F2D978A00BB1C09 /* vendor */ = {
-			isa = PBXGroup;
-			children = (
-				5471AD4F1F48A48B00CBDDDD /* MultiMarkdown.swift */,
-				54F7DA1B1F468ACC001F2299 /* ZipArchive */,
-				54B55EF31F2D978A00BB1C09 /* Frameworks */,
-				54B55EF51F2D978A00BB1C09 /* LZMASDK */,
-				54B55F1B1F2D978A00BB1C09 /* Unrar */,
-			);
-			path = vendor;
-			sourceTree = "<group>";
-		};
-		54B55EF31F2D978A00BB1C09 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				54779DC61F546ED300AEC1C0 /* Unrar4iOS.framework */,
-				546F11881F4FC68F001ED7B3 /* NSArray+StringArray.h */,
-				546F11861F4FC67C001ED7B3 /* NSArray+StringArray.m */,
-				544896F91F4AE1ED00DB8980 /* SwiftGit2 */,
-				5469C5D31F4874C800A849EC /* libMultiMarkdown.a */,
-				5469C5D41F4874C800A849EC /* libMultiMarkdown.h */,
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		54B55EF51F2D978A00BB1C09 /* LZMASDK */ = {
-			isa = PBXGroup;
-			children = (
-				54B55EF61F2D978A00BB1C09 /* 7z.h */,
-				54B55EF71F2D978A00BB1C09 /* 7zBuf.c */,
-				54B55EF81F2D978A00BB1C09 /* 7zBuf.h */,
-				54B55EF91F2D978A00BB1C09 /* 7zBuf2.c */,
-				54B55EFA1F2D978A00BB1C09 /* 7zDec.c */,
-				54B55EFB1F2D978A00BB1C09 /* 7zFile.c */,
-				54B55EFC1F2D978A00BB1C09 /* 7zFile.h */,
-				54B55EFD1F2D978A00BB1C09 /* 7zIn.c */,
-				54B55EFE1F2D978A00BB1C09 /* 7zStream.c */,
-				54B55EFF1F2D978A00BB1C09 /* 7zVersion.h */,
-				54B55F001F2D978A00BB1C09 /* Alloc.c */,
-				54B55F011F2D978A00BB1C09 /* Alloc.h */,
-				54B55F021F2D978A00BB1C09 /* CpuArch.c */,
-				54B55F031F2D978A00BB1C09 /* CpuArch.h */,
-				54B55F041F2D978A00BB1C09 /* Delta.c */,
-				54B55F051F2D978A00BB1C09 /* Delta.h */,
-				54B55F061F2D978A00BB1C09 /* LzHash.h */,
-				54B55F071F2D978A00BB1C09 /* Lzma2Dec.c */,
-				54B55F081F2D978A00BB1C09 /* Lzma2Dec.h */,
-				54B55F091F2D978A00BB1C09 /* LzmaDec.c */,
-				54B55F0A1F2D978A00BB1C09 /* LzmaDec.h */,
-				54B55F0B1F2D978A00BB1C09 /* LZMAExtractor.h */,
-				54B55F0C1F2D978A00BB1C09 /* LZMAExtractor.m */,
-				54B55F0D1F2D978A00BB1C09 /* Ppmd.h */,
-				54B55F0E1F2D978A00BB1C09 /* Ppmd7.c */,
-				54B55F0F1F2D978A00BB1C09 /* Ppmd7.h */,
-				54B55F101F2D978A00BB1C09 /* Ppmd7Dec.c */,
-				54B55F111F2D978A00BB1C09 /* Ppmd8.c */,
-				54B55F121F2D978A00BB1C09 /* Ppmd8.h */,
-				54B55F131F2D978A00BB1C09 /* Ppmd8Dec.c */,
-				54B55F141F2D978A00BB1C09 /* RotateDefs.h */,
-				54B55F151F2D978A00BB1C09 /* Types.h */,
-				54B55F161F2D978A00BB1C09 /* Util */,
-			);
-			path = LZMASDK;
-			sourceTree = "<group>";
-		};
-		54B55F161F2D978A00BB1C09 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				54B55F171F2D978A00BB1C09 /* 7z */,
-			);
-			path = Util;
-			sourceTree = "<group>";
-		};
-		54B55F171F2D978A00BB1C09 /* 7z */ = {
-			isa = PBXGroup;
-			children = (
-				54B55F181F2D978A00BB1C09 /* 7zAlloc.c */,
-				54B55F191F2D978A00BB1C09 /* 7zAlloc.h */,
-				54B55F1A1F2D978A00BB1C09 /* 7zMain.c */,
-			);
-			path = 7z;
-			sourceTree = "<group>";
-		};
-		54B55F1B1F2D978A00BB1C09 /* Unrar */ = {
-			isa = PBXGroup;
-			children = (
-				54B55F1C1F2D978A00BB1C09 /* Headers */,
-				54B55F561F2D978A00BB1C09 /* RARExtractException.h */,
-				54B55F571F2D978A00BB1C09 /* RARExtractException.m */,
-				54B55F581F2D978A00BB1C09 /* Unrar4iOS.mm */,
-			);
-			path = Unrar;
-			sourceTree = "<group>";
-		};
-		54B55F1C1F2D978A00BB1C09 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				54B55F1D1F2D978A00BB1C09 /* archive.hpp */,
-				54B55F1E1F2D978A00BB1C09 /* array.hpp */,
-				54B55F1F1F2D978A00BB1C09 /* cmddata.hpp */,
-				54B55F201F2D978A00BB1C09 /* coder.hpp */,
-				54B55F211F2D978A00BB1C09 /* compress.hpp */,
-				54B55F221F2D978A00BB1C09 /* consio.hpp */,
-				54B55F231F2D978A00BB1C09 /* crc.hpp */,
-				54B55F241F2D978A00BB1C09 /* crypt.hpp */,
-				54B55F251F2D978A00BB1C09 /* dll.hpp */,
-				54B55F261F2D978A00BB1C09 /* encname.hpp */,
-				54B55F271F2D978A00BB1C09 /* errhnd.hpp */,
-				54B55F281F2D978A00BB1C09 /* extinfo.hpp */,
-				54B55F291F2D978A00BB1C09 /* extract.hpp */,
-				54B55F2A1F2D978A00BB1C09 /* filcreat.hpp */,
-				54B55F2B1F2D978A00BB1C09 /* file.hpp */,
-				54B55F2C1F2D978A00BB1C09 /* filefn.hpp */,
-				54B55F2D1F2D978A00BB1C09 /* filestr.hpp */,
-				54B55F2E1F2D978A00BB1C09 /* find.hpp */,
-				54B55F2F1F2D978A00BB1C09 /* getbits.hpp */,
-				54B55F301F2D978A00BB1C09 /* global.hpp */,
-				54B55F311F2D978A00BB1C09 /* headers.hpp */,
-				54B55F321F2D978A00BB1C09 /* isnt.hpp */,
-				54B55F331F2D978A00BB1C09 /* list.hpp */,
-				54B55F341F2D978A00BB1C09 /* loclang.hpp */,
-				54B55F351F2D978A00BB1C09 /* log.hpp */,
-				54B55F361F2D978A00BB1C09 /* match.hpp */,
-				54B55F371F2D978A00BB1C09 /* model.hpp */,
-				54B55F381F2D978A00BB1C09 /* options.hpp */,
-				54B55F391F2D978A00BB1C09 /* os.hpp */,
-				54B55F3A1F2D978A00BB1C09 /* pathfn.hpp */,
-				54B55F3B1F2D978A00BB1C09 /* rar.hpp */,
-				54B55F3C1F2D978A00BB1C09 /* rardefs.hpp */,
-				54B55F3D1F2D978A00BB1C09 /* rarlang.hpp */,
-				54B55F3E1F2D978A00BB1C09 /* raros.hpp */,
-				54B55F3F1F2D978A00BB1C09 /* rartypes.hpp */,
-				54B55F401F2D978A00BB1C09 /* rarvm.hpp */,
-				54B55F411F2D978A00BB1C09 /* rawread.hpp */,
-				54B55F421F2D978A00BB1C09 /* rdwrfn.hpp */,
-				54B55F431F2D978A00BB1C09 /* recvol.hpp */,
-				54B55F441F2D978A00BB1C09 /* resource.hpp */,
-				54B55F451F2D978A00BB1C09 /* rijndael.hpp */,
-				54B55F461F2D978A00BB1C09 /* rs.hpp */,
-				54B55F471F2D978A00BB1C09 /* savepos.hpp */,
-				54B55F481F2D978A00BB1C09 /* scantree.hpp */,
-				54B55F491F2D978A00BB1C09 /* sha1.hpp */,
-				54B55F4A1F2D978A00BB1C09 /* smallfn.hpp */,
-				54B55F4B1F2D978A00BB1C09 /* strfn.hpp */,
-				54B55F4C1F2D978A00BB1C09 /* strlist.hpp */,
-				54B55F4D1F2D978A00BB1C09 /* suballoc.hpp */,
-				54B55F4E1F2D978A00BB1C09 /* system.hpp */,
-				54B55F4F1F2D978A00BB1C09 /* timefn.hpp */,
-				54B55F501F2D978A00BB1C09 /* ulinks.hpp */,
-				54B55F511F2D978A00BB1C09 /* unicode.hpp */,
-				54B55F521F2D978A00BB1C09 /* unpack.hpp */,
-				54B55F531F2D978A00BB1C09 /* Unrar4iOS.h */,
-				54B55F541F2D978A00BB1C09 /* version.hpp */,
-				54B55F551F2D978A00BB1C09 /* volume.hpp */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		54F7DA1B1F468ACC001F2299 /* ZipArchive */ = {
-			isa = PBXGroup;
-			children = (
-				54F7DA1C1F468ACC001F2299 /* minizip */,
-				54F7DA261F468ACC001F2299 /* SSZipArchive.h */,
-				54F7DA271F468ACC001F2299 /* SSZipArchive.m */,
-			);
-			path = ZipArchive;
-			sourceTree = "<group>";
-		};
-		54F7DA1C1F468ACC001F2299 /* minizip */ = {
-			isa = PBXGroup;
-			children = (
-				54F7DA1D1F468ACC001F2299 /* crypt.h */,
-				54F7DA1E1F468ACC001F2299 /* ioapi.c */,
-				54F7DA1F1F468ACC001F2299 /* ioapi.h */,
-				54F7DA201F468ACC001F2299 /* mztools.c */,
-				54F7DA211F468ACC001F2299 /* mztools.h */,
-				54F7DA221F468ACC001F2299 /* unzip.c */,
-				54F7DA231F468ACC001F2299 /* unzip.h */,
-				54F7DA241F468ACC001F2299 /* zip.c */,
-				54F7DA251F468ACC001F2299 /* zip.h */,
-			);
-			path = minizip;
 			sourceTree = "<group>";
 		};
 		E3083DC0E4552EA83E09C30C /* Frameworks */ = {
@@ -828,48 +605,6 @@
 			productReference = 54475DD61D9D949200B0BB49 /* File Browser.app */;
 			productType = "com.apple.product-type.application";
 		};
-		54475DEC1D9D949200B0BB49 /* VKFileBrowserDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 54475E041D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemoTests" */;
-			buildPhases = (
-				B480B849FEE7FFE4782EAB87 /* [CP] Check Pods Manifest.lock */,
-				54475DE91D9D949200B0BB49 /* Sources */,
-				54475DEA1D9D949200B0BB49 /* Frameworks */,
-				54475DEB1D9D949200B0BB49 /* Resources */,
-				BB70B0AC8503B3CBD1B73108 /* [CP] Embed Pods Frameworks */,
-				B267C7DDE967463BE62A9D1A /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				54475DEF1D9D949200B0BB49 /* PBXTargetDependency */,
-			);
-			name = VKFileBrowserDemoTests;
-			productName = VKFileBrowserDemoTests;
-			productReference = 54475DED1D9D949200B0BB49 /* VKFileBrowserDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		54475DF71D9D949200B0BB49 /* VKFileBrowserDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 54475E071D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemoUITests" */;
-			buildPhases = (
-				5B077DC0CFFDF503BAFA83FC /* [CP] Check Pods Manifest.lock */,
-				54475DF41D9D949200B0BB49 /* Sources */,
-				54475DF51D9D949200B0BB49 /* Frameworks */,
-				54475DF61D9D949200B0BB49 /* Resources */,
-				8BA656375673E829CB4614C1 /* [CP] Embed Pods Frameworks */,
-				E992180CA770274842E284FE /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				54475DFA1D9D949200B0BB49 /* PBXTargetDependency */,
-			);
-			name = VKFileBrowserDemoUITests;
-			productName = VKFileBrowserDemoUITests;
-			productReference = 54475DF81D9D949200B0BB49 /* VKFileBrowserDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -885,17 +620,6 @@
 						DevelopmentTeam = 8QPQ64G7PT;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
-					};
-					54475DEC1D9D949200B0BB49 = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 54475DD51D9D949200B0BB49;
-					};
-					54475DF71D9D949200B0BB49 = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 9A6T4XDGZT;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 54475DD51D9D949200B0BB49;
 					};
 				};
 			};
@@ -914,8 +638,6 @@
 			projectRoot = "";
 			targets = (
 				54475DD51D9D949200B0BB49 /* VKFileBrowserDemo */,
-				54475DEC1D9D949200B0BB49 /* VKFileBrowserDemoTests */,
-				54475DF71D9D949200B0BB49 /* VKFileBrowserDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -925,145 +647,107 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				543BFA0A1F6EE03B001E750C /* Localizable.strings in Resources */,
 				547E31901F4D3F1E003C0CC5 /* RemoteViewController.xib in Resources */,
-				5469C9501F48791C00A849EC /* SourceViewController.strings in Resources */,
-				5469C94A1F48791C00A849EC /* VKSearchViewController.xib in Resources */,
-				5469C9431F48791C00A849EC /* SFMono-Regular.otf in Resources */,
+				543BF9BD1F6EE03B001E750C /* Info.plist in Resources */,
+				543BF9FB1F6EE03B001E750C /* Media.xcassets in Resources */,
 				54779DCB1F5475EA00AEC1C0 /* Settings.bundle in Resources */,
-				5469C94F1F48791C00A849EC /* MarkdownViewController.strings in Resources */,
 				54475DE71D9D949200B0BB49 /* LaunchScreen.storyboard in Resources */,
 				548AFB1F1F4BD459008C6F4B /* RepositoryViewController.xib in Resources */,
-				5469C8911F48791B00A849EC /* Localizable.strings in Resources */,
-				5469C9421F48791C00A849EC /* Media.xcassets in Resources */,
 				5471AD541F48AE0A00CBDDDD /* CloneViewController.xib in Resources */,
-				5469C9461F48791C00A849EC /* MarkdownViewController.xib in Resources */,
 				54475DE41D9D949200B0BB49 /* Assets.xcassets in Resources */,
-				5469C9441F48791C00A849EC /* .gitkeep in Resources */,
 				54475DDF1D9D949200B0BB49 /* Main.storyboard in Resources */,
-				5448970C1F4AE1ED00DB8980 /* Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		54475DEB1D9D949200B0BB49 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		54475DF61D9D949200B0BB49 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				543BF9E31F6EE03B001E750C /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5B077DC0CFFDF503BAFA83FC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		8BA656375673E829CB4614C1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemoUITests/Pods-VKFileBrowserDemoUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B267C7DDE967463BE62A9D1A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemoTests/Pods-VKFileBrowserDemoTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B480B849FEE7FFE4782EAB87 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		BB70B0AC8503B3CBD1B73108 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemoTests/Pods-VKFileBrowserDemoTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E129D9330546EE165839FEB6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemo/Pods-VKFileBrowserDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AMScrollingNavbar/AMScrollingNavbar.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CYRTextView/CYRTextView.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
+				"${BUILT_PRODUCTS_DIR}/GCDWebServer/GCDWebServer.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/Highlightr/Highlightr.framework",
+				"${BUILT_PRODUCTS_DIR}/InAppSettingsKit/InAppSettingsKit.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/MWPhotoBrowser/MWPhotoBrowser.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRealmDataSources/RxRealmDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyMarkdown/SwiftyMarkdown.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
+				"${BUILT_PRODUCTS_DIR}/TinyConsole/TinyConsole.framework",
+				"${BUILT_PRODUCTS_DIR}/VBFPopFlatButton/VBFPopFlatButton.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AMScrollingNavbar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CYRTextView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GCDWebServer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Highlightr.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InAppSettingsKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWPhotoBrowser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealmDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyMarkdown.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TinyConsole.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VBFPopFlatButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemo/Pods-VKFileBrowserDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E992180CA770274842E284FE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFileBrowserDemoUITests/Pods-VKFileBrowserDemoUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ED8FB2DAD8DB282A25A0CCEB /* [CP] Copy Pods Resources */ = {
@@ -1087,13 +771,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VKFileBrowserDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1103,126 +790,112 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5448970F1F4AE1ED00DB8980 /* OID.swift in Sources */,
-				544897121F4AE1ED00DB8980 /* Remotes.swift in Sources */,
-				544897081F4AE1ED00DB8980 /* CheckoutStrategy.swift in Sources */,
-				54F7DA2A1F468ACC001F2299 /* unzip.c in Sources */,
-				54962AAA1F53C68B00E75239 /* Commits.swift in Sources */,
-				5487DF741F526B5A00E411D5 /* Diff.swift in Sources */,
-				5469C9531F48791C00A849EC /* RepositoryUtils.swift in Sources */,
-				54008A8E1F5E96E8005CCE1B /* VKTextStorage.swift in Sources */,
-				5469C9561F48791C00A849EC /* BaseModel.swift in Sources */,
+				543BF9FD1F6EE03B001E750C /* BaseModel.swift in Sources */,
+				543BF9C91F6EE03B001E750C /* 7zDec.c in Sources */,
+				543BF9E01F6EE03B001E750C /* SSZipArchive.m in Sources */,
+				543BF9FF1F6EE03B001E750C /* ContentModel.swift in Sources */,
+				5481682C1F6A6F1D00D59DB7 /* NetworkItem.swift in Sources */,
+				543BF9CD1F6EE03B001E750C /* Alloc.c in Sources */,
+				543BF9E61F6EE03B001E750C /* Commits.swift in Sources */,
 				547600E41F46E02C0014AC95 /* VKSpiltViewController.swift in Sources */,
-				54B55F6F1F2D978A00BB1C09 /* Delta.c in Sources */,
-				54B55F791F2D978A00BB1C09 /* RARExtractException.m in Sources */,
-				5480A9BE1F5DBBF20064F1D5 /* Remote.swift in Sources */,
-				54008A8C1F5E92E0005CCE1B /* VKTextView.swift in Sources */,
-				548D345A1F6576CF00D50114 /* Revwalk.swift in Sources */,
-				54B55F6A1F2D978A00BB1C09 /* 7zFile.c in Sources */,
-				54F7DA2B1F468ACC001F2299 /* zip.c in Sources */,
-				54B55F671F2D978A00BB1C09 /* 7zBuf.c in Sources */,
-				5469C9551F48791C00A849EC /* MarkdownViewController.swift in Sources */,
-				5471AD501F48A48B00CBDDDD /* MultiMarkdown.swift in Sources */,
-				54FD23621F631A7B00CB1B97 /* Blame.swift in Sources */,
+				543BFA001F6EE03B001E750C /* RepositoryModel.swift in Sources */,
+				543BF9EA1F6EE03B001E750C /* Pathspec.swift in Sources */,
+				543BF9DF1F6EE03B001E750C /* zip.c in Sources */,
+				543BF9FE1F6EE03B001E750C /* ContentItemModel.swift in Sources */,
+				543BF9CF1F6EE03B001E750C /* Delta.c in Sources */,
+				543BFA061F6EE03B001E750C /* BaseViewController.swift in Sources */,
+				543BF9F91F6EE03B001E750C /* DownloadUtils.swift in Sources */,
 				547E318F1F4D3F1E003C0CC5 /* RemoteViewController.swift in Sources */,
-				54B55F701F2D978A00BB1C09 /* Lzma2Dec.c in Sources */,
-				5469C94C1F48791C00A849EC /* Constant.swift in Sources */,
-				54F7DA2C1F468ACC001F2299 /* SSZipArchive.m in Sources */,
-				54B55F6C1F2D978A00BB1C09 /* 7zStream.c in Sources */,
-				54B55F7A1F2D978A00BB1C09 /* Unrar4iOS.mm in Sources */,
-				544897091F4AE1ED00DB8980 /* CommitIterator.swift in Sources */,
-				5469C95E1F48791C00A849EC /* Style.swift in Sources */,
-				54F7DA291F468ACC001F2299 /* mztools.c in Sources */,
-				546F11871F4FC67C001ED7B3 /* NSArray+StringArray.m in Sources */,
+				543BF9F21F6EE03B001E750C /* MarkdownTextAttachment.swift in Sources */,
+				543BF9C81F6EE03B001E750C /* 7zBuf2.c in Sources */,
+				543BF9F51F6EE03B001E750C /* VKTextStorage.swift in Sources */,
+				543BF9F31F6EE03B001E750C /* VKDiffView.swift in Sources */,
+				543BF9D81F6EE03B001E750C /* 7zMain.c in Sources */,
+				543BF9BB1F6EE03B001E750C /* Credentials.swift in Sources */,
+				543BF9D21F6EE03B001E750C /* LZMAExtractor.m in Sources */,
+				547D35541F6D85E9006F785C /* HistoryItem.swift in Sources */,
+				543BF9C31F6EE03B001E750C /* Remotes.swift in Sources */,
+				543BF9CA1F6EE03B001E750C /* 7zFile.c in Sources */,
+				543BF9C11F6EE03B001E750C /* Pointers.swift in Sources */,
+				543BF9BA1F6EE03B001E750C /* CommitIterator.swift in Sources */,
+				543BFA091F6EE03B001E750C /* VKFileManager.swift in Sources */,
+				543BF9C01F6EE03B001E750C /* OID.swift in Sources */,
+				543BF9C51F6EE03B001E750C /* SwiftGit2.m in Sources */,
 				548AFB1E1F4BD459008C6F4B /* RepositoryViewController.swift in Sources */,
-				54B55F691F2D978A00BB1C09 /* 7zDec.c in Sources */,
-				5469C94B1F48791C00A849EC /* BaseViewController.swift in Sources */,
+				543BF9EC1F6EE03B001E750C /* Remote.swift in Sources */,
+				543BFA041F6EE03B001E750C /* SourceViewController.swift in Sources */,
 				54475DDC1D9D949200B0BB49 /* ViewController.swift in Sources */,
-				548D345B1F6576CF00D50114 /* Log.swift in Sources */,
+				543BF9E71F6EE03B001E750C /* Diff.swift in Sources */,
 				5490E20F1F5516A30041D232 /* DefaultsKeys.swift in Sources */,
-				5448970D1F4AE1ED00DB8980 /* Libgit2.swift in Sources */,
-				544897111F4AE1ED00DB8980 /* References.swift in Sources */,
+				543BFA021F6EE03B001E750C /* MarkdownViewController.swift in Sources */,
+				543BF9F61F6EE03B001E750C /* VKTextView.swift in Sources */,
+				543BF9DE1F6EE03B001E750C /* unzip.c in Sources */,
+				543BF9C41F6EE03B001E750C /* Repository.swift in Sources */,
+				543BF9CB1F6EE03B001E750C /* 7zIn.c in Sources */,
+				543BF9B91F6EE03B001E750C /* CheckoutStrategy.swift in Sources */,
+				543BF9ED1F6EE03B001E750C /* RepositoryUtils.swift in Sources */,
 				5483B7DE1F41575400782760 /* README.md in Sources */,
-				54B55F711F2D978A00BB1C09 /* LzmaDec.c in Sources */,
-				54B55F6D1F2D978A00BB1C09 /* Alloc.c in Sources */,
-				54962AA81F53C24100E75239 /* HEAD.swift in Sources */,
-				548C5F6C1F5D471000C454D9 /* Branch.swift in Sources */,
-				5487DF761F526C3300E411D5 /* Status.swift in Sources */,
-				54008A901F5E970C005CCE1B /* VKLayoutManager.swift in Sources */,
-				5469C9651F48791C00A849EC /* MarkdownTextAttachment.swift in Sources */,
+				543BF9EB1F6EE03B001E750C /* Reflog.swift in Sources */,
+				543BF9FC1F6EE03B001E750C /* VKSearchViewController.swift in Sources */,
+				543BF9CC1F6EE03B001E750C /* 7zStream.c in Sources */,
 				54B7BC031F6685F600B3D5D2 /* WebBrowserController.swift in Sources */,
-				544897141F4AE1ED00DB8980 /* SwiftGit2.m in Sources */,
-				5469C95F1F48791C00A849EC /* VKFile.swift in Sources */,
-				54B8C6A01F65A25A00EFA888 /* Pathspec.swift in Sources */,
-				5469C9601F48791C00A849EC /* VKFileBrowser.swift in Sources */,
+				543BF9EF1F6EE03B001E750C /* Status.swift in Sources */,
+				544194CF1F6EAB840032C7D9 /* UITextField+Rx.swift in Sources */,
+				543BF9D01F6EE03B001E750C /* Lzma2Dec.c in Sources */,
+				543BF9D71F6EE03B001E750C /* 7zAlloc.c in Sources */,
 				547600E61F46E2650014AC95 /* RootViewController.swift in Sources */,
-				54F7DA281F468ACC001F2299 /* ioapi.c in Sources */,
-				5469C9621F48791C00A849EC /* VKFileManager.swift in Sources */,
-				54B55F751F2D978A00BB1C09 /* Ppmd8.c in Sources */,
-				544897101F4AE1ED00DB8980 /* Pointers.swift in Sources */,
-				54B55F761F2D978A00BB1C09 /* Ppmd8Dec.c in Sources */,
-				54B55F771F2D978A00BB1C09 /* 7zAlloc.c in Sources */,
-				5448970E1F4AE1ED00DB8980 /* Objects.swift in Sources */,
-				5469C9571F48791C00A849EC /* ContentItemModel.swift in Sources */,
-				5469C9581F48791C00A849EC /* ContentModel.swift in Sources */,
-				54B55F741F2D978A00BB1C09 /* Ppmd7Dec.c in Sources */,
-				5448970A1F4AE1ED00DB8980 /* Credentials.swift in Sources */,
-				5469C95D1F48791C00A849EC /* SourceViewController.swift in Sources */,
-				54B55F781F2D978A00BB1C09 /* 7zMain.c in Sources */,
-				5448970B1F4AE1ED00DB8980 /* Errors.swift in Sources */,
-				54B55F6E1F2D978A00BB1C09 /* CpuArch.c in Sources */,
-				547459FE1F628F1300B966D6 /* VKDiffView.swift in Sources */,
-				5469C9591F48791C00A849EC /* RepositoryModel.swift in Sources */,
-				54B55F731F2D978A00BB1C09 /* Ppmd7.c in Sources */,
+				543BF9E81F6EE03B001E750C /* HEAD.swift in Sources */,
+				543BF9E51F6EE03B001E750C /* Branch.swift in Sources */,
+				543BF9E91F6EE03B001E750C /* Log.swift in Sources */,
+				543BF9BC1F6EE03B001E750C /* Errors.swift in Sources */,
+				543BF9D51F6EE03B001E750C /* Ppmd8.c in Sources */,
+				543BF9C21F6EE03B001E750C /* References.swift in Sources */,
+				543BF9F41F6EE03B001E750C /* VKLayoutManager.swift in Sources */,
+				543BFA011F6EE03B001E750C /* Constant.swift in Sources */,
+				543BF9DC1F6EE03B001E750C /* ioapi.c in Sources */,
+				543BF9F01F6EE03B001E750C /* VKURLProtocol.swift in Sources */,
+				543BFA031F6EE03B001E750C /* VKFile.swift in Sources */,
+				54EED33E1F6A93EE00C2539D /* HeaderItem.swift in Sources */,
+				543BF9D61F6EE03B001E750C /* Ppmd8Dec.c in Sources */,
+				543BF9B81F6EE03B001E750C /* NSArray+StringArray.m in Sources */,
+				543BF9DD1F6EE03B001E750C /* mztools.c in Sources */,
+				543BF9BE1F6EE03B001E750C /* Libgit2.swift in Sources */,
+				543BF9D11F6EE03B001E750C /* LzmaDec.c in Sources */,
+				543BF9EE1F6EE03B001E750C /* Revwalk.swift in Sources */,
+				543BF9FA1F6EE03B001E750C /* URLRouter.swift in Sources */,
+				543BF9C71F6EE03B001E750C /* 7zBuf.c in Sources */,
 				5471AD531F48AE0A00CBDDDD /* CloneViewController.swift in Sources */,
-				54B55F6B1F2D978A00BB1C09 /* 7zIn.c in Sources */,
-				54B55F681F2D978A00BB1C09 /* 7zBuf2.c in Sources */,
-				5469C9521F48791C00A849EC /* Extension.swift in Sources */,
-				54FD23601F63101500CB1B97 /* Reflog.swift in Sources */,
-				54B55F721F2D978A00BB1C09 /* LZMAExtractor.m in Sources */,
-				5469C95C1F48791C00A849EC /* RGBtoHSV.swift in Sources */,
+				543BF9D41F6EE03B001E750C /* Ppmd7Dec.c in Sources */,
+				543BF9BF1F6EE03B001E750C /* Objects.swift in Sources */,
+				543BF9D91F6EE03B001E750C /* MultiMarkdown.swift in Sources */,
 				54779DC91F54749900AEC1C0 /* SettingsTableViewController.swift in Sources */,
 				54475DDA1D9D949200B0BB49 /* AppDelegate.swift in Sources */,
-				544897131F4AE1ED00DB8980 /* Repository.swift in Sources */,
-				5469C9641F48791C00A849EC /* VKSearchViewController.swift in Sources */,
-				5469C95A1F48791C00A849EC /* DownloadUtils.swift in Sources */,
-				5469C95B1F48791C00A849EC /* URLRouter.swift in Sources */,
-				54475DE21D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodeld in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		54475DE91D9D949200B0BB49 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				54475DF21D9D949200B0BB49 /* VKFileBrowserDemoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		54475DF41D9D949200B0BB49 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				54475DFD1D9D949200B0BB49 /* VKFileBrowserDemoUITests.swift in Sources */,
+				543BF9CE1F6EE03B001E750C /* CpuArch.c in Sources */,
+				543BFA081F6EE03B001E750C /* Extension.swift in Sources */,
+				543BF9D31F6EE03B001E750C /* Ppmd7.c in Sources */,
+				543BF9E41F6EE03B001E750C /* Blame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		54475DEF1D9D949200B0BB49 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 54475DD51D9D949200B0BB49 /* VKFileBrowserDemo */;
-			targetProxy = 54475DEE1D9D949200B0BB49 /* PBXContainerItemProxy */;
-		};
-		54475DFA1D9D949200B0BB49 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 54475DD51D9D949200B0BB49 /* VKFileBrowserDemo */;
-			targetProxy = 54475DF91D9D949200B0BB49 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
+		543BF7B01F6EE02D001E750C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				543BF7B11F6EE02D001E750C /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		543BF7E11F6EE039001E750C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				543BF7E21F6EE039001E750C /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		54475DDD1D9D949200B0BB49 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1237,50 +910,6 @@
 				54475DE61D9D949200B0BB49 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		5469C7A01F48791B00A849EC /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5469C7A11F48791B00A849EC /* Base */,
-				5469C7A21F48791B00A849EC /* en */,
-				5469C8581F48791B00A849EC /* zh-Hans */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		5469C85D1F48791B00A849EC /* MarkdownViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5469C85E1F48791B00A849EC /* Base */,
-			);
-			name = MarkdownViewController.xib;
-			sourceTree = "<group>";
-		};
-		5469C8651F48791B00A849EC /* VKSearchViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5469C8661F48791B00A849EC /* Base */,
-			);
-			name = VKSearchViewController.xib;
-			sourceTree = "<group>";
-		};
-		5469C86C1F48791B00A849EC /* MarkdownViewController.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5469C86D1F48791B00A849EC /* en */,
-				5469C88C1F48791B00A849EC /* zh-Hans */,
-			);
-			name = MarkdownViewController.strings;
-			sourceTree = "<group>";
-		};
-		5469C86E1F48791B00A849EC /* SourceViewController.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5469C86F1F48791B00A849EC /* en */,
-				5469C88D1F48791B00A849EC /* zh-Hans */,
-			);
-			name = SourceViewController.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1384,10 +1013,16 @@
 			baseConfigurationReference = BB889DED40EDFF3CAA706D55 /* Pods-VKFileBrowserDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = NO;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = NO;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8QPQ64G7PT;
@@ -1397,6 +1032,7 @@
 					"$(PROJECT_DIR)/Pods/SARUnArchiveANY/Frameworks",
 					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks",
 				);
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				HEADER_SEARCH_PATHS = (
 					"$(SDK_DIR)/usr/include/libxml2",
@@ -1409,6 +1045,7 @@
 					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/libgit2-ios",
 					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/libssh2-ios/lib",
 					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/ios-openssl/lib",
+					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/libssh2-ios/src/libssh2/src/.libs",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1444,7 +1081,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowser;
 				PRODUCT_NAME = "File Browser";
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/include";
-				SWIFT_OBJC_BRIDGING_HEADER = "./VKFileBrowserDemo/VKFileBrowser/VKFileBrowserDemo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "./VKFileBrowserDemo/VKFileBrowserDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/GCDWebServer/** ${SRCROOT}/Pods/SDWebImage/** ${SRCROOT}/Pods/MJRefresh/** ${SRCROOT}/Pods/MWPhotoBrowser/** ${SRCROOT}/Pods/MJExtension/** ${SRCROOT}/Pods/SVProgressHUD/** ${SRCROOT}/Pods/InAppSettingsKit/** ${SRCROOT}/Pods/ChameleonFramework/** ${SRCROOT}/Pods/CYRTextView/**";
@@ -1457,11 +1094,18 @@
 			baseConfigurationReference = CCF057DF7DB243D108D8C348 /* Pods-VKFileBrowserDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = NO;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = NO;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8QPQ64G7PT;
 				ENABLE_BITCODE = NO;
@@ -1470,6 +1114,7 @@
 					"$(PROJECT_DIR)/Pods/SARUnArchiveANY/Frameworks",
 					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks",
 				);
+				GCC_C_LANGUAGE_STANDARD = c99;
 				HEADER_SEARCH_PATHS = (
 					"$(SDK_DIR)/usr/include/libxml2",
 					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/include",
@@ -1481,6 +1126,7 @@
 					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/libgit2-ios",
 					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/libssh2-ios/lib",
 					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/ios-openssl/lib",
+					"$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/libssh2-ios/src/libssh2/src/.libs",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1516,72 +1162,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowser;
 				PRODUCT_NAME = "File Browser";
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/VKFileBrowserDemo/vendor/Frameworks/include";
-				SWIFT_OBJC_BRIDGING_HEADER = "./VKFileBrowserDemo/VKFileBrowser/VKFileBrowserDemo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "./VKFileBrowserDemo/VKFileBrowserDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/Pods/GCDWebServer/** ${SRCROOT}/Pods/SDWebImage/** ${SRCROOT}/Pods/MJRefresh/** ${SRCROOT}/Pods/MWPhotoBrowser/** ${SRCROOT}/Pods/MJExtension/** ${SRCROOT}/Pods/SVProgressHUD/** ${SRCROOT}/Pods/InAppSettingsKit/** ${SRCROOT}/Pods/ChameleonFramework/** ${SRCROOT}/Pods/CYRTextView/**";
 				VALID_ARCHS = "armv7 armv7s arm64";
-			};
-			name = Release;
-		};
-		54475E051D9D949200B0BB49 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F6902C1E089A926CA87A2D6 /* Pods-VKFileBrowserDemoTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = VKFileBrowserDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowserDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VKFileBrowserDemo.app/VKFileBrowserDemo";
-			};
-			name = Debug;
-		};
-		54475E061D9D949200B0BB49 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CB01436C1201A837CDE88BB /* Pods-VKFileBrowserDemoTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = VKFileBrowserDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowserDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VKFileBrowserDemo.app/VKFileBrowserDemo";
-			};
-			name = Release;
-		};
-		54475E081D9D949200B0BB49 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A98C2ECAFC217698F3E2C09D /* Pods-VKFileBrowserDemoUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 9A6T4XDGZT;
-				INFOPLIST_FILE = VKFileBrowserDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowserDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = VKFileBrowserDemo;
-			};
-			name = Debug;
-		};
-		54475E091D9D949200B0BB49 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17F2D5F8F5BD6381CDF5CBE4 /* Pods-VKFileBrowserDemoUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 9A6T4XDGZT;
-				INFOPLIST_FILE = VKFileBrowserDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vk.VKFileBrowserDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = VKFileBrowserDemo;
 			};
 			name = Release;
 		};
@@ -1606,38 +1190,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		54475E041D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				54475E051D9D949200B0BB49 /* Debug */,
-				54475E061D9D949200B0BB49 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		54475E071D9D949200B0BB49 /* Build configuration list for PBXNativeTarget "VKFileBrowserDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				54475E081D9D949200B0BB49 /* Debug */,
-				54475E091D9D949200B0BB49 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		54475DE01D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				54475DE11D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodel */,
-			);
-			currentVersion = 54475DE11D9D949200B0BB49 /* VKFileBrowserDemo.xcdatamodel */;
-			path = VKFileBrowserDemo.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 54475DCE1D9D949200B0BB49 /* Project object */;
 }

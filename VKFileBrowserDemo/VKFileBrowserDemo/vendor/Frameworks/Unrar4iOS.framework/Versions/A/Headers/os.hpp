@@ -12,56 +12,68 @@
 #define SILENT
 #endif
 
-#define ENABLE_BAD_ALLOC // Undefine if std::bad_alloc is not supported.
-
-#ifdef ENABLE_BAD_ALLOC
-  #include <new>
+#if defined(_WIN_32) || defined(_EMX)
+#define ENABLE_BAD_ALLOC
 #endif
 
 
-#if defined(_WIN_ALL) || defined(_EMX)
+#if defined(_WIN_32) || defined(_EMX)
 
 #define LITTLE_ENDIAN
 #define NM  1024
 
-#ifdef _WIN_ALL
+#ifdef _WIN_32
 
-#define STRICT
-#define UNICODE
-#undef WINVER
-#undef _WIN32_WINNT
-#define WINVER 0x0501
-#define _WIN32_WINNT 0x0501
+  #define STRICT
+  #undef WINVER
+  #undef _WIN32_WINNT
+  #define WINVER 0x0400
+  #define _WIN32_WINNT 0x0300
 
 
 #define WIN32_LEAN_AND_MEAN
 
 #include <windows.h>
 #include <prsht.h>
-#include <shlwapi.h>
-#include <shellapi.h>
-#include <shlobj.h>
-#include <winioctl.h>
+
+#ifndef _WIN_CE
+  #include <shellapi.h>
+  #include <shlobj.h>
+  #include <winioctl.h>
 
 
+#endif // _WIN_CE
 
-#endif // _WIN_ALL
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <dos.h>
+#endif // _WIN_32
 
-#if !defined(_EMX) && !defined(_MSC_VER)
+#ifndef _WIN_CE
+  #include <sys/types.h>
+  #include <sys/stat.h>
+  #include <dos.h>
+#endif // _WIN_CE
+
+#if !defined(_EMX) && !defined(_MSC_VER) && !defined(_WIN_CE)
   #include <dir.h>
 #endif
 #ifdef _MSC_VER
   #if _MSC_VER<1500
     #define for if (0) ; else for
   #endif
-  #include <direct.h>
+  #ifndef _WIN_CE
+    #include <direct.h>
+  #endif
 #else
   #include <dirent.h>
 #endif // _MSC_VER
+
+#ifndef _WIN_CE
+  #include <share.h>
+#endif // _WIN_CE
+
+#if defined(ENABLE_BAD_ALLOC) && !defined(_WIN_CE)
+  #include <new.h>
+#endif
 
 #ifdef _EMX
   #include <unistd.h>
@@ -75,6 +87,12 @@
     #include <sys/utime.h>
     #include <emx/syscalls.h>
   #endif
+#else
+  #if defined(_MSC_VER) || defined(__MINGW32__)
+      #include <exception>
+  #else
+    #include <except.h>
+  #endif
 #endif
 
 #include <stdio.h>
@@ -82,11 +100,19 @@
 #include <stdarg.h>
 #include <string.h>
 #include <ctype.h>
-#include <fcntl.h>
-#include <dos.h>
-#include <io.h>
-#include <time.h>
-#include <signal.h>
+#ifndef _WIN_CE
+  #include <fcntl.h>
+  #include <dos.h>
+  #include <io.h>
+  #include <time.h>
+  #include <signal.h>
+#endif
+
+/*
+#ifdef _WIN_32
+#pragma hdrstop
+#endif // _WIN_32
+*/
 
 #define ENABLE_ACCESS
 
@@ -104,27 +130,16 @@
 #define READTEXT     "rt"
 #define UPDATEBINARY "r+b"
 #define CREATEBINARY "w+b"
-#define WRITEBINARY  "wb"
 #define APPENDTEXT   "at"
 
-#if defined(_WIN_ALL)
+#if defined(_WIN_32)
   #ifdef _MSC_VER
     #define _stdfunction __cdecl
-
-    #ifdef SFX_MODULE
-      // We want to keep SFX module small, so let compiler to decide.
-      #define _forceinline inline
-    #else
-      #define _forceinline __forceinline
-    #endif
-
   #else
     #define _stdfunction _USERENTRY
-    #define _forceinline inline
   #endif
 #else
   #define _stdfunction
-  #define _forceinline inline
 #endif
 
 #endif
@@ -145,9 +160,6 @@
 #if defined(__QNXNTO__)
   #include <sys/param.h>
 #endif
-#if defined(RAR_SMP) && defined(__APPLE__)
-  #include <sys/sysctl.h>
-#endif
 #if defined(__FreeBSD__) || defined (__NetBSD__) || defined (__OpenBSD__) || defined(__APPLE__)
   #include <sys/param.h>
   #include <sys/mount.h>
@@ -155,7 +167,6 @@
 #endif
 #include <pwd.h>
 #include <grp.h>
-#include <wchar.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
@@ -189,11 +200,9 @@
 #define READTEXT     "r"
 #define UPDATEBINARY "r+"
 #define CREATEBINARY "w+"
-#define WRITEBINARY  "w"
 #define APPENDTEXT   "a"
 
 #define _stdfunction 
-#define _forceinline inline
 
 #ifdef _APPLE
   #if defined(__BIG_ENDIAN__) && !defined(BIG_ENDIAN)
@@ -240,14 +249,14 @@
   #endif
 #endif
 
-#if !defined(BIG_ENDIAN) && !defined(_WIN_CE) && defined(_WIN_ALL)
-// Allow not aligned integer access, increases speed in some operations.
+#if !defined(BIG_ENDIAN) && !defined(_WIN_CE) && defined(_WIN_32)
+/* allow not aligned integer access, increases speed in some operations */
 #define ALLOW_NOT_ALIGNED_INT
 #endif
 
 #if defined(__sparc) || defined(sparc) || defined(__sparcv9)
-// Prohibit not aligned access to data structures in text compression
-// algorithm, increases memory requirements
+/* prohibit not aligned access to data structures in text comression
+   algorithm, increases memory requirements */
 #define STRICT_ALIGNMENT_REQUIRED
 #endif
 

@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         self.navigationController?.hidesNavigationBarHairline = true
         navigationItem.leftItemsSupplementBackButton = true
         self.navigationController?.navigationBar.barTintColor = .flatSkyBlue
+        
     }
 
     
