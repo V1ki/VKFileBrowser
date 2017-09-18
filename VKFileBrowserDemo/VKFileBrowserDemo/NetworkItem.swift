@@ -8,13 +8,15 @@
 
 import UIKit
 import RealmSwift
+import ObjectMapper
 
 class NetworkItem: Object {
     
     dynamic var url : String = "" // network url
     dynamic var status : Int = 200
     dynamic var size : Int = 0 //  network size
-
+    dynamic var data = NSData()
+    
     var headers = List<HeaderItem>()
     
     

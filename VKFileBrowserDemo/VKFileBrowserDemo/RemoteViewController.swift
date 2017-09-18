@@ -87,7 +87,7 @@ class RemoteViewController: BaseViewController {
                     })
                     
                     
-                }.disposed(by: disposeBag)
+                    }.disposed(by: self.disposeBag)
                 
                 cell?.addSubview(fetchBtn)
                 
@@ -126,7 +126,7 @@ class RemoteViewController: BaseViewController {
                     RepositoryUtils.pushBranch(self.repo!, (branch)!, (self.remote)!)
                     
                     
-                    }.disposed(by: disposeBag)
+                    }.disposed(by: self.disposeBag)
                 
                 cell?.addSubview(pushBtn)
                 
@@ -149,10 +149,10 @@ class RemoteViewController: BaseViewController {
                 
                 if(element == LocalizedString("Name")){
                     textField.text = self.remote?.name
-                    textField.rx.text.bind{str in self.remoteName = str}.disposed(by: disposeBag)
+                    textField.rx.text.bind{str in self.remoteName = str}.disposed(by: self.disposeBag)
                 }else if(element == LocalizedString("URL")){
                     textField.text = self.remote?.URL
-                    textField.rx.text.bind{str in self.remoteUrl = str}.disposed(by: disposeBag)
+                    textField.rx.text.bind{str in self.remoteUrl = str}.disposed(by: self.disposeBag)
                 }
                     cell?.addSubview(textField)
                 

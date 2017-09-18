@@ -14,11 +14,11 @@ import ChameleonFramework
 import RxSwift
 import RxCocoa
 import RxDataSources
-import TinyConsole
 
-let disposeBag = DisposeBag()
 
 class RootViewController: UITableViewController,SSZipArchiveDelegate {
+
+    let disposeBag = DisposeBag()
 
     /// MARK: -- Property
     let fm = FileManager.default

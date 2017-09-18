@@ -19,7 +19,6 @@ target "VKFileBrowserDemo" do
  pod "SVProgressHUD"
  pod "Highlightr"
  pod "SwiftyMarkdown"
- pod "SwipeCellKit"
  pod "MGSwipeTableCell"
  pod "Result"
  pod 'ReachabilitySwift'
@@ -36,6 +35,7 @@ target "VKFileBrowserDemo" do
 # pod "FileKit"
  pod "SwiftyUserDefaults"
  pod "Hero"
+ pod "ObjectMapper"
 # pod "Hedwig"
 # pod "DeviceKit"
 # pod "Charts"
@@ -58,19 +58,8 @@ target "VKFileBrowserDemo" do
  pod "InAppSettingsKit"
  pod "SCLAlertView"
  pod 'SnapKit'
- pod 'CYRTextView'
- pod 'TinyConsole'
+ pod 'Validator'
 # pod "Quick"
 # pod "Nimble"
  
-  target "VKFileBrowserDemoTests" do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target "VKFileBrowserDemoUITests" do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end

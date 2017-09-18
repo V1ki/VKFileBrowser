@@ -24,6 +24,8 @@ import AMScrollingNavbar
 
 class WebBrowserController: BaseViewController {
     
+    
+    
     var webView: UIWebView = UIWebView()
     
     var jsContext : JSContext?
@@ -32,12 +34,13 @@ class WebBrowserController: BaseViewController {
     var consoleView : UITextView = {
         var textView = UITextView()
         textView.isEditable = false
+        textView.isSelectable = false
         textView.backgroundColor = .black
-        textView.textColor = UIColor(hexString: "0x00F900")
+        textView.textColor = UIColor(hexString: "#00F900")
         
         return textView
     }()
-    var urlTextField : UITextField = UITextField()
+    var urlTextField : UITextField! = UITextField()
     
     var elementTextview : VKTextView = {
         print("init elementView")
@@ -71,12 +74,24 @@ class WebBrowserController: BaseViewController {
     }()
     
     
+    let dis = DisposeBag()
+    
     var selectIp : IndexPath?
+    
+    fileprivate func cellForItem(_ tableView: UITableView, _ item: NetworkItem) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? NetworkItemCell
+        
+        if cell == nil {
+            cell = NetworkItemCell(reuseIdentifier:"Cell")
+        }
+        cell?.item = item
+        return cell!
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.splitViewController?.delegate = self
 //        self.splitViewController?.preferredDisplayMode = .primaryHidden
+        
         
         // MARK: - 添加子控件
         self.view.addSubview(webView)
@@ -102,14 +117,8 @@ class WebBrowserController: BaseViewController {
         seg.snp.makeConstraints{ make in
             make.center.equalTo(self.consoleTabBar)
         }
-        seg.rx.value.bind{ next in
-            if next == 1 {
-                self.networkTableview.isHidden = false
-            }else {
-                self.networkTableview.isHidden = true
-            }
-            
-            }.addDisposableTo(disposeBag)
+
+        seg.rx.value.map{ $0 == 0 }.bind(to: self.networkTableview.rx.isHidden).disposed(by: disposeBag)
         
         
         let pangr = UIPanGestureRecognizer()
@@ -171,68 +180,11 @@ class WebBrowserController: BaseViewController {
         // MARK: - 初始化 Network Tableview
 
         
+        self.networkTableview.register(NetworkItemCell.self, forCellReuseIdentifier: "Cell")
         let items = realm.objects(NetworkItem.self)
         
         let dataSource = RxTableViewRealmDataSource<NetworkItem>(cellIdentifier: "Cell"){ dataSource ,tableView,ip,item in
-            var cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-            
-            if cell == nil {
-                cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
-                
-                let nextBtn = VBFPopFlatButton(frame: CGRect(x:0,y:0,width:18,height:18), buttonType: .buttonForwardType, buttonStyle: .buttonRoundedStyle , animateToInitialState: false)
-                
-                nextBtn?.backgroundColor = UIColor.clear
-                nextBtn?.tintColor = .flatBlue
-                cell?.addSubview(nextBtn!)
-
-                nextBtn!.snp.makeConstraints{ make in
-                    make.right.equalTo(0)
-                    make.top.equalTo(13)
-//                    make.width.equalTo(20)
-//                    make.height.equalTo(20)
-                }
-                
-                let separatorLine = UIView()
-                separatorLine.backgroundColor = UIColor(red: 0.78, green: 0.78, blue: 0.78, alpha: 1)
-                cell?.addSubview(separatorLine)
-                
-                separatorLine.snp.makeConstraints{ make in
-                    make.bottom.equalTo(0)
-                    make.height.equalTo(0.5)
-                    make.left.equalTo(15)
-                    make.right.equalTo(0)
-                }
-                
-                
-                cell?.textLabel?.snp.makeConstraints{ make in
-                    make.top.equalTo(5)
-                    make.left.equalTo(15)
-                    make.right.equalTo(-15)
-                    make.height.equalTo(20.5)
-                    
-                }
-                
-                cell?.detailTextLabel?.snp.makeConstraints{ make in
-                    make.top.equalTo(25.5)
-                    make.left.equalTo((cell!.textLabel)!)
-                    make.height.equalTo(14.5)
-                    make.right.equalTo(-15)
-                }
-                
-            }
-            var url = (item.url.components(separatedBy: "://").last)!
-            if url.characters.last == "/" {
-                url = url.substring(to: url.index(url.endIndex, offsetBy: -1))
-            }
-            
-            let str = (url.components(separatedBy: "/").last)!
-            
-            cell?.textLabel?.text = "\(str.isEmpty ? url : str )"
-            
-            cell?.detailTextLabel?.text = "\(url)"
-            
-            return cell!
-            
+            return self.cellForItem(tableView, item)
         }
         
         let laps = Observable.changeset(from: items)
@@ -241,6 +193,7 @@ class WebBrowserController: BaseViewController {
         laps
             .bind(to:self.networkTableview.rx.realmChanges(dataSource))
             .addDisposableTo(disposeBag)
+        
         
         
         
@@ -273,11 +226,10 @@ class WebBrowserController: BaseViewController {
             
             let item = items[ip.row]
             headerVar.value = item.headers
-            closeBtn?.isHidden = false
+            
             self.networkContentView.isHidden = false
             
             }.disposed(by: disposeBag)
-        
         
         
         headerVar.asObservable().bind(to:  networkContentView.rx.items) {  (tableView, row, element) in
@@ -290,9 +242,6 @@ class WebBrowserController: BaseViewController {
             cell?.textLabel?.text = "\(element.key!) : \(element.value!)"
             return cell!
         }.disposed(by: disposeBag)
-//        headerVar.asObservable().bindTo(self.networkContentView.rx.realmChanges(headDataSource))
-//            .addDisposableTo(disposeBag)
-        
         
         
         
@@ -402,11 +351,10 @@ class WebBrowserController: BaseViewController {
         let request = URLRequest(url: URL(string:"https://www.baidu.com")! )
         webView.loadRequest(request)
         webView.delegate = self
-        webView.scrollView.delegate = self
+        
         try! realm.write {
             realm.deleteAll()
         }
-        
         
         // MARK: - 初始化 JSContext
         if let ctx : JSContext = webView.value(forKeyPath: "documentView.webView.mainFrame.javaScriptContext") as? JSContext {
@@ -444,7 +392,7 @@ class WebBrowserController: BaseViewController {
         inputTF.placeholder = LocalizedString("input cmd")
         inputTF.backgroundColor = .white
         self.view.addSubview(inputTF)
-        
+        seg.rx.value.map{ $0 == 1 }.bind(to: inputTF.rx.isHidden).disposed(by: disposeBag)
         
         let bar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 48) )
         inputTF.inputAccessoryView = bar
@@ -460,13 +408,20 @@ class WebBrowserController: BaseViewController {
         inputTF.rx.text.bind(to: label.rx.text).disposed(by: disposeBag)
         
         
-        
         inputTF.snp.makeConstraints{ make in
             make.height.equalTo(50)
             make.width.equalToSuperview()
             make.bottom.equalTo(0)
             make.left.equalTo(0)
         }
+        
+        
+        self.networkTableview.rx.hidden.filter{$0}.bind(to: self.networkContentView.rx.isHidden).disposed(by: disposeBag)
+        self.networkContentView.rx.hidden.bind(to: closeBtn!.rx.isHidden).disposed(by: disposeBag)
+        
+        self.networkTableview.rx.hidden.filter{$0 && (self.selectIp != nil)}.bind{ _ in
+            self.networkTableview.deselectRow(at: self.selectIp!, animated: false)
+            }.disposed(by: disposeBag)
         
         
     }
@@ -485,18 +440,6 @@ class WebBrowserController: BaseViewController {
         }
     }
     
-    // MARK: - TabBar Pan Gesture Recognizer
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 
@@ -538,19 +481,5 @@ extension WebBrowserController : UIWebViewDelegate {
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         print("error:\(error)")
     }
-}
-
-extension WebBrowserController : UIScrollViewDelegate{}
-
-extension WebBrowserController : UISplitViewControllerDelegate {
-    func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewControllerDisplayMode) {
-//        self.view.setNeedsDisplay()
-//        self.networkTableview.reloadData()
-        
-        
-        
-        
-    }
-    
 }
 
