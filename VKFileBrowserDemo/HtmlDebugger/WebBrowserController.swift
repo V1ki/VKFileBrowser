@@ -40,6 +40,7 @@ class WebBrowserController: BaseViewController {
         
         return textView
     }()
+    
     var urlTextField : UITextField! = UITextField()
     
     var elementTextview : VKTextView = {
