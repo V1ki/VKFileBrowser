@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>FooterText</key>
+			<string>WiFi 文件传输 需要App 在前台才能正常使用</string>
+			<key>Title</key>
+			<string>WiFi 文件传输</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>NO</string>
+			<key>Key</key>
+			<string>autoStart</string>
+			<key>Title</key>
+			<string>自动开启</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>NO</string>
+			<key>Key</key>
+			<string>wifi</string>
+			<key>Title</key>
+			<string>WiFi 文件传输</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>http://localhost:8080/</string>
+			<key>Key</key>
+			<string>url</string>
+			<key>Title</key>
+			<string>URL</string>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>80</string>
+			<key>Key</key>
+			<string>port</string>
+			<key>Title</key>
+			<string>Port</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>IASKTextAlignment</key>
+			<string>IASKUITextAlignmentRight</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Identify</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Key</key>
+			<string>username</string>
+			<key>Title</key>
+			<string>username</string>
+            <key>IASKPlaceholder</key>
+            <string>Pleas input username</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>IASKTextAlignment</key>
+			<string>IASKUITextAlignmentRight</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>IsSecure</key>
+			<true/>
+			<key>Title</key>
+			<string>password</string>
+            <key>IASKPlaceholder</key>
+            <string>Pleas input password</string>
+			<key>Key</key>
+			<string>password</string>
+			<key>IASKTextAlignment</key>
+			<string>IASKUITextAlignmentRight</string>
+		</dict>
+		<dict>
+			<key>Key</key>
+			<string>email</string>
+			<key>Title</key>
+			<string>email</string>
+            <key>IASKPlaceholder</key>
+            <string>Pleas input email</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>IASKTextAlignment</key>
+			<string>IASKUITextAlignmentRight</string>
+            <key>KeyboardType</key>
+            <string>EmailAddress</string>
+		</dict>
+        
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+	<key>Title</key>
+	<string>WhereTo</string>
+</dict>
+</plist>

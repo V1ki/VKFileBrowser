@@ -1,0 +1,21 @@
+/* 
+  File.strings
+  VkFileBrowser
+
+  Created by Vk on 2016/9/29.
+  Copyright © 2016年 CocoaPods. All rights reserved.
+*/
+"Create New Folder" = "Create New Folder";
+"Input Name" = "Input Name";
+"Cancel" = "Cancel" ;
+"Save" = "Save" ;
+"Icon" = "Icon" ;
+"List" = "List" ;
+"Warning" = "Warning" ;
+"File Already Exist" = "File Already Exist" ;
+"Confirm" = "Confirm" ;
+"Sort Type" = "Sort Type" ;
+"Name" = "Name" ;
+"Size" = "Size" ;
+"Date" = "Date" ;
+"Type" = "Type" ;
