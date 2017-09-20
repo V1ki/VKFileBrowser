@@ -107,13 +107,13 @@ extension VKURLProtocol : URLSessionDataDelegate {
 
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
-        print("didReceive reponse:\(response)")
+
         if let httpResp = response as? HTTPURLResponse {
 
             //使用默认的数据库
             let realm = try! Realm()
             //查询所有的network 请求
-            let items = realm.objects(NetworkItem.self)
+//            let items = realm.objects(NetworkItem.self)
             
             let item = NetworkItem()
             item.url = httpResp.url?.relativeString ?? ""
@@ -161,9 +161,6 @@ extension VKURLProtocol : URLSessionDataDelegate {
             item.data = data as NSData
         }
         
-        
-        
-
     }
     
     func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {

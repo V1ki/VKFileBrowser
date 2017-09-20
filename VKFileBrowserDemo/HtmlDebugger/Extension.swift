@@ -12,16 +12,6 @@ import UIKit
 import SVProgressHUD
 
 
-public func log(_ items: Any..., separator: String = "", terminator: String = "")  {
-    print(items,separator,terminator)
-}
-
-
-
-extension NSObject {
-
-    
-}
 extension UIView{
     public func showTips(_ tips:String){
         
@@ -33,7 +23,6 @@ extension UIView{
 //        hud?.hide(true, afterDelay: 1.0)
         
         SVProgressHUD.showError(withStatus: tips)
-        
     }
     
 
@@ -47,24 +36,19 @@ extension UITableView{
     }
 }
 
-
-extension Character {
-    func toInt() -> Int
-    {
-        var intFromCharacter:Int = 0
-        for scalar in String(self).unicodeScalars
-        {
-            intFromCharacter = Int(scalar.value)
-        }
-        return intFromCharacter
+extension UITextField {
+    
+    func clear(){
+        self.text = ""
     }
-    func isWord() -> Bool {
-        let unicodeValue = self.toInt()
-        if (unicodeValue > 64 && unicodeValue < 91) || (unicodeValue > 96 && unicodeValue < 123) {
-            return true
-        }
-        return false
+    
+}
+extension UITextView {
+    
+    func clear(){
+        self.text = ""
     }
+    
 }
 
 

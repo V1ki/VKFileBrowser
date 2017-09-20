@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let overlayClass = NSClassFromString("UIDebuggingInformationOverlay") as? UIWindow.Type
+        _ = overlayClass?.perform(NSSelectorFromString("prepareDebuggingOverlay"))
+        
+        URLProtocol.registerClass(VKURLProtocol.self)
+        
+        Chameleon.setGlobalThemeUsingPrimaryColor(.flatSkyBlueDark, with: .contrast)
+        
+        UIButton.appearanceWhenContained(within: [UITableViewCell.self]).tintColor = .clear
+        UIButton.appearanceWhenContained(within: [UITableViewCell.self]).backgroundColor = .clear
+        
         return true
     }
 

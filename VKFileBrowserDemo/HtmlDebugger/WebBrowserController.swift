@@ -14,7 +14,6 @@ import SnapKit
 import SwiftyUserDefaults
 import RxSwift
 import RxCocoa
-import Highlightr
 import RealmSwift
 import RxDataSources
 import RxRealm
@@ -22,7 +21,7 @@ import RxRealmDataSources
 import VBFPopFlatButton
 import AMScrollingNavbar
 
-class WebBrowserController: BaseViewController {
+class WebBrowserController: UIViewController {
     
     
     
@@ -34,18 +33,24 @@ class WebBrowserController: BaseViewController {
     var consoleView : UITextView = {
         var textView = UITextView()
         textView.isEditable = false
+        textView.layoutManager.allowsNonContiguousLayout = false
         textView.isSelectable = false
-        textView.backgroundColor = .black
-        textView.textColor = UIColor(hexString: "#00F900")
+        textView.backgroundColor = .white
+        textView.attributedText = NSMutableAttributedString()
+        textView.textColor = UIColor(hexString: "#242B33")
         
         return textView
     }()
     
-    var urlTextField : UITextField! = UITextField()
+    var urlTextField : UITextField = {
+        let textView = UITextField()
+        
+        return textView
+    }()
     
-    var elementTextview : VKTextView = {
-        print("init elementView")
-        let textView = VKTextView()
+    var elementTextview : UITextView = {
+        debugStr("init elementView")
+        let textView = UITextView()
         textView.isHidden = true
         textView.isEditable = false
         return textView
@@ -69,15 +74,31 @@ class WebBrowserController: BaseViewController {
     let realm = try! Realm()
     
     
-    let highlightr : Highlightr? = {
-        let highlightr = Highlightr()
-        return highlightr
-    }()
-    
     
     let dis = DisposeBag()
     
     var selectIp : IndexPath?
+    
+    
+    let disposeBag = DisposeBag()
+    
+    var backItem : UIBarButtonItem{
+        
+        get{
+            
+            let btn = VBFPopFlatButton(frame: CGRect(origin:CGPoint(x:0,y:0),size:CGSize(width:28,height:28)), buttonType: .buttonBackType, buttonStyle: .buttonRoundedStyle, animateToInitialState: false)
+        
+            btn?.rx.tap.bind {
+                self.webView.goBack()
+            }.disposed(by: disposeBag)
+            
+            return UIBarButtonItem(customView: btn!)
+            
+        }
+    }
+    
+    var consoleAT : NSMutableAttributedString = NSMutableAttributedString()
+    
     
     fileprivate func cellForItem(_ tableView: UITableView, _ item: NetworkItem) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? NetworkItemCell
@@ -89,11 +110,7 @@ class WebBrowserController: BaseViewController {
         return cell!
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        self.splitViewController?.preferredDisplayMode = .primaryHidden
-        
-        
+    fileprivate func addSubViews() {
         // MARK: - 添加子控件
         self.view.addSubview(webView)
         self.view.addSubview(consoleView)
@@ -101,11 +118,44 @@ class WebBrowserController: BaseViewController {
         self.view.addSubview(networkTableview)
         self.view.addSubview(networkContentView)
         self.view.addSubview(elementTextview)
-
-        
-        if Defaults[.consoleViewHeight] < 50 {
-            Defaults[.consoleViewHeight] = 50
+    }
+    
+    
+    fileprivate func initConsoleAndNetView(){
+        // MARK: - 初始化Console 和 network view
+        var consoleHeight : CGFloat = CGFloat(Defaults[.consoleViewHeight])
+        // 设置位置和大小
+        consoleTabBar.snp.makeConstraints{ make in
+            make.left.equalTo(0)
+            make.width.equalToSuperview()
+            make.bottom.equalTo(consoleView.snp.top)
         }
+        
+        consoleView.snp.makeConstraints{ make in
+            make.bottom.equalTo(0)
+            make.left.equalTo(0)
+            make.height.equalTo(consoleHeight)
+            make.width.equalToSuperview()
+        }
+        
+        networkTableview.snp.makeConstraints{ make in
+            make.top.equalTo(consoleView)
+            make.left.equalTo(consoleView)
+            make.height.equalTo(consoleView)
+            make.width.equalToSuperview()
+        }
+        
+        
+        networkContentView.snp.makeConstraints{ make in
+            make.right.equalTo(networkTableview)
+            make.top.equalTo(consoleView)
+            make.bottom.equalTo(consoleView)
+            make.width.equalTo(400)
+            
+            
+        }
+        consoleView.attributedText = consoleAT
+        
         
         // MARK: - 初始化 UITabBar ，并增加拖动手势
         consoleTabBar.barTintColor = .flatSkyBlueDark
@@ -118,15 +168,15 @@ class WebBrowserController: BaseViewController {
         seg.snp.makeConstraints{ make in
             make.center.equalTo(self.consoleTabBar)
         }
-
+        
         seg.rx.value.map{ $0 == 0 }.bind(to: self.networkTableview.rx.isHidden).disposed(by: disposeBag)
         
         
         let pangr = UIPanGestureRecognizer()
         consoleTabBar.addGestureRecognizer(pangr)
         
-        var consoleHeight : CGFloat = CGFloat(Defaults[.consoleViewHeight])
-        pangr.rx.event.bind{_ in
+        
+        pangr.rx.event.bind{ _ in
             
             if pangr.state == .began {
                 consoleHeight = CGFloat(Defaults[.consoleViewHeight])
@@ -153,7 +203,7 @@ class WebBrowserController: BaseViewController {
             
             }.disposed(by: disposeBag)
         
-
+        
         // MARK: - 清除控制台内容按钮
         let delImg = UIImage(named: "delete_icon_normal")
         let clearConsoleBtn = UIButton()
@@ -163,8 +213,7 @@ class WebBrowserController: BaseViewController {
         
         clearConsoleBtn.rx.tap.bind {
             // clear out
-            
-            self.consoleView.text = ""
+            self.consoleView.clear()
             
             }.disposed(by: disposeBag)
         
@@ -179,7 +228,6 @@ class WebBrowserController: BaseViewController {
         }
         
         // MARK: - 初始化 Network Tableview
-
         
         self.networkTableview.register(NetworkItemCell.self, forCellReuseIdentifier: "Cell")
         let items = realm.objects(NetworkItem.self)
@@ -214,13 +262,12 @@ class WebBrowserController: BaseViewController {
         closeBtn!.snp.makeConstraints{ make in
             make.right.equalTo(0)
             make.top.equalTo(11)
-            //                    make.height.equalTo(20)
-
+            
         }
         
         
         let headerVar = Variable<List<HeaderItem>>(List<HeaderItem>())
-
+        
         
         self.networkTableview.rx.itemSelected.bind { ip in
             self.selectIp = ip
@@ -242,7 +289,101 @@ class WebBrowserController: BaseViewController {
             }
             cell?.textLabel?.text = "\(element.key!) : \(element.value!)"
             return cell!
+            }.disposed(by: disposeBag)
+        
+        
+        
+        // MARK: - 初始化 命令输入栏
+        let inputTF = UITextField()
+        inputTF.placeholder = LocalizedString("input cmd")
+        inputTF.backgroundColor = .clear
+        inputTF.textColor = UIColor(hexString: "#242B33") 
+        inputTF.autocorrectionType = .no
+        inputTF.autocapitalizationType = .none
+        self.view.addSubview(inputTF)
+        seg.rx.value.map{ $0 == 1 }.bind(to: inputTF.rx.isHidden).disposed(by: disposeBag)
+        
+        let bar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 48) )
+        inputTF.inputAccessoryView = bar
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH , height: 48) )
+        bar.addSubview(label)
+        inputTF.rx.shouldReturn.bind{
+            
+            let text = inputTF.text
+            self.addStrToConsole(str: text!,input:true)
+            let result = self.jsContext?.evaluateScript(text)
+            self.addStrToConsole(str: result!.description)
+            inputTF.clear()
+            
+            }.disposed(by: disposeBag)
+        inputTF.rx.text.bind(to: label.rx.text).disposed(by: disposeBag)
+        
+        
+        inputTF.snp.makeConstraints{ make in
+            make.height.equalTo(50)
+            make.width.equalToSuperview()
+            make.bottom.equalTo(0)
+            make.left.equalTo(0)
+        }
+        
+        NotificationCenter.default.rx.notification(Notification.Name.UIKeyboardWillShow).takeUntil(self.rx.deallocated).subscribe{ value in
+//            debugStr("keyboard will show:\(value)")
         }.disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(Notification.Name.UIKeyboardDidShow).takeUntil(self.rx.deallocated).subscribe{ value in
+//            debugStr("keyboard did show:\(value)")
+        }.disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(Notification.Name.UIKeyboardWillHide).takeUntil(self.rx.deallocated).subscribe{ value in
+//            debugStr("keyboard will hide:\(value)")
+        }.disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(Notification.Name.UIKeyboardDidHide).takeUntil(self.rx.deallocated).subscribe{ value in
+//            debugStr("keyboard did hide:\(value)")
+        }.disposed(by: disposeBag)
+        
+        self.consoleTabBar.rx.hidden.bind { bool in 
+            
+            if bool {
+                self.consoleView.snp.updateConstraints{ make in
+                    make.height.equalTo(0)
+                    make.bottom.equalTo(50)
+                }
+            }
+            else {
+                self.consoleView.snp.updateConstraints{ make in
+                    make.height.equalTo(CGFloat(Defaults[.consoleViewHeight]))
+                    make.bottom.equalTo(0)
+                }
+            }
+            self.consoleView.isHidden = bool
+        }.disposed(by: disposeBag)
+        
+        self.consoleView.rx.hidden.bind(to: inputTF.rx.isHidden).disposed(by: disposeBag)
+        
+        self.networkTableview.rx.hidden.filter{$0}.bind(to: self.networkContentView.rx.isHidden).disposed(by: disposeBag)
+        self.networkContentView.rx.hidden.bind(to: closeBtn!.rx.isHidden).disposed(by: disposeBag)
+        
+        self.networkTableview.rx.hidden.filter{$0 && (self.selectIp != nil)}.bind{ _ in
+            self.networkTableview.deselectRow(at: self.selectIp!, animated: false)
+            }.disposed(by: disposeBag)
+        
+        
+        self.consoleTabBar.isHidden = !Defaults[.showConsoleView]
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if Defaults[.consoleViewHeight] < 50 {
+            Defaults[.consoleViewHeight] = 50
+        }
+        
+        
+        addSubViews()
+
+        
+        initConsoleAndNetView()
         
         
         
@@ -273,8 +414,9 @@ class WebBrowserController: BaseViewController {
         self.navigationItem.titleView = urlTextField
         
         // MARK: -   设置 导航栏左侧按钮
-        self.navigationItem.leftBarButtonItems = [self.backItem,(self.splitViewController?.displayModeButtonItem)! ]
-        
+//        self.navigationItem.leftBarButtonItems = [self.backItem]
+        self.navigationItem.leftBarButtonItem = self.backItem
+        // KVO 的属性必须要是dynamic 的
         
         // MARK: -  设置导航栏右侧 按钮
         let sourceBtn = UIButton(type: .roundedRect)
@@ -285,50 +427,39 @@ class WebBrowserController: BaseViewController {
         sourceBtn.setTitleColor(.white, for: .normal)
         sourceBtn.rx.tap.bind {
             
-            if sourceBtn.title(for: .normal) == LocalizedString("Source") {
-                self.elementTextview.isHidden = false
-                sourceBtn.setTitle(LocalizedString("Preview"), for: .normal)
-            }
-            else if sourceBtn.title(for: .normal) == LocalizedString("Preview") {
-                self.elementTextview.isHidden = true
-                sourceBtn.setTitle(LocalizedString("Source"), for: .normal)
-            }
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc : PopoverViewController = storyboard.instantiateViewController(withIdentifier: "PopoverViewController") as! PopoverViewController
+            vc.preferredContentSize = CGSize(width:120, height: 200)
             
+            vc.consoleToggleVar.asObservable().distinctUntilChanged().bind{ bool in
+                debugStr("bool:\(bool)")
+                self.consoleTabBar.isHidden = !bool
+                
+            }.disposed(by: vc.disposeBag)
+            
+            vc.modalPresentationStyle = UIModalPresentationStyle.popover
+            let popover: UIPopoverPresentationController = vc.popoverPresentationController!
+            popover.delegate = self
+            popover.sourceView = sourceBtn
+            popover.sourceRect = sourceBtn.bounds
+            self.present(vc, animated: true, completion: nil)
+            
+            
+//            if sourceBtn.title(for: .normal) == LocalizedString("Source") {
+//                self.elementTextview.isHidden = false
+//                sourceBtn.setTitle(LocalizedString("Preview"), for: .normal)
+//            }
+//            else if sourceBtn.title(for: .normal) == LocalizedString("Preview") {
+//                self.elementTextview.isHidden = true
+//                sourceBtn.setTitle(LocalizedString("Source"), for: .normal)
+//            }
+//            
             }.disposed(by: disposeBag)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sourceBtn)
         
         
         // MARK: - 视图大小及位置
-        consoleTabBar.snp.makeConstraints{ make in
-            make.left.equalTo(0)
-            make.width.equalToSuperview()
-            make.bottom.equalTo(consoleView.snp.top)
-        }
         
-        consoleView.snp.makeConstraints{ make in
-            make.bottom.equalTo(0)
-            make.left.equalTo(0)
-            make.height.equalTo(consoleHeight)
-            make.width.equalToSuperview()
-        }
-        
-        networkTableview.snp.makeConstraints{ make in
-            make.top.equalTo(consoleView)
-            make.left.equalTo(consoleView)
-//            make.size.equalTo(consoleView)
-            make.height.equalTo(consoleView)
-            make.width.equalToSuperview()
-        }
-        
-        
-        networkContentView.snp.makeConstraints{ make in
-            make.right.equalTo(networkTableview)
-            make.top.equalTo(consoleView)
-            make.bottom.equalTo(consoleView)
-            make.width.equalTo(400)
-            
-            
-        }
         webView.snp.makeConstraints{ make in
             make.top.equalTo(0)
             make.bottom.equalTo(consoleTabBar.snp.top)
@@ -348,33 +479,28 @@ class WebBrowserController: BaseViewController {
 //        UserDefaults.standard.register(defaults: ["UserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.79 Safari/537.36"])
 
         // MARK: - 初始化 webview
-        // Do any additional setup after loading the view.
         let request = URLRequest(url: URL(string:"https://www.baidu.com")! )
-        webView.loadRequest(request)
-        webView.delegate = self
-        
-        try! realm.write {
-            realm.deleteAll()
-        }
-        
+
         // MARK: - 初始化 JSContext
         if let ctx : JSContext = webView.value(forKeyPath: "documentView.webView.mainFrame.javaScriptContext") as? JSContext {
             jsContext = ctx
             
             ctx.exceptionHandler = {context,exec in
-                print("exec:\(exec)")
-                DispatchQueue.main.async {
-                    self.consoleView.text = "\((self.consoleView.text)!)\n\(exec)"
-                }
                 
+                guard let exec = exec else {
+                    return
+                }
+                debugStr(exec)
+                debugStr(exec.toDictionary())
+                
+                self.addErrorJSToConsole(errorJS: exec)
+               
             }
             
             let logFunction : @convention(block) (String) -> Void =
             {
                 (msg: String) in
-                DispatchQueue.main.async {
-                    self.consoleView.text = "\((self.consoleView.text)!)\n\(msg)"
-                }
+                self.addStrToConsole(str: msg)
                 
             }
             //  设置 console log ，warn ,error
@@ -387,45 +513,51 @@ class WebBrowserController: BaseViewController {
             
         }
         
+        webView.loadRequest(request)
+        webView.delegate = self
         
-        
-        let inputTF = UITextField()
-        inputTF.placeholder = LocalizedString("input cmd")
-        inputTF.backgroundColor = .white
-        self.view.addSubview(inputTF)
-        seg.rx.value.map{ $0 == 1 }.bind(to: inputTF.rx.isHidden).disposed(by: disposeBag)
-        
-        let bar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 48) )
-        inputTF.inputAccessoryView = bar
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH , height: 48) )
-        bar.addSubview(label)
-        inputTF.rx.shouldReturn.bind{
-            print("return ")
-            
-            let text = inputTF.text
-            let result = self.jsContext?.evaluateScript(text)
-            print(result)
-        }.disposed(by: disposeBag)
-        inputTF.rx.text.bind(to: label.rx.text).disposed(by: disposeBag)
-        
-        
-        inputTF.snp.makeConstraints{ make in
-            make.height.equalTo(50)
-            make.width.equalToSuperview()
-            make.bottom.equalTo(0)
-            make.left.equalTo(0)
+        try! realm.write {
+            realm.deleteAll()
         }
         
         
-        self.networkTableview.rx.hidden.filter{$0}.bind(to: self.networkContentView.rx.isHidden).disposed(by: disposeBag)
-        self.networkContentView.rx.hidden.bind(to: closeBtn!.rx.isHidden).disposed(by: disposeBag)
-        
-        self.networkTableview.rx.hidden.filter{$0 && (self.selectIp != nil)}.bind{ _ in
-            self.networkTableview.deselectRow(at: self.selectIp!, animated: false)
-            }.disposed(by: disposeBag)
         
         
     }
+    
+    
+    func addStrToConsole(str : String,input:Bool = false) {
+        
+        
+            //self.consoleView.scrollRangeToVisible(NSRange(location: self.consoleView.text.count, length: 1))
+        
+        let text = "\(input ? "> ":"< ")\(str) \n"
+        
+        let textAt = NSAttributedString(string: text, attributes: [NSForegroundColorAttributeName:UIColor(hexString: "#242B33")!,NSBackgroundColorAttributeName:UIColor.white])
+        
+        consoleAT.append(textAt)
+        self.consoleView.attributedText = consoleAT
+        
+    }
+    func addErrorJSToConsole(errorJS:JSValue) {
+        
+        let value = errorJS.toString()
+        let dic = errorJS.toDictionary()
+        let column  = dic!["column"] ?? 0
+        let line = dic!["line"] ?? 0
+        let sourceUrl = dic!["sourceURL"]  ?? "<anonymous>"
+        // 254 , 236 , 236
+        let bgColor = UIColor(hexString: "#FEECEC")!
+        // 235,43,52
+        let textColor = UIColor(hexString: "#EB2B34")!
+        
+        let text = " Uncaught \(value!) \n \t at \(sourceUrl) \(line):\(column) \n"
+        
+        let errorAttributeStr = NSAttributedString(string: text, attributes: [NSForegroundColorAttributeName:textColor,NSBackgroundColorAttributeName:bgColor])
+        
+        consoleAT.append(errorAttributeStr)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -441,14 +573,12 @@ class WebBrowserController: BaseViewController {
         }
     }
     
-    
 }
 
 
 extension WebBrowserController : UIWebViewDelegate {
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        print("requst:\(request)")
         
         try! realm.write {
             realm.deleteAll()
@@ -458,7 +588,7 @@ extension WebBrowserController : UIWebViewDelegate {
     
     func webViewDidStartLoad(_ webView: UIWebView) {
         self.urlTextField.text = webView.request?.url?.absoluteString
-        self.consoleView.text = ""
+        self.consoleView.clear()
     }
     func webViewDidFinishLoad(_ webView: UIWebView) {
         self.urlTextField.text = webView.request?.url?.absoluteString
@@ -480,7 +610,13 @@ extension WebBrowserController : UIWebViewDelegate {
     
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        print("error:\(error)")
+        debugStr("error:\(error)")
     }
 }
 
+extension WebBrowserController:UIPopoverPresentationControllerDelegate {
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+}

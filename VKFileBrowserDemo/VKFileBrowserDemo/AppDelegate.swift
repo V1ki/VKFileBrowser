@@ -30,8 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GCDWebUploaderDelegate{
         
 //        let webUploader = GCDWebDAVServer(uploadDirectory: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!)
 //        webUploader?.start()
-        
-        URLProtocol.registerClass(VKURLProtocol.self)
+    
         
         Chameleon.setGlobalThemeUsingPrimaryColor(.flatSkyBlueDark, with: .contrast)
         

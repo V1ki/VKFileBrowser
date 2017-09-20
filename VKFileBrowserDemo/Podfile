@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, "9.0"
+platform :ios, "10.0"
 
 target "VKFileBrowserDemo" do
   # Comment the next line if you"re not using Swift and don"t want to use dynamic frameworks
@@ -61,5 +61,25 @@ target "VKFileBrowserDemo" do
  pod 'Validator'
 # pod "Quick"
 # pod "Nimble"
- 
+
 end
+target "HtmlDebugger" do
+ use_frameworks!
+ pod "MGSwipeTableCell"
+ pod "VBFPopFlatButton"
+ pod "RealmSwift"
+ pod "RxRealm"
+
+ pod "RxRealmDataSources"
+ pod "RxSwift"
+ pod 'AMScrollingNavbar'
+ pod "RxCocoa"
+ pod 'RxDataSources', '~> 1.0'
+ pod 'SnapKit'
+ pod "SwiftyUserDefaults"
+ pod "SVProgressHUD"
+ pod "ChameleonFramework/Swift", :git => "https://github.com/ViccAlexander/Chameleon.git"
+end
+
+
+

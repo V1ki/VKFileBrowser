@@ -4,20 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>HtmlDebugger.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>41</integer>
+		</dict>
 		<key>VKFileBrowserDemo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
-		</dict>
-		<key>libgit2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>19</integer>
-		</dict>
-		<key>libssh2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>20</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -33,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>54475DF71D9D949200B0BB49</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>547FEDC41F6FFF4C002C0E9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
