@@ -69,7 +69,7 @@ target "HtmlDebugger" do
  pod "VBFPopFlatButton"
  pod "RealmSwift"
  pod "RxRealm"
-
+ pod "Highlightr"
  pod "RxRealmDataSources"
  pod "RxSwift"
  pod 'AMScrollingNavbar'
@@ -79,6 +79,7 @@ target "HtmlDebugger" do
  pod "SwiftyUserDefaults"
  pod "SVProgressHUD"
  pod "ChameleonFramework/Swift", :git => "https://github.com/ViccAlexander/Chameleon.git"
+ pod 'SwiftSoup'
 end
 
 

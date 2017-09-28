@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E40653FC6656E87C546089F /* Pods_VKFileBrowserDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B906550E37B8E37E3EC20D /* Pods_VKFileBrowserDemo.framework */; };
+		543883C31F72857D00FFCDD5 /* CheckItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543883C21F72857D00FFCDD5 /* CheckItemCell.swift */; };
 		543BF7E61F6EE03A001E750C /* libMultiMarkdown.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 543BF5251F6EE02A001E750C /* libMultiMarkdown.a */; };
 		543BF9B81F6EE03B001E750C /* NSArray+StringArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7291F6EE02C001E750C /* NSArray+StringArray.m */; };
 		543BF9B91F6EE03B001E750C /* CheckoutStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF72B1F6EE02C001E750C /* CheckoutStrategy.swift */; };
@@ -99,6 +100,7 @@
 		547600E61F46E2650014AC95 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547600E51F46E2650014AC95 /* RootViewController.swift */; };
 		54779DC91F54749900AEC1C0 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54779DC81F54749900AEC1C0 /* SettingsTableViewController.swift */; };
 		54779DCB1F5475EA00AEC1C0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 54779DCA1F5475EA00AEC1C0 /* Settings.bundle */; };
+		5477A8361F736A420090E4EE /* HtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5477A8351F736A420090E4EE /* HtmlParser.swift */; };
 		547E318F1F4D3F1E003C0CC5 /* RemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547E318D1F4D3F1E003C0CC5 /* RemoteViewController.swift */; };
 		547E31901F4D3F1E003C0CC5 /* RemoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547E318E1F4D3F1E003C0CC5 /* RemoteViewController.xib */; };
 		547FEDC81F6FFF4D002C0E9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547FEDC71F6FFF4D002C0E9A /* AppDelegate.swift */; };
@@ -110,11 +112,14 @@
 		547FEDDF1F700172002C0E9A /* NetworkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547FEDDC1F700172002C0E9A /* NetworkItem.swift */; };
 		547FEDE01F700172002C0E9A /* HeaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547FEDDD1F700172002C0E9A /* HeaderItem.swift */; };
 		547FEDE11F700172002C0E9A /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547FEDDE1F700172002C0E9A /* HistoryItem.swift */; };
+		5483871C1F72D265000A3C70 /* VKTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7C71F6EE02F001E750C /* VKTextView.swift */; };
+		5483871D1F72D26A000A3C70 /* VKLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BF7C51F6EE02F001E750C /* VKLayoutManager.swift */; };
 		5483B7DE1F41575400782760 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5483B7DD1F41575400782760 /* README.md */; };
 		548AFB1E1F4BD459008C6F4B /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AFB1C1F4BD459008C6F4B /* RepositoryViewController.swift */; };
 		548AFB1F1F4BD459008C6F4B /* RepositoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548AFB1D1F4BD459008C6F4B /* RepositoryViewController.xib */; };
 		5490E20F1F5516A30041D232 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5490E20E1F5516A30041D232 /* DefaultsKeys.swift */; };
 		54962AA61F53B07800E75239 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54962AA51F53B07800E75239 /* Security.framework */; };
+		549F69C81F77E94600147BF3 /* VKCoreTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549F69C71F77E94600147BF3 /* VKCoreTextView.swift */; };
 		54A812821F70E880006C5A2A /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A812811F70E880006C5A2A /* PopoverViewController.swift */; };
 		54C835571F4ACF2800085756 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C835561F4ACF2800085756 /* libiconv.tbd */; };
 		54D3D9781DA55B4800BD009C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D3D9771DA55B4800BD009C /* libz.tbd */; };
@@ -149,6 +154,7 @@
 		0DC5D52FFD4666EE27DC2B07 /* Pods-HtmlDebugger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HtmlDebugger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HtmlDebugger/Pods-HtmlDebugger.debug.xcconfig"; sourceTree = "<group>"; };
 		17F2D5F8F5BD6381CDF5CBE4 /* Pods-VKFileBrowserDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFileBrowserDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKFileBrowserDemoUITests/Pods-VKFileBrowserDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		30E3B915D952C614CD71FF44 /* Pods-HtmlDebugger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HtmlDebugger.release.xcconfig"; path = "Pods/Target Support Files/Pods-HtmlDebugger/Pods-HtmlDebugger.release.xcconfig"; sourceTree = "<group>"; };
+		543883C21F72857D00FFCDD5 /* CheckItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemCell.swift; sourceTree = "<group>"; };
 		543BF5251F6EE02A001E750C /* libMultiMarkdown.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMultiMarkdown.a; sourceTree = "<group>"; };
 		543BF5261F6EE02A001E750C /* libMultiMarkdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libMultiMarkdown.h; sourceTree = "<group>"; };
 		543BF7281F6EE02C001E750C /* NSArray+StringArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+StringArray.h"; sourceTree = "<group>"; };
@@ -270,6 +276,7 @@
 		5477126A1F5321F700B360F1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		54779DC81F54749900AEC1C0 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		54779DCA1F5475EA00AEC1C0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		5477A8351F736A420090E4EE /* HtmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlParser.swift; sourceTree = "<group>"; };
 		547E318D1F4D3F1E003C0CC5 /* RemoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteViewController.swift; sourceTree = "<group>"; };
 		547E318E1F4D3F1E003C0CC5 /* RemoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RemoteViewController.xib; sourceTree = "<group>"; };
 		547FEDC51F6FFF4C002C0E9A /* HtmlDebugger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HtmlDebugger.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -289,6 +296,7 @@
 		548AFB1D1F4BD459008C6F4B /* RepositoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepositoryViewController.xib; sourceTree = "<group>"; };
 		5490E20E1F5516A30041D232 /* DefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		54962AA51F53B07800E75239 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		549F69C71F77E94600147BF3 /* VKCoreTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKCoreTextView.swift; sourceTree = "<group>"; };
 		54A812811F70E880006C5A2A /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		54C835561F4ACF2800085756 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		54D3D9771DA55B4800BD009C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -630,6 +638,9 @@
 				547FEDD01F6FFF4D002C0E9A /* LaunchScreen.storyboard */,
 				547FEDCB1F6FFF4D002C0E9A /* Main.storyboard */,
 				54A812811F70E880006C5A2A /* PopoverViewController.swift */,
+				543883C21F72857D00FFCDD5 /* CheckItemCell.swift */,
+				5477A8351F736A420090E4EE /* HtmlParser.swift */,
+				549F69C71F77E94600147BF3 /* VKCoreTextView.swift */,
 			);
 			path = HtmlDebugger;
 			sourceTree = "<group>";
@@ -796,6 +807,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-HtmlDebugger/Pods-HtmlDebugger-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AMScrollingNavbar/AMScrollingNavbar.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/Highlightr/Highlightr.framework",
 				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -809,11 +821,13 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 				"${BUILT_PRODUCTS_DIR}/VBFPopFlatButton/VBFPopFlatButton.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AMScrollingNavbar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Highlightr.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -827,6 +841,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VBFPopFlatButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1061,6 +1076,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5483871D1F72D26A000A3C70 /* VKLayoutManager.swift in Sources */,
 				5464F5021F7006EA007F4060 /* VKURLProtocol.swift in Sources */,
 				5464F4FC1F700530007F4060 /* DefaultsKeys.swift in Sources */,
 				5464F5001F700576007F4060 /* UITextField+Rx.swift in Sources */,
@@ -1070,8 +1086,12 @@
 				547FEDC81F6FFF4D002C0E9A /* AppDelegate.swift in Sources */,
 				547FEDE01F700172002C0E9A /* HeaderItem.swift in Sources */,
 				547FEDDA1F700052002C0E9A /* WebBrowserController.swift in Sources */,
+				543883C31F72857D00FFCDD5 /* CheckItemCell.swift in Sources */,
+				5483871C1F72D265000A3C70 /* VKTextView.swift in Sources */,
 				5464F4FE1F70055C007F4060 /* Constant.swift in Sources */,
+				5477A8361F736A420090E4EE /* HtmlParser.swift in Sources */,
 				547FEDDF1F700172002C0E9A /* NetworkItem.swift in Sources */,
+				549F69C81F77E94600147BF3 /* VKCoreTextView.swift in Sources */,
 				5464F4FA1F7004D0007F4060 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

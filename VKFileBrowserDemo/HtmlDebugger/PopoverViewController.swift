@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import SwiftyUserDefaults
 
 class PopoverViewController: UITableViewController {
@@ -18,13 +19,14 @@ class PopoverViewController: UITableViewController {
     let disposeBag = DisposeBag()
     
     var consoleToggleVar = Variable<Bool>(true)
+    var itemSelectEvent : ControlEvent<IndexPath>? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("loadPopover")
         
+        self.tableView.separatorStyle = .none
         self.tableView.hideExtraCell()
-//        self.tableView.layer.cornerRadius = 20
+        //        self.tableView.layer.cornerRadius = 20
         self.view.layer.cornerRadius = 15
         
         consoleToggleSwitch.isOn = Defaults[.showConsoleView]
@@ -34,37 +36,43 @@ class PopoverViewController: UITableViewController {
             self.consoleToggleVar.value = bool
             }.disposed(by: disposeBag)
         
+        self.itemSelectEvent = self.tableView.rx.itemSelected
         self.tableView.rx.itemSelected.bind{ ip in
             
             if ip.row == 1 {
                 self.tableView.deselectRow(at: ip, animated: true)
             }
+            if let cell = self.tableView.cellForRow(at: ip) as? CheckItemCell {
+                self.tableView.deselectRow(at: ip, animated: true)
+                cell.checkedImgView.isHidden = !cell.checkedImgView.isHidden
+            }
             
             }.disposed(by: disposeBag)
         
+        
+        
+        let cell = UITableViewCell.appearance()
+        cell.selectedBackgroundView = UIView(frame:cell.frame)
+        cell.selectedBackgroundView?.backgroundColor = UIColor.flatPowderBlue
+        
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.layer.cornerRadius = 15
+        if indexPath.row == 2 {
+            return
+        }
+        //        cell.layer.cornerRadius = 15
     }
     
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.row == 0 {
+        
+        if indexPath.row == 0  || indexPath.row == 2 {
             return false
         }
+        
         return true
     }
-
-    
-    
-    
-    
     
     
     

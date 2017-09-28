@@ -152,8 +152,8 @@ extension VKURLProtocol : URLSessionDataDelegate {
         //使用默认的数据库
         let realm = try! Realm()
         //查询所有的network 请求
-        
-        guard let item = (realm.objects(NetworkItem.self).filter{ $0.url == urlStr }.first) else {
+        let items = (realm.objects(NetworkItem.self).filter{ $0.url == urlStr })
+        guard let item = items.first else{
             return
         }
         

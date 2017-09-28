@@ -16,5 +16,15 @@ extension DefaultsKeys {
     
     // MARK: - Show Console View
     static let showConsoleView = DefaultsKey<Bool>("showConsoleView")
+    
+    static let userAgent = DefaultsKey<UserAgent>("userAgent")
+    
 }
 
+enum UserAgent : Int {
+    
+    case iPad = 1
+    case iPhone = 2
+    case Mac = 3
+    
+}

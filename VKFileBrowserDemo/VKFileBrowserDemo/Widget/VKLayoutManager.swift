@@ -67,6 +67,8 @@ class VKLayoutManager: NSLayoutManager {
         
     }
     
+    
+    
     override func drawBackground(forGlyphRange glyphsToShow: NSRange, at origin: CGPoint) {
         super.drawBackground(forGlyphRange: glyphsToShow, at: origin)
 

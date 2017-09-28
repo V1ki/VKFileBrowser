@@ -25,6 +25,10 @@ class RxTextFieldDelegateProxy : DelegateProxy , UITextFieldDelegate , DelegateP
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
 }
 extension Reactive where Base: UITextField {
     public var delegate : DelegateProxy {
@@ -34,29 +38,7 @@ extension Reactive where Base: UITextField {
     public var shouldReturn : ControlEvent<Void> {
        return controlEvent(.editingDidEndOnExit)
     }
-//    public var isHidde_n : ControlEvent<Void> {
-//        let source: Observable<Void> = Observable.create { [weak control = self.base] observer in
-//            MainScheduler.ensureExecutingOnScheduler()
-//
-//            guard let control = control else {
-//                observer.on(.completed)
-//                return Disposables.create()
-//            }
-//
-//            Observable.just(urlTextField.rx.isHidden)
-//
-//
-//            return Disposables.create{
-//                MainScheduler.ensureExecutingOnScheduler()
-//            }
-//            }.takeUntil(deallocated)
-//
-//
-//
-//
-//        return ControlEvent(events: source)
-//    }
-//
+
 }
 extension Reactive where Base: UIView {
     

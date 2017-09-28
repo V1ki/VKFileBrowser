@@ -47,10 +47,25 @@ class VKTextView: UITextView {
         super.init(frame: frame,textContainer:tc)
         
         self.contentMode = .redraw
-        
+        self.contentSize = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+    }
+    
+    
+    func testNumber(_ point:CGPoint){
+        
+        let range = self.characterRange(at: point)
+        
+        let startPosition = range!.start
+        
+        let location = self.offset(from: self.beginningOfDocument, to: startPosition)
+        
+        let line = self.lineNumberLayoutManager?.paraNumberForRange(NSRange(location: location, length: 1) )
+        
+        print("line:\(line)")
         
     }
     
@@ -66,7 +81,7 @@ class VKTextView: UITextView {
                 
                 gutterWidth = CGFloat("\(count - 1)".count * 9)
                 self.setNeedsDisplay()
-                
+
             }
             
         }

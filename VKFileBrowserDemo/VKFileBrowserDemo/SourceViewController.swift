@@ -199,7 +199,14 @@ class SourceViewController: BaseViewController{
     }
 
     
-    
+    override var disablesAutomaticKeyboardDismissal: Bool {
+        get{
+            return false
+        }
+        set {
+            self.disablesAutomaticKeyboardDismissal = false
+        }
+    }
 }
 
 extension SourceViewController : UITextViewDelegate {
@@ -247,3 +254,5 @@ extension SourceViewController : UITabBarDelegate {
         
     }
 }
+
+

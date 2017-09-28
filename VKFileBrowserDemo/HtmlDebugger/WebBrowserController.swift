@@ -20,6 +20,7 @@ import RxRealm
 import RxRealmDataSources
 import VBFPopFlatButton
 import AMScrollingNavbar
+import Highlightr
 
 class WebBrowserController: UIViewController {
     
@@ -30,8 +31,9 @@ class WebBrowserController: UIViewController {
     var jsContext : JSContext?
     
     var consoleTabBar : UITabBar = UITabBar()
+    
     var consoleView : UITextView = {
-        var textView = UITextView()
+        let textView = UITextView()
         textView.isEditable = false
         textView.layoutManager.allowsNonContiguousLayout = false
         textView.isSelectable = false
@@ -48,11 +50,12 @@ class WebBrowserController: UIViewController {
         return textView
     }()
     
-    var elementTextview : UITextView = {
-        debugStr("init elementView")
-        let textView = UITextView()
+    var elementTextview : VKCoreTextView = {
+        let textView = VKCoreTextView()
+//        textView.dataDetectorTypes = .all
         textView.isHidden = true
-        textView.isEditable = false
+//        textView.isEditable = false
+//        textView.isSelectable = false
         return textView
     }()
     
@@ -63,6 +66,23 @@ class WebBrowserController: UIViewController {
         tbview.separatorStyle = .none
         return tbview
     }()
+    
+    
+    var inputCmdView : UITextField = {        // MARK: - 初始化 命令输入栏
+        print("inputCmdView")
+        
+        let inputTF = UITextField()
+        inputTF.placeholder = LocalizedString("input cmd")
+        inputTF.backgroundColor = .clear
+        inputTF.textColor = UIColor(hexString: "#242B33")
+        inputTF.autocorrectionType = .no
+        inputTF.autocapitalizationType = .none
+        
+        return inputTF
+    }()
+    
+    
+    let highlightr = Highlightr()
     
     
     var networkContentView : UITableView = {
@@ -117,7 +137,9 @@ class WebBrowserController: UIViewController {
         self.view.addSubview(consoleTabBar)
         self.view.addSubview(networkTableview)
         self.view.addSubview(networkContentView)
+        self.view.addSubview(inputCmdView)
         self.view.addSubview(elementTextview)
+        
     }
     
     
@@ -125,11 +147,6 @@ class WebBrowserController: UIViewController {
         // MARK: - 初始化Console 和 network view
         var consoleHeight : CGFloat = CGFloat(Defaults[.consoleViewHeight])
         // 设置位置和大小
-        consoleTabBar.snp.makeConstraints{ make in
-            make.left.equalTo(0)
-            make.width.equalToSuperview()
-            make.bottom.equalTo(consoleView.snp.top)
-        }
         
         consoleView.snp.makeConstraints{ make in
             make.bottom.equalTo(0)
@@ -137,6 +154,13 @@ class WebBrowserController: UIViewController {
             make.height.equalTo(consoleHeight)
             make.width.equalToSuperview()
         }
+        consoleTabBar.snp.makeConstraints{ make in
+            make.left.equalTo(0)
+            make.width.equalToSuperview()
+            make.bottom.equalTo(consoleView.snp.top)
+        }
+        
+
         
         networkTableview.snp.makeConstraints{ make in
             make.top.equalTo(consoleView)
@@ -294,32 +318,26 @@ class WebBrowserController: UIViewController {
         
         
         // MARK: - 初始化 命令输入栏
-        let inputTF = UITextField()
-        inputTF.placeholder = LocalizedString("input cmd")
-        inputTF.backgroundColor = .clear
-        inputTF.textColor = UIColor(hexString: "#242B33") 
-        inputTF.autocorrectionType = .no
-        inputTF.autocapitalizationType = .none
-        self.view.addSubview(inputTF)
-        seg.rx.value.map{ $0 == 1 }.bind(to: inputTF.rx.isHidden).disposed(by: disposeBag)
+        seg.rx.value.map{ $0 == 1 }.bind(to: self.inputCmdView.rx.isHidden).disposed(by: disposeBag)
         
         let bar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 48) )
-        inputTF.inputAccessoryView = bar
+        self.inputCmdView.inputAccessoryView = bar
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH , height: 48) )
+        
         bar.addSubview(label)
-        inputTF.rx.shouldReturn.bind{
+        self.inputCmdView.rx.shouldReturn.bind{
             
-            let text = inputTF.text
+            let text = self.inputCmdView.text
             self.addStrToConsole(str: text!,input:true)
             let result = self.jsContext?.evaluateScript(text)
             self.addStrToConsole(str: result!.description)
-            inputTF.clear()
+            self.inputCmdView.clear()
             
             }.disposed(by: disposeBag)
-        inputTF.rx.text.bind(to: label.rx.text).disposed(by: disposeBag)
+        self.inputCmdView.rx.text.bind(to: label.rx.text).disposed(by: disposeBag)
         
         
-        inputTF.snp.makeConstraints{ make in
+        self.inputCmdView.snp.makeConstraints{ make in
             make.height.equalTo(50)
             make.width.equalToSuperview()
             make.bottom.equalTo(0)
@@ -359,7 +377,7 @@ class WebBrowserController: UIViewController {
             self.consoleView.isHidden = bool
         }.disposed(by: disposeBag)
         
-        self.consoleView.rx.hidden.bind(to: inputTF.rx.isHidden).disposed(by: disposeBag)
+        self.consoleView.rx.hidden.bind(to: self.inputCmdView.rx.isHidden).disposed(by: disposeBag)
         
         self.networkTableview.rx.hidden.filter{$0}.bind(to: self.networkContentView.rx.isHidden).disposed(by: disposeBag)
         self.networkContentView.rx.hidden.bind(to: closeBtn!.rx.isHidden).disposed(by: disposeBag)
@@ -384,8 +402,6 @@ class WebBrowserController: UIViewController {
 
         
         initConsoleAndNetView()
-        
-        
         
         // MARK: -   设置导航栏 titleView
         urlTextField.frame = CGRect(x:0,y:0,width:SCREEN_WIDTH/4,height:40)
@@ -431,29 +447,35 @@ class WebBrowserController: UIViewController {
             let vc : PopoverViewController = storyboard.instantiateViewController(withIdentifier: "PopoverViewController") as! PopoverViewController
             vc.preferredContentSize = CGSize(width:120, height: 200)
             
-            vc.consoleToggleVar.asObservable().distinctUntilChanged().bind{ bool in
-                debugStr("bool:\(bool)")
-                self.consoleTabBar.isHidden = !bool
-                
-            }.disposed(by: vc.disposeBag)
-            
             vc.modalPresentationStyle = UIModalPresentationStyle.popover
             let popover: UIPopoverPresentationController = vc.popoverPresentationController!
             popover.delegate = self
             popover.sourceView = sourceBtn
             popover.sourceRect = sourceBtn.bounds
-            self.present(vc, animated: true, completion: nil)
+            self.present(vc, animated: true) {
+                vc.consoleToggleVar.asObservable().distinctUntilChanged().bind{ bool in
+                    debugStr("bool:\(bool)")
+                    self.consoleTabBar.isHidden = !bool
+                    
+                    }.disposed(by: vc.disposeBag)
+                
+                vc.itemSelectEvent?.bind{ ip in
+                    
+                    if ip.row  == 1 {
+                        print("isFirstResponder:\(self.inputCmdView.isFirstResponder)")
+                        self.inputCmdView.resignFirstResponder()
+                        self.view.endEditing(true)
+                        self.elementTextview.isHidden = !self.elementTextview.isHidden
+                        sourceBtn.setTitle(self.elementTextview.isHidden ? LocalizedString("Preview") : LocalizedString("Preview"), for: .normal)
+                        vc.dismiss(animated: true, completion: nil)
+                    }
+                    
+                    
+                    }.disposed(by: vc.disposeBag)
+                
+            }
             
-            
-//            if sourceBtn.title(for: .normal) == LocalizedString("Source") {
-//                self.elementTextview.isHidden = false
-//                sourceBtn.setTitle(LocalizedString("Preview"), for: .normal)
-//            }
-//            else if sourceBtn.title(for: .normal) == LocalizedString("Preview") {
-//                self.elementTextview.isHidden = true
-//                sourceBtn.setTitle(LocalizedString("Source"), for: .normal)
-//            }
-//            
+
             }.disposed(by: disposeBag)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sourceBtn)
         
@@ -474,12 +496,21 @@ class WebBrowserController: UIViewController {
             make.width.equalToSuperview()
             make.height.equalToSuperview().offset(-64)
         }
-        
+//        let textViewTapGr = UITapGestureRecognizer()
+//        textViewTapGr.rx.event.bind{ gr in
+//
+//            let content = self.elementTextview.text
+//            let touchPosition = gr.location(in: self.elementTextview)
+////            self.elementTextview.testNumber(touchPosition)
+//
+//            }.disposed(by: dis)
+//
+//        elementTextview.addGestureRecognizer(textViewTapGr)
         // MARK: -  设置 UserAgent
 //        UserDefaults.standard.register(defaults: ["UserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.79 Safari/537.36"])
 
         // MARK: - 初始化 webview
-        let request = URLRequest(url: URL(string:"https://www.baidu.com")! )
+        let request = URLRequest(url: URL(string:"http://www.jianshu.com/")! )
 
         // MARK: - 初始化 JSContext
         if let ctx : JSContext = webView.value(forKeyPath: "documentView.webView.mainFrame.javaScriptContext") as? JSContext {
@@ -503,12 +534,26 @@ class WebBrowserController: UIViewController {
                 self.addStrToConsole(str: msg)
                 
             }
+            let warnFunction : @convention(block) (String) -> Void =
+            {
+                (msg: String) in
+                debugStr("warnFunction-->\(msg)")
+                self.addStrToConsole(str: msg)
+                
+            }
+            let errorFunction : @convention(block) (String) -> Void =
+            {
+                (msg: String) in
+                debugStr("errorFuction-->\(msg)")
+                self.addStrToConsole(str: msg)
+                
+            }
             //  设置 console log ，warn ,error
             ctx.objectForKeyedSubscript("console").setObject(unsafeBitCast(logFunction, to: AnyObject.self),
                                                              forKeyedSubscript: "log" as NSCopying & NSObjectProtocol)
-            ctx.objectForKeyedSubscript("console").setObject(unsafeBitCast(logFunction, to: AnyObject.self),
+            ctx.objectForKeyedSubscript("console").setObject(unsafeBitCast(warnFunction, to: AnyObject.self),
                                                              forKeyedSubscript: "warn" as NSCopying & NSObjectProtocol)
-            ctx.objectForKeyedSubscript("console").setObject(unsafeBitCast(logFunction, to: AnyObject.self),
+            ctx.objectForKeyedSubscript("console").setObject(unsafeBitCast(errorFunction, to: AnyObject.self),
                                                              forKeyedSubscript: "error" as NSCopying & NSObjectProtocol)
             
         }
@@ -520,18 +565,18 @@ class WebBrowserController: UIViewController {
             realm.deleteAll()
         }
         
-        
-        
-        
     }
+    
     
     
     func addStrToConsole(str : String,input:Bool = false) {
         
-        
             //self.consoleView.scrollRangeToVisible(NSRange(location: self.consoleView.text.count, length: 1))
         
         let text = "\(input ? "> ":"< ")\(str) \n"
+        
+        
+        let textCOlor = input ? UIColor(hexString: "#242B33")! : UIColor(hexString: "#242B33")!
         
         let textAt = NSAttributedString(string: text, attributes: [NSForegroundColorAttributeName:UIColor(hexString: "#242B33")!,NSBackgroundColorAttributeName:UIColor.white])
         
@@ -595,22 +640,28 @@ extension WebBrowserController : UIWebViewDelegate {
         
         let html = webView.stringByEvaluatingJavaScript(from: "document.documentElement.innerHTML")
         
-        self.elementTextview.text = html
+//        self.elementTextview.text = html
+//        DispatchQueue.global().async {
+//                    let htmlContent = self.highlightr?.highlight(html!)
+//
+//                    DispatchQueue.main.async {
+//                        self.elementTextview.attributedText = htmlContent
+//                    }
+//                }
         
-        //        DispatchQueue.global().async {
-        //            let htmlContent = self.highlightr?.highlight(html!)
-        //
-        //            DispatchQueue.main.async {
-        //                self.elementTextview.attributedText = htmlContent
-        //            }
-        //        }
+        
+        
+        self.elementTextview.text = HtmlParser().parseHtml(html!)
+//        self.elementTextview.contentSize = CGSize(width: CGFloat.greatestFiniteMagnitude, height: 10000)
+//        let frame = self.elementTextview.layoutManager.usedRect(for: self.elementTextview.textContainer)
+        
         
     }
     
     
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        debugStr("error:\(error)")
+        debugStr("didFailLoadWithError ->\(error)")
     }
 }
 
@@ -620,3 +671,5 @@ extension WebBrowserController:UIPopoverPresentationControllerDelegate {
         return .none
     }
 }
+
+
